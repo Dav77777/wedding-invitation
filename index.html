@@ -272,13 +272,67 @@
 <div class="section-title">💡 Ո՞ւմ կարող ենք դիմել հարցերով հարսանիքի օրը</div>
 <p>«Մեր օգնականներին՝ Դավիթին, Արամին և Ալիսային»։ 💍🤵👰</p>
 
+<div class="section-title">💌 Ваши пожелания</div>
+<form id="wishes-form" action="" method="POST" style="background: rgba(255, 255, 255, 0); border-radius: 5px; padding: 10px; text-align: center; max-width: 300px; margin: 20px auto; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);">
+    <label for="name" style="color: #ffcc00; display: block; font-size: 12px; margin-bottom: 6px;">Անուն (Имя):</label>
+    <input type="text" id="name" name="name" placeholder="Մուտքագրեք ձեր անունը" required style="width: 100%; padding: 6px; border-radius: 5px; border: 1px solid #ffcc00; background: rgba(255, 255, 255, 0.5); margin-bottom: 10px; font-size: 12px;">
 
-<div id="guest-section">
-    <div class="section-title">👥🎉 «Сколько гостей подтвердят своё присутствие?» </div>
-    <div id="counter">0</div>
-    <button onclick="increaseGuest()">✅📱📩 «Подтвердить участие» </button>
+    <label for="wish" style="color: #ffcc00; display: block; font-size: 12px; margin-bottom: 6px;">Բարեմաղթանք (Пожелание):</label>
+    <textarea id="wish" name="wish" placeholder="Մուտքագրեք ձեր բարեմաղթանքը" rows="3" cols="50" required style="width: 100%; padding: 6px; border-radius: 5px; border: 1px solid #ffcc00; background: rgba(255, 255, 255, 0.5); margin-bottom: 10px; font-size: 12px;"></textarea>
 
+    <button type="submit" id="submit-wish" style="padding: 6px 12px; background-color: #ff9900; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; font-size: 12px;">Ուղարկել (Отправить)</button>
+</form>
+
+<div id="submitted-wish" style="display: none; margin-top: 20px; color: #ffcc00;">
+    <h2>Շնորհակալություն բարեմաղթանքի համար!</h2>
+    <p>Ձեր բարեմաղթանքը հաջողությամբ ուղարկվել է։</p>
 </div>
+
+<div class="section-title">💬 Հյուրերի բարեմաղթանքներ</div>
+<div id="all-wishes" style="color: #ffcc00; text-align: center;"></div>
+
+<script>
+    const form = document.getElementById("wishes-form");
+    const submittedWish = document.getElementById("submitted-wish");
+    const allWishesContainer = document.getElementById("all-wishes");
+
+    // Գործողություն՝ բարեմաղթանքը պահպանելու և ցուցադրելու համար
+    function saveWish(name, wish) {
+        const wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+        // Պահպանել նոր բարեմաղթանքը
+        wishes.push({ name, wish });
+        localStorage.setItem("wishes", JSON.stringify(wishes));
+        displayWishes();
+    }
+
+    // Ցուցադրել բոլոր բարեմաղթանքները
+    function displayWishes() {
+        const wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+        allWishesContainer.innerHTML = "";  // Մաքրել նախորդ բարեմաղթանքները
+        wishes.forEach(wish => {
+            const wishElement = document.createElement("div");
+            wishElement.innerHTML = `<strong>${wish.name}</strong>: ${wish.wish}`;
+            allWishesContainer.appendChild(wishElement);
+        });
+    }
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const wish = document.getElementById("wish").value;
+
+        if (name && wish) {
+            form.reset();  // Մաքրել ձևը
+            saveWish(name, wish);  // Պահպանել բարեմաղթանքը
+            submittedWish.style.display = "block";  // Ցուցադրել ուղարկված հաղորդագրությունը
+        }
+    });
+
+    // Ցուցադրել բարեմաղթանքները էջի բեռնման ժամանակ
+    window.addEventListener("DOMContentLoaded", displayWishes);
+</script>
+
 
 <div class="section-title">📞💬«Свяжитесь с нами»</div>
 <p>Հարցերի դեպքում կարող եք կապվել<br>По всем вопросам можете связаться<br>
