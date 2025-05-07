@@ -181,7 +181,7 @@
 <div class="background"></div>
 
 <audio id="player" autoplay muted loop>
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="111.mp3" type="audio/mpeg">
 </audio>
 
 <h1>💍 Մենք ամուսնանում ենք</h1>
@@ -251,9 +251,12 @@
 </footer>
 
 <script>
-    let guestCount = 0;
+    let guestCount = localStorage.getItem('guestCount') ? parseInt(localStorage.getItem('guestCount')) : 0;
+    document.getElementById('counter').textContent = guestCount;
+
     function increaseGuest() {
         guestCount++;
+        localStorage.setItem('guestCount', guestCount);
         document.getElementById('counter').textContent = guestCount;
     }
 
@@ -279,7 +282,7 @@
         document.getElementById("seconds").textContent = seconds;
     }, 1000);
 
-    // Երաժշտությունը հնարավորության դեպքում ավտոմատ նվագարկել
+    // Автозапуск музыки
     window.addEventListener('DOMContentLoaded', function () {
         const audio = document.getElementById('player');
         audio.muted = false;
@@ -292,4 +295,6 @@
 </script>
 </body>
 </html>
+
+
 
