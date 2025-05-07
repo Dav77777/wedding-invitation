@@ -181,7 +181,7 @@
 <div class="background"></div>
 
 <audio id="player" autoplay muted loop>
-    <source src="111.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <h1>💍 Մենք ամուսնանում ենք</h1>
@@ -252,13 +252,14 @@
 
 <script>
     let guestCount = localStorage.getItem('guestCount') ? parseInt(localStorage.getItem('guestCount')) : 0;
-    document.getElementById('counter').textContent = guestCount;
 
     function increaseGuest() {
         guestCount++;
-        localStorage.setItem('guestCount', guestCount);
         document.getElementById('counter').textContent = guestCount;
+        localStorage.setItem('guestCount', guestCount);  // Պահպանել հաշվիչը localStorage-ում
     }
+
+    document.getElementById('counter').textContent = guestCount;  // Հաշվիչը ցուցադրել էջի բեռնման ժամանակ
 
     const weddingDate = new Date("2025-08-25T16:00:00").getTime();
     const countdownInterval = setInterval(() => {
@@ -282,7 +283,7 @@
         document.getElementById("seconds").textContent = seconds;
     }, 1000);
 
-    // Автозапуск музыки
+    // Երաժշտությունը հնարավորության դեպքում ավտոմատ նվագարկել
     window.addEventListener('DOMContentLoaded', function () {
         const audio = document.getElementById('player');
         audio.muted = false;
