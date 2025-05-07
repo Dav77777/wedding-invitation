@@ -2,39 +2,48 @@
 <html lang="hy">
 <head>
     <meta name="theme-color" content="#808080" />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Մեր հարսանիքը</title>
-    <style>@media only screen and (max-width: 768px) {
-        body {
-            background-attachment: scroll !important;
-            background-size: 100% auto !important;            background-position: top center !important;
+    <style>
+        @media only screen and (max-width: 768px) {
+            body {
+                background-attachment: scroll !important;
+                background-size: 100% auto !important;
+                background-position: top center !important;
+            }
         }
-    }
 
-    body {
-
+        body {
             font-family: 'Segoe UI', sans-serif;
-            background: url('./fon.jpg') no-repeat center center fixed;
-            background-size: cover;
-            background: url('./fon.jpg') center center / contain no-repeat fixed, linear-gradient(#222, #000);
-
             text-align: center;
             padding: 40px 20px;
             color: #ffcc00;
             animation: fadeIn 3s ease;
             position: relative;
             z-index: 1;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('./fon.jpg') center center no-repeat;
+            background-size: cover;
+            z-index: -2;
         }
 
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
@@ -169,13 +178,18 @@
     </style>
 </head>
 <body>
-<div class="background-image"></div>
+<div class="background"></div>
+
+<audio id="player" autoplay muted loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <h1>💍 Մենք ամուսնանում ենք</h1>
 <h1>💍 Мы женимся</h1>
-<h1>✧ Аристакес 💍 Полина ✧</h1>
+<h1>✧ Աристակես 💍 Полина ✧</h1>
 
 <div id="music-container">
-    <button onclick="playMusic()">🎵 Նվագարկել երաժշտությունը</button>
+    <button onclick="document.getElementById('player').play()">Նվագարկել Երգը 🎵</button>
 </div>
 
 <div class="section-title">✨ Սիրով հրավիրում ենք քեզ մեր կյանքի կարևորագույն օրվան</div>
@@ -265,13 +279,17 @@
         document.getElementById("seconds").textContent = seconds;
     }, 1000);
 
-    function playMusic() {
-        const container = document.getElementById("music-container");
-        container.innerHTML = `<iframe width="0" height="0"
-        src="111.mp3"
-        frameborder="0" allow="autoplay"></iframe>`;
-    }
+    // Երաժշտությունը հնարավորության դեպքում ավտոմատ նվագարկել
+    window.addEventListener('DOMContentLoaded', function () {
+        const audio = document.getElementById('player');
+        audio.muted = false;
+        audio.play().catch(() => {
+            document.addEventListener('click', () => {
+                audio.play();
+            }, { once: true });
+        });
+    });
 </script>
-
 </body>
 </html>
+
