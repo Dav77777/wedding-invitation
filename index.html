@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-    <meta name="theme-color" content="#808080" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Մեր հարսանիքը</title>
     <style>
-        @media only screen and (max-width: 768px) {
-            body {
-                background-attachment: scroll !important;
-                background-size: 100% auto !important;
-                background-position: top center !important;
-            }
-        }
-
         body {
             font-family: 'Segoe UI', sans-serif;
             text-align: center;
@@ -62,14 +53,6 @@
             animation: fadeInUp 2s ease-in-out;
         }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #ffcc00;
-            animation: fadeIn 2s ease-in-out;
-        }
-
         .photo-gallery {
             display: flex;
             justify-content: center;
@@ -91,35 +74,6 @@
             animation: zoomOut 0.5s ease-out;
         }
 
-        #guest-section {
-            margin-top: 50px;
-        }
-
-        #counter {
-            font-size: 36px;
-            color: #ff9900;
-            margin: 10px;
-            animation: fadeInUp 3s ease-in-out;
-        }
-
-        button {
-            font-size: 20px;
-            padding: 10px 30px;
-            background-color: #ff9900;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, transform 0.3s ease;
-            animation: fadeInUp 3s ease-in-out;
-        }
-
-        button:hover {
-            background-color: #cc6600;
-            transform: scale(1.05);
-        }
-
         #countdown {
             font-size: 24px;
             margin-top: 40px;
@@ -139,16 +93,27 @@
             display: block;
         }
 
-        footer {
-            margin-top: 50px;
-            font-size: 16px;
-            color: #ffcc00;
-            animation: fadeInUp 4s ease-in-out;
+        #music-container {
+            margin: 20px auto;
+            animation: fadeInUp 2s ease-in-out;
         }
 
-        a {
-            color: #66ccff;
-            text-decoration: none;
+        button {
+            font-size: 20px;
+            padding: 10px 30px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeInUp 3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #cc6600;
+            transform: scale(1.05);
         }
 
         @keyframes fadeInUp {
@@ -171,13 +136,10 @@
             to { opacity: 1; }
         }
 
-        #music-container {
-            margin: 20px auto;
-            animation: fadeInUp 2s ease-in-out;
-        }
     </style>
 </head>
 <body>
+
 <div class="background"></div>
 
 <audio id="player" autoplay loop>
@@ -186,28 +148,60 @@
 
 <h1>💍 Մենք ամուսնանում ենք</h1>
 <h1>💍 Мы женимся</h1>
-<h1>✧ Аристакес 💍 Полина ✧</h1>
+<h1>✧ Аристакес 💍 Полина✧
+</h1>
 
 <div id="music-container">
-    <button onclick="document.getElementById('player').play()">📻🔊Включите музыку 🎵</button>
+    <button onclick="document.getElementById('player').play()">📻🔊 Включите музыку 🎵</button>
 </div>
-<div class="section-title">Любить, жить и идти по жизни рука об руку — мы поняли, что это всё, о чём мечтали.❤️👫 </div>
-<div class="section-title"> С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨ </div>
+
+<div class="section-title">Любить, жить и идти по жизни рука об руку — мы поняли, что это всё, о чём мечтали.❤️👫</div>
+<div class="section-title">С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨</div>
 <div class="section-title">📆 Հետհաշվարկ մինչև հարսանիքը</div>
 <div class="section-title">📆 Обратный отсчет до свадьбы</div>
-<div id="countdown">
 
-    <div class="time-box"><span id="days">0</span>дней</div>
-    <div class="time-box"><span id="hours">0</span>час</div>
-    <div class="time-box"><span id="minutes">0</span>минута</div>
-    <div class="time-box"><span id="seconds">0</span>секунда</div>
+<div id="countdown">
+    <div class="time-box"><span id="days">0</span> дней</div>
+    <div class="time-box"><span id="hours">0</span> час</div>
+    <div class="time-box"><span id="minutes">0</span> минута</div>
+    <div class="time-box"><span id="seconds">0</span> секунда</div>
 </div>
 
-<div class="section-title">📸 Наши фотографии» </div>
+<div class="section-title">📸 Наши фотографии</div>
 <div class="photo-gallery">
     <img src="./1.jpg" alt="Լուսանկար 1" class="photo" />
     <img src="./2.jpg" alt="Լուսանկար 2" class="photo" />
 </div>
+
+<script>
+    const weddingDate = new Date("2025-08-25T10:00:00"); // Փոխեք ձեր հարսանիքի ամսաթիվը
+
+    function updateCountdown() {
+        const now = new Date();
+        const timeRemaining = weddingDate - now;
+
+        if (timeRemaining > 0) {
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+        } else {
+            document.getElementById("countdown").innerHTML = "Հարսանիքը սկսվել է!";
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
+
 
 <div class="section-title">⛪ Պսակադրության վայրը</div>
 <div class="section-title">⛪ Место венчания</div>
@@ -272,66 +266,69 @@
 <div class="section-title">💡 Ո՞ւմ կարող ենք դիմել հարցերով հարսանիքի օրը</div>
 <p>«Մեր օգնականներին՝ Դավիթին, Արամին և Ալիսային»։ 💍🤵👰</p>
 
-<div class="section-title">💌 Ваши пожелания</div>
-<form id="wishes-form" action="" method="POST" style="background: rgba(255, 255, 255, 0); border-radius: 5px; padding: 10px; text-align: center; max-width: 300px; margin: 20px auto; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);">
-    <label for="name" style="color: #ffcc00; display: block; font-size: 12px; margin-bottom: 6px;">Անուն (Имя):</label>
-    <input type="text" id="name" name="name" placeholder="Մուտքագրեք ձեր անունը" required style="width: 100%; padding: 6px; border-radius: 5px; border: 1px solid #ffcc00; background: rgba(255, 255, 255, 0.5); margin-bottom: 10px; font-size: 12px;">
+<div class="section-title" style="text-align: center; color: #fff; font-size: 24px;">💬 Հյուրերի բարեմաղթանքներ</div>
 
-    <label for="wish" style="color: #ffcc00; display: block; font-size: 12px; margin-bottom: 6px;">Բարեմաղթանք (Пожелание):</label>
-    <textarea id="wish" name="wish" placeholder="Մուտքագրեք ձեր բարեմաղթանքը" rows="3" cols="50" required style="width: 100%; padding: 6px; border-radius: 5px; border: 1px solid #ffcc00; background: rgba(255, 255, 255, 0.5); margin-bottom: 10px; font-size: 12px;"></textarea>
-
-    <button type="submit" id="submit-wish" style="padding: 6px 12px; background-color: #ff9900; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; font-size: 12px;">Ուղարկել (Отправить)</button>
-</form>
-
-<div id="submitted-wish" style="display: none; margin-top: 20px; color: #ffcc00;">
-    <h2>Շնորհակալություն բարեմաղթանքի համար!</h2>
-    <p>Ձեր բարեմաղթանքը հաջողությամբ ուղարկվել է։</p>
+<!-- Կոճակ՝ բարեմաղթանք գրելու համար -->
+<div style="text-align: center; margin: 20px;">
+    <button onclick="toggleForm()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;">
+        📬 «Написать пожелание»
+    </button>
 </div>
 
-<div class="section-title">💬 Հյուրերի բարեմաղթանքներ</div>
-<div id="all-wishes" style="color: #ffcc00; text-align: center;"></div>
+<!-- Թաքնված Form-ը -->
+<div id="form-container" style="display: none; text-align: center;">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHcWakOcafu4qtUDFQJ7M4Fd_soWhJGzAcTYHRtNmcuZipwA/viewform?embedded=true"
+            width="340"
+            height="430"
+            frameborder="0"
+            style="opacity: 0.6; border-radius: 12px; border: none;">
+        Loading…
+    </iframe>
+</div>
+
+<!-- Բարեմաղթանքների ցուցադրում -->
+<div id="all-wishes" style="color: #ffcc00; text-align: center; margin-top: 30px;"></div>
 
 <script>
-    const form = document.getElementById("wishes-form");
-    const submittedWish = document.getElementById("submitted-wish");
+    // Կոճակի սեղմումով ցույց տալ form-ը
+    function toggleForm() {
+        const formContainer = document.getElementById("form-container");
+        formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+    }
+
+    // Ճիշտ Sheets-ի public հղումը դնել այստեղ
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBSWGmykeJrZuKj5BGWIQd-WOG63pPIfYMhPSWY3yP3Mh4-yRU-wserZGe4b_jR6ya8GKx6N3CMagI/pubhtml";
+
     const allWishesContainer = document.getElementById("all-wishes");
 
-    // Գործողություն՝ բարեմաղթանքը պահպանելու և ցուցադրելու համար
-    function saveWish(name, wish) {
-        const wishes = JSON.parse(localStorage.getItem("wishes")) || [];
-        // Պահպանել նոր բարեմաղթանքը
-        wishes.push({ name, wish });
-        localStorage.setItem("wishes", JSON.stringify(wishes));
-        displayWishes();
+    function displayWishesFromGoogleSheets() {
+        fetch(sheetUrl)
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const rows = doc.querySelectorAll('tr');
+
+                // Մաքրել հները
+                allWishesContainer.innerHTML = '';
+
+                rows.forEach((row, index) => {
+                    const columns = row.querySelectorAll('td');
+                    if (columns.length >= 2 && index > 0) {
+                        const name = columns[0].innerText;
+                        const wish = columns[1].innerText;
+                        const wishElement = document.createElement("div");
+                        wishElement.style.marginBottom = "10px";
+                        wishElement.innerHTML = `<strong>${name}</strong>: ${wish}`;
+                        allWishesContainer.appendChild(wishElement);
+                    }
+                });
+            });
     }
 
-    // Ցուցադրել բոլոր բարեմաղթանքները
-    function displayWishes() {
-        const wishes = JSON.parse(localStorage.getItem("wishes")) || [];
-        allWishesContainer.innerHTML = "";  // Մաքրել նախորդ բարեմաղթանքները
-        wishes.forEach(wish => {
-            const wishElement = document.createElement("div");
-            wishElement.innerHTML = `<strong>${wish.name}</strong>: ${wish.wish}`;
-            allWishesContainer.appendChild(wishElement);
-        });
-    }
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const wish = document.getElementById("wish").value;
-
-        if (name && wish) {
-            form.reset();  // Մաքրել ձևը
-            saveWish(name, wish);  // Պահպանել բարեմաղթանքը
-            submittedWish.style.display = "block";  // Ցուցադրել ուղարկված հաղորդագրությունը
-        }
-    });
-
-    // Ցուցադրել բարեմաղթանքները էջի բեռնման ժամանակ
-    window.addEventListener("DOMContentLoaded", displayWishes);
+    window.addEventListener("DOMContentLoaded", displayWishesFromGoogleSheets);
 </script>
+
 
 
 <div class="section-title">📞💬«Свяжитесь с нами»</div>
