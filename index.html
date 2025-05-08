@@ -143,7 +143,7 @@
 <div class="background"></div>
 
 <audio id="player" autoplay loop>
-    <source src="162.mp3" type="audio/mpeg">
+    <source src="1234.mp3" type="audio/mpeg">
 </audio>
 
 <h1>💍 Մենք ամուսնանում ենք</h1>
@@ -156,7 +156,9 @@
 </div>
 
 <div class="section-title">Любить, жить и идти по жизни рука об руку — мы поняли, что это всё, о чём мечтали.❤️👫</div>
+<div class="section-title">Սիրել, ապրել և քայլել կյանքի ճանապարհով ձեռք ձեռքի բռնած — մենք հասկացանք, որ սա է այն ամենը, ինչի մասին երազել ենք։ ❤️👫</div>
 <div class="section-title">С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨</div>
+<div class="section-title">Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթե դուք լինեք մեր կողքին։ 💒💞✨</div>
 <div class="section-title">📆 Հետհաշվարկ մինչև հարսանիքը</div>
 <div class="section-title">📆 Обратный отсчет до свадьбы</div>
 
@@ -268,7 +270,7 @@
 
 <div class="section-title" style="text-align: center; color: #fff; font-size: 24px;">💬 Հյուրերի բարեմաղթանքներ</div>
 
-<!-- Կոճակ՝ բարեմաղթանք գրելու համար -->
+<!-- «Написать пожелание» կոճակը -->
 <div style="text-align: center; margin: 20px;">
     <button onclick="toggleForm()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;">
         📬 «Написать пожелание»
@@ -286,10 +288,10 @@
     </iframe>
 </div>
 
-<!-- Թարմացնելու կոճակ -->
-<div style="text-align: center; margin: 10px;">
-    <button onclick="displayWishesFromGoogleSheets()" style="padding: 6px 16px; font-size: 14px; background-color: #ffd700; color: #000; border: none; border-radius: 6px; cursor: pointer;">
-         🔄 Обновить пожелания
+<!-- «Տեսնել բարեմաղթանքները» կոճակը -->
+<div style="text-align: center; margin-top: 20px;">
+    <button onclick="displayWishesFromGoogleSheets()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;">
+        💌 Посмотреть пожелания
     </button>
 </div>
 
@@ -297,13 +299,13 @@
 <div id="all-wishes" style="color: #ffcc00; text-align: center; margin-top: 20px;"></div>
 
 <script>
-    // Կոճակի սեղմումով ցույց տալ form-ը
     function toggleForm() {
         const formContainer = document.getElementById("form-container");
         formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
     }
 
     const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBSWGmykeJrZuKj5BGWIQd-WOG63pPIfYMhPSWY3yP3Mh4-yRU-wserZGe4b_jR6ya8GKx6N3CMagI/pubhtml";
+
     const allWishesContainer = document.getElementById("all-wishes");
 
     function displayWishesFromGoogleSheets() {
@@ -314,24 +316,26 @@
                 const doc = parser.parseFromString(data, 'text/html');
                 const rows = doc.querySelectorAll('tr');
 
-                allWishesContainer.innerHTML = ''; // Մաքրել հները
+                allWishesContainer.innerHTML = ''; // մաքրել հները
 
                 rows.forEach((row, index) => {
                     const columns = row.querySelectorAll('td');
                     if (columns.length >= 2 && index > 0) {
-                        const name = columns[0].innerText;
-                        const wish = columns[1].innerText;
-                        const wishElement = document.createElement("div");
-                        wishElement.style.marginBottom = "10px";
-                        wishElement.innerHTML = `<strong>${name}</strong>: ${wish}`;
-                        allWishesContainer.appendChild(wishElement);
+                        const name = columns[0].innerText.trim();
+                        const wish = columns[1].innerText.trim();
+                        if (name || wish) {
+                            const wishElement = document.createElement("div");
+                            wishElement.style.marginBottom = "10px";
+                            wishElement.innerHTML = `<strong>${name}</strong>: ${wish}`;
+                            allWishesContainer.appendChild(wishElement);
+                        }
                     }
                 });
             });
     }
-
-    window.addEventListener("DOMContentLoaded", displayWishesFromGoogleSheets);
 </script>
+
+
 
 
 
