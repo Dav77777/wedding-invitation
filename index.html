@@ -155,14 +155,45 @@
             color: #ffcc00;
             margin-top: 20px;
         }
+
+        .curved-text {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffcc00;
+            position: relative;
+            height: 200px;
+            margin-top: 30px;
+        }
+
+        .curved-text span {
+            position: absolute;
+            left: 50%;
+            top: 100px;
+            transform-origin: bottom center;
+            transform: rotate(calc(var(-1) * 12deg)) translateY(-100px);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: rotate(calc(var(-1) * 12deg)) translateY(-100px);
+            }
+            50% {
+                transform: rotate(calc(var(-1) * 12deg)) translateY(-105px);
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="background"></div>
 
-<marquee behavior="scroll" direction="left"scrollamount="2">
-    💌  Добро пожаловать на наш свадебный сайт — с любовью. Аристакес & Полина 💍</marquee>
+<marquee behavior="scroll" direction="left" scrollamount="2">
+    💌 Добро пожаловать на наш свадебный сайт — с любовью. Аристакес & Полина 💍
+</marquee>
 <div class="blinking-title">💍 Մեր երջանիկ օրը մոտենում է!</div>
 
 <audio id="player" autoplay loop>
@@ -171,7 +202,56 @@
 
 <h1>💍 Մենք ամուսնանում ենք</h1>
 <h1>💍 Мы женимся</h1>
-<h1>✧ Аристакес 💍 Полина✧</h1>
+
+<!-- Ավելացված կամարաձև անունը -->
+<style>
+    .circular-text {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: 0 auto 40px;
+        animation: rotate 24s linear infinite;
+    }
+
+    .circular-text span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: center center;
+        font-size: 32px;
+        color: #ffcc00;
+        font-weight: bold;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+
+<div class="circular-text">
+    <span style="transform: rotate(0deg) translateY(-180px)">✧</span>
+    <span style="transform: rotate(20deg) translateY(-180px)">А</span>
+    <span style="transform: rotate(40deg) translateY(-180px)">р</span>
+    <span style="transform: rotate(60deg) translateY(-180px)">и</span>
+    <span style="transform: rotate(80deg) translateY(-180px)">с</span>
+    <span style="transform: rotate(100deg) translateY(-180px)">т</span>
+    <span style="transform: rotate(120deg) translateY(-180px)">а</span>
+    <span style="transform: rotate(140deg) translateY(-180px)">к</span>
+    <span style="transform: rotate(160deg) translateY(-180px)">е</span>
+    <span style="transform: rotate(180deg) translateY(-180px)">с</span>
+    <span style="transform: rotate(200deg) translateY(-180px)">💍</span>
+    <span style="transform: rotate(220deg) translateY(-180px)">П</span>
+    <span style="transform: rotate(240deg) translateY(-180px)">о</span>
+    <span style="transform: rotate(260deg) translateY(-180px)">л</span>
+    <span style="transform: rotate(280deg) translateY(-180px)">и</span>
+    <span style="transform: rotate(300deg) translateY(-180px)">н</span>
+    <span style="transform: rotate(320deg) translateY(-180px)">а</span>
+    <span style="transform: rotate(340deg) translateY(-180px)">✧</span>
+</div>
+
+
+
 
 <div id="music-container">
     <button onclick="document.getElementById('player').play()">📻🔊 Включите музыку 🎵</button>
