@@ -261,20 +261,117 @@
 <div class="section-title">Սիրել, ապրել և քայլել կյանքի ճանապարհով ձեռք ձեռքի բռնած — մենք հասկացանք, որ սա է այն ամենը, ինչի մասին երազել ենք։ ❤️👫</div>
 <div class="section-title">С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨</div>
 <div class="section-title">Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթե դուք լինեք մեր կողքին։ 💒💞✨</div>
-<div class="section-title">📆 Հետհաշվարկ մինչև հարսանիքը</div>
-<div class="section-title">📆 Обратный отсчет до свадьбы</div>
+<div class="section-title">📆 Обратный отсчёт до нашей свадьбы</div>
 
-<!-- Մնացած բաժինները ավելացրու այստեղ ինչպես որ ունես -->
-
-</body>
-</html>
-
-<div id="countdown">
-    <div class="time-box"><span id="days">0</span> дней</div>
-    <div class="time-box"><span id="hours">0</span> час</div>
-    <div class="time-box"><span id="minutes">0</span> минута</div>
-    <div class="time-box"><span id="seconds">0</span> секунда</div>
+<div class="countdown-wrapper">
+    <div class="countdown-item">
+        <div class="num" id="days">00</div>
+        <div class="label">ДНЕЙ</div>
+    </div>
+    <div class="countdown-item">
+        <div class="num" id="hours">00</div>
+        <div class="label">ЧАСОВ</div>
+    </div>
+    <div class="countdown-item">
+        <div class="num" id="minutes">00</div>
+        <div class="label">МИНУТ</div>
+    </div>
+    <div class="countdown-item">
+        <div class="num" id="seconds">00</div>
+        <div class="label">СЕКУНД</div>
+    </div>
 </div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:wght@700&display=swap');
+
+    body {
+        background-color: #fef5e5;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .countdown-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin: 50px auto;
+        font-family: 'Raleway', sans-serif;
+        flex-wrap: wrap;
+        animation: fadeIn 1.5s ease forwards;
+    }
+
+    .countdown-item {
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid #fbdc9d;
+        border-radius: 25px;
+        padding: 20px;
+        min-width: 120px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(255, 223, 142, 0.5);
+        transition: transform 0.3s ease;
+        position: relative;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .countdown-item:hover {
+        transform: scale(1.1);
+    }
+
+    .countdown-item .num {
+        font-size: 55px;
+        color: #ffd77b;
+        font-family: 'Roboto', sans-serif;
+        text-shadow: 0 0 10px #ffb22d, 0 0 30px #ffd77b;
+        letter-spacing: 4px;
+        position: relative;
+    }
+
+    .countdown-item .label {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    const weddingDate = new Date("2025-08-25T10:00:00");
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = weddingDate - now;
+
+        if (diff > 0) {
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(d).padStart(2, '0');
+            document.getElementById('hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+        } else {
+            document.querySelector('.countdown-wrapper').innerHTML = "<div class='label'>💍 Свадьба началась!</div>";
+        }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
 
 <style>
     .photo-gallery {
