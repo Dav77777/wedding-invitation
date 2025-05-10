@@ -136,11 +136,33 @@
             to { opacity: 1; }
         }
 
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blinking-title {
+            animation: blink 1s infinite;
+            color: #ffcc00;
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        marquee {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="background"></div>
+
+<marquee behavior="scroll" direction="left">💌  Добро пожаловать на наш свадебный сайт — с любовью. Аристакес & Полина 💍</marquee>
+<div class="blinking-title">💍 Մեր երջանիկ օրը մոտենում է!</div>
 
 <audio id="player" autoplay loop>
     <source src="1234.mp3" type="audio/mpeg">
@@ -148,8 +170,7 @@
 
 <h1>💍 Մենք ամուսնանում ենք</h1>
 <h1>💍 Мы женимся</h1>
-<h1>✧ Аристакес 💍 Полина✧
-</h1>
+<h1>✧ Аристакес 💍 Полина✧</h1>
 
 <div id="music-container">
     <button onclick="document.getElementById('player').play()">📻🔊 Включите музыку 🎵</button>
@@ -161,6 +182,11 @@
 <div class="section-title">Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթե դուք լինեք մեր կողքին։ 💒💞✨</div>
 <div class="section-title">📆 Հետհաշվարկ մինչև հարսանիքը</div>
 <div class="section-title">📆 Обратный отсчет до свадьбы</div>
+
+<!-- Մնացած բաժինները ավելացրու այստեղ ինչպես որ ունես -->
+
+</body>
+</html>
 
 <div id="countdown">
     <div class="time-box"><span id="days">0</span> дней</div>
