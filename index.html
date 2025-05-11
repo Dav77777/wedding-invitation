@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Մեր հարսանիքը</title>
+    <title data-key="pageTitle">Մեր հարսանիքը</title>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -185,25 +185,85 @@
                 transform: rotate(calc(var(-1) * 12deg)) translateY(-105px);
             }
         }
+
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-switcher button {
+            padding: 8px 15px;
+            font-size: 16px;
+            background-color: #663399; /* A more neutral color */
+            color: white;
+            border: 1px solid #9966cc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            animation: none; /* Disable general button animation for these */
+        }
+
+        .language-switcher button:hover {
+            background-color: #4b247a;
+            border-color: #b38cdb;
+            transform: none; /* Disable general button transform for these */
+        }
+
+        .language-switcher button.active {
+            background-color: #cc6600; /* Highlight active language */
+            border-color: #ff9900;
+            font-weight: bold;
+        }
+
+        /* Styles for hiding/showing language specific content */
+        [data-lang-hy] { display: none; }
+        [data-lang-ru] { display: none; }
+        body[lang="hy"] [data-lang-hy] { display: block; } /* Default block display for hy */
+        body[lang="ru"] [data-lang-ru] { display: block; } /* Default block display for ru */
+
+        /* Adjust display property for specific elements */
+        body[lang="hy"] [data-lang-hy].inline-block { display: inline-block; }
+        body[lang="ru"] [data-lang-ru].inline-block { display: inline-block; }
+        body[lang="hy"] [data-lang-hy].marquee-text { display: inline; }
+        body[lang="ru"] [data-lang-ru].marquee-text { display: inline; }
+
+        /* For H1 tags that are now split */
+        body[lang="hy"] h1[data-lang-hy] { display: block; }
+        body[lang="ru"] h1[data-lang-ru] { display: block; }
+
+        /* For section-titles that are now split */
+        body[lang="hy"] .section-title[data-lang-hy] { display: block; }
+        body[lang="ru"] .section-title[data-lang-ru] { display: block; }
+
     </style>
 </head>
 <body>
 
 <div class="background"></div>
 
+<div class="language-switcher">
+    <button onclick="changeLanguage('hy')" id="lang-hy-btn">Հայերեն</button>
+    <button onclick="changeLanguage('ru')" id="lang-ru-btn">Русский</button>
+</div>
+
 <marquee behavior="scroll" direction="left" scrollamount="2">
-    💌 Добро пожаловать на наш свадебный сайт — с любовью. Аристакес & Полина 💍
+    <span data-lang-ru class="marquee-text">💌 Добро пожаловать на наш свадебный сайт — с любовью. Аристакес & Полина 💍</span>
+    <span data-lang-hy class="marquee-text">💌 Բարի գալուստ մեր հարսանեկան կայք — սիրով։ Արիստակես & Պոլինա 💍</span>
 </marquee>
-<div class="blinking-title">💍 Մեր երջանիկ օրը մոտենում է!</div>
+<div class="blinking-title" data-key="blinkingTitle"></div>
 
 <audio id="player" autoplay loop>
     <source src="1234.mp3" type="audio/mpeg">
 </audio>
 
-<h1>💍 Մենք ամուսնանում ենք</h1>
-<h1>💍 Мы женимся</h1>
+<h1 data-lang-hy>💍 Մենք ամուսնանում ենք</h1>
+<h1 data-lang-ru>💍 Мы женимся</h1>
 
-<!-- Ավելացված կամարաձև անունը -->
 <style>
     .circular-text {
         position: relative;
@@ -251,34 +311,36 @@
 </div>
 
 
-
-
 <div id="music-container">
-    <button onclick="document.getElementById('player').play()">📻🔊 Включите музыку 🎵</button>
+    <button onclick="document.getElementById('player').play()" data-key="musicButtonText"></button>
 </div>
 
-<div class="section-title">Любить, жить и идти по жизни рука об руку — мы поняли, что это всё, о чём мечтали.❤️👫</div>
-<div class="section-title">Սիրել, ապրել և քայլել կյանքի ճանապարհով ձեռք ձեռքի բռնած — մենք հասկացանք, որ սա է այն ամենը, ինչի մասին երազել ենք։ ❤️👫</div>
-<div class="section-title">С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨</div>
-<div class="section-title">Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթե դուք լինեք մեր կողքին։ 💒💞✨</div>
-<div class="section-title">📆 Обратный отсчёт до нашей свадьбы</div>
+<div class="section-title">
+    <span data-lang-ru>Любить, жить и идти по жизни рука об руку — мы поняли, что это всё, о чём мечтали.❤️👫</span>
+    <span data-lang-hy>Սիրել, ապրել և քայլել կյանքի ճանապարհով ձեռք ձեռքի բռնած — մենք հասկացանք, որ սա է այն ամենը, ինչի մասին երազել ենք։ ❤️👫</span>
+</div>
+<div class="section-title">
+    <span data-lang-ru>С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨</span>
+    <span data-lang-hy>Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթե դուք լինեք մեր կողքին։ 💒💞✨</span>
+</div>
+<div class="section-title" data-key="countdownTitle"></div>
 
 <div class="countdown-wrapper">
     <div class="countdown-item">
         <div class="num" id="days">00</div>
-        <div class="label">ДНЕЙ</div>
+        <div class="label" data-key="daysLabel"></div>
     </div>
     <div class="countdown-item">
         <div class="num" id="hours">00</div>
-        <div class="label">ЧАСОВ</div>
+        <div class="label" data-key="hoursLabel"></div>
     </div>
     <div class="countdown-item">
         <div class="num" id="minutes">00</div>
-        <div class="label">МИНУТ</div>
+        <div class="label" data-key="minutesLabel"></div>
     </div>
     <div class="countdown-item">
         <div class="num" id="seconds">00</div>
-        <div class="label">СЕКУНД</div>
+        <div class="label" data-key="secondsLabel"></div>
     </div>
 </div>
 
@@ -307,8 +369,6 @@
         text-shadow: 0 0 12px #fff6db, 0 0 24px #ffb22d;
         letter-spacing: 2px;
         animation: pulse 1.5s infinite ease-in-out;
-    
-
     }
 
     .countdown-item:hover {
@@ -358,31 +418,6 @@
     }
 </style>
 
-<script>
-    const weddingDate = new Date("2025-08-25T10:00:00");
-
-    function updateCountdown() {
-        const now = new Date();
-        const diff = weddingDate - now;
-
-        if (diff > 0) {
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(d).padStart(2, '0');
-            document.getElementById('hours').textContent = String(h).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
-        } else {
-            document.querySelector('.countdown-wrapper').innerHTML = "<div class='label'>💍 Свадьба началась!</div>";
-        }
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-</script>
-
 <style>
     .photo-gallery {
         position: relative;
@@ -413,15 +448,15 @@
 
     @keyframes fadeInOut {
         0%   { opacity: 0; }
-        10%  { opacity: 1; }   /* արագ երևա */
-        30%  { opacity: 1; }   /* մնա միքիչ տեսանելի */
-        40%  { opacity: 0; }   /* արագ անհետանա */
-        100% { opacity: 0; }   /* մնում թաքնված մինչև հաջորդ ցիկլ */
+        10%  { opacity: 1; }  /* արագ երևա */
+        30%  { opacity: 1; }  /* մնա միքիչ տեսանելի */
+        40%  { opacity: 0; }  /* արագ անհետանա */
+        100% { opacity: 0; }  /* մնում թաքնված մինչև հաջորդ ցիկլ */
     }
 
 </style>
 
-<div class="section-title">📸 Наши фотографии</div>
+<div class="section-title" data-key="photosTitle"></div>
 <div class="photo-gallery">
     <img src="./1.jpg" alt="Լուսանկար 1" />
     <img src="./0001.jpg" alt="Լուսանկար 2" />
@@ -431,110 +466,93 @@
     <img src="./2.jpg" alt="Լուսանկար 6" />
 </div>
 
-<script>
-    const weddingDate = new Date("2025-08-25T10:00:00"); // Փոխեք ձեր հարսանիքի ամսաթիվը
 
-    function updateCountdown() {
-        const now = new Date();
-        const timeRemaining = weddingDate - now;
-
-        if (timeRemaining > 0) {
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-        } else {
-            document.getElementById("countdown").innerHTML = "Հարսանիքը սկսվել է!";
-        }
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-</script>
-
-</body>
-</html>
-
-
-<div class="section-title">⛪ Պսակադրության վայրը</div>
-<div class="section-title">⛪ Место венчания</div>
+<div class="section-title">
+    <span data-lang-hy>⛪ Պսակադրության վայրը</span>
+    <span data-lang-ru>⛪ Место венчания</span>
+</div>
 <img src="./3.webp" alt="Եկեղեցի" class="photo" />
-<p>Պսակադրությունը տեղի կունենա հետևյալ հասցեում․<br>
-    Венчание состоится по следующему адресу․<br>
-<p>🗓️ 2025թ. օգոստոսի 25-ին, ժամը 15:30-ին<br>
-<p>  🗓️25 августа 2025 года в 15:30<br>
-    <strong>📍 <a href="https://maps.google.com/?q=Олимпийский проспект 9" target="_blank">Олимпийский проспект 9</a></strong></p>
+<p>
+    <span data-lang-hy>Պսակադրությունը տեղի կունենա հետևյալ հասցեում․</span>
+    <span data-lang-ru>Венчание состоится по следующему адресу․</span>
+    <br>
+    <span data-lang-hy>🗓️ 2025թ. օգոստոսի 25-ին, ժամը 15:30-ին</span>
+    <span data-lang-ru>🗓️25 августа 2025 года в 15:30</span>
+    <br>
+    <strong>📍 <a href="https://maps.google.com/?q=Олимпийский проспект 9" target="_blank">Олимпийский проспект 9</a></strong>
+</p>
 <div style="width: 280px; height: 250px; margin: 0 auto;">
     <iframe src="https://maps.google.com/maps?q=Олимпийский%20проспект%209&output=embed" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 
-<div class="section-title">🎉 Հանդիսության սրահը</div>
-<div class="section-title">🎉 Банкетный зал</div>
-<p>Հարսանիքը տեղի կունենա<br>Свадьба состоится<br>
-    <strong>🗓️2025թ. օգոստոսի 25-ին, ժամը 18:00-ին</strong><br>
-    <strong>🗓️25 августа 2025 года в 18:00</strong><br>
+<div class="section-title">
+    <span data-lang-hy>🎉 Հանդիսության սրահը</span>
+    <span data-lang-ru>🎉 Банкетный зал</span>
+</div>
+<p>
+    <span data-lang-hy>Հարսանիքը տեղի կունենա</span>
+    <span data-lang-ru>Свадьба состоится</span>
+    <br>
+    <strong><span data-lang-hy>🗓️2025թ. օգոստոսի 25-ին, ժամը 18:00-ին</span></strong><br>
+    <strong><span data-lang-ru>🗓️25 августа 2025 года в 18:00</span></strong><br>
     <strong>📍 <a href="https://maps.google.com/?q=Ул. Шкулёва 2А" target="_blank">🍽️ «Москва, ресторан "Мираж", ул. Шкулёва, 2А» </a></strong>
 </p>
 <img src="./4.webp" alt="Ռեստորան" class="photo" />
 
 <div style="width: 280px; height: 250px; margin: 0 auto;">
     <iframe src="https://maps.google.com/maps?q=Ул.%20Шкулёва%202А&output=embed" width="100%" height="100%" frameborder="0"></iframe>
-</div> <!-- Սա ավելացված է՝ iframe-ի div-ը փակելու համար -->
+</div>
 
-<div class="section-title">❓💬 Вопросы от гостей</div>
+<div class="section-title">
+    <span data-lang-ru>❓💬 Вопросы от гостей</span>
+    <span data-lang-hy>❓💬 Հյուրերի հարցերը</span>
+</div>
 
-<p><strong>Есть ли дресс-код или пожелания по стилю одежды? Какая цветовая палитра у свадьбы?</strong><br>
+<p>
+    <span data-lang-ru><strong>Есть ли дресс-код или пожелания по стилю одежды? Какая цветовая палитра у свадьбы?</strong><br>
     <b>Ответ:</b><br>
     👗 <strong>Девушкам:</strong> Все оттенки от синего до пастельно голубого, от темно-зеленого до оливкового, от коричневого до бежевого.<br>
-    🤵 <strong>Мужчинам:</strong> Черно-белые цвета<<Но Вы можете придти в любом цвете, который вам нравится, главное ваше присутствие🌈🤗></Но>>
+    🤵 <strong>Мужчинам:</strong> Черно-белые цвета<<Но Вы можете придти в любом цвете, который вам нравится, главное ваше присутствие🌈🤗></Но>></span>
 
-</p>
-<div class="section-title">❓💬 Հյուրերի հարցերը</div>
-
-<p><strong>Արդյոք կա՞ հագուստի ոճի վերաբերյալ հատուկ ցանկություններ։ Ինչպիսի՞ գույնի պալիտրա ունի հարսանիքը։</strong><br>
+    <span data-lang-hy><strong>Արդյոք կա՞ հագուստի ոճի վերաբերյալ հատուկ ցանկություններ։ Ինչպիսի՞ գույնի պալիտրա ունի հարսանիքը։</strong><br>
     <b>Պատասխան:</b><br>
     👗 <strong>Կանանց:</strong> Գույնի պալիտրան՝ բոլոր երանգները կապույտից մինչև պաստելի կապույտ, մուգ կանաչից մինչև ոսկեգույն, բաց շագանակագույնից մինչև բեժ։<br>
-    🤵 <strong>Տղամարդկանց:</strong> Սև ու սպիտակ գույներ<<Բայց դուք կարող եք գալ այն գույնով, որն ամենից շատ եք սիրում․ ամենակարևորը ձեր ներկայությունն է։ 🌈🤗></Բայց>>
+    🤵 <strong>Տղամարդկանց:</strong> Սև ու սպիտակ գույներ<<Բայց դուք կարող եք գալ այն գույնով, որն ամենից շատ եք սիրում․ ամենակարևորը ձեր ներկայությունն է։ 🌈🤗></Բայց>></span>
 </p>
 <img src="./115.jpg" alt="Ստիլային հագուստ" class="photo" />
 
-<div class="section-title">«Вопрос и Ответ» ❓💬</div>
-
-<div class="section-title">«Հարց և Պատասխան»❓💬</div>
-<p><strong>Можно ли приехать на личном транспорте?🚗</strong><br>
+<div class="section-title">
+    <span data-lang-ru>«Вопрос и Ответ» ❓💬</span>
+    <span data-lang-hy>«Հարց և Պատասխան»❓💬</span>
+</div>
+<p>
+    <span data-lang-ru><strong>Можно ли приехать на личном транспорте?🚗</strong><br>
     Есть ли парковка рядом?<br>
-    ✅ Парковка есть!
-</p>
-<p><strong>Հնարավո՞ր է ժամանել անձնական տրանսպորտով։ 🚗</strong><br>
+    ✅ Парковка есть!</span>
+    <span data-lang-hy><strong>Հնարավո՞ր է ժամանել անձնական տրանսպորտով։ 🚗</strong><br>
     Ունե՞ք կայանատեղի մոտակայքում։<br>
-    ✅ Կայանատեղի կա! 🚗✔️
+    ✅ Կայանատեղի կա! 🚗✔️</span>
 </p>
 
-<div class="section-title">📅 До какого числа необходимо подтвердить участие в мероприятии?</div>
-<p>Не позднее 20 июля.</p>
-<div class="section-title">📅 Իսկ մինչև ե՞րբ պետք է հաստատել մասնակցությունը միջոցառմանը</div>
-<p>Ոչ ուշ, քան հուլիսի 20-ը</p>
+<div class="section-title" data-key="confirmDateTitle"></div>
+<p data-key="confirmDateText"></p>
 
-<div class="section-title">💡 К кому можно обратиться с вопросами в день свадьбы?</div>
-<p>К нашим помощникам: Давиду, Араму, Алисе 💍🤵👰</p>
-<div class="section-title">💡 Ո՞ւմ կարող ենք դիմել հարցերով հարսանիքի օրը</div>
-<p>«Մեր օգնականներին՝ Դավիթին, Արամին և Ալիսային»։ 💍🤵👰</p>
+<div class="section-title" data-key="contactPersonTitle"></div>
+<p>
+    <span data-lang-ru>К нашим помощникам: Давиду, Араму, Алисе 💍🤵👰</span>
+    <span data-lang-hy>«Մեր օգնականներին՝ Դավիթին, Արամին և Ալիսային»։ 💍🤵👰</span>
+</p>
 
-<div class="section-title" style="text-align: center; color: #fff; font-size: 24px;">💬 Հյուրերի բարեմաղթանքներ</div>
+<div class="section-title" style="text-align: center; color: #fff; font-size: 24px;">
+    <span data-lang-hy class="inline-block">💬 Հյուրերի բարեմաղթանքներ</span>
+    <span data-lang-ru class="inline-block">💬 Пожелания гостей</span>
+</div>
 
-<!-- «Написать пожелание» կոճակը -->
 <div style="text-align: center; margin: 20px;">
-    <button onclick="toggleForm()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;">
-        📬 «Написать пожелание»
+    <button onclick="toggleForm()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;" data-key="writeWishButton">
     </button>
 </div>
 
-<!-- Թաքնված Form-ը -->
 <div id="form-container" style="display: none; text-align: center;">
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHcWakOcafu4qtUDFQJ7M4Fd_soWhJGzAcTYHRtNmcuZipwA/viewform?embedded=true"
             width="340"
@@ -545,14 +563,11 @@
     </iframe>
 </div>
 
-<!-- «Տեսնել բարեմաղթանքները» կոճակը -->
 <div style="text-align: center; margin-top: 20px;">
-    <button onclick="displayWishesFromGoogleSheets()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;">
-        💌 Посмотреть пожелания
+    <button onclick="displayWishesFromGoogleSheets()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;" data-key="viewWishesButton">
     </button>
 </div>
 
-<!-- Բարեմաղթանքների ցուցադրում -->
 <div id="all-wishes" style="color: #ffcc00; text-align: center; margin-top: 20px;"></div>
 
 <script>
@@ -592,64 +607,177 @@
     }
 </script>
 
-
-
-
-
-<div class="section-title">📞💬«Свяжитесь с нами»</div>
-<p>Հարցերի դեպքում կարող եք կապվել<br>По всем вопросам можете связаться<br>
-    📱 <a href="tel:+7 967 256 7361
-">+7 967 256—73—61</a></p>
-📱 <a href="tel:+79690477321
-">+7 969 047—73—21</a></p>
+<div class="section-title" data-key="contactUsTitle"></div>
+<p>
+    <span data-lang-hy>Հարցերի դեպքում կարող եք կապվել</span>
+    <span data-lang-ru>По всем вопросам можете связаться</span>
+    <br>
+    📱 <a href="tel:+79672567361">+7 967 256—73—61</a></p>
+📱 <a href="tel:+79690477321">+7 969 047—73—21</a></p>
 
 <footer>
-    💖 Սիրով՝ Արիստակես և Պոլինա 💖 С любовью, Аристакес и Полина
+    <span data-lang-hy>💖 Սիրով՝ Արիստակես և Պոլինա 💖</span>
+    <span data-lang-ru>💖 С любовью, Аристакес և Полина 💖</span>
 </footer>
+
 <script>
-    let guestCount = localStorage.getItem('guestCount') ? parseInt(localStorage.getItem('guestCount')) : 0;
+    // Language Translation Data
+    const translations = {
+        pageTitle: {
+            hy: "Մեր հարսանիքը",
+            ru: "Наша свадьба"
+        },
+        blinkingTitle: {
+            hy: "💍 Մեր երջանիկ օրը մոտենում է!",
+            ru: "💍 Наш счастливый день приближается!"
+        },
+        musicButtonText: {
+            hy: "📻🔊 Միացրեք երաժշտությունը 🎵",
+            ru: "📻🔊 Включите музыку 🎵"
+        },
+        countdownTitle: {
+            hy: "📆 Հետհաշվարկ մեր հարսանիքին",
+            ru: "📆 Обратный отсчёт до нашей свадьбы"
+        },
+        daysLabel: {
+            hy: "ՕՐԵՐ",
+            ru: "ДНЕЙ"
+        },
+        hoursLabel: {
+            hy: "ԺԱՄԵՐ",
+            ru: "ЧАСОВ"
+        },
+        minutesLabel: {
+            hy: "ՐՈՊԵՆԵՐ",
+            ru: "МИНУТ"
+        },
+        secondsLabel: {
+            hy: "ՎԱՐԿՅԱՆՆԵՐ",
+            ru: "СЕКУНД"
+        },
+        countdownEnded: {
+            hy: "💍 Հարսանիքը սկսվել է!", // Used in first countdown script
+            ru: "💍 Свадьба началась!" // Used in first countdown script
+        },
+        photosTitle: {
+            hy: "📸 Մեր լուսանկարները",
+            ru: "📸 Наши фотографии"
+        },
+        confirmDateTitle: {
+            hy: "📅 Իսկ մինչև ե՞րբ պետք է հաստատել մասնակցությունը միջոցառմանը",
+            ru: "📅 До какого числа необходимо подтвердить участие в мероприятии?"
+        },
+        confirmDateText: {
+            hy: "Ոչ ուշ, քան հուլիսի 20-ը",
+            ru: "Не позднее 20 июля."
+        },
+        contactPersonTitle: {
+            hy: "💡 Ո՞ւմ կարող ենք դիմել հարցերով հարսանիքի օրը",
+            ru: "💡 К кому можно обратиться с вопросами в день свадьбы?"
+        },
+        writeWishButton: {
+            hy: "📬 «Գրել բարեմաղթանք»",
+            ru: "📬 «Написать пожелание»"
+        },
+        viewWishesButton: {
+            hy: "💌 Տեսնել բարեմաղթանքները",
+            ru: "💌 Посмотреть пожелания"
+        },
+        contactUsTitle: {
+            hy: "📞💬«Կապվեք մեզ հետ»",
+            ru: "📞💬«Свяжитесь с нами»"
+        }
+    };
 
-    function increaseGuest() {
-        guestCount++;
-        document.getElementById('counter').textContent = guestCount;
-        localStorage.setItem('guestCount', guestCount);  // Պահպանել հաշվիչը localStorage-ում
-    }
-
-    // Ցուցադրել հաշվիչի արժեքը էջի բեռնման ժամանակ
-    document.getElementById('counter').textContent = guestCount;
-
-    const weddingDate = new Date("2025-08-25T16:00:00").getTime();
-    const countdownInterval = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            document.getElementById("countdown").innerHTML = "🎉 Հարսանեկան արարողությունը սկսվել է!";
-            return;
+    function applyTranslations(lang) {
+        // Update general elements with data-key
+        for (const key in translations) {
+            const element = document.querySelector(`[data-key="${key}"]`);
+            if (element) {
+                element.innerHTML = translations[key][lang];
+            }
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Update html lang attribute
+        document.documentElement.lang = lang;
 
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
-    }, 1000);
+        // Toggle visibility of data-lang-hy/data-lang-ru elements
+        const allLangElements = document.querySelectorAll('[data-lang-hy], [data-lang-ru]');
+        allLangElements.forEach(el => {
+            if (el.getAttribute('data-lang-hy') !== null) {
+                el.style.display = lang === 'hy' ? el.classList.contains('inline-block') || el.classList.contains('marquee-text') ? 'inline' : 'block' : 'none';
+            } else if (el.getAttribute('data-lang-ru') !== null) {
+                el.style.display = lang === 'ru' ? el.classList.contains('inline-block') || el.classList.contains('marquee-text') ? 'inline' : 'block' : 'none';
+            }
+        });
 
-    // Երաժշտությունը հնարավորության դեպքում ավտոմատ նվագարկել
-    window.addEventListener('DOMContentLoaded', function () {
+        // Highlight active language button
+        document.querySelectorAll('.language-switcher button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(`lang-${lang}-btn`).classList.add('active');
+    }
+
+    function changeLanguage(lang) {
+        localStorage.setItem('preferredLanguage', lang);
+        applyTranslations(lang);
+    }
+
+    // Initial language load
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'hy'; // Default to Armenian if no preference
+        applyTranslations(savedLanguage);
+
+        // Initialize the countdown once here, after translations are loaded
+        const weddingDate = new Date("2025-08-25T10:00:00");
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = weddingDate - now;
+            const currentLang = localStorage.getItem('preferredLanguage') || 'hy'; // Get current language
+
+            if (diff > 0) {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(d).padStart(2, '0');
+                document.getElementById('hours').textContent = String(h).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+
+                // Update labels based on current language
+                document.querySelector('[data-key="daysLabel"]').textContent = translations.daysLabel[currentLang];
+                document.querySelector('[data-key="hoursLabel"]').textContent = translations.hoursLabel[currentLang];
+                document.querySelector('[data-key="minutesLabel"]').textContent = translations.minutesLabel[currentLang];
+                document.querySelector('[data-key="secondsLabel"]').textContent = translations.secondsLabel[currentLang];
+
+            } else {
+                // Update the countdown display when the wedding date is reached
+                document.querySelector('.countdown-wrapper').innerHTML = `<div class='label'>${translations.countdownEnded[currentLang]}</div>`;
+                clearInterval(countdownInterval); // Stop the interval once reached
+            }
+        }
+        // Run updateCountdown initially and then every second
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+
+        // Auto-play music logic (adjusted for user interaction requirement)
         const audio = document.getElementById('player');
         if (audio) {
-            audio.muted = false;
+            audio.muted = false; // Ensure it's not muted by default
             audio.play().catch(() => {
-                document.addEventListener('click', () => {
-                    audio.play();
-                }, { once: true });
+                // Autoplay failed, likely due to browser policy.
+                // The existing button "Включите музыку" will still work.
             });
         }
     });
+
+    // The original script for guestCount was incomplete and had no visible element. It has been removed.
+
 </script>
+
+</body>
+</html>
