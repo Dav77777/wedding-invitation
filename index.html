@@ -269,71 +269,75 @@
         position: relative;
         width: 400px;
         height: 400px;
-        margin: 0 auto 40px;
-        animation: rotate 24s linear infinite;
+        margin: auto;
+        border-radius: 50%;
+        font-size: 24px;
+        font-family: sans-serif;
+        animation: spin 20s linear infinite; /* ավելացվել է պտույտի անիմացիան */
     }
 
     .circular-text span {
         position: absolute;
-        left: 50%;
         top: 50%;
-        transform-origin: center center;
-        font-size: 32px;
-        color: #ffcc00;
-        font-weight: bold;
+        left: 50%;
+        transform-origin: 0 0;
     }
 
-    @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>
-<div data-lang-ru>
-    <div class="circular-text">
-        <span style="transform: rotate(0deg) translateY(-180px)">✧</span>
-        <span style="transform: rotate(20deg) translateY(-180px)">А</span>
-        <span style="transform: rotate(40deg) translateY(-180px)">р</span>
-        <span style="transform: rotate(60deg) translateY(-180px)">и</span>
-        <span style="transform: rotate(80deg) translateY(-180px)">с</span>
-        <span style="transform: rotate(100deg) translateY(-180px)">т</span>
-        <span style="transform: rotate(120deg) translateY(-180px)">а</span>
-        <span style="transform: rotate(140deg) translateY(-180px)">к</span>
-        <span style="transform: rotate(160deg) translateY(-180px)">е</span>
-        <span style="transform: rotate(180deg) translateY(-180px)">с</span>
-        <span style="transform: rotate(200deg) translateY(-180px)">💍</span>
-        <span style="transform: rotate(220deg) translateY(-180px)">П</span>
-        <span style="transform: rotate(240deg) translateY(-180px)">о</span>
-        <span style="transform: rotate(260deg) translateY(-180px)">л</span>
-        <span style="transform: rotate(280deg) translateY(-180px)">и</span>
-        <span style="transform: rotate(300deg) translateY(-180px)">н</span>
-        <span style="transform: rotate(320deg) translateY(-180px)">а</span>
-        <span style="transform: rotate(340deg) translateY(-180px)">✧</span>
-    </div>
-</div>
-<div data-lang-hy>
 
-    <div class="circular-text">
-        <span style="transform: rotate(0deg) translateY(-180px)">✧</span>
-        <span style="transform: rotate(20deg) translateY(-180px)">Ա</span>
-        <span style="transform: rotate(40deg) translateY(-180px)">ր</span>
-        <span style="transform: rotate(60deg) translateY(-180px)">ի</span>
-        <span style="transform: rotate(80deg) translateY(-180px)">ս</span>
-        <span style="transform: rotate(100deg) translateY(-180px)">տ</span>
-        <span style="transform: rotate(120deg) translateY(-180px)">ա</span>
-        <span style="transform: rotate(140deg) translateY(-180px)">կ</span>
-        <span style="transform: rotate(160deg) translateY(-180px)">ե</span>
-        <span style="transform: rotate(180deg) translateY(-180px)">ս</span>
-        <span style="transform: rotate(200deg) translateY(-180px)">💍</span>
-        <span style="transform: rotate(220deg) translateY(-180px)">Պ</span>
-        <span style="transform: rotate(240deg) translateY(-180px)">ո</span>
-        <span style="transform: rotate(260deg) translateY(-180px)">լ</span>
-        <span style="transform: rotate(280deg) translateY(-180px)">ի</span>
-        <span style="transform: rotate(300deg) translateY(-180px)">ն</span>
-        <span style="transform: rotate(320deg) translateY(-180px)">ա</span>
-        <span style="transform: rotate(340deg) translateY(-180px)">✧</span>
-    </div>
-</div>
 
+<!-- Ռուսերեն -->
+<div data-lang-ru class="circular-text">
+    <span style="transform: rotate(0deg) translateY(-180px)">✧</span>
+    <span style="transform: rotate(20deg) translateY(-180px)">А</span>
+    <span style="transform: rotate(40deg) translateY(-180px)">р</span>
+    <span style="transform: rotate(60deg) translateY(-180px)">и</span>
+    <span style="transform: rotate(80deg) translateY(-180px)">с</span>
+    <span style="transform: rotate(100deg) translateY(-180px)">т</span>
+    <span style="transform: rotate(120deg) translateY(-180px)">а</span>
+    <span style="transform: rotate(140deg) translateY(-180px)">к</span>
+    <span style="transform: rotate(160deg) translateY(-180px)">е</span>
+    <span style="transform: rotate(180deg) translateY(-180px)">с</span>
+    <span style="transform: rotate(200deg) translateY(-180px)">💍</span>
+    <span style="transform: rotate(220deg) translateY(-180px)">П</span>
+    <span style="transform: rotate(240deg) translateY(-180px)">о</span>
+    <span style="transform: rotate(260deg) translateY(-180px)">л</span>
+    <span style="transform: rotate(280deg) translateY(-180px)">и</span>
+    <span style="transform: rotate(300deg) translateY(-180px)">н</span>
+    <span style="transform: rotate(320deg) translateY(-180px)">а</span>
+    <span style="transform: rotate(340deg) translateY(-180px)">✧</span>
+</div>
+</div>
+<!-- Հայերեն -->
+<div data-lang-hy class="circular-text">
+    <span style="transform: rotate(0deg) translateY(-180px)">✧</span>
+    <span style="transform: rotate(20deg) translateY(-180px)">Ա</span>
+    <span style="transform: rotate(40deg) translateY(-180px)">ր</span>
+    <span style="transform: rotate(60deg) translateY(-180px)">ի</span>
+    <span style="transform: rotate(80deg) translateY(-180px)">ս</span>
+    <span style="transform: rotate(100deg) translateY(-180px)">տ</span>
+    <span style="transform: rotate(120deg) translateY(-180px)">ա</span>
+    <span style="transform: rotate(140deg) translateY(-180px)">կ</span>
+    <span style="transform: rotate(160deg) translateY(-180px)">ե</span>
+    <span style="transform: rotate(180deg) translateY(-180px)">ս</span>
+    <span style="transform: rotate(200deg) translateY(-180px)">💍</span>
+    <span style="transform: rotate(220deg) translateY(-180px)">Պ</span>
+    <span style="transform: rotate(240deg) translateY(-180px)">ո</span>
+    <span style="transform: rotate(260deg) translateY(-180px)">լ</span>
+    <span style="transform: rotate(280deg) translateY(-180px)">ի</span>
+    <span style="transform: rotate(300deg) translateY(-180px)">ն</span>
+    <span style="transform: rotate(320deg) translateY(-180px)">ա</span>
+    <span style="transform: rotate(340deg) translateY(-180px)">✧</span>
+</div>
+</div>
 <div id="music-container">
     <button onclick="document.getElementById('player').play()" data-key="musicButtonText"></button>
 </div>
@@ -344,7 +348,7 @@
 </div>
 <div class="section-title">
     <span data-lang-ru>С радостью приглашаем вас на нашу свадьбу, чтобы разделить с нами этот незабываемый день. Мы будем счастливы, если вы будете с нами!💒💞✨</span>
-    <span data-lang-hy>Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթե դուք լինեք մեր կողքին։ 💒💞✨</span>
+    <span data-lang-hy>Մեծ ուրախությամբ հրավիրում ենք ձեզ մեր հարսանիքին՝ մեզ հետ կիսելու այս անմոռանալի օրը։ Մենք երջանիկ կլինենք, եթի դուք լինեք մեր կողքին։ 💒💞✨</span>
 </div>
 <div class="section-title" data-key="countdownTitle"></div>
 
@@ -586,11 +590,6 @@
     </iframe>
 </div>
 
-<div style="text-align: center; margin-top: 20px;">
-    <button onclick="displayWishesFromGoogleSheets()" style="padding: 10px 20px; font-size: 16px; background-color: #ffd700; border: none; border-radius: 8px; cursor: pointer;" data-key="viewWishesButton">
-    </button>
-</div>
-
 <div id="all-wishes" style="color: #ffcc00; text-align: center; margin-top: 20px;"></div>
 
 <script>
@@ -599,35 +598,11 @@
         formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
     }
 
-    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRBSWGmykeJrZuKj5BGWIQd-WOG63pPIfYMhPSWY3yP3Mh4-yRU-wserZGe4b_jR6ya8GKx6N3CMagI/pubhtml";
-
-    const allWishesContainer = document.getElementById("all-wishes");
-
-    function displayWishesFromGoogleSheets() {
-        fetch(sheetUrl)
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data, 'text/html');
-                const rows = doc.querySelectorAll('tr');
-
-                allWishesContainer.innerHTML = ''; // մաքրել հները
-
-                rows.forEach((row, index) => {
-                    const columns = row.querySelectorAll('td');
-                    if (columns.length >= 2 && index > 0) {
-                        const name = columns[0].innerText.trim();
-                        const wish = columns[1].innerText.trim();
-                        if (name || wish) {
-                            const wishElement = document.createElement("div");
-                            wishElement.style.marginBottom = "10px";
-                            wishElement.innerHTML = `<strong>${name}</strong>: ${wish}`;
-                            allWishesContainer.appendChild(wishElement);
-                        }
-                    }
-                });
-            });
-    }
+    // The sheetUrl and displayWishesFromGoogleSheets function are no longer needed
+    // as the user wants to hide the display of wishes on the site.
+    // const sheetUrl = "..."; // This variable and the associated function are no longer used.
+    // const allWishesContainer = document.getElementById("all-wishes"); // This variable is no longer used for display purposes.
+    // function displayWishesFromGoogleSheets() { /* ... function content removed ... */ }
 </script>
 
 <div class="section-title" data-key="contactUsTitle"></div>
@@ -702,10 +677,7 @@
             hy: "Խնդրում եմ հաստատել ձեր մասնակցությունը",
             ru: "Пожалуйста, подтвердите свое участие"
         },
-        viewWishesButton: {
-            hy: "💌 Տեսնել բարեմաղթանքները",
-            ru: "💌 Посмотреть пожелания"
-        },
+        // The 'viewWishesButton' translation entry has been removed as the button is no longer present.
         contactUsTitle: {
             hy: "📞💬«Կապվեք մեզ հետ»",
             ru: "📞💬«Свяжитесь с нами»"
