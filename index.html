@@ -492,8 +492,16 @@
     <img src="./0004.jpg" alt="Լուսանկար 5" />
     <img src="./2.jpg" alt="Լուսանկար 6" />
 </div>
-
-
+<div class="section-title">
+    <span data-lang-hy>🎬 Մեր հարսանեկան վիդեոն</span>
+    <span data-lang-ru>🎬 Наше свадебное видео</span>
+</div>
+<div class="video-container">
+    <video id="myVideo" controls preload="auto" poster="video_poster.jpg">
+        <source src="1800.mp4" type="video/mp4">
+        Ձեր բրաուզերը չի աջակցում վիդեո թեգին։
+    </video>
+</div>
 <div class="section-title">
     <span data-lang-hy>⛪ Պսակադրության վայրը</span>
     <span data-lang-ru>⛪ Место венчания</span>
@@ -721,6 +729,57 @@
 
     // Initial language load
     document.addEventListener('DOMContentLoaded', () => {
+        // Video playback and music control logic
+        const myVideo = document.getElementById('myVideo');
+        const backgroundMusic = document.getElementById('player');
+
+        function isElementInViewport(el) {
+            if (!el) return false;
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < (window.innerHeight || document.documentElement.clientHeight) * 0.7 &&
+                rect.bottom > (window.innerHeight || document.documentElement.clientHeight) * 0.3 &&
+                rect.left >= 0 &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleVideoPlayback() {
+            if (myVideo && backgroundMusic) {
+                if (isElementInViewport(myVideo)) {
+                    if (myVideo.paused) {
+                        myVideo.play().catch(error => {
+                            console.warn("Video autoplay prevented:", error);
+                        });
+                        if (!backgroundMusic.paused) {
+                            backgroundMusic.pause();
+                        }
+                    }
+                } else {
+                    if (!myVideo.paused) {
+                        myVideo.pause();
+                    }
+                    if (backgroundMusic.paused) { // Resume only if paused and video is not in view
+                        backgroundMusic.play().catch(error => {
+                            console.warn("Background music resume prevented:", error);
+                        });
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleVideoPlayback);
+
+        if (myVideo && backgroundMusic) {
+            myVideo.addEventListener('ended', () => {
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play().catch(error => {
+                        console.warn("Background music resume prevented:", error);
+                    });
+                }
+            });
+        }
+        handleVideoPlayback(); // Initial check
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'hy'; // Default to Armenian if no preference
         applyTranslations(savedLanguage);
 
