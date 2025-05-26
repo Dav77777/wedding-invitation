@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title data-key="pageTitle">Մեր հարսանիքը</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Default font for all text */
             text-align: center;
             padding: 40px 20px;
             color: #ffcc00;
@@ -16,6 +17,26 @@
             overflow-x: hidden;
             margin: 0;
         }
+
+        /* Set specific fonts for Russian content */
+        body[lang="ru"] {
+            font-family: 'Dancing Script', cursive; /* Applied to the whole body for Russian */
+        }
+
+        body[lang="ru"] h1,
+        body[lang="ru"] .section-title,
+        body[lang="ru"] p,
+        body[lang="ru"] a,
+        body[lang="ru"] footer {
+            font-family: 'Dancing Script', cursive; /* Ensure all main text elements use Dancing Script */
+        }
+
+        body[lang="ru"] .countdown-item .num,
+        body[lang="ru"] h1[data-key="blinkingTitle"], /* Apply Great Vibes to the blinking title */
+        body[lang="ru"] marquee { /* Apply Great Vibes to marquee for Russian */
+            font-family: 'Great Vibes', cursive;
+        }
+
 
         .background {
             position: fixed;
@@ -210,7 +231,7 @@
             height: 400px; /* Default for larger screens */
             border-radius: 50%;
             font-size: 24px;
-            font-family: sans-serif;
+            font-family: 'Great Vibes', cursive; /* Apply Great Vibes to circular text */
             animation: spin 20s linear infinite;
             color: #ffcc00;
             display: flex; /* Helps center text visually within the circle */
@@ -285,8 +306,6 @@
         body[lang="ru"] .section-title[data-lang-ru] { display: block; }
 
         /* Countdown styles */
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap');
-
         .countdown-wrapper {
             display: flex;
             justify-content: center;
@@ -705,7 +724,7 @@
         },
         minutesLabel: {
             hy: "ՐՈՊԵՆԵՐ",
-            ru: "МИНУТ"
+            ru: "МИНՈՒТ"
         },
         secondsLabel: {
             hy: "ՎԱՐԿՅԱՆՆԵՐ",
@@ -749,7 +768,8 @@
             }
         }
 
-        document.documentElement.lang = lang;
+        document.documentElement.lang = lang; // Set the lang attribute on the HTML tag
+        document.body.setAttribute('lang', lang); // Also set on body for more specific CSS targeting
 
         const allLangElements = document.querySelectorAll('[data-lang-hy], [data-lang-ru]');
         allLangElements.forEach(el => {
