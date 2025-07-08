@@ -7,6 +7,138 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            color: #ffcc00;
+            overflow-x: hidden;
+            background-color: #000;
+        }
+
+        body[lang="ru"] {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        body[lang="ru"] h1,
+        body[lang="ru"] .section-title,
+        body[lang="ru"] p,
+        body[lang="ru"] a,
+        body[lang="ru"] footer {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        body[lang="ru"] .countdown-item .num,
+        body[lang="ru"] h1[data-key="blinkingTitle"],
+        body[lang="ru"] marquee {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('./0607.jpg') center center no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 1s ease;
+        }
+
+        .intro-text {
+            font-size: 22px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 90%;
+            margin-bottom: 40px;
+        }
+
+        .swipe-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        .swipe-indicator img {
+            width: 40px;
+            height: auto;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .main-content {
+            margin-top: 100vh;
+        }
+    </style>
+</head>
+<body>
+<div class="intro" id="intro">
+    <div class="intro-text" data-lang-hy>
+        Պատրաստվիր տոնելու ամենագեղեցիկ և հիշարժան օրը մեզ հետ
+    </div>
+    <div class="intro-text" data-lang-ru>
+        Подготовься отпраздновать с нами самый красивый и запоминающийся день
+    </div>
+    <div class="swipe-indicator">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Swipe_Up_Icon.svg" alt="Swipe Up" />
+    </div>
+</div>
+
+<div class="main-content" id="mainContent">
+    <!-- Քո ամբողջ կայքի բովանդակությունը այստեղ կլինի -->
+</div>
+
+<script>
+    // Հնարավոր դարձնել swipe կամ scroll transition
+    let introDismissed = false;
+
+    function hideIntro() {
+        if (!introDismissed) {
+            document.getElementById('intro').style.transform = 'translateY(-100%)';
+            introDismissed = true;
+        }
+    }
+
+    // Դադարեցնել ներքևի սքրոլը երբ ինտրո էջում են
+    document.addEventListener('wheel', (e) => {
+        if (!introDismissed && e.deltaY > 10) {
+            hideIntro();
+        }
+    });
+
+    // Touch support for mobile
+    let startY = 0;
+    document.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    });
+    document.addEventListener('touchmove', (e) => {
+        if (!introDismissed) {
+            let moveY = e.touches[0].clientY;
+            if (startY - moveY > 50) {
+                hideIntro();
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title data-key="pageTitle">Մեր հարսանիքը</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
             font-family: 'Montserrat', sans-serif; /* Default font for all text */
             text-align: center;
             padding: 40px 20px;
