@@ -601,12 +601,19 @@
     <span data-lang-hy>🎬 Մեր հարսանեկան վիդեոն</span>
     <span data-lang-ru>🎬 Наше свадебное видео</span>
 </div>
-<div class="video-container">
-    <video id="myVideo" controls preload="auto" poster="video_poster.jpg">
-        <source src="1800.mp4" type="video/mp4">
-        Ձեր բրաուզերը չի աջակցում վիդեո թեգին։
-    </video>
-</div>
+<video
+        id="myVideo"
+        controls
+        preload="auto"
+        poster="video_poster.jpg"
+        playsinline
+        muted
+        style="max-width: 100%; height: auto;"
+>
+    <source src="1800.mp4" type="video/mp4">
+    Ձեր բրաուզերը չի աջակցում վիդեո թեգին։
+</video>
+
 
 <div class="section-title">
     <span data-lang-hy>⛪ Պսակադրության վայրը</span>
