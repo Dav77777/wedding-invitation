@@ -1,0 +1,47 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+.hero {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.wedding-date {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.calendar {
+    padding: 40px 20px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.countdown {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    font-size: 1.5rem;
+}
+
+footer {
+    background: #111;
+    color: #fff;
+    padding: 20px;
+}
