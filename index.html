@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="hy">
 <head>
@@ -7,9 +6,13 @@
 
   <title>ARAM & ANGELINA</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
+
+    /* =========================== */
+    /* RESET */
+    /* =========================== */
 
     *{
       margin:0;
@@ -22,31 +25,31 @@
     }
 
     body{
-      background:#c4c8b0;
-      color:#5f634f;
-      font-family:'Cormorant Garamond',serif;
+      background:#c7ccb8;
+      color:#5f644d;
       overflow-x:hidden;
+      font-family:'Cormorant Garamond',serif;
     }
 
-    /* ======================== */
+    /* =========================== */
     /* LANGUAGE */
-    /* ======================== */
+    /* =========================== */
 
     .lang-switch{
       position:fixed;
-      top:20px;
-      right:20px;
+      top:25px;
+      right:25px;
       z-index:999999;
       display:flex;
-      gap:10px;
+      gap:12px;
     }
 
     .lang-switch button{
       border:none;
-      background:rgba(255,255,255,.2);
-      backdrop-filter:blur(8px);
-      color:#5f634f;
-      padding:10px 22px;
+      background:rgba(255,255,255,.18);
+      backdrop-filter:blur(10px);
+      color:#5d614d;
+      padding:12px 24px;
       border-radius:40px;
       cursor:pointer;
       font-size:18px;
@@ -54,13 +57,13 @@
     }
 
     .lang-switch button:hover{
-      background:#6a6f57;
+      background:#6b7157;
       color:white;
     }
 
-    /* ======================== */
-    /* CURTAINS */
-    /* ======================== */
+    /* =========================== */
+    /* LUXURY CURTAINS */
+    /* =========================== */
 
     .curtain-wrapper{
       position:fixed;
@@ -68,160 +71,273 @@
       z-index:99999999;
       display:flex;
       overflow:hidden;
+      background:#000;
     }
 
     .curtain{
+
       width:50%;
       height:100%;
+
+      position:relative;
+
       background:
               linear-gradient(
                       90deg,
-                      rgba(0,0,0,.25),
-                      rgba(255,255,255,.03),
-                      rgba(0,0,0,.2)
+                      rgba(0,0,0,.55),
+                      rgba(255,255,255,.05),
+                      rgba(0,0,0,.45)
               ),
-              url('curtain.jpg');
+              repeating-linear-gradient(
+                      90deg,
+                      #556048 0px,
+                      #68735b 40px,
+                      #4f5942 80px,
+                      #738061 120px,
+                      #5b654f 160px
+              );
 
-      background-size:cover;
-      background-position:center;
+      box-shadow:
+              inset -20px 0 40px rgba(0,0,0,.45),
+              inset 20px 0 40px rgba(255,255,255,.03);
 
-      transition:3.5s cubic-bezier(.77,0,.18,1);
+      transition:
+              transform 3.5s cubic-bezier(.77,0,.18,1);
+
     }
 
-    .left-curtain{
-      border-right:2px solid rgba(255,255,255,.08);
+    /* GOLD TOP */
+
+    .curtain::before{
+
+      content:'';
+
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:65px;
+
+      background:
+              linear-gradient(
+                      180deg,
+                      #d9c48c,
+                      #927946
+              );
+
+      box-shadow:
+              0 5px 25px rgba(0,0,0,.45);
+
     }
 
-    .right-curtain{
-      border-left:2px solid rgba(255,255,255,.08);
+    /* CURTAIN SHADOWS */
+
+    .curtain::after{
+
+      content:'';
+
+      position:absolute;
+      inset:0;
+
+      background:
+              repeating-linear-gradient(
+                      90deg,
+                      rgba(255,255,255,.08) 0px,
+                      rgba(255,255,255,.02) 40px,
+                      rgba(0,0,0,.18) 80px
+              );
+
     }
+
+    /* OPEN */
 
     .open-curtain .left-curtain{
-      transform:translateX(-100%);
+      transform:
+              translateX(-100%)
+              rotate(-3deg);
     }
 
     .open-curtain .right-curtain{
-      transform:translateX(100%);
+      transform:
+              translateX(100%)
+              rotate(3deg);
     }
 
-    /* ======================== */
+    /* =========================== */
     /* ROPE */
-    /* ======================== */
+    /* =========================== */
 
     .rope-wrapper{
+
       position:absolute;
+
       left:50%;
       transform:translateX(-50%);
+
       top:0;
-      z-index:999999999;
+
       display:flex;
       flex-direction:column;
       align-items:center;
+
+      z-index:999999999;
+
     }
 
     .rope{
-      width:5px;
-      height:320px;
+
+      width:8px;
+      height:340px;
+
+      border-radius:20px;
 
       background:
               repeating-linear-gradient(
                       180deg,
-                      #8d8266,
-                      #8d8266 6px,
-                      #70654f 6px,
-                      #70654f 12px
+                      #cdb27c,
+                      #8b7147 8px,
+                      #e7d1a0 16px,
+                      #796140 24px
               );
 
       cursor:pointer;
+
+      transition:.3s;
+
+    }
+
+    .rope:hover{
+      transform:scaleX(1.2);
     }
 
     .rope-ball{
-      width:42px;
-      height:42px;
+
+      width:58px;
+      height:58px;
+
       border-radius:50%;
 
       background:
-              radial-gradient(circle at top,
-              #a89b78,
-              #6d6147);
+              radial-gradient(
+                      circle at 30% 30%,
+                      #f7e1a8,
+                      #8f7140
+              );
+
+      border:3px solid #c9b57b;
+
+      box-shadow:
+              0 0 20px rgba(0,0,0,.4);
+
     }
+
+    /* TEXT */
 
     .curtain-text{
+
       position:absolute;
-      bottom:90px;
+
+      bottom:100px;
       left:50%;
+
       transform:translateX(-50%);
+
       color:white;
-      letter-spacing:6px;
-      font-size:26px;
+
+      font-size:30px;
+
+      letter-spacing:10px;
+
+      text-shadow:
+              0 0 10px rgba(255,255,255,.25);
+
     }
 
-    /* ======================== */
-    /* FLOAT LEAVES */
-    /* ======================== */
+    /* =========================== */
+    /* LEAVES */
+    /* =========================== */
 
     .leaf{
       position:fixed;
       z-index:-1;
-      opacity:.18;
+      opacity:.15;
       filter:blur(2px);
-      animation:float 10s ease-in-out infinite;
+      animation:float 9s ease-in-out infinite;
     }
 
     .leaf1{
-      top:40px;
-      left:-50px;
-      width:280px;
+      width:320px;
+      left:-80px;
+      top:80px;
     }
 
     .leaf2{
-      right:-80px;
-      bottom:50px;
-      width:350px;
+      width:360px;
+      right:-120px;
+      bottom:100px;
     }
 
     @keyframes float{
       0%{transform:translateY(0);}
-      50%{transform:translateY(25px);}
+      50%{transform:translateY(30px);}
       100%{transform:translateY(0);}
     }
 
-    /* ======================== */
+    /* =========================== */
     /* MUSIC */
-    /* ======================== */
+    /* =========================== */
 
     .music-btn{
+
       position:fixed;
+
       right:20px;
       bottom:20px;
+
       width:75px;
       height:75px;
+
       border-radius:50%;
-      border:2px solid #6b7058;
-      background:rgba(255,255,255,.15);
+
+      border:none;
+
+      background:
+              rgba(255,255,255,.2);
+
       backdrop-filter:blur(10px);
-      color:#6b7058;
+
+      color:#5f644d;
+
       font-size:28px;
+
       cursor:pointer;
+
       z-index:9999;
+
     }
 
-    /* ======================== */
+    /* =========================== */
     /* HERO */
-    /* ======================== */
+    /* =========================== */
 
     .hero{
+
       min-height:100vh;
+
       display:flex;
       justify-content:center;
       align-items:center;
+
       padding:100px 20px;
+
     }
 
     .hero-box{
       position:relative;
-      max-width:520px;
       width:100%;
+      max-width:520px;
     }
 
     .hero-box img{
@@ -230,90 +346,90 @@
     }
 
     .hero-overlay{
+
       position:absolute;
       left:0;
       bottom:0;
+
       width:100%;
-      height:250px;
-      background:linear-gradient(to top,#c4c8b0,transparent);
+      height:240px;
+
+      background:
+              linear-gradient(
+                      to top,
+                      #c7ccb8,
+                      transparent
+              );
+
     }
 
     .hero-text{
+
       position:absolute;
-      bottom:30px;
+
+      bottom:35px;
       width:100%;
+
       text-align:center;
+
     }
 
     .hero-text h1{
+
       font-size:95px;
       line-height:.85;
       font-weight:300;
+
     }
 
     .hero-text span{
-      font-family:'Great Vibes',cursive;
+
       font-size:55px;
+      font-family:'Great Vibes',cursive;
+
     }
 
-    /* ======================== */
-    /* INVITE */
-    /* ======================== */
+    /* =========================== */
+    /* SECTION */
+    /* =========================== */
 
-    .invite{
+    .section{
       padding:120px 20px;
       text-align:center;
     }
 
-    .invite h2{
-      font-size:110px;
+    .section h2{
+      font-size:100px;
       line-height:.85;
       font-weight:300;
-      margin-bottom:40px;
+      margin-bottom:35px;
     }
 
-    .invite p{
+    .section p{
       max-width:850px;
       margin:auto;
-      font-size:38px;
+      font-size:36px;
       line-height:1.5;
     }
 
-    /* ======================== */
+    /* =========================== */
     /* CALENDAR */
-    /* ======================== */
-
-    .calendar{
-      text-align:center;
-      padding:120px 20px;
-    }
-
-    .calendar h2{
-      font-size:110px;
-      line-height:.85;
-      font-weight:300;
-    }
-
-    .calendar p{
-      font-size:35px;
-      margin:20px 0;
-    }
-
-    .calendar span{
-      font-size:70px;
-      font-family:'Great Vibes',cursive;
-    }
+    /* =========================== */
 
     .calendar-grid{
-      max-width:700px;
+
       margin:auto;
       margin-top:60px;
 
+      max-width:700px;
+
       display:grid;
       grid-template-columns:repeat(7,1fr);
+
       gap:25px;
 
       font-size:38px;
+
     }
 
     .heart{
@@ -321,31 +437,48 @@
     }
 
     .heart::before{
+
       content:'❤';
+
       position:absolute;
       inset:0;
-      color:#6d7159;
-      font-size:80px;
+
+      color:#677057;
+
+      font-size:85px;
+
       z-index:-1;
+
     }
 
-    /* ======================== */
+    /* =========================== */
     /* LOCATION */
-    /* ======================== */
+    /* =========================== */
 
     .location{
-      padding:150px 20px;
+
       display:flex;
       justify-content:center;
+
+      padding:100px 20px;
+
     }
 
     .location-card{
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(10px);
-      border-radius:45px;
-      padding:80px;
-      text-align:center;
+
       max-width:650px;
+
+      background:
+              rgba(255,255,255,.15);
+
+      backdrop-filter:blur(12px);
+
+      border-radius:45px;
+
+      padding:80px;
+
+      text-align:center;
+
     }
 
     .location-card h2{
@@ -360,36 +493,39 @@
     }
 
     .map-btn{
-      margin-top:40px;
+
       display:inline-block;
+
+      margin-top:40px;
+
+      background:#d8dcc8;
+
+      color:#5f644d;
+
       text-decoration:none;
-      background:#d8dbc5;
-      color:#5f634f;
-      padding:18px 50px;
+
+      padding:18px 55px;
+
       border-radius:50px;
-      font-size:28px;
+
+      font-size:26px;
+
     }
 
-    /* ======================== */
-    /* DRESS CODE */
-    /* ======================== */
-
-    .dress{
-      padding:120px 20px;
-      text-align:center;
-    }
-
-    .dress h2{
-      font-size:90px;
-      font-weight:300;
-    }
+    /* =========================== */
+    /* DRESS */
+    /* =========================== */
 
     .palette{
+
       display:flex;
       justify-content:center;
       flex-wrap:wrap;
+
       gap:18px;
-      margin:50px 0;
+
+      margin-top:50px;
+
     }
 
     .color{
@@ -399,57 +535,58 @@
     }
 
     .gallery{
+
+      margin-top:60px;
+
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
       gap:25px;
-      margin-top:60px;
+
     }
 
     .gallery img{
       width:100%;
-      border-radius:12px;
+      border-radius:15px;
     }
 
-    /* ======================== */
+    /* =========================== */
     /* WISHES */
-    /* ======================== */
-
-    .wishes{
-      padding:120px 20px;
-    }
-
-    .wishes h2{
-      text-align:center;
-      font-size:90px;
-      font-weight:300;
-      margin-bottom:70px;
-    }
+    /* =========================== */
 
     .cards{
+
       max-width:700px;
+
       margin:auto;
+
       display:flex;
       flex-direction:column;
+
       gap:35px;
+
     }
 
     .card{
-      background:rgba(255,255,255,.15);
+
+      background:
+              rgba(255,255,255,.16);
+
       backdrop-filter:blur(10px);
+
       border-radius:35px;
+
       padding:50px;
-      font-size:35px;
+
+      font-size:34px;
+
       line-height:1.5;
+
     }
 
-    /* ======================== */
+    /* =========================== */
     /* COUNTDOWN */
-    /* ======================== */
-
-    .countdown{
-      text-align:center;
-      padding:120px 20px;
-    }
+    /* =========================== */
 
     .countdown img{
       width:100%;
@@ -457,16 +594,22 @@
     }
 
     .countdown h2{
-      margin:50px 0;
-      font-size:70px;
+
       font-family:'Great Vibes',cursive;
+
+      font-size:70px;
+
+      margin:50px 0;
+
     }
 
     .timer{
+
       display:flex;
       justify-content:center;
       gap:40px;
       flex-wrap:wrap;
+
     }
 
     .time-box div{
@@ -477,52 +620,61 @@
       font-size:28px;
     }
 
-    /* ======================== */
+    /* =========================== */
     /* RSVP */
-    /* ======================== */
-
-    .rsvp{
-      padding:120px 20px;
-      text-align:center;
-    }
-
-    .rsvp h2{
-      font-size:90px;
-      font-weight:300;
-      margin-bottom:30px;
-    }
+    /* =========================== */
 
     form{
+
       max-width:700px;
+
       margin:auto;
+
       display:flex;
       flex-direction:column;
+
       gap:35px;
+
     }
 
     input{
-      background:transparent;
+
       border:none;
       border-bottom:1px solid #6c7058;
+
+      background:transparent;
+
       padding:20px;
+
       font-size:28px;
-      color:#5f634f;
+
+      color:#5f644d;
+
       outline:none;
+
     }
 
     .submit-btn{
+
       border:none;
-      background:#64694f;
+
+      background:#656b50;
+
       color:white;
+
       padding:25px;
+
       border-radius:60px;
+
       font-size:28px;
+
       cursor:pointer;
+
     }
 
-    /* ======================== */
+    /* =========================== */
     /* FOOTER */
-    /* ======================== */
+    /* =========================== */
 
     .footer{
       padding:120px 20px;
@@ -530,30 +682,26 @@
     }
 
     .footer h2{
-      font-family:'Great Vibes',cursive;
       font-size:90px;
+      font-family:'Great Vibes',cursive;
     }
 
-    /* ======================== */
+    /* =========================== */
     /* MOBILE */
-    /* ======================== */
+    /* =========================== */
 
     @media(max-width:768px){
 
       .hero-text h1{
-        font-size:55px;
+        font-size:58px;
       }
 
-      .invite h2,
-      .calendar h2,
-      .location-card h2,
-      .dress h2,
-      .wishes h2,
-      .rsvp h2{
-        font-size:60px;
+      .section h2,
+      .location-card h2{
+        font-size:58px;
       }
 
-      .invite p,
+      .section p,
       .location-card p,
       .card{
         font-size:24px;
@@ -566,6 +714,15 @@
 
       .time-box div{
         font-size:50px;
+      }
+
+      .curtain-text{
+        font-size:18px;
+        letter-spacing:4px;
+      }
+
+      .rope{
+        height:250px;
       }
 
     }
@@ -594,7 +751,7 @@
 <img src="leaf.png" class="leaf leaf1">
 <img src="leaf.png" class="leaf leaf2">
 
-<!-- CURTAIN -->
+<!-- CURTAINS -->
 
 <div class="curtain-wrapper" id="curtain">
 
@@ -646,7 +803,9 @@
         ANGELINA
       </h1>
 
-      <span>Wedding Day</span>
+      <span>
+Wedding Day
+</span>
 
     </div>
 
@@ -656,7 +815,7 @@
 
 <!-- INVITE -->
 
-<section class="invite">
+<section class="section">
 
   <h2 id="inviteTitle">
     ՍԻՐԵԼԻ
@@ -673,7 +832,7 @@
 
 <!-- CALENDAR -->
 
-<section class="calendar">
+<section class="section">
 
   <h2 id="calendarTitle">
     ՄԵՐ
@@ -685,7 +844,9 @@
     Այս օրը մենք կասենք
   </p>
 
-  <span>Այո!</span>
+  <div style="font-size:70px;font-family:'Great Vibes',cursive;">
+    Այո!
+  </div>
 
   <div class="calendar-grid">
 
@@ -732,7 +893,7 @@
   <div class="location-card">
 
     <h2 id="locationTitle">
-      ԼՈԿԱՑԻԱ
+      ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ
     </h2>
 
     <p>
@@ -742,7 +903,7 @@
     </p>
 
     <a href="#" class="map-btn" id="mapBtn">
-      Քարտեզ
+      ԲԱՑԵԼ ՔԱՐՏԵԶԸ
     </a>
 
   </div>
@@ -751,10 +912,10 @@
 
 <!-- DRESS -->
 
-<section class="dress">
+<section class="section">
 
   <h2 id="dressTitle">
-    ԴՐԵՍ ԿՈԴ
+    ՀԱԳՈՒՍՏԻ ՈՃ
   </h2>
 
   <div class="palette">
@@ -780,10 +941,10 @@
 
 <!-- WISHES -->
 
-<section class="wishes">
+<section class="section">
 
   <h2 id="wishesTitle">
-    ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ
+    ԿԱՐԵՎՈՐ ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ
   </h2>
 
   <div class="cards">
@@ -804,7 +965,7 @@
 
 <!-- COUNTDOWN -->
 
-<section class="countdown">
+<section class="section countdown">
 
   <img src="love.jpg">
 
@@ -840,10 +1001,10 @@
 
 <!-- RSVP -->
 
-<section class="rsvp">
+<section class="section">
 
   <h2 id="rsvpTitle">
-    ՀԱՍՏԱՏԵՔ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ
+    ԽՆԴՐՈՒՄ ԵՆՔ ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ
   </h2>
 
   <form>
@@ -874,9 +1035,9 @@
 
 <script>
 
-  /* ===================== */
+  /* =========================== */
   /* CURTAIN */
-  /* ===================== */
+  /* =========================== */
 
   document.body.style.overflow='hidden';
 
@@ -905,9 +1066,9 @@
 
   };
 
-  /* ===================== */
+  /* =========================== */
   /* MUSIC */
-  /* ===================== */
+  /* =========================== */
 
   const musicBtn =
           document.getElementById('musicBtn');
@@ -930,9 +1091,9 @@
 
   };
 
-  /* ===================== */
+  /* =========================== */
   /* COUNTDOWN */
-  /* ===================== */
+  /* =========================== */
 
   const weddingDate =
           new Date('2026-07-28T00:00:00').getTime();
@@ -959,13 +1120,16 @@
 
   },1000);
 
-  /* ===================== */
+  /* =========================== */
   /* LANGUAGE */
-  /* ===================== */
+  /* =========================== */
 
   function setLanguage(lang){
 
     if(lang==='hy'){
+
+      document.querySelector('.curtain-text').innerHTML =
+              'ՔԱՇԵՔ ՊԱՐԱՆԸ';
 
       document.getElementById('inviteTitle').innerHTML =
               'ՍԻՐԵԼԻ <br> ՀԱՐԱԶԱՏՆԵՐ';
@@ -980,23 +1144,26 @@
               'Այս օրը մենք կասենք';
 
       document.getElementById('locationTitle').innerHTML =
-              'ԼՈԿԱՑԻԱ';
+              'ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ';
 
       document.getElementById('mapBtn').innerHTML =
-              'Քարտեզ';
+              'ԲԱՑԵԼ ՔԱՐՏԵԶԸ';
 
       document.getElementById('dressTitle').innerHTML =
-              'ԴՐԵՍ ԿՈԴ';
+              'ՀԱԳՈՒՍՏԻ ՈՃ';
 
       document.getElementById('wishesTitle').innerHTML =
-              'ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ';
+              'ԿԱՐԵՎՈՐ ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ';
 
       document.getElementById('rsvpTitle').innerHTML =
-              'ՀԱՍՏԱՏԵՔ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ';
+              'ԽՆԴՐՈՒՄ ԵՆՔ ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ';
 
     }
 
     if(lang==='ru'){
+
+      document.querySelector('.curtain-text').innerHTML =
+              'ПОТЯНИТЕ ЗА ШНУР';
 
       document.getElementById('inviteTitle').innerHTML =
               'ДОРОГИЕ <br> РОДНЫЕ';
@@ -1011,19 +1178,19 @@
               'В этот день мы скажем';
 
       document.getElementById('locationTitle').innerHTML =
-              'ЛОКАЦИЯ';
+              'МЕСТО ПРОВЕДЕНИЯ';
 
       document.getElementById('mapBtn').innerHTML =
-              'КАРТА';
+              'ОТКРЫТЬ КАРТУ';
 
       document.getElementById('dressTitle').innerHTML =
               'ДРЕСС-КОД';
 
       document.getElementById('wishesTitle').innerHTML =
-              'ПОЖЕЛАНИЯ';
+              'ВАЖНЫЕ ПОЖЕЛАНИЯ';
 
       document.getElementById('rsvpTitle').innerHTML =
-              'ПОДТВЕРДИТЕ ПРИСУТСТВИЕ';
+              'ПОДТВЕРДИТЕ ВАШЕ ПРИСУТСТВИЕ';
 
     }
 
@@ -1033,4 +1200,3 @@
 
 </body>
 </html>
-```
