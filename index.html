@@ -10,9 +10,9 @@
 
   <style>
 
-    /* =========================== */
+    /* ========================================= */
     /* RESET */
-    /* =========================== */
+    /* ========================================= */
 
     *{
       margin:0;
@@ -25,269 +25,365 @@
     }
 
     body{
-      background:#c7ccb8;
-      color:#5f644d;
-      overflow-x:hidden;
-      font-family:'Cormorant Garamond',serif;
-    }
-
-    /* =========================== */
-    /* LANGUAGE */
-    /* =========================== */
-
-    .lang-switch{
-      position:fixed;
-      top:25px;
-      right:25px;
-      z-index:999999;
-      display:flex;
-      gap:12px;
-    }
-
-    .lang-switch button{
-      border:none;
-      background:rgba(255,255,255,.18);
-      backdrop-filter:blur(10px);
-      color:#5d614d;
-      padding:12px 24px;
-      border-radius:40px;
-      cursor:pointer;
-      font-size:18px;
-      transition:.3s;
-    }
-
-    .lang-switch button:hover{
-      background:#6b7157;
-      color:white;
-    }
-
-    /* =========================== */
-    /* LUXURY CURTAINS */
-    /* =========================== */
-
-    .curtain-wrapper{
-      position:fixed;
-      inset:0;
-      z-index:99999999;
-      display:flex;
-      overflow:hidden;
-      background:#000;
-    }
-
-    .curtain{
-
-      width:50%;
-      height:100%;
-
-      position:relative;
 
       background:
               linear-gradient(
-                      90deg,
-                      rgba(0,0,0,.55),
-                      rgba(255,255,255,.05),
-                      rgba(0,0,0,.45)
+                      rgba(255,255,255,.55),
+                      rgba(255,255,255,.55)
               ),
-              repeating-linear-gradient(
-                      90deg,
-                      #556048 0px,
-                      #68735b 40px,
-                      #4f5942 80px,
-                      #738061 120px,
-                      #5b654f 160px
-              );
+              url('https://i.pinimg.com/736x/e6/57/0e/e6570e7d5c7094a7dd7c4702f4b9b71d.jpg');
 
-      box-shadow:
-              inset -20px 0 40px rgba(0,0,0,.45),
-              inset 20px 0 40px rgba(255,255,255,.03);
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
 
-      transition:
-              transform 3.5s cubic-bezier(.77,0,.18,1);
+      overflow-x:hidden;
+
+      color:#5f644d;
+
+      font-family:'Cormorant Garamond',serif;
 
     }
 
-    /* GOLD TOP */
+    /* ========================================= */
+    /* PATTERN */
+    /* ========================================= */
 
-    .curtain::before{
-
-      content:'';
-
-      position:absolute;
-
-      top:0;
-      left:0;
-
-      width:100%;
-      height:65px;
-
-      background:
-              linear-gradient(
-                      180deg,
-                      #d9c48c,
-                      #927946
-              );
-
-      box-shadow:
-              0 5px 25px rgba(0,0,0,.45);
-
-    }
-
-    /* CURTAIN SHADOWS */
-
-    .curtain::after{
+    body::before{
 
       content:'';
 
-      position:absolute;
+      position:fixed;
+
       inset:0;
 
       background:
-              repeating-linear-gradient(
-                      90deg,
-                      rgba(255,255,255,.08) 0px,
-                      rgba(255,255,255,.02) 40px,
-                      rgba(0,0,0,.18) 80px
-              );
+              url('https://www.transparenttextures.com/patterns/arabesque.png');
+
+      opacity:.12;
+
+      z-index:-2;
 
     }
 
-    /* OPEN */
+    /* ========================================= */
+    /* FLOWERS */
+    /* ========================================= */
 
-    .open-curtain .left-curtain{
-      transform:
-              translateX(-100%)
-              rotate(-3deg);
-    }
+    .flower{
 
-    .open-curtain .right-curtain{
-      transform:
-              translateX(100%)
-              rotate(3deg);
-    }
-
-    /* =========================== */
-    /* ROPE */
-    /* =========================== */
-
-    .rope-wrapper{
-
-      position:absolute;
-
-      left:50%;
-      transform:translateX(-50%);
-
-      top:0;
-
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-
-      z-index:999999999;
-
-    }
-
-    .rope{
-
-      width:8px;
-      height:340px;
-
-      border-radius:20px;
-
-      background:
-              repeating-linear-gradient(
-                      180deg,
-                      #cdb27c,
-                      #8b7147 8px,
-                      #e7d1a0 16px,
-                      #796140 24px
-              );
-
-      cursor:pointer;
-
-      transition:.3s;
-
-    }
-
-    .rope:hover{
-      transform:scaleX(1.2);
-    }
-
-    .rope-ball{
-
-      width:58px;
-      height:58px;
-
-      border-radius:50%;
-
-      background:
-              radial-gradient(
-                      circle at 30% 30%,
-                      #f7e1a8,
-                      #8f7140
-              );
-
-      border:3px solid #c9b57b;
-
-      box-shadow:
-              0 0 20px rgba(0,0,0,.4);
-
-    }
-
-    /* TEXT */
-
-    .curtain-text{
-
-      position:absolute;
-
-      bottom:100px;
-      left:50%;
-
-      transform:translateX(-50%);
-
-      color:white;
-
-      font-size:30px;
-
-      letter-spacing:10px;
-
-      text-shadow:
-              0 0 10px rgba(255,255,255,.25);
-
-    }
-
-    /* =========================== */
-    /* LEAVES */
-    /* =========================== */
-
-    .leaf{
       position:fixed;
+
       z-index:-1;
-      opacity:.15;
-      filter:blur(2px);
-      animation:float 9s ease-in-out infinite;
+
+      opacity:.2;
+
+      filter:blur(1px);
+
+      pointer-events:none;
+
+      animation:float 8s ease-in-out infinite;
+
     }
 
-    .leaf1{
+    .flower1{
       width:320px;
-      left:-80px;
-      top:80px;
+      top:-40px;
+      left:-50px;
     }
 
-    .leaf2{
+    .flower2{
       width:360px;
-      right:-120px;
-      bottom:100px;
+      top:250px;
+      right:-80px;
+    }
+
+    .flower3{
+      width:330px;
+      bottom:-50px;
+      left:-70px;
+    }
+
+    .flower4{
+      width:300px;
+      bottom:120px;
+      right:-50px;
     }
 
     @keyframes float{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(30px);}
-      100%{transform:translateY(0);}
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(20px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+
     }
 
-    /* =========================== */
+    /* ========================================= */
+    /* LOADING SCREEN */
+    /* ========================================= */
+
+    .loading-screen{
+
+      position:fixed;
+
+      inset:0;
+
+      z-index:999999999999;
+
+      background:
+              linear-gradient(
+                      rgba(255,255,255,.72),
+                      rgba(255,255,255,.72)
+              ),
+              url('https://i.pinimg.com/736x/e6/57/0e/e6570e7d5c7094a7dd7c4702f4b9b71d.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+
+      justify-content:center;
+      align-items:center;
+
+      transition:1s;
+
+    }
+
+    /* ========================================= */
+    /* START LANGUAGE */
+    /* ========================================= */
+
+    .lang-switch-start{
+
+      position:absolute;
+
+      top:25px;
+      right:25px;
+
+      z-index:9999999;
+
+      display:flex;
+
+      gap:12px;
+
+    }
+
+    .lang-switch-start button{
+
+      border:none;
+
+      background:
+              rgba(255,255,255,.28);
+
+      backdrop-filter:blur(12px);
+
+      color:#5f644d;
+
+      padding:14px 26px;
+
+      border-radius:50px;
+
+      cursor:pointer;
+
+      font-size:20px;
+
+      font-family:'Cormorant Garamond',serif;
+
+      transition:.35s;
+
+      box-shadow:
+              0 10px 25px rgba(0,0,0,.08);
+
+    }
+
+    .lang-switch-start button:hover{
+
+      background:
+              linear-gradient(
+                      135deg,
+                      #7b8466,
+                      #5a624b
+              );
+
+      color:white;
+
+      transform:
+              translateY(-3px);
+
+    }
+
+    /* ========================================= */
+    /* LOADING BOX */
+    /* ========================================= */
+
+    .loading-box{
+
+      width:90%;
+      max-width:520px;
+
+      padding:70px 40px;
+
+      border-radius:40px;
+
+      background:
+              rgba(255,255,255,.28);
+
+      backdrop-filter:blur(18px);
+
+      border:
+              1px solid rgba(255,255,255,.4);
+
+      text-align:center;
+
+      box-shadow:
+              0 20px 50px rgba(0,0,0,.12);
+
+    }
+
+    .loader-circle{
+
+      width:130px;
+      height:130px;
+
+      margin:auto;
+
+      border-radius:50%;
+
+      border:
+              7px solid rgba(255,255,255,.4);
+
+      border-top:
+              7px solid #6b7458;
+
+      animation:
+              rotateLoader 1.2s linear infinite;
+
+      margin-bottom:40px;
+
+    }
+
+    @keyframes rotateLoader{
+
+      0%{
+        transform:rotate(0deg);
+      }
+
+      100%{
+        transform:rotate(360deg);
+      }
+
+    }
+
+    .loading-box h2{
+
+      font-size:42px;
+
+      color:#657055;
+
+      line-height:1.4;
+
+      margin-bottom:40px;
+
+    }
+
+    /* ========================================= */
+    /* BUTTON */
+    /* ========================================= */
+
+    .enter-btn{
+
+      border:none;
+
+      background:
+              linear-gradient(
+                      135deg,
+                      #7a8465,
+                      #59614a
+              );
+
+      color:white;
+
+      padding:20px 50px;
+
+      border-radius:60px;
+
+      font-size:26px;
+
+      cursor:pointer;
+
+      transition:.3s;
+
+      box-shadow:
+              0 12px 30px rgba(0,0,0,.15);
+
+    }
+
+    .enter-btn:hover{
+
+      transform:translateY(-4px);
+
+    }
+
+    /* ========================================= */
+    /* LANGUAGE */
+    /* ========================================= */
+
+    .lang-switch{
+
+      position:fixed;
+
+      top:20px;
+      right:20px;
+
+      z-index:9999;
+
+      display:flex;
+
+      gap:10px;
+
+    }
+
+    .lang-switch button{
+
+      border:none;
+
+      background:
+              rgba(255,255,255,.25);
+
+      backdrop-filter:blur(10px);
+
+      color:#5f644d;
+
+      padding:12px 24px;
+
+      border-radius:40px;
+
+      cursor:pointer;
+
+      font-size:18px;
+
+      transition:.3s;
+
+    }
+
+    .lang-switch button:hover{
+
+      background:#6c7358;
+      color:white;
+
+    }
+
+    /* ========================================= */
     /* MUSIC */
-    /* =========================== */
+    /* ========================================= */
 
     .music-btn{
 
@@ -299,14 +395,14 @@
       width:75px;
       height:75px;
 
-      border-radius:50%;
-
       border:none;
 
-      background:
-              rgba(255,255,255,.2);
+      border-radius:50%;
 
-      backdrop-filter:blur(10px);
+      background:
+              rgba(255,255,255,.28);
+
+      backdrop-filter:blur(12px);
 
       color:#5f644d;
 
@@ -316,11 +412,14 @@
 
       z-index:9999;
 
+      box-shadow:
+              0 10px 30px rgba(0,0,0,.12);
+
     }
 
-    /* =========================== */
+    /* ========================================= */
     /* HERO */
-    /* =========================== */
+    /* ========================================= */
 
     .hero{
 
@@ -335,9 +434,19 @@
     }
 
     .hero-box{
-      position:relative;
+
       width:100%;
       max-width:520px;
+
+      border-radius:30px;
+
+      overflow:hidden;
+
+      position:relative;
+
+      box-shadow:
+              0 25px 60px rgba(0,0,0,.15);
+
     }
 
     .hero-box img{
@@ -348,6 +457,7 @@
     .hero-overlay{
 
       position:absolute;
+
       left:0;
       bottom:0;
 
@@ -368,6 +478,7 @@
       position:absolute;
 
       bottom:35px;
+
       width:100%;
 
       text-align:center;
@@ -377,7 +488,9 @@
     .hero-text h1{
 
       font-size:95px;
+
       line-height:.85;
+
       font-weight:300;
 
     }
@@ -385,45 +498,63 @@
     .hero-text span{
 
       font-size:55px;
+
       font-family:'Great Vibes',cursive;
 
     }
 
-    /* =========================== */
-    /* SECTION */
-    /* =========================== */
+    /* ========================================= */
+    /* SECTIONS */
+    /* ========================================= */
 
     .section{
+
       padding:120px 20px;
+
       text-align:center;
+
     }
 
     .section h2{
+
       font-size:100px;
+
       line-height:.85;
+
       font-weight:300;
+
       margin-bottom:35px;
+
+      color:#677057;
+
     }
 
     .section p{
+
       max-width:850px;
+
       margin:auto;
+
       font-size:36px;
+
       line-height:1.5;
+
     }
 
-    /* =========================== */
+    /* ========================================= */
     /* CALENDAR */
-    /* =========================== */
+    /* ========================================= */
 
     .calendar-grid{
 
-      margin:auto;
-      margin-top:60px;
-
       max-width:700px;
 
+      margin:auto;
+
+      margin-top:60px;
+
       display:grid;
+
       grid-template-columns:repeat(7,1fr);
 
       gap:25px;
@@ -441,9 +572,10 @@
       content:'❤';
 
       position:absolute;
+
       inset:0;
 
-      color:#677057;
+      color:#667054;
 
       font-size:85px;
 
@@ -451,45 +583,49 @@
 
     }
 
-    /* =========================== */
+    /* ========================================= */
     /* LOCATION */
-    /* =========================== */
-
-    .location{
-
-      display:flex;
-      justify-content:center;
-
-      padding:100px 20px;
-
-    }
+    /* ========================================= */
 
     .location-card{
 
       max-width:650px;
 
-      background:
-              rgba(255,255,255,.15);
-
-      backdrop-filter:blur(12px);
-
-      border-radius:45px;
+      margin:auto;
 
       padding:80px;
 
       text-align:center;
 
+      background:
+              rgba(255,255,255,.28);
+
+      backdrop-filter:blur(14px);
+
+      border:
+              1px solid rgba(255,255,255,.35);
+
+      box-shadow:
+              0 15px 40px rgba(0,0,0,.08);
+
+      border-radius:40px;
+
     }
 
     .location-card h2{
-      font-size:90px;
-      font-weight:300;
+
+      font-size:80px;
+
       margin-bottom:30px;
+
     }
 
     .location-card p{
-      font-size:35px;
+
+      font-size:34px;
+
       line-height:1.5;
+
     }
 
     .map-btn{
@@ -498,9 +634,14 @@
 
       margin-top:40px;
 
-      background:#d8dcc8;
+      background:
+              linear-gradient(
+                      135deg,
+                      #7a8465,
+                      #59614a
+              );
 
-      color:#5f644d;
+      color:white;
 
       text-decoration:none;
 
@@ -512,183 +653,74 @@
 
     }
 
-    /* =========================== */
-    /* DRESS */
-    /* =========================== */
+    /* ========================================= */
+    /* COUNTDOWN */
+    /* ========================================= */
 
-    .palette{
+    .timer{
 
       display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
 
-      gap:18px;
+      justify-content:center;
+
+      gap:30px;
+
+      flex-wrap:wrap;
 
       margin-top:50px;
 
     }
 
-    .color{
-      width:75px;
-      height:75px;
-      border-radius:50%;
-    }
-
-    .gallery{
-
-      margin-top:60px;
-
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-      gap:25px;
-
-    }
-
-    .gallery img{
-      width:100%;
-      border-radius:15px;
-    }
-
-    /* =========================== */
-    /* WISHES */
-    /* =========================== */
-
-    .cards{
-
-      max-width:700px;
-
-      margin:auto;
-
-      display:flex;
-      flex-direction:column;
-
-      gap:35px;
-
-    }
-
-    .card{
+    .time-box{
 
       background:
-              rgba(255,255,255,.16);
+              rgba(255,255,255,.28);
 
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(14px);
 
-      border-radius:35px;
+      padding:35px;
 
-      padding:50px;
+      border-radius:30px;
 
-      font-size:34px;
-
-      line-height:1.5;
-
-    }
-
-    /* =========================== */
-    /* COUNTDOWN */
-    /* =========================== */
-
-    .countdown img{
-      width:100%;
-      max-width:500px;
-    }
-
-    .countdown h2{
-
-      font-family:'Great Vibes',cursive;
-
-      font-size:70px;
-
-      margin:50px 0;
-
-    }
-
-    .timer{
-
-      display:flex;
-      justify-content:center;
-      gap:40px;
-      flex-wrap:wrap;
+      min-width:120px;
 
     }
 
     .time-box div{
-      font-size:85px;
+
+      font-size:60px;
+
     }
 
     .time-box span{
-      font-size:28px;
-    }
 
-    /* =========================== */
-    /* RSVP */
-    /* =========================== */
-
-    form{
-
-      max-width:700px;
-
-      margin:auto;
-
-      display:flex;
-      flex-direction:column;
-
-      gap:35px;
+      font-size:24px;
 
     }
 
-    input{
-
-      border:none;
-      border-bottom:1px solid #6c7058;
-
-      background:transparent;
-
-      padding:20px;
-
-      font-size:28px;
-
-      color:#5f644d;
-
-      outline:none;
-
-    }
-
-    .submit-btn{
-
-      border:none;
-
-      background:#656b50;
-
-      color:white;
-
-      padding:25px;
-
-      border-radius:60px;
-
-      font-size:28px;
-
-      cursor:pointer;
-
-    }
-
-    /* =========================== */
+    /* ========================================= */
     /* FOOTER */
-    /* =========================== */
+    /* ========================================= */
 
     .footer{
+
       padding:120px 20px;
+
       text-align:center;
+
     }
 
     .footer h2{
+
       font-size:90px;
+
       font-family:'Great Vibes',cursive;
+
     }
 
-    /* =========================== */
+    /* ========================================= */
     /* MOBILE */
-    /* =========================== */
+    /* ========================================= */
 
     @media(max-width:768px){
 
@@ -696,33 +728,24 @@
         font-size:58px;
       }
 
-      .section h2,
-      .location-card h2{
+      .section h2{
         font-size:58px;
       }
 
-      .section p,
-      .location-card p,
-      .card{
+      .section p{
         font-size:24px;
       }
 
-      .calendar-grid{
-        gap:15px;
+      .loading-box h2{
+        font-size:28px;
+      }
+
+      .location-card h2{
+        font-size:52px;
+      }
+
+      .location-card p{
         font-size:24px;
-      }
-
-      .time-box div{
-        font-size:50px;
-      }
-
-      .curtain-text{
-        font-size:18px;
-        letter-spacing:4px;
-      }
-
-      .rope{
-        height:250px;
       }
 
     }
@@ -732,44 +755,56 @@
 
 <body>
 
+<!-- FLOWERS -->
+
+<img src="flower.png" class="flower flower1">
+<img src="flower.png" class="flower flower2">
+<img src="flower.png" class="flower flower3">
+<img src="flower.png" class="flower flower4">
+
+<!-- LOADING -->
+
+<div class="loading-screen" id="loadingScreen">
+
+  <div class="lang-switch-start">
+
+    <button onclick="setLanguage('hy')">
+      🇦🇲 Հայ
+    </button>
+
+    <button onclick="setLanguage('ru')">
+      🇷🇺 Рус
+    </button>
+
+  </div>
+
+  <div class="loading-box">
+
+    <div class="loader-circle"></div>
+
+    <h2 id="loadingText">
+      Ստուգում ենք հրավերը...
+    </h2>
+
+    <button class="enter-btn" id="enterBtn">
+      Բացել հրավերը
+    </button>
+
+  </div>
+
+</div>
+
 <!-- LANGUAGE -->
 
 <div class="lang-switch">
 
   <button onclick="setLanguage('hy')">
-    Հայ
+    🇦🇲 Հայ
   </button>
 
   <button onclick="setLanguage('ru')">
-    Рус
+    🇷🇺 Рус
   </button>
-
-</div>
-
-<!-- LEAVES -->
-
-<img src="leaf.png" class="leaf leaf1">
-<img src="leaf.png" class="leaf leaf2">
-
-<!-- CURTAINS -->
-
-<div class="curtain-wrapper" id="curtain">
-
-  <div class="curtain left-curtain"></div>
-
-  <div class="curtain right-curtain"></div>
-
-  <div class="rope-wrapper">
-
-    <div class="rope" id="rope"></div>
-
-    <div class="rope-ball"></div>
-
-  </div>
-
-  <div class="curtain-text">
-    ՔԱՇԵՔ ՊԱՐԱՆԸ
-  </div>
 
 </div>
 
@@ -813,7 +848,7 @@ Wedding Day
 
 </section>
 
-<!-- INVITE -->
+<!-- INVITATION -->
 
 <section class="section">
 
@@ -888,7 +923,7 @@ Wedding Day
 
 <!-- LOCATION -->
 
-<section class="location">
+<section class="section">
 
   <div class="location-card">
 
@@ -896,7 +931,7 @@ Wedding Day
       ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ
     </h2>
 
-    <p>
+    <p id="locationText">
       Royal Hall
       <br><br>
       Երևան
@@ -910,116 +945,37 @@ Wedding Day
 
 </section>
 
-<!-- DRESS -->
-
-<section class="section">
-
-  <h2 id="dressTitle">
-    ՀԱԳՈՒՍՏԻ ՈՃ
-  </h2>
-
-  <div class="palette">
-
-    <div class="color" style="background:#3f2a25;"></div>
-    <div class="color" style="background:#8f7b6d;"></div>
-    <div class="color" style="background:#d8c4be;"></div>
-    <div class="color" style="background:#e5d2d7;"></div>
-    <div class="color" style="background:#646c53;"></div>
-
-  </div>
-
-  <div class="gallery">
-
-    <img src="1.jpg">
-    <img src="2.jpg">
-    <img src="3.jpg">
-    <img src="4.jpg">
-
-  </div>
-
-</section>
-
-<!-- WISHES -->
-
-<section class="section">
-
-  <h2 id="wishesTitle">
-    ԿԱՐԵՎՈՐ ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ
-  </h2>
-
-  <div class="cards">
-
-    <div class="card">
-      Ձեր ներկայությունը մեզ համար
-      ամենամեծ նվերն է։
-    </div>
-
-    <div class="card">
-      Թող այս օրը լինի
-      սիրով և ջերմությամբ լի։
-    </div>
-
-  </div>
-
-</section>
-
 <!-- COUNTDOWN -->
 
-<section class="section countdown">
+<section class="section">
 
-  <img src="love.jpg">
-
-  <h2>
-    Մինչ մեր հարսանիքը մնացել է
+  <h2 id="countTitle">
+    Մնացել է
   </h2>
 
   <div class="timer">
 
     <div class="time-box">
       <div id="days">00</div>
-      <span>օր</span>
+      <span id="daysText">օր</span>
     </div>
 
     <div class="time-box">
       <div id="hours">00</div>
-      <span>ժամ</span>
+      <span id="hoursText">ժամ</span>
     </div>
 
     <div class="time-box">
       <div id="minutes">00</div>
-      <span>րոպե</span>
+      <span id="minutesText">րոպե</span>
     </div>
 
     <div class="time-box">
       <div id="seconds">00</div>
-      <span>վայրկյան</span>
+      <span id="secondsText">վայրկյան</span>
     </div>
 
   </div>
-
-</section>
-
-<!-- RSVP -->
-
-<section class="section">
-
-  <h2 id="rsvpTitle">
-    ԽՆԴՐՈՒՄ ԵՆՔ ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ
-  </h2>
-
-  <form>
-
-    <input type="text" placeholder="Անուն Ազգանուն">
-
-    <input type="text" placeholder="Հյուրերի քանակ">
-
-    <input type="text" placeholder="Հեռախոսահամար">
-
-    <button class="submit-btn">
-      Ուղարկել
-    </button>
-
-  </form>
 
 </section>
 
@@ -1035,40 +991,186 @@ Wedding Day
 
 <script>
 
-  /* =========================== */
-  /* CURTAIN */
-  /* =========================== */
+  /* ========================================= */
+  /* LANGUAGE */
+  /* ========================================= */
 
-  document.body.style.overflow='hidden';
+  function setLanguage(lang){
 
-  const rope =
-          document.getElementById('rope');
+    if(lang === 'hy'){
 
-  const curtain =
-          document.getElementById('curtain');
+      document.getElementById('loadingText').innerHTML =
+              'Ստուգում ենք հրավերը...';
+
+      document.getElementById('enterBtn').innerHTML =
+              'Բացել հրավերը';
+
+      document.getElementById('inviteTitle').innerHTML =
+              'ՍԻՐԵԼԻ <br> ՀԱՐԱԶԱՏՆԵՐ';
+
+      document.getElementById('inviteText').innerHTML =
+              'Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենագեղեցիկ օրվան։';
+
+      document.getElementById('calendarTitle').innerHTML =
+              'ՄԵՐ <br> ՀՈՒԼԻՍ';
+
+      document.getElementById('calendarText').innerHTML =
+              'Այս օրը մենք կասենք';
+
+      document.getElementById('locationTitle').innerHTML =
+              'ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ';
+
+      document.getElementById('mapBtn').innerHTML =
+              'ԲԱՑԵԼ ՔԱՐՏԵԶԸ';
+
+      document.getElementById('countTitle').innerHTML =
+              'Մնացել է';
+
+      document.getElementById('daysText').innerHTML='օր';
+      document.getElementById('hoursText').innerHTML='ժամ';
+      document.getElementById('minutesText').innerHTML='րոպե';
+      document.getElementById('secondsText').innerHTML='վայրկյան';
+
+    }
+
+    if(lang === 'ru'){
+
+      document.getElementById('loadingText').innerHTML =
+              'Проверяем приглашение...';
+
+      document.getElementById('enterBtn').innerHTML =
+              'Открыть приглашение';
+
+      document.getElementById('inviteTitle').innerHTML =
+              'ДОРОГИЕ <br> РОДНЫЕ';
+
+      document.getElementById('inviteText').innerHTML =
+              'С большой любовью приглашаем Вас разделить вместе с нами самый важный день нашей жизни.';
+
+      document.getElementById('calendarTitle').innerHTML =
+              'НАШ <br> ИЮЛЬ';
+
+      document.getElementById('calendarText').innerHTML =
+              'В этот день мы скажем';
+
+      document.getElementById('locationTitle').innerHTML =
+              'МЕСТО ПРОВЕДЕНИЯ';
+
+      document.getElementById('mapBtn').innerHTML =
+              'ОТКРЫТЬ КАРТУ';
+
+      document.getElementById('countTitle').innerHTML =
+              'Осталось';
+
+      document.getElementById('daysText').innerHTML='дней';
+      document.getElementById('hoursText').innerHTML='часов';
+      document.getElementById('minutesText').innerHTML='минут';
+      document.getElementById('secondsText').innerHTML='секунд';
+
+    }
+
+  }
+
+  /* ========================================= */
+  /* INVITATION CHECK */
+  /* ========================================= */
+
+  const enterBtn =
+          document.getElementById('enterBtn');
+
+  const loadingText =
+          document.getElementById('loadingText');
+
+  const loadingScreen =
+          document.getElementById('loadingScreen');
 
   const music =
           document.getElementById('music');
 
-  rope.onclick = ()=>{
+  let clickCount = 0;
 
-    curtain.classList.add('open-curtain');
+  enterBtn.onclick = ()=>{
 
-    music.play();
+    clickCount++;
 
-    document.body.style.overflow='auto';
+    if(clickCount === 1){
 
-    setTimeout(()=>{
+      if(enterBtn.innerHTML.includes('Открыть')){
 
-      curtain.style.display='none';
+        loadingText.innerHTML =
+                `
+Возможно Вы не приглашены 😅
+<br><br>
+Попробуйте ещё раз...
+`;
 
-    },3500);
+        enterBtn.innerHTML =
+                'Попробовать снова';
+
+      }else{
+
+        loadingText.innerHTML =
+                `
+Հնարավոր է դուք հրավիրված չեք 😅
+<br><br>
+Կրկին փորձեք...
+`;
+
+        enterBtn.innerHTML =
+                'Կրկին փորձել';
+
+      }
+
+      enterBtn.style.background =
+              'linear-gradient(135deg,#9a7a7a,#6f4f4f)';
+
+    }
+
+    if(clickCount === 2){
+
+      if(enterBtn.innerHTML.includes('Попробовать')){
+
+        loadingText.innerHTML =
+                `
+Поздравляем 🎉
+<br><br>
+Вы приглашены
+`;
+
+      }else{
+
+        loadingText.innerHTML =
+                `
+Շնորհավորում ենք 🎉
+<br><br>
+Դուք հրավիրված եք
+`;
+
+      }
+
+      enterBtn.style.display='none';
+
+      setTimeout(()=>{
+
+        loadingScreen.style.opacity='0';
+
+        setTimeout(()=>{
+
+          loadingScreen.style.display='none';
+
+          music.play();
+
+        },1000);
+
+      },2500);
+
+    }
 
   };
 
-  /* =========================== */
+  /* ========================================= */
   /* MUSIC */
-  /* =========================== */
+  /* ========================================= */
 
   const musicBtn =
           document.getElementById('musicBtn');
@@ -1091,9 +1193,9 @@ Wedding Day
 
   };
 
-  /* =========================== */
+  /* ========================================= */
   /* COUNTDOWN */
-  /* =========================== */
+  /* ========================================= */
 
   const weddingDate =
           new Date('2026-07-28T00:00:00').getTime();
@@ -1119,82 +1221,6 @@ Wedding Day
             Math.floor((diff%(1000*60))/1000);
 
   },1000);
-
-  /* =========================== */
-  /* LANGUAGE */
-  /* =========================== */
-
-  function setLanguage(lang){
-
-    if(lang==='hy'){
-
-      document.querySelector('.curtain-text').innerHTML =
-              'ՔԱՇԵՔ ՊԱՐԱՆԸ';
-
-      document.getElementById('inviteTitle').innerHTML =
-              'ՍԻՐԵԼԻ <br> ՀԱՐԱԶԱՏՆԵՐ';
-
-      document.getElementById('inviteText').innerHTML =
-              'Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենագեղեցիկ օրվան։';
-
-      document.getElementById('calendarTitle').innerHTML =
-              'ՄԵՐ <br> ՀՈՒԼԻՍ';
-
-      document.getElementById('calendarText').innerHTML =
-              'Այս օրը մենք կասենք';
-
-      document.getElementById('locationTitle').innerHTML =
-              'ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ';
-
-      document.getElementById('mapBtn').innerHTML =
-              'ԲԱՑԵԼ ՔԱՐՏԵԶԸ';
-
-      document.getElementById('dressTitle').innerHTML =
-              'ՀԱԳՈՒՍՏԻ ՈՃ';
-
-      document.getElementById('wishesTitle').innerHTML =
-              'ԿԱՐԵՎՈՐ ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ';
-
-      document.getElementById('rsvpTitle').innerHTML =
-              'ԽՆԴՐՈՒՄ ԵՆՔ ՀԱՍՏԱՏԵԼ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ';
-
-    }
-
-    if(lang==='ru'){
-
-      document.querySelector('.curtain-text').innerHTML =
-              'ПОТЯНИТЕ ЗА ШНУР';
-
-      document.getElementById('inviteTitle').innerHTML =
-              'ДОРОГИЕ <br> РОДНЫЕ';
-
-      document.getElementById('inviteText').innerHTML =
-              'С большой любовью приглашаем Вас разделить вместе с нами самый важный день нашей жизни.';
-
-      document.getElementById('calendarTitle').innerHTML =
-              'НАШ <br> ИЮЛЬ';
-
-      document.getElementById('calendarText').innerHTML =
-              'В этот день мы скажем';
-
-      document.getElementById('locationTitle').innerHTML =
-              'МЕСТО ПРОВЕДЕНИЯ';
-
-      document.getElementById('mapBtn').innerHTML =
-              'ОТКРЫТЬ КАРТУ';
-
-      document.getElementById('dressTitle').innerHTML =
-              'ДРЕСС-КОД';
-
-      document.getElementById('wishesTitle').innerHTML =
-              'ВАЖНЫЕ ПОЖЕЛАНИЯ';
-
-      document.getElementById('rsvpTitle').innerHTML =
-              'ПОДТВЕРДИТЕ ВАШЕ ПРИСУТСТВИЕ';
-
-    }
-
-  }
 
 </script>
 
