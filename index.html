@@ -1,405 +1,1036 @@
+```html
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Հարսանեկան հրավիրագիր</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Yeseva+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Whisper&display=swap" rel="stylesheet">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @font-face {
-            font-family : 'WhisperingSignature';
-            src         : url("WhisperingSignature.ttf");
-            font-weight : normal;
-            font-style  : normal;
-            font-display: swap;
-        }
+  <title>ARAM & ANGELINA</title>
 
-        @font-face {
-            font-family : 'georgia';
-            src         : url("georgia.ttf");
-            font-weight : normal;
-            font-style  : normal;
-            font-display: swap;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
+  <style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: "Lato", sans-serif;
-            font-weight: 400;
-        }
-
-        body {
-            color: #333;
-            background: #fff;
-        }
-
-        .P-start {
-            background: transparent;
-            border: 1px solid rgba(0, 0, 0, 0.55);
-            padding: 20px 56px;
-            cursor: pointer;
-        }
-
-        #box {
-            overflow: hidden;
-        }
-
-        .P-open {
-            overflow: auto !important;
-        }
-
-        .hero {
-            background: url('1in_nkar.JPG') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 60px;
-            color: white;
-            background-size: contain;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 18px;
-        }
-
-        .P-names-block {
-            padding: 5px 20px;
-        }
-
-        .P-names-block h1 {
-            color: black;
-        }
-
-
-        .P-images-block-gallery {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: auto auto auto;
-            max-width: 800px;
-            margin: 60px auto;
-            overflow: auto;
-        }
-        .P-images-block-gallery img {
-            width: 200px;
-            height: 350px;
-            object-fit: cover;
-        }
-
-
-        .date-section {
-            background-color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .date-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .wedding-date {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            max-width: 400px;
-            margin: 0 auto;
-            gap: 10px;
-            font-size: 16px;
-        }
-
-        .calendar div {
-            padding: 10px;
-        }
-
-        .calendar .highlight {
-
-            border-radius: 50%;
-            padding: 8px;
-            position: relative;
-        }
-
-        .calendar .highlight::after {
-            content: url('sirt.png');
-            position: absolute;
-            bottom: -24px;
-            left: 51%;
-            transform: translateX(-50%);
-            font-size: 20px;
-        }
-
-        .invite-msg {
-            margin-top: 50px;
-            font-size: 18px;
-        }
-
-        .countdown {
-            background-image: url('nar_crop.JPG') ;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            background-size: cover;
-            background-position: 33% 45%;
-            position: relative;
-        }
-
-        .countdown::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-
-        }
-
-        .countdown h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 999;
-        }
-
-        .timer {
-            font-size: 24px;
-            position: relative;
-            z-index: 999;
-        }
-
-        footer {
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-
-        footer a {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .P-font-whispering {
-            font-family : 'Pt-Sans', 'WhisperingSignature', Arial, sans-serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-            text-align: center;
-            font-size: 40px;
-        }
-
-        .P-display-none {
-            display: none;
-        }
-
-        @media screen and (max-width: 800px){
-            .P-images-block-gallery {
-                gap: 20px;
-                padding: 0 20px;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .date-section h2 {
-                font-size: 28px;
-            }
-
-            .wedding-date {
-                font-size: 26px;
-            }
-
-
-
-            .calendar {
-                font-size: 14px;
-                gap: 6px;
-            }
-
-            .calendar div {
-                padding: 6px;
-            }
-
-            .invite-msg {
-                font-size: 16px;
-            }
-
-            .countdown h2 {
-                font-size: 22px;
-            }
-
-            .timer {
-                font-size: 20px;
-            }
-
-            footer {
-                font-size: 12px;
-            }
-        }
-        @media screen and (max-width: 560px){
-            .hero  {
-                background-size: cover;
-            }
-        }
-    </style>
-</head>
-<body id="box">
-<section >
-    <section class="hero">
-        <button id="boxButton" class="P-start" onclick="changeStyle()">ՍԿՍԵԼ</button>
-        <div class="P-names-block">
-            <h1>Դավիթ & Սոնա</h1>
-        </div>
-
-    </section>
-
-    <div class="P-font-whispering">
-        Save The Date
-    </div>
-
-    <section class="date-section">
-        <p class="wedding-date">Նոյեմբեր 2025</p>
-        <div class="calendar">
-            <div>Եկ</div><div>Երք</div><div>Չրք</div><div>Հնգ</div><div>Ուր</div><div>Շբթ</div><div>Կիր</div>
-            <div> </div><div> </div><div> </div><div> </div><div> </div><div>1</div><div>2</div><div>3</div>
-            <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
-            <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
-            <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div class="highlight">24</div>
-            <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div>
-        </div>
-        <p class="invite-msg">Սիրով ցանկանում ենք Ձեզ հետ կիսել մեր կյանքի կարևորագույն օրերից մեկը:</p>
-    </section>
-
-
-
-    <section class="P-images-block-gallery">
-        <img src="nar_crop2.JPG" alt="">
-        <img src="nar_crop.JPG" alt>
-        <img src="nar_crop4.JPG" alt="">
-    </section>
-
-    <div class="P-events-block" style="
-display: flex;
- flex-direction: column;
- align-items: center;
- max-width: 280px;
- justify-content: center;
- margin: 0 auto;
- padding-bottom: 20px;
-">
-
-        <h3 style="font-size: 18px; text-align: center">ՊՍԱԿԱԴՐՈՒԹՅԱՆ ԱՐԱՐՈՂՈՒԹՅՈՒՆ</h3>
-        <img src="rings.jpg" alt="" style="width: 300px;">
-        <span style=" font-size: 36px; font-family : 'Pt-Sans', 'georgia', Arial, sans-serif; " >13:15</span>
-        <h3 style="max-width: 280px; width: 100%; text-align: center; margin-top: 20px;">Սուրբ Մարիամ Աստվածածին եկեղեցի (Նորք-Մարաշ)</h3>
-        <a href="https://yandex.com/maps/10262/yerevan/?ll=44.541344%2C40.186423&mode=routes&rtext=~40.186806%2C44.541106&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D15438436392&z=17.6" target="_blank" style="
-        color: white;
-        padding: 10px 20px;
-        border-radius: 50%;
-        border: 1px solid rgba(0,0,0,0.53);
-        margin-top: 20px;
-        cursor: pointer;
-        ">
-            <span style="color: black" >Ինչպես հասնել</span>
-        </a>
-
-        <h3 style="font-size: 18px; text-align: center; margin-top: 40px;">ՀԱՐՍԱՆԵԿԱՆ ՀԱՆԴԻՍՈՒԹՅՈՒՆ</h3>
-        <img src="bajak.JPG" alt="" style="width: 300px;">
-        <span style=" font-size: 36px; font-family: 'Pt-Sans', 'georgia', Arial, sans-serif; " >17:00</span>
-        <h3 style="max-width: 280px; width: 100%; text-align: center; margin-top: 20px;">«ՄՈՐԵՆԱ» ՌԵՍՏՈՐԱՆԱՅԻՆ ՀԱՄԱԼԻՐ Մասիս, Մխիթար Հերացու փող., 7/8 շենք</h3>
-        <a href="https://yandex.com/maps/org/222913353582/?ll=44.444778%2C40.059849&z=17.02" target="_blank" style="
-        color: white;
-        padding: 10px 20px;
-        border-radius: 50%;
-        border: 1px solid rgba(0,0,0,0.53);
-        margin-top: 20px;
-        cursor: pointer;
-        ">
-            <span style="color: black">Ինչպես հասնել</span>
-        </a>
-    </div>
-
-    <section class="countdown">
-        <h2>Սիրով սպասում ենք Ձեզ</h2>
-        <div class="timer" id="timer">Loading...</div>
-    </section>
-
-    <audio id="scrollAudio" loop>
-        <source src="11111.mp3" type="audio/mpeg">
-    </audio>
-</section>
-
-
-<script>
-    const weddingDate = new Date("2025-11-24T00:00:00").getTime();
-    const timerEl = document.getElementById("timer");
-
-    setInterval(() => {
-        const now = new Date().getTime();
-        const diff = weddingDate - now;
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        timerEl.innerHTML = `${days} Օր ${hours} Ժամ ${minutes} Րոպե ${seconds} Վ.`;
-    }, 1000);
-
-    const audio = document.getElementById('scrollAudio');
-    let isPlaying = false;
-
-    window.addEventListener('scroll', () => {
-        if (!isPlaying) {
-            audio.play().then(() => {
-                isPlaying = true;
-                console.log("Audio started and looping.");
-            }).catch(error => {
-                console.log("Autoplay blocked. Try clicking somewhere on the page first.");
-            });
-        }
-    });
-
-    function changeStyle() {
-        const box = document.getElementById('box');
-        box.classList.add('P-open');
-        const boxButton = document.getElementById('boxButton');
-        boxButton.classList.add('P-display-none');
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#c4c8b0;
+      color:#5f634f;
+      font-family:'Cormorant Garamond',serif;
+      overflow-x:hidden;
+    }
+
+    /* ======================== */
+    /* LANGUAGE */
+    /* ======================== */
+
+    .lang-switch{
+      position:fixed;
+      top:20px;
+      right:20px;
+      z-index:999999;
+      display:flex;
+      gap:10px;
+    }
+
+    .lang-switch button{
+      border:none;
+      background:rgba(255,255,255,.2);
+      backdrop-filter:blur(8px);
+      color:#5f634f;
+      padding:10px 22px;
+      border-radius:40px;
+      cursor:pointer;
+      font-size:18px;
+      transition:.3s;
+    }
+
+    .lang-switch button:hover{
+      background:#6a6f57;
+      color:white;
+    }
+
+    /* ======================== */
+    /* CURTAINS */
+    /* ======================== */
+
+    .curtain-wrapper{
+      position:fixed;
+      inset:0;
+      z-index:99999999;
+      display:flex;
+      overflow:hidden;
+    }
+
+    .curtain{
+      width:50%;
+      height:100%;
+      background:
+              linear-gradient(
+                      90deg,
+                      rgba(0,0,0,.25),
+                      rgba(255,255,255,.03),
+                      rgba(0,0,0,.2)
+              ),
+              url('curtain.jpg');
+
+      background-size:cover;
+      background-position:center;
+
+      transition:3.5s cubic-bezier(.77,0,.18,1);
+    }
+
+    .left-curtain{
+      border-right:2px solid rgba(255,255,255,.08);
+    }
+
+    .right-curtain{
+      border-left:2px solid rgba(255,255,255,.08);
+    }
+
+    .open-curtain .left-curtain{
+      transform:translateX(-100%);
+    }
+
+    .open-curtain .right-curtain{
+      transform:translateX(100%);
+    }
+
+    /* ======================== */
+    /* ROPE */
+    /* ======================== */
+
+    .rope-wrapper{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      top:0;
+      z-index:999999999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .rope{
+      width:5px;
+      height:320px;
+
+      background:
+              repeating-linear-gradient(
+                      180deg,
+                      #8d8266,
+                      #8d8266 6px,
+                      #70654f 6px,
+                      #70654f 12px
+              );
+
+      cursor:pointer;
+    }
+
+    .rope-ball{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+
+      background:
+              radial-gradient(circle at top,
+              #a89b78,
+              #6d6147);
+    }
+
+    .curtain-text{
+      position:absolute;
+      bottom:90px;
+      left:50%;
+      transform:translateX(-50%);
+      color:white;
+      letter-spacing:6px;
+      font-size:26px;
+    }
+
+    /* ======================== */
+    /* FLOAT LEAVES */
+    /* ======================== */
+
+    .leaf{
+      position:fixed;
+      z-index:-1;
+      opacity:.18;
+      filter:blur(2px);
+      animation:float 10s ease-in-out infinite;
+    }
+
+    .leaf1{
+      top:40px;
+      left:-50px;
+      width:280px;
+    }
+
+    .leaf2{
+      right:-80px;
+      bottom:50px;
+      width:350px;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(25px);}
+      100%{transform:translateY(0);}
+    }
+
+    /* ======================== */
+    /* MUSIC */
+    /* ======================== */
+
+    .music-btn{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:75px;
+      height:75px;
+      border-radius:50%;
+      border:2px solid #6b7058;
+      background:rgba(255,255,255,.15);
+      backdrop-filter:blur(10px);
+      color:#6b7058;
+      font-size:28px;
+      cursor:pointer;
+      z-index:9999;
+    }
+
+    /* ======================== */
+    /* HERO */
+    /* ======================== */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:100px 20px;
+    }
+
+    .hero-box{
+      position:relative;
+      max-width:520px;
+      width:100%;
+    }
+
+    .hero-box img{
+      width:100%;
+      display:block;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:250px;
+      background:linear-gradient(to top,#c4c8b0,transparent);
+    }
+
+    .hero-text{
+      position:absolute;
+      bottom:30px;
+      width:100%;
+      text-align:center;
+    }
+
+    .hero-text h1{
+      font-size:95px;
+      line-height:.85;
+      font-weight:300;
+    }
+
+    .hero-text span{
+      font-family:'Great Vibes',cursive;
+      font-size:55px;
+    }
+
+    /* ======================== */
+    /* INVITE */
+    /* ======================== */
+
+    .invite{
+      padding:120px 20px;
+      text-align:center;
+    }
+
+    .invite h2{
+      font-size:110px;
+      line-height:.85;
+      font-weight:300;
+      margin-bottom:40px;
+    }
+
+    .invite p{
+      max-width:850px;
+      margin:auto;
+      font-size:38px;
+      line-height:1.5;
+    }
+
+    /* ======================== */
+    /* CALENDAR */
+    /* ======================== */
+
+    .calendar{
+      text-align:center;
+      padding:120px 20px;
+    }
+
+    .calendar h2{
+      font-size:110px;
+      line-height:.85;
+      font-weight:300;
+    }
+
+    .calendar p{
+      font-size:35px;
+      margin:20px 0;
+    }
+
+    .calendar span{
+      font-size:70px;
+      font-family:'Great Vibes',cursive;
+    }
+
+    .calendar-grid{
+      max-width:700px;
+      margin:auto;
+      margin-top:60px;
+
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:25px;
+
+      font-size:38px;
+    }
+
+    .heart{
+      position:relative;
+    }
+
+    .heart::before{
+      content:'❤';
+      position:absolute;
+      inset:0;
+      color:#6d7159;
+      font-size:80px;
+      z-index:-1;
+    }
+
+    /* ======================== */
+    /* LOCATION */
+    /* ======================== */
+
+    .location{
+      padding:150px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .location-card{
+      background:rgba(255,255,255,.12);
+      backdrop-filter:blur(10px);
+      border-radius:45px;
+      padding:80px;
+      text-align:center;
+      max-width:650px;
+    }
+
+    .location-card h2{
+      font-size:90px;
+      font-weight:300;
+      margin-bottom:30px;
+    }
+
+    .location-card p{
+      font-size:35px;
+      line-height:1.5;
+    }
+
+    .map-btn{
+      margin-top:40px;
+      display:inline-block;
+      text-decoration:none;
+      background:#d8dbc5;
+      color:#5f634f;
+      padding:18px 50px;
+      border-radius:50px;
+      font-size:28px;
+    }
+
+    /* ======================== */
+    /* DRESS CODE */
+    /* ======================== */
+
+    .dress{
+      padding:120px 20px;
+      text-align:center;
+    }
+
+    .dress h2{
+      font-size:90px;
+      font-weight:300;
+    }
+
+    .palette{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:18px;
+      margin:50px 0;
+    }
+
+    .color{
+      width:75px;
+      height:75px;
+      border-radius:50%;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin-top:60px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:12px;
+    }
+
+    /* ======================== */
+    /* WISHES */
+    /* ======================== */
+
+    .wishes{
+      padding:120px 20px;
+    }
+
+    .wishes h2{
+      text-align:center;
+      font-size:90px;
+      font-weight:300;
+      margin-bottom:70px;
+    }
+
+    .cards{
+      max-width:700px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:35px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.15);
+      backdrop-filter:blur(10px);
+      border-radius:35px;
+      padding:50px;
+      font-size:35px;
+      line-height:1.5;
+    }
+
+    /* ======================== */
+    /* COUNTDOWN */
+    /* ======================== */
+
+    .countdown{
+      text-align:center;
+      padding:120px 20px;
+    }
+
+    .countdown img{
+      width:100%;
+      max-width:500px;
+    }
+
+    .countdown h2{
+      margin:50px 0;
+      font-size:70px;
+      font-family:'Great Vibes',cursive;
+    }
+
+    .timer{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      flex-wrap:wrap;
+    }
+
+    .time-box div{
+      font-size:85px;
+    }
+
+    .time-box span{
+      font-size:28px;
+    }
+
+    /* ======================== */
+    /* RSVP */
+    /* ======================== */
+
+    .rsvp{
+      padding:120px 20px;
+      text-align:center;
+    }
+
+    .rsvp h2{
+      font-size:90px;
+      font-weight:300;
+      margin-bottom:30px;
+    }
+
+    form{
+      max-width:700px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:35px;
+    }
+
+    input{
+      background:transparent;
+      border:none;
+      border-bottom:1px solid #6c7058;
+      padding:20px;
+      font-size:28px;
+      color:#5f634f;
+      outline:none;
+    }
+
+    .submit-btn{
+      border:none;
+      background:#64694f;
+      color:white;
+      padding:25px;
+      border-radius:60px;
+      font-size:28px;
+      cursor:pointer;
+    }
+
+    /* ======================== */
+    /* FOOTER */
+    /* ======================== */
+
+    .footer{
+      padding:120px 20px;
+      text-align:center;
+    }
+
+    .footer h2{
+      font-family:'Great Vibes',cursive;
+      font-size:90px;
+    }
+
+    /* ======================== */
+    /* MOBILE */
+    /* ======================== */
+
+    @media(max-width:768px){
+
+      .hero-text h1{
+        font-size:55px;
+      }
+
+      .invite h2,
+      .calendar h2,
+      .location-card h2,
+      .dress h2,
+      .wishes h2,
+      .rsvp h2{
+        font-size:60px;
+      }
+
+      .invite p,
+      .location-card p,
+      .card{
+        font-size:24px;
+      }
+
+      .calendar-grid{
+        gap:15px;
+        font-size:24px;
+      }
+
+      .time-box div{
+        font-size:50px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- LANGUAGE -->
+
+<div class="lang-switch">
+
+  <button onclick="setLanguage('hy')">
+    Հայ
+  </button>
+
+  <button onclick="setLanguage('ru')">
+    Рус
+  </button>
+
+</div>
+
+<!-- LEAVES -->
+
+<img src="leaf.png" class="leaf leaf1">
+<img src="leaf.png" class="leaf leaf2">
+
+<!-- CURTAIN -->
+
+<div class="curtain-wrapper" id="curtain">
+
+  <div class="curtain left-curtain"></div>
+
+  <div class="curtain right-curtain"></div>
+
+  <div class="rope-wrapper">
+
+    <div class="rope" id="rope"></div>
+
+    <div class="rope-ball"></div>
+
+  </div>
+
+  <div class="curtain-text">
+    ՔԱՇԵՔ ՊԱՐԱՆԸ
+  </div>
+
+</div>
+
+<!-- MUSIC -->
+
+<button class="music-btn" id="musicBtn">
+  ❚❚
+</button>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-box">
+
+    <img src="couple.jpg">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-text">
+
+      <h1>
+        ARAM
+        <br>
+        &
+        <br>
+        ANGELINA
+      </h1>
+
+      <span>Wedding Day</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- INVITE -->
+
+<section class="invite">
+
+  <h2 id="inviteTitle">
+    ՍԻՐԵԼԻ
+    <br>
+    ՀԱՐԱԶԱՏՆԵՐ
+  </h2>
+
+  <p id="inviteText">
+    Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու
+    մեր կյանքի ամենագեղեցիկ օրվան։
+  </p>
+
+</section>
+
+<!-- CALENDAR -->
+
+<section class="calendar">
+
+  <h2 id="calendarTitle">
+    ՄԵՐ
+    <br>
+    ՀՈՒԼԻՍ
+  </h2>
+
+  <p id="calendarText">
+    Այս օրը մենք կասենք
+  </p>
+
+  <span>Այո!</span>
+
+  <div class="calendar-grid">
+
+    <div>ԵԿ</div>
+    <div>ԵՔ</div>
+    <div>ՉՔ</div>
+    <div>ՀՆ</div>
+    <div>ՈՒ</div>
+    <div>ՇԲ</div>
+    <div>ԿԻ</div>
+
+    <div></div>
+    <div></div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+
+    <div>13</div>
+    <div>14</div>
+    <div>15</div>
+    <div>16</div>
+    <div>17</div>
+
+    <div class="heart">28</div>
+
+  </div>
+
+</section>
+
+<!-- LOCATION -->
+
+<section class="location">
+
+  <div class="location-card">
+
+    <h2 id="locationTitle">
+      ԼՈԿԱՑԻԱ
+    </h2>
+
+    <p>
+      Royal Hall
+      <br><br>
+      Երևան
+    </p>
+
+    <a href="#" class="map-btn" id="mapBtn">
+      Քարտեզ
+    </a>
+
+  </div>
+
+</section>
+
+<!-- DRESS -->
+
+<section class="dress">
+
+  <h2 id="dressTitle">
+    ԴՐԵՍ ԿՈԴ
+  </h2>
+
+  <div class="palette">
+
+    <div class="color" style="background:#3f2a25;"></div>
+    <div class="color" style="background:#8f7b6d;"></div>
+    <div class="color" style="background:#d8c4be;"></div>
+    <div class="color" style="background:#e5d2d7;"></div>
+    <div class="color" style="background:#646c53;"></div>
+
+  </div>
+
+  <div class="gallery">
+
+    <img src="1.jpg">
+    <img src="2.jpg">
+    <img src="3.jpg">
+    <img src="4.jpg">
+
+  </div>
+
+</section>
+
+<!-- WISHES -->
+
+<section class="wishes">
+
+  <h2 id="wishesTitle">
+    ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ
+  </h2>
+
+  <div class="cards">
+
+    <div class="card">
+      Ձեր ներկայությունը մեզ համար
+      ամենամեծ նվերն է։
+    </div>
+
+    <div class="card">
+      Թող այս օրը լինի
+      սիրով և ջերմությամբ լի։
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown">
+
+  <img src="love.jpg">
+
+  <h2>
+    Մինչ մեր հարսանիքը մնացել է
+  </h2>
+
+  <div class="timer">
+
+    <div class="time-box">
+      <div id="days">00</div>
+      <span>օր</span>
+    </div>
+
+    <div class="time-box">
+      <div id="hours">00</div>
+      <span>ժամ</span>
+    </div>
+
+    <div class="time-box">
+      <div id="minutes">00</div>
+      <span>րոպե</span>
+    </div>
+
+    <div class="time-box">
+      <div id="seconds">00</div>
+      <span>վայրկյան</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- RSVP -->
+
+<section class="rsvp">
+
+  <h2 id="rsvpTitle">
+    ՀԱՍՏԱՏԵՔ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ
+  </h2>
+
+  <form>
+
+    <input type="text" placeholder="Անուն Ազգանուն">
+
+    <input type="text" placeholder="Հյուրերի քանակ">
+
+    <input type="text" placeholder="Հեռախոսահամար">
+
+    <button class="submit-btn">
+      Ուղարկել
+    </button>
+
+  </form>
+
+</section>
+
+<!-- FOOTER -->
+
+<section class="footer">
+
+  <h2>
+    Forever & Always
+  </h2>
+
+</section>
+
+<script>
+
+  /* ===================== */
+  /* CURTAIN */
+  /* ===================== */
+
+  document.body.style.overflow='hidden';
+
+  const rope =
+          document.getElementById('rope');
+
+  const curtain =
+          document.getElementById('curtain');
+
+  const music =
+          document.getElementById('music');
+
+  rope.onclick = ()=>{
+
+    curtain.classList.add('open-curtain');
+
+    music.play();
+
+    document.body.style.overflow='auto';
+
+    setTimeout(()=>{
+
+      curtain.style.display='none';
+
+    },3500);
+
+  };
+
+  /* ===================== */
+  /* MUSIC */
+  /* ===================== */
+
+  const musicBtn =
+          document.getElementById('musicBtn');
+
+  musicBtn.onclick = ()=>{
+
+    if(music.paused){
+
+      music.play();
+
+      musicBtn.innerHTML='❚❚';
+
+    }else{
+
+      music.pause();
+
+      musicBtn.innerHTML='▶';
+
+    }
+
+  };
+
+  /* ===================== */
+  /* COUNTDOWN */
+  /* ===================== */
+
+  const weddingDate =
+          new Date('2026-07-28T00:00:00').getTime();
+
+  setInterval(()=>{
+
+    const now =
+            new Date().getTime();
+
+    const diff =
+            weddingDate-now;
+
+    document.getElementById('days').innerHTML =
+            Math.floor(diff/(1000*60*60*24));
+
+    document.getElementById('hours').innerHTML =
+            Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+
+    document.getElementById('minutes').innerHTML =
+            Math.floor((diff%(1000*60*60))/(1000*60));
+
+    document.getElementById('seconds').innerHTML =
+            Math.floor((diff%(1000*60))/1000);
+
+  },1000);
+
+  /* ===================== */
+  /* LANGUAGE */
+  /* ===================== */
+
+  function setLanguage(lang){
+
+    if(lang==='hy'){
+
+      document.getElementById('inviteTitle').innerHTML =
+              'ՍԻՐԵԼԻ <br> ՀԱՐԱԶԱՏՆԵՐ';
+
+      document.getElementById('inviteText').innerHTML =
+              'Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենագեղեցիկ օրվան։';
+
+      document.getElementById('calendarTitle').innerHTML =
+              'ՄԵՐ <br> ՀՈՒԼԻՍ';
+
+      document.getElementById('calendarText').innerHTML =
+              'Այս օրը մենք կասենք';
+
+      document.getElementById('locationTitle').innerHTML =
+              'ԼՈԿԱՑԻԱ';
+
+      document.getElementById('mapBtn').innerHTML =
+              'Քարտեզ';
+
+      document.getElementById('dressTitle').innerHTML =
+              'ԴՐԵՍ ԿՈԴ';
+
+      document.getElementById('wishesTitle').innerHTML =
+              'ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ';
+
+      document.getElementById('rsvpTitle').innerHTML =
+              'ՀԱՍՏԱՏԵՔ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ';
+
+    }
+
+    if(lang==='ru'){
+
+      document.getElementById('inviteTitle').innerHTML =
+              'ДОРОГИЕ <br> РОДНЫЕ';
+
+      document.getElementById('inviteText').innerHTML =
+              'С большой любовью приглашаем Вас разделить вместе с нами самый важный день нашей жизни.';
+
+      document.getElementById('calendarTitle').innerHTML =
+              'НАШ <br> ИЮЛЬ';
+
+      document.getElementById('calendarText').innerHTML =
+              'В этот день мы скажем';
+
+      document.getElementById('locationTitle').innerHTML =
+              'ЛОКАЦИЯ';
+
+      document.getElementById('mapBtn').innerHTML =
+              'КАРТА';
+
+      document.getElementById('dressTitle').innerHTML =
+              'ДРЕСС-КОД';
+
+      document.getElementById('wishesTitle').innerHTML =
+              'ПОЖЕЛАНИЯ';
+
+      document.getElementById('rsvpTitle').innerHTML =
+              'ПОДТВЕРДИТЕ ПРИСУТСТВИЕ';
+
+    }
+
+  }
+
 </script>
+
 </body>
 </html>
+```
