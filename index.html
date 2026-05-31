@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>ARAM & ANGELINA</title>
+  <title>Wedding Invitation</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-
-    /* ========================= */
-    /* RESET */
-    /* ========================= */
 
     *{
       margin:0;
@@ -20,673 +16,417 @@
       box-sizing:border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
-
     body{
-
-      font-family:'Cormorant Garamond',serif;
-
-      background:
-              linear-gradient(
-                      rgba(255,255,255,.78),
-                      rgba(255,255,255,.78)
-              ),
-              url('https://www.transparenttextures.com/patterns/arabesque.png');
-
-      background-color:#d7dcc7;
-
-      color:#667054;
-
+      background:#f7f7f2;
+      font-family:'Cormorant Garamond', serif;
       overflow-x:hidden;
-
+      color:#6f7757;
     }
 
-    /* ========================= */
-    /* DECOR */
-    /* ========================= */
+    /* BACKGROUND */
 
-    .decor{
-
+    body::before{
+      content:"";
       position:fixed;
-
-      opacity:.12;
-
-      z-index:-1;
-
-      pointer-events:none;
-
-      animation:float 8s ease-in-out infinite;
-
-    }
-
-    .decor1{
-      width:320px;
-      left:-80px;
-      top:-20px;
-    }
-
-    .decor2{
-      width:350px;
-      right:-100px;
-      bottom:0;
-    }
-
-    @keyframes float{
-
-      0%{
-        transform:translateY(0);
-      }
-
-      50%{
-        transform:translateY(20px);
-      }
-
-      100%{
-        transform:translateY(0);
-      }
-
-    }
-
-    /* ========================= */
-    /* LOADING */
-    /* ========================= */
-
-    .loading-screen{
-
-      position:fixed;
-
       inset:0;
-
       background:
-              linear-gradient(
-                      rgba(255,255,255,.75),
-                      rgba(255,255,255,.75)
-              ),
-              url('https://www.transparenttextures.com/patterns/arabesque.png');
+              radial-gradient(circle at 20% 20%, rgba(123,133,94,.08), transparent 25%),
+              radial-gradient(circle at 80% 10%, rgba(123,133,94,.06), transparent 25%),
+              radial-gradient(circle at 80% 80%, rgba(123,133,94,.07), transparent 25%);
+      pointer-events:none;
+      z-index:-1;
+    }
 
-      background-color:#d7dcc7;
+    /* LANGUAGE */
 
+    .language-switch{
+      position:fixed;
+      top:20px;
+      right:20px;
+      z-index:9999;
       display:flex;
+      gap:10px;
+    }
 
+    .language-switch button{
+      border:none;
+      padding:12px 22px;
+      border-radius:30px;
+      background:#7b855e;
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+      transition:.3s;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .language-switch button:hover{
+      transform:scale(1.05);
+    }
+
+    /* INTRO */
+
+    .intro{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(to bottom,#f7f7f2,#eef0e5);
+      display:flex;
       justify-content:center;
       align-items:center;
-
-      z-index:999999;
-
+      flex-direction:column;
+      z-index:999;
       transition:1s;
-
     }
-
-    .loading-box{
-
-      width:90%;
-      max-width:520px;
-
-      padding:70px 40px;
-
-      border-radius:40px;
-
-      text-align:center;
-
-      background:
-              rgba(255,255,255,.25);
-
-      backdrop-filter:blur(18px);
-
-      box-shadow:
-              0 20px 60px rgba(0,0,0,.08);
-
-    }
-
-    /* ========================= */
-    /* LANGUAGE */
-    /* ========================= */
-
-    .start-lang{
-
-      position:absolute;
-
-      top:25px;
-      right:25px;
-
-      display:flex;
-
-      gap:12px;
-
-    }
-
-    .start-lang button{
-
-      border:none;
-
-      padding:12px 24px;
-
-      border-radius:40px;
-
-      background:
-              rgba(255,255,255,.3);
-
-      backdrop-filter:blur(10px);
-
-      color:#667054;
-
-      cursor:pointer;
-
-      font-size:18px;
-
-      transition:.3s;
-
-    }
-
-    .start-lang button:hover{
-
-      background:#667054;
-      color:white;
-
-    }
-
-    /* ========================= */
-    /* LOADER */
-    /* ========================= */
 
     .loader{
-
-      width:120px;
-      height:120px;
-
-      margin:auto;
-
+      width:130px;
+      height:130px;
       border-radius:50%;
-
-      border:
-              7px solid rgba(255,255,255,.4);
-
-      border-top:
-              7px solid #667054;
-
+      border:7px solid rgba(123,133,94,.2);
+      border-top:7px solid #7b855e;
       animation:spin 1s linear infinite;
-
-      margin-bottom:40px;
-
+      margin-bottom:35px;
     }
 
     @keyframes spin{
-
-      0%{
-        transform:rotate(0deg);
-      }
-
-      100%{
-        transform:rotate(360deg);
-      }
-
+      100%{transform:rotate(360deg);}
     }
-
-    /* ========================= */
-    /* TEXT */
-    /* ========================= */
-
-    .loading-box h2{
-
-      font-size:42px;
-
-      line-height:1.4;
-
-      margin-bottom:35px;
-
-    }
-
-    /* ========================= */
-    /* BUTTON */
-    /* ========================= */
 
     .open-btn{
-
+      padding:20px 55px;
       border:none;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      #798366,
-                      #5c654d
-              );
-
-      color:white;
-
-      padding:20px 50px;
-
       border-radius:60px;
-
+      font-size:30px;
+      background:#7b855e;
+      color:white;
       cursor:pointer;
-
-      font-size:24px;
-
-      transition:.3s;
-
-      box-shadow:
-              0 10px 30px rgba(0,0,0,.12);
-
+      font-family:'Cormorant Garamond', serif;
+      transition:.4s;
     }
 
     .open-btn:hover{
-
-      transform:translateY(-3px);
-
+      transform:scale(1.05);
     }
 
-    /* ========================= */
-    /* LANG SWITCH */
-    /* ========================= */
-
-    .lang-switch{
-
-      position:fixed;
-
-      top:20px;
-      right:20px;
-
-      z-index:999;
-
-      display:flex;
-
-      gap:10px;
-
+    .message{
+      margin-top:25px;
+      font-size:28px;
+      color:#7b855e;
+      text-align:center;
+      max-width:700px;
+      padding:0 20px;
     }
 
-    .lang-switch button{
+    /* MAIN */
 
-      border:none;
-
-      background:
-              rgba(255,255,255,.28);
-
-      backdrop-filter:blur(10px);
-
-      color:#667054;
-
-      padding:12px 24px;
-
-      border-radius:40px;
-
-      cursor:pointer;
-
-      font-size:18px;
-
+    .main{
+      display:none;
+      animation:fadeIn 2s;
     }
 
-    /* ========================= */
-    /* MUSIC */
-    /* ========================= */
-
-    .music-btn{
-
-      position:fixed;
-
-      right:20px;
-      bottom:20px;
-
-      width:70px;
-      height:70px;
-
-      border:none;
-
-      border-radius:50%;
-
-      background:
-              rgba(255,255,255,.28);
-
-      backdrop-filter:blur(10px);
-
-      color:#667054;
-
-      font-size:26px;
-
-      cursor:pointer;
-
-      z-index:999;
-
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:none;
+      }
     }
 
-    /* ========================= */
     /* HERO */
-    /* ========================= */
 
     .hero{
-
       min-height:100vh;
-
       display:flex;
-
       justify-content:center;
       align-items:center;
-
-      padding:100px 20px;
-
+      padding:80px 20px;
     }
 
     .hero-card{
-
+      max-width:480px;
       width:100%;
-      max-width:520px;
-
-      border-radius:30px;
-
-      overflow:hidden;
-
+      background:rgba(255,255,255,.75);
+      backdrop-filter:blur(10px);
+      border-radius:40px;
+      padding:50px;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
+      text-align:center;
       position:relative;
-
-      box-shadow:
-              0 20px 60px rgba(0,0,0,.12);
-
+      overflow:hidden;
     }
 
-    .hero-card img{
-
-      width:100%;
-      display:block;
-
-    }
-
-    .hero-overlay{
-
+    .hero-card::before{
+      content:"";
       position:absolute;
-
-      inset:0;
-
-      background:
-              linear-gradient(
-                      to top,
-                      rgba(215,220,199,.95),
-                      transparent
-              );
-
+      width:300px;
+      height:300px;
+      background:rgba(123,133,94,.07);
+      border-radius:50%;
+      top:-120px;
+      right:-120px;
     }
 
-    .hero-text{
-
-      position:absolute;
-
-      bottom:40px;
-
+    .hero img{
       width:100%;
-
-      text-align:center;
-
+      border-radius:30px;
+      margin-bottom:30px;
     }
 
-    .hero-text h1{
-
-      font-size:90px;
-
-      line-height:.85;
-
+    .names{
+      font-size:70px;
+      line-height:1;
       font-weight:300;
-
+      margin-bottom:10px;
     }
 
-    .hero-text span{
-
+    .subtitle{
+      font-family:'Great Vibes', cursive;
       font-size:50px;
-
-      font-family:'Great Vibes',cursive;
-
+      margin-bottom:20px;
     }
 
-    /* ========================= */
-    /* SECTION */
-    /* ========================= */
+    /* TEXT */
 
-    .section{
-
-      padding:120px 20px;
-
+    .text-section{
+      padding:100px 20px;
       text-align:center;
-
-    }
-
-    .section h2{
-
-      font-size:90px;
-
-      line-height:.9;
-
-      font-weight:300;
-
-      margin-bottom:40px;
-
-    }
-
-    .section p{
-
-      max-width:850px;
-
+      max-width:1000px;
       margin:auto;
-
-      font-size:34px;
-
-      line-height:1.5;
-
     }
 
-    /* ========================= */
+    .big-title{
+      font-size:90px;
+      line-height:0.9;
+      margin-bottom:40px;
+      font-weight:300;
+    }
+
+    .text{
+      font-size:34px;
+      line-height:1.7;
+      max-width:900px;
+      margin:auto;
+    }
+
     /* CALENDAR */
-    /* ========================= */
+
+    .calendar{
+      padding:100px 20px;
+      text-align:center;
+    }
+
+    .month{
+      font-size:95px;
+      line-height:0.9;
+      margin-bottom:20px;
+    }
+
+    .month-text{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .yes{
+      font-family:'Great Vibes', cursive;
+      font-size:90px;
+      margin-bottom:50px;
+    }
 
     .calendar-grid{
-
-      max-width:760px;
-
-      margin:auto;
-
-      margin-top:70px;
-
       display:grid;
-
       grid-template-columns:repeat(7,1fr);
-
-      gap:28px;
-
-      font-size:40px;
-
+      gap:25px;
+      max-width:850px;
+      margin:auto;
+      font-size:45px;
     }
 
     .day-name{
-
       font-weight:600;
-
     }
 
-    .old-day{
-
-      opacity:.35;
-
-    }
-
-    .heart{
-
+    .day{
+      padding:15px;
       position:relative;
-
     }
 
-    .heart::before{
+    /* HEART */
 
-      content:'❤';
+    .heart-wrapper{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
 
+    .heart-day{
+      position:relative;
+      width:95px;
+      height:85px;
+      background:rgba(123,133,94,0.18);
+      border:3px solid #7b855e;
+      transform:rotate(-45deg);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(6px);
+    }
+
+    .heart-day::before,
+    .heart-day::after{
+      content:"";
       position:absolute;
-
-      inset:0;
-
-      font-size:90px;
-
-      color:#667054;
-
-      z-index:-1;
-
+      width:95px;
+      height:85px;
+      border:3px solid #7b855e;
+      background:rgba(123,133,94,0.18);
+      border-radius:50%;
     }
 
-    /* ========================= */
+    .heart-day::before{
+      top:-50px;
+      left:0;
+    }
+
+    .heart-day::after{
+      left:50px;
+      top:0;
+    }
+
+    .heart-day span{
+      transform:rotate(45deg);
+      font-size:36px;
+      font-weight:700;
+      z-index:5;
+    }
+
     /* LOCATION */
-    /* ========================= */
+
+    .location{
+      padding:100px 20px;
+    }
 
     .location-card{
-
-      max-width:700px;
-
+      max-width:850px;
       margin:auto;
-
-      padding:80px;
-
+      background:rgba(255,255,255,.7);
+      backdrop-filter:blur(8px);
       border-radius:40px;
-
-      background:
-              rgba(255,255,255,.28);
-
-      backdrop-filter:blur(12px);
-
-      box-shadow:
-              0 15px 50px rgba(0,0,0,.08);
-
+      padding:70px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
     }
 
-    .location-card h2{
-
+    .location-title{
       font-size:80px;
-
+      line-height:0.9;
       margin-bottom:30px;
-
     }
 
-    .location-card p{
-
-      font-size:34px;
-
+    .location-text{
+      font-size:38px;
+      line-height:1.6;
+      margin-bottom:40px;
     }
 
     .map-btn{
-
       display:inline-block;
-
-      margin-top:40px;
-
-      text-decoration:none;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      #798366,
-                      #5c654d
-              );
-
+      padding:22px 55px;
+      border-radius:60px;
+      background:#7b855e;
       color:white;
-
-      padding:18px 55px;
-
-      border-radius:50px;
-
-      font-size:24px;
-
+      text-decoration:none;
+      font-size:32px;
     }
 
-    /* ========================= */
-    /* TIMER */
-    /* ========================= */
+    /* COUNTDOWN */
+
+    .countdown{
+      padding:100px 20px;
+      text-align:center;
+    }
 
     .timer{
-
       display:flex;
-
       justify-content:center;
-
+      gap:40px;
       flex-wrap:wrap;
-
-      gap:30px;
-
-      margin-top:60px;
-
+      margin-top:50px;
     }
 
     .time-box{
-
-      width:150px;
-
-      padding:35px;
-
+      background:white;
+      padding:40px;
       border-radius:30px;
-
-      background:
-              rgba(255,255,255,.28);
-
-      backdrop-filter:blur(10px);
-
+      min-width:180px;
+      box-shadow:0 10px 25px rgba(0,0,0,.06);
     }
 
-    .time-box div{
-
-      font-size:60px;
-
+    .time-number{
+      font-size:70px;
     }
 
-    .time-box span{
-
-      font-size:22px;
-
+    .time-label{
+      font-size:30px;
     }
 
-    /* ========================= */
     /* FOOTER */
-    /* ========================= */
 
     .footer{
-
       padding:120px 20px;
-
       text-align:center;
-
+      font-size:32px;
+      line-height:1.8;
     }
 
-    .footer h2{
-
+    .signature{
+      font-family:'Great Vibes', cursive;
       font-size:80px;
-
-      font-family:'Great Vibes',cursive;
-
+      margin-top:30px;
     }
 
-    /* ========================= */
     /* MOBILE */
-    /* ========================= */
 
     @media(max-width:768px){
 
-      .hero-text h1{
-        font-size:56px;
-      }
-
-      .section h2{
-        font-size:56px;
-      }
-
-      .section p{
-        font-size:24px;
-      }
-
-      .location-card h2{
+      .names{
         font-size:50px;
       }
 
-      .location-card p{
-        font-size:24px;
+      .big-title{
+        font-size:60px;
+      }
+
+      .month{
+        font-size:60px;
+      }
+
+      .location-title{
+        font-size:55px;
       }
 
       .calendar-grid{
-        font-size:24px;
-        gap:18px;
+        font-size:28px;
+        gap:15px;
       }
 
-      .loading-box h2{
-        font-size:28px;
+      .text{
+        font-size:24px;
+      }
+
+      .location-text{
+        font-size:26px;
+      }
+
+      .yes{
+        font-size:65px;
+      }
+
+      .hero-card{
+        padding:30px;
       }
 
     }
@@ -696,497 +436,320 @@
 
 <body>
 
-<!-- DECOR -->
+<!-- LANGUAGE -->
 
-<img src="flower.png" class="decor decor1">
-<img src="flower.png" class="decor decor2">
+<div class="language-switch">
+  <button onclick="setLanguage('hy')">Հայերեն</button>
+  <button onclick="setLanguage('ru')">Русский</button>
+</div>
 
-<!-- LOADING -->
+<!-- INTRO -->
 
-<div class="loading-screen" id="loadingScreen">
+<div class="intro" id="intro">
 
-  <div class="start-lang">
+  <div class="loader"></div>
 
-    <button onclick="setLanguage('hy')">
-      🇦🇲 Հայ
-    </button>
+  <button class="open-btn" id="openBtn">Բացել հրավերը</button>
 
-    <button onclick="setLanguage('ru')">
-      🇷🇺 Рус
-    </button>
-
-  </div>
-
-  <div class="loading-box">
-
-    <div class="loader"></div>
-
-    <h2 id="loadingText">
-      Ստուգում ենք հրավերը...
-    </h2>
-
-    <button class="open-btn" id="openBtn">
-      Բացել հրավերը
-    </button>
-
-  </div>
+  <div class="message" id="message"></div>
 
 </div>
 
-<!-- LANG -->
+<!-- MAIN -->
 
-<div class="lang-switch">
+<div class="main" id="main">
 
-  <button onclick="setLanguage('hy')">
-    🇦🇲 Հայ
-  </button>
+  <!-- HERO -->
 
-  <button onclick="setLanguage('ru')">
-    🇷🇺 Рус
-  </button>
+  <section class="hero">
+
+    <div class="hero-card">
+
+      <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1200&auto=format&fit=crop" />
+
+      <div class="names">ARAM <br>&<br> ANGELINA</div>
+
+      <div class="subtitle">Wedding Day</div>
+
+    </div>
+
+  </section>
+
+  <!-- TEXT -->
+
+  <section class="text-section">
+
+    <div class="big-title" id="inviteTitle">
+      Սիրելի՛ հարազատներ
+    </div>
+
+    <div class="text" id="inviteText">
+      Մեծ սիրով հրավիրում ենք Ձեզ կիսելու մեր կյանքի ամենակարևոր և երջանիկ օրը։
+    </div>
+
+  </section>
+
+  <!-- CALENDAR -->
+
+  <section class="calendar">
+
+    <div class="month" id="monthName">
+      ՀՈՒԼԻՍ
+    </div>
+
+    <div class="month-text" id="monthText">
+      Այս օրը մենք կասենք
+    </div>
+
+    <div class="yes" id="yesWord">
+      ԱՅՈ!
+    </div>
+
+    <div class="calendar-grid">
+
+      <div class="day-name" id="d1">ԵԿ</div>
+      <div class="day-name" id="d2">ԵՔ</div>
+      <div class="day-name" id="d3">ՉՔ</div>
+      <div class="day-name" id="d4">ՀՆ</div>
+      <div class="day-name" id="d5">ՈՒ</div>
+      <div class="day-name" id="d6">ՇԲ</div>
+      <div class="day-name" id="d7">ԿԻ</div>
+
+      <div class="day"></div>
+      <div class="day"></div>
+
+      <div class="day">1</div>
+      <div class="day">2</div>
+      <div class="day">3</div>
+      <div class="day">4</div>
+      <div class="day">5</div>
+
+      <div class="day">6</div>
+      <div class="day">7</div>
+      <div class="day">8</div>
+      <div class="day">9</div>
+      <div class="day">10</div>
+      <div class="day">11</div>
+      <div class="day">12</div>
+
+      <div class="day">13</div>
+      <div class="day">14</div>
+      <div class="day">15</div>
+      <div class="day">16</div>
+      <div class="day">17</div>
+
+      <div class="heart-wrapper">
+        <div class="heart-day">
+          <span>28</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LOCATION -->
+
+  <section class="location">
+
+    <div class="location-card">
+
+      <div class="location-title" id="locationTitle">
+        ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ
+      </div>
+
+      <div class="location-text">
+        Royal Hall <br>
+        Երևան
+      </div>
+
+      <a href="#" class="map-btn" id="mapBtn">
+        ԲԱՑԵԼ ՔԱՐՏԵԶԸ
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- COUNTDOWN -->
+
+  <section class="countdown">
+
+    <div class="big-title" id="countdownTitle">
+      Մնացել է
+    </div>
+
+    <div class="timer">
+
+      <div class="time-box">
+        <div class="time-number" id="days">0</div>
+        <div class="time-label" id="daysText">Օր</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-number" id="hours">0</div>
+        <div class="time-label" id="hoursText">Ժամ</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-number" id="minutes">0</div>
+        <div class="time-label" id="minutesText">Րոպե</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-number" id="seconds">0</div>
+        <div class="time-label" id="secondsText">Վայրկյան</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <section class="footer">
+
+    <div id="footerText">
+      Սիրով սպասում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը 💍
+    </div>
+
+    <div class="signature">
+      ARAM & ANGELINA
+    </div>
+
+  </section>
 
 </div>
-
-<!-- MUSIC -->
-
-<button class="music-btn" id="musicBtn">
-  ❚❚
-</button>
-
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="hero-card">
-
-    <img src="couple.jpg">
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-text">
-
-      <h1>
-        ARAM
-        <br>
-        &
-        <br>
-        ANGELINA
-      </h1>
-
-      <span>
-Wedding Day
-</span>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- INVITE -->
-
-<section class="section">
-
-  <h2 id="inviteTitle">
-    ՍԻՐԵԼԻ
-    <br>
-    ՀԱՐԱԶԱՏՆԵՐ
-  </h2>
-
-  <p id="inviteText">
-    Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու
-    մեր կյանքի ամենագեղեցիկ օրվան։
-  </p>
-
-</section>
-
-<!-- CALENDAR -->
-
-<section class="section">
-
-  <h2 id="calendarTitle">
-    ՄԵՐ
-    <br>
-    ՀՈՒԼԻՍ
-  </h2>
-
-  <p id="calendarText">
-    Այս օրը մենք կասենք
-  </p>
-
-  <div style="font-size:70px;font-family:'Great Vibes',cursive;">
-    Այո!
-  </div>
-
-  <div class="calendar-grid">
-
-    <div class="day-name">Երկ</div>
-    <div class="day-name">Երք</div>
-    <div class="day-name">Չրք</div>
-    <div class="day-name">Հնգ</div>
-    <div class="day-name">Ուրբ</div>
-    <div class="day-name">Շբթ</div>
-    <div class="day-name">Կիր</div>
-
-    <div class="old-day">29</div>
-    <div class="old-day">30</div>
-
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
-    <div>10</div>
-    <div>11</div>
-    <div>12</div>
-
-    <div>13</div>
-    <div>14</div>
-    <div>15</div>
-    <div>16</div>
-    <div>17</div>
-    <div>18</div>
-    <div>19</div>
-
-    <div>20</div>
-    <div>21</div>
-    <div>22</div>
-    <div>23</div>
-    <div>24</div>
-    <div>25</div>
-    <div>26</div>
-
-    <div>27</div>
-
-    <div class="heart">28</div>
-
-    <div>29</div>
-    <div>30</div>
-    <div>31</div>
-
-    <div class="old-day">1</div>
-    <div class="old-day">2</div>
-
-  </div>
-
-</section>
-
-<!-- LOCATION -->
-
-<section class="section">
-
-  <div class="location-card">
-
-    <h2 id="locationTitle">
-      ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ
-    </h2>
-
-    <p id="locationText">
-      Royal Hall
-      <br><br>
-      Երևան
-    </p>
-
-    <a href="#" class="map-btn" id="mapBtn">
-      ԲԱՑԵԼ ՔԱՐՏԵԶԸ
-    </a>
-
-  </div>
-
-</section>
-
-<!-- TIMER -->
-
-<section class="section">
-
-  <h2 id="timerTitle">
-    Մնացել է
-  </h2>
-
-  <div class="timer">
-
-    <div class="time-box">
-      <div id="days">00</div>
-      <span id="daysText">օր</span>
-    </div>
-
-    <div class="time-box">
-      <div id="hours">00</div>
-      <span id="hoursText">ժամ</span>
-    </div>
-
-    <div class="time-box">
-      <div id="minutes">00</div>
-      <span id="minutesText">րոպե</span>
-    </div>
-
-    <div class="time-box">
-      <div id="seconds">00</div>
-      <span id="secondsText">վայրկյան</span>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<section class="footer">
-
-  <h2>
-    Forever & Always
-  </h2>
-
-</section>
 
 <script>
 
-  /* ========================= */
-  /* LANGUAGE */
-  /* ========================= */
+  let clickCount = 0;
 
-  function setLanguage(lang){
+  const openBtn = document.getElementById("openBtn");
 
-    const dayNames =
-            document.querySelectorAll('.day-name');
+  openBtn.addEventListener("click", () => {
 
-    if(lang === 'hy'){
+    clickCount++;
 
-      document.getElementById('loadingText').innerHTML =
-              'Ստուգում ենք հրավերը...';
+    const message = document.getElementById("message");
 
-      document.getElementById('openBtn').innerHTML =
-              'Բացել հրավերը';
+    if(clickCount === 1){
 
-      document.getElementById('inviteTitle').innerHTML =
-              'ՍԻՐԵԼԻ <br> ՀԱՐԱԶԱՏՆԵՐ';
-
-      document.getElementById('inviteText').innerHTML =
-              'Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենագեղեցիկ օրվան։';
-
-      document.getElementById('calendarTitle').innerHTML =
-              'ՄԵՐ <br> ՀՈՒԼԻՍ';
-
-      document.getElementById('calendarText').innerHTML =
-              'Այս օրը մենք կասենք';
-
-      document.getElementById('locationTitle').innerHTML =
-              'ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ';
-
-      document.getElementById('locationText').innerHTML =
-              'Royal Hall <br><br> Երևան';
-
-      document.getElementById('mapBtn').innerHTML =
-              'ԲԱՑԵԼ ՔԱՐՏԵԶԸ';
-
-      document.getElementById('timerTitle').innerHTML =
-              'Մնացել է';
-
-      document.getElementById('daysText').innerHTML='օր';
-      document.getElementById('hoursText').innerHTML='ժամ';
-      document.getElementById('minutesText').innerHTML='րոպե';
-      document.getElementById('secondsText').innerHTML='վայրկյան';
-
-      dayNames[0].innerHTML='Երկ';
-      dayNames[1].innerHTML='Երք';
-      dayNames[2].innerHTML='Չրք';
-      dayNames[3].innerHTML='Հնգ';
-      dayNames[4].innerHTML='Ուրբ';
-      dayNames[5].innerHTML='Շբթ';
-      dayNames[6].innerHTML='Կիր';
+      message.innerHTML =
+              "😄 Կրկին փորձեք... Հնարավոր է դուք դեռ հրավիրված չեք";
 
     }
 
-    if(lang === 'ru'){
+    else{
 
-      document.getElementById('loadingText').innerHTML =
-              'Проверяем приглашение...';
+      message.innerHTML =
+              "💌 Շնորհավորում ենք, Դուք հրավիրված եք";
 
-      document.getElementById('openBtn').innerHTML =
-              'Открыть приглашение';
+      setTimeout(() => {
 
-      document.getElementById('inviteTitle').innerHTML =
-              'ДОРОГИЕ <br> РОДНЫЕ';
+        document.getElementById("intro").style.opacity = "0";
 
-      document.getElementById('inviteText').innerHTML =
-              'С большой любовью приглашаем Вас разделить вместе с нами самый важный день нашей жизни.';
+        setTimeout(() => {
 
-      document.getElementById('calendarTitle').innerHTML =
-              'НАШ <br> ИЮЛЬ';
+          document.getElementById("intro").style.display = "none";
 
-      document.getElementById('calendarText').innerHTML =
-              'В этот день мы скажем';
+          document.getElementById("main").style.display = "block";
 
-      document.getElementById('locationTitle').innerHTML =
-              'МЕСТО ПРОВЕДЕНИЯ';
+        },1000);
 
-      document.getElementById('locationText').innerHTML =
-              'Royal Hall <br><br> Ереван';
+      },1500);
 
-      document.getElementById('mapBtn').innerHTML =
-              'ОТКРЫТЬ КАРТУ';
+    }
 
-      document.getElementById('timerTitle').innerHTML =
-              'Осталось';
+  });
 
-      document.getElementById('daysText').innerHTML='дней';
-      document.getElementById('hoursText').innerHTML='часов';
-      document.getElementById('minutesText').innerHTML='минут';
-      document.getElementById('secondsText').innerHTML='секунд';
+  /* LANGUAGE */
 
-      dayNames[0].innerHTML='Пн';
-      dayNames[1].innerHTML='Вт';
-      dayNames[2].innerHTML='Ср';
-      dayNames[3].innerHTML='Чт';
-      dayNames[4].innerHTML='Пт';
-      dayNames[5].innerHTML='Сб';
-      dayNames[6].innerHTML='Вс';
+  const translations = {
 
+    hy: {
+
+      open:"Բացել հրավերը",
+      inviteTitle:"Սիրելի՛ հարազատներ",
+      inviteText:"Մեծ սիրով հրավիրում ենք Ձեզ կիսելու մեր կյանքի ամենակարևոր և երջանիկ օրը։",
+      month:"ՀՈՒԼԻՍ",
+      monthText:"Այս օրը մենք կասենք",
+      yes:"ԱՅՈ!",
+      location:"ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ",
+      map:"ԲԱՑԵԼ ՔԱՐՏԵԶԸ",
+      count:"Մնացել է",
+      footer:"Սիրով սպասում ենք Ձեզ մեր կյանքի ամենաերջանիկ օրը 💍",
+
+      days:["ԵԿ","ԵՔ","ՉՔ","ՀՆ","ՈՒ","ՇԲ","ԿԻ"]
+
+    },
+
+    ru: {
+
+      open:"Открыть приглашение",
+      inviteTitle:"Дорогие родные",
+      inviteText:"С большой любовью приглашаем Вас разделить самый счастливый день нашей жизни.",
+      month:"ИЮЛЬ",
+      monthText:"В этот день мы скажем",
+      yes:"ДА!",
+      location:"МЕСТО ПРОВЕДЕНИЯ",
+      map:"ОТКРЫТЬ КАРТУ",
+      count:"Осталось",
+      footer:"С нетерпением ждём Вас в самый счастливый день нашей жизни 💍",
+
+      days:["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"]
+
+    }
+
+  };
+
+  function setLanguage(lang){
+
+    const t = translations[lang];
+
+    openBtn.innerHTML = t.open;
+
+    document.getElementById("inviteTitle").innerHTML = t.inviteTitle;
+    document.getElementById("inviteText").innerHTML = t.inviteText;
+
+    document.getElementById("monthName").innerHTML = t.month;
+    document.getElementById("monthText").innerHTML = t.monthText;
+    document.getElementById("yesWord").innerHTML = t.yes;
+
+    document.getElementById("locationTitle").innerHTML = t.location;
+    document.getElementById("mapBtn").innerHTML = t.map;
+
+    document.getElementById("countdownTitle").innerHTML = t.count;
+
+    document.getElementById("footerText").innerHTML = t.footer;
+
+    for(let i=0;i<7;i++){
+      document.getElementById("d"+(i+1)).innerHTML = t.days[i];
     }
 
   }
 
-  /* ========================= */
-  /* LOADING */
-  /* ========================= */
+  /* COUNTDOWN */
 
-  const openBtn =
-          document.getElementById('openBtn');
+  const weddingDate = new Date("July 28, 2026 18:00:00").getTime();
 
-  const loadingText =
-          document.getElementById('loadingText');
+  setInterval(() => {
 
-  const loadingScreen =
-          document.getElementById('loadingScreen');
+    const now = new Date().getTime();
 
-  const music =
-          document.getElementById('music');
+    const distance = weddingDate - now;
 
-  let clicks = 0;
+    document.getElementById("days").innerHTML =
+            Math.floor(distance / (1000*60*60*24));
 
-  openBtn.onclick = ()=>{
+    document.getElementById("hours").innerHTML =
+            Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-    clicks++;
+    document.getElementById("minutes").innerHTML =
+            Math.floor((distance%(1000*60*60))/(1000*60));
 
-    if(clicks===1){
-
-      if(openBtn.innerHTML.includes('Открыть')){
-
-        loadingText.innerHTML =
-                'Возможно Вы не приглашены 😅 <br><br> Попробуйте ещё раз...';
-
-        openBtn.innerHTML =
-                'Попробовать снова';
-
-      }else{
-
-        loadingText.innerHTML =
-                'Հնարավոր է դուք հրավիրված չեք 😅 <br><br> Կրկին փորձեք...';
-
-        openBtn.innerHTML =
-                'Կրկին փորձել';
-
-      }
-
-      openBtn.style.background =
-              'linear-gradient(135deg,#9a7a7a,#6f4f4f)';
-
-    }
-
-    if(clicks===2){
-
-      if(openBtn.innerHTML.includes('Попробовать')){
-
-        loadingText.innerHTML =
-                'Поздравляем 🎉 <br><br> Вы приглашены';
-
-      }else{
-
-        loadingText.innerHTML =
-                'Շնորհավորում ենք 🎉 <br><br> Դուք հրավիրված եք';
-
-      }
-
-      openBtn.style.display='none';
-
-      setTimeout(()=>{
-
-        loadingScreen.style.opacity='0';
-
-        setTimeout(()=>{
-
-          loadingScreen.style.display='none';
-
-          music.play();
-
-        },1000);
-
-      },2500);
-
-    }
-
-  };
-
-  /* ========================= */
-  /* MUSIC */
-  /* ========================= */
-
-  const musicBtn =
-          document.getElementById('musicBtn');
-
-  musicBtn.onclick = ()=>{
-
-    if(music.paused){
-
-      music.play();
-
-      musicBtn.innerHTML='❚❚';
-
-    }else{
-
-      music.pause();
-
-      musicBtn.innerHTML='▶';
-
-    }
-
-  };
-
-  /* ========================= */
-  /* TIMER */
-  /* ========================= */
-
-  const weddingDate =
-          new Date('2026-07-28T00:00:00').getTime();
-
-  setInterval(()=>{
-
-    const now =
-            new Date().getTime();
-
-    const diff =
-            weddingDate-now;
-
-    document.getElementById('days').innerHTML =
-            Math.floor(diff/(1000*60*60*24));
-
-    document.getElementById('hours').innerHTML =
-            Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-
-    document.getElementById('minutes').innerHTML =
-            Math.floor((diff%(1000*60*60))/(1000*60));
-
-    document.getElementById('seconds').innerHTML =
-            Math.floor((diff%(1000*60))/1000);
+    document.getElementById("seconds").innerHTML =
+            Math.floor((distance%(1000*60))/1000);
 
   },1000);
 
