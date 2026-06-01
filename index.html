@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,10 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-
-    /* ========================= */
-    /* RESET */
-    /* ========================= */
 
     *{
       margin:0;
@@ -30,25 +25,20 @@
       font-family:'Cormorant Garamond',serif;
 
       background:
-              linear-gradient(
-                      rgba(0,0,0,.45),
-                      rgba(0,0,0,.45)
-              ),
+              linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
               url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1974&auto=format&fit=crop');
 
       background-size:cover;
       background-position:center;
       background-attachment:fixed;
 
-      color:white;
-
       overflow-x:hidden;
+
+      color:white;
 
     }
 
-    /* ========================= */
     /* HEARTS */
-    /* ========================= */
 
     .hearts{
       position:fixed;
@@ -61,22 +51,21 @@
     .hearts span{
       position:absolute;
       bottom:-100px;
-      color:rgba(255,255,255,.2);
+      color:rgba(255,255,255,.15);
       font-size:30px;
       animation:heart 12s linear infinite;
     }
 
-    .hearts span:nth-child(1){left:10%;animation-delay:0s;}
-    .hearts span:nth-child(2){left:25%;animation-delay:3s;}
-    .hearts span:nth-child(3){left:40%;animation-delay:6s;}
-    .hearts span:nth-child(4){left:60%;animation-delay:1s;}
-    .hearts span:nth-child(5){left:75%;animation-delay:4s;}
-    .hearts span:nth-child(6){left:90%;animation-delay:7s;}
+    .hearts span:nth-child(1){left:10%;}
+    .hearts span:nth-child(2){left:30%;animation-delay:2s;}
+    .hearts span:nth-child(3){left:50%;animation-delay:4s;}
+    .hearts span:nth-child(4){left:70%;animation-delay:1s;}
+    .hearts span:nth-child(5){left:90%;animation-delay:5s;}
 
     @keyframes heart{
 
       0%{
-        transform:translateY(0) rotate(0deg);
+        transform:translateY(0);
         opacity:0;
       }
 
@@ -85,300 +74,70 @@
       }
 
       100%{
-        transform:translateY(-120vh) rotate(360deg);
+        transform:translateY(-120vh);
         opacity:0;
       }
 
     }
 
-    /* ========================= */
     /* LOADING */
-    /* ========================= */
 
     .loading-screen{
 
       position:fixed;
-
       inset:0;
 
       background:
-              linear-gradient(
-                      rgba(0,0,0,.55),
-                      rgba(0,0,0,.55)
-              ),
+              linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
               url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1974&auto=format&fit=crop');
 
       background-size:cover;
       background-position:center;
 
       display:flex;
-
       justify-content:center;
       align-items:center;
 
-      z-index:999999;
+      z-index:99999;
 
       transition:1s;
+
+      padding:20px;
 
     }
 
     .loading-box{
 
-      width:90%;
+      width:100%;
       max-width:620px;
 
-      padding:90px 50px;
+      padding:20px 30px;
 
-      border-radius:45px;
+      border-radius:35px;
 
       text-align:center;
 
       background:
               linear-gradient(
                       135deg,
-                      rgba(255,255,255,.18),
-                      rgba(255,255,255,.08)
+                      rgba(255,255,255,.17),
+                      rgba(255,255,255,.06)
               );
 
       backdrop-filter:blur(22px);
 
-      border:
-              1px solid rgba(255,255,255,.25);
+      border:1px solid rgba(255,255,255,.22);
 
-      box-shadow:
-              0 20px 80px rgba(0,0,0,.25);
-
-      position:relative;
-
-      overflow:hidden;
+      box-shadow:0 20px 80px rgba(0,0,0,.5);
 
     }
-
-    /* ========================= */
-    /* GOLD LIGHT */
-    /* ========================= */
-
-    .loading-box::before{
-
-      content:'';
-
-      position:absolute;
-
-      width:350px;
-      height:350px;
-
-      background:
-              radial-gradient(
-                      rgba(212,175,55,.35),
-                      transparent 70%
-              );
-
-      top:-150px;
-      right:-120px;
-
-    }
-
-    /* ========================= */
-    /* LANGUAGE */
-    /* ========================= */
 
     .start-lang{
 
       position:absolute;
 
-      top:25px;
-      right:25px;
-
-      display:flex;
-
-      gap:12px;
-
-    }
-
-    .start-lang button{
-
-      border:none;
-
-      padding:12px 24px;
-
-      border-radius:40px;
-
-      background:
-              rgba(255,255,255,.18);
-
-      backdrop-filter:blur(10px);
-
-      color:white;
-
-      cursor:pointer;
-
-      font-size:18px;
-
-      transition:.3s;
-
-    }
-
-    .start-lang button:hover{
-
-      background:#d4af37;
-
-    }
-
-    /* ========================= */
-    /* WELCOME */
-    /* ========================= */
-
-    .welcome-names{
-
-      font-size:82px;
-
-      line-height:.9;
-
-      font-weight:300;
-
-      color:white;
-
-      margin-bottom:25px;
-
-      text-shadow:
-              0 5px 20px rgba(0,0,0,.45);
-
-      letter-spacing:4px;
-
-    }
-
-    .welcome-names span{
-
-      font-family:'Great Vibes',cursive;
-
-      font-size:90px;
-
-      color:#f0d48f;
-
-    }
-
-    .welcome-subtitle{
-
-      font-size:34px;
-
-      margin-bottom:40px;
-
-      font-family:'Great Vibes',cursive;
-
-      color:#f5deb3;
-
-    }
-
-    /* ========================= */
-    /* LOADER */
-    /* ========================= */
-
-    .loader{
-
-      width:120px;
-      height:120px;
-
-      margin:auto;
-
-      border-radius:50%;
-
-      border:
-              7px solid rgba(255,255,255,.25);
-
-      border-top:
-              7px solid #d4af37;
-
-      animation:spin 1s linear infinite;
-
-      margin-bottom:40px;
-
-    }
-
-    @keyframes spin{
-
-      0%{
-        transform:rotate(0deg);
-      }
-
-      100%{
-        transform:rotate(360deg);
-      }
-
-    }
-
-    /* ========================= */
-    /* TEXT */
-    /* ========================= */
-
-    .loading-box h2{
-
-      font-size:42px;
-
-      line-height:1.5;
-
-      margin-bottom:35px;
-
-      color:white;
-
-      text-shadow:
-              0 4px 15px rgba(0,0,0,.35);
-
-    }
-
-    /* ========================= */
-    /* BUTTON */
-    /* ========================= */
-
-    .open-btn{
-
-      border:none;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      #d4af37,
-                      #b8860b
-              );
-
-      color:white;
-
-      padding:22px 65px;
-
-      border-radius:60px;
-
-      cursor:pointer;
-
-      font-size:24px;
-
-      transition:.4s;
-
-      box-shadow:
-              0 10px 35px rgba(0,0,0,.25);
-
-      letter-spacing:1px;
-
-    }
-
-    .open-btn:hover{
-
-      transform:
-              translateY(-4px)
-              scale(1.03);
-
-    }
-
-    /* ========================= */
-    /* LANG SWITCH */
-    /* ========================= */
-
-    .lang-switch{
-
-      position:fixed;
-
       top:20px;
       right:20px;
-
-      z-index:999;
 
       display:flex;
 
@@ -386,63 +145,113 @@
 
     }
 
-    .lang-switch button{
+    .start-lang button{
 
       border:none;
 
-      background:
-              rgba(255,255,255,.18);
-
-      backdrop-filter:blur(10px);
-
-      color:white;
-
-      padding:12px 24px;
+      padding:10px 20px;
 
       border-radius:40px;
 
-      cursor:pointer;
-
-      font-size:18px;
-
-    }
-
-    /* ========================= */
-    /* MUSIC */
-    /* ========================= */
-
-    .music-btn{
-
-      position:fixed;
-
-      right:20px;
-      bottom:20px;
-
-      width:70px;
-      height:70px;
-
-      border:none;
-
-      border-radius:50%;
-
-      background:
-              rgba(255,255,255,.18);
-
-      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,.14);
 
       color:white;
 
-      font-size:26px;
-
       cursor:pointer;
 
-      z-index:999;
+      font-size:16px;
 
     }
 
-    /* ========================= */
+    .welcome-photo{
+
+      width:100%;
+
+      height:300px;
+
+      object-fit:cover;
+
+      border-radius:25px;
+
+      margin-bottom:20px;
+
+    }
+
+    .welcome-names{
+
+      font-size:60px;
+
+      color:#f7dfad;
+
+      margin-bottom:10px;
+
+    }
+
+    .welcome-names span{
+
+      color:#ffd700;
+
+      font-family:'Great Vibes',cursive;
+
+    }
+
+    .welcome-subtitle{
+
+      font-size:24px;
+
+      margin-bottom:20px;
+
+      font-family:'Great Vibes',cursive;
+
+    }
+
+    .loader{
+
+      width:55px;
+      height:55px;
+
+      border-radius:50%;
+
+      margin:auto;
+
+      border:5px solid rgba(255,255,255,.2);
+
+      border-top:5px solid gold;
+
+      animation:spin 1s linear infinite;
+
+      margin-bottom:20px;
+
+    }
+
+    @keyframes spin{
+
+      100%{
+        transform:rotate(360deg);
+      }
+
+    }
+
+    .open-btn{
+
+      border:none;
+
+      padding:14px 42px;
+
+      border-radius:50px;
+
+      background:
+              linear-gradient(135deg,#d4af37,#b8860b);
+
+      color:white;
+
+      font-size:20px;
+
+      cursor:pointer;
+
+    }
+
     /* HERO */
-    /* ========================= */
 
     .hero{
 
@@ -460,41 +269,33 @@
     .hero-card{
 
       width:100%;
-      max-width:560px;
-
-      border-radius:35px;
+      max-width:720px;
 
       overflow:hidden;
 
-      position:relative;
+      border-radius:40px;
 
-      box-shadow:
-              0 20px 80px rgba(0,0,0,.4);
+      position:relative;
 
     }
 
     .hero-card img{
 
       width:100%;
-      height:800px;
-      object-fit:cover;
 
-      display:block;
+      height:650px;
+
+      object-fit:cover;
 
     }
 
     .hero-overlay{
 
       position:absolute;
-
       inset:0;
 
       background:
-              linear-gradient(
-                      to top,
-                      rgba(0,0,0,.85),
-                      transparent
-              );
+              linear-gradient(to top,rgba(0,0,0,.75),transparent);
 
     }
 
@@ -508,178 +309,396 @@
 
       text-align:center;
 
-      padding:20px;
-
     }
 
     .hero-text h1{
 
       font-size:90px;
 
-      line-height:.85;
-
       font-weight:300;
-
-      text-shadow:
-              0 5px 20px rgba(0,0,0,.6);
 
     }
 
     .hero-text span{
 
-      font-size:50px;
+      font-size:46px;
+
+      color:#f4d58d;
 
       font-family:'Great Vibes',cursive;
 
-      color:#f0d48f;
+    }
+
+    /* CALENDAR */
+
+    .calendar-section{
+
+      padding:0 20px 120px;
+
+      display:flex;
+
+      justify-content:center;
 
     }
 
-    /* ========================= */
-    /* SECTION */
-    /* ========================= */
+    .calendar-box{
 
-    .section{
+      width:100%;
+      max-width:720px;
 
-      padding:120px 20px;
+      background:#e6e6d4;
+
+      color:#6e7159;
+
+      border-radius:40px;
+
+      padding:70px 40px;
 
       text-align:center;
 
     }
 
-    .glass{
+    .calendar-title{
 
-      max-width:950px;
-
-      margin:auto;
-
-      padding:80px 40px;
-
-      border-radius:40px;
-
-      background:
-              rgba(255,255,255,.12);
-
-      backdrop-filter:blur(14px);
-
-      box-shadow:
-              0 15px 50px rgba(0,0,0,.25);
-
-    }
-
-    .section h2{
-
-      font-size:90px;
-
-      line-height:.9;
-
-      font-weight:300;
+      font-size:70px;
 
       margin-bottom:40px;
 
-      color:#fff2d2;
+    }
+
+    .calendar-text{
+
+      font-size:26px;
+
+      line-height:1.5;
+
+      margin-bottom:25px;
 
     }
 
-    .section p{
+    .month-title{
 
-      max-width:850px;
+      font-size:82px;
 
-      margin:auto;
-
-      font-size:34px;
-
-      line-height:1.7;
+      margin-top:30px;
 
     }
 
-    /* ========================= */
-    /* QUOTE */
-    /* ========================= */
+    .yes-text{
 
-    .quote{
+      font-size:28px;
+
+      margin-bottom:30px;
+
+    }
+
+    .yes-text span{
+
+      display:block;
+
+      font-size:70px;
 
       font-family:'Great Vibes',cursive;
 
-      font-size:60px;
-
-      color:#ffe8b0;
-
-      line-height:1.6;
-
     }
 
-    /* ========================= */
-    /* GALLERY */
-    /* ========================= */
-
-    .gallery{
+    .real-calendar{
 
       display:grid;
 
-      grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
+      grid-template-columns:repeat(7,1fr);
 
-      gap:25px;
+      gap:18px;
 
-      margin-top:60px;
+      max-width:470px;
 
-    }
+      margin:auto;
 
-    .gallery img{
-
-      width:100%;
-
-      height:350px;
-
-      object-fit:cover;
-
-      border-radius:25px;
-
-      transition:.4s;
+      font-size:28px;
 
     }
 
-    .gallery img:hover{
+    .week{
+      font-weight:600;
+    }
 
-      transform:scale(1.04);
+    .day{
+
+      width:48px;
+      height:48px;
+
+      display:flex;
+
+      justify-content:center;
+      align-items:center;
+
+      margin:auto;
+
+      border-radius:50%;
 
     }
 
-    /* ========================= */
-    /* BUTTON */
-    /* ========================= */
+    .muted{
+      opacity:.4;
+    }
 
-    .map-btn{
+    .wedding-day{
 
-      display:inline-block;
-
-      margin-top:40px;
-
-      text-decoration:none;
-
-      background:
-              linear-gradient(
-                      135deg,
-                      #d4af37,
-                      #b8860b
-              );
+      background:#6e7159;
 
       color:white;
 
-      padding:18px 55px;
+    }
 
-      border-radius:50px;
+    .big-date{
 
-      font-size:24px;
+      margin-top:50px;
+
+      font-size:72px;
 
     }
 
-    /* ========================= */
-    /* TIMER */
-    /* ========================= */
+    /* LOCATION */
 
-    .timer{
+    .location-section{
+
+      position:relative;
+
+      width:100%;
+
+      min-height:100vh;
+
+      background:#d8d9c3;
+
+      overflow:hidden;
+
+      display:flex;
+
+      justify-content:center;
+      align-items:center;
+
+    }
+
+    .location-content{
+
+      width:100%;
+      max-width:700px;
+
+      background:
+              rgba(188,191,164,.55);
+
+      backdrop-filter:blur(8px);
+
+      border-radius:45px;
+
+      padding:90px 50px;
+
+      text-align:center;
+
+      z-index:2;
+
+    }
+
+    .location-title{
+
+      font-size:90px;
+
+      color:#666a52;
+
+      margin-bottom:40px;
+
+    }
+
+    .location-place{
+
+      font-size:40px;
+
+      color:#6b6f58;
+
+      margin-bottom:35px;
+
+    }
+
+    .location-address{
+
+      font-size:34px;
+
+      line-height:1.5;
+
+      color:#6b6f58;
+
+      margin-bottom:55px;
+
+    }
+
+    .map-button{
+
+      display:inline-block;
+
+      padding:24px 70px;
+
+      border-radius:60px;
+
+      background:
+              rgba(255,255,255,.35);
+
+      color:#6b6f58;
+
+      text-decoration:none;
+
+      font-size:34px;
+
+    }
+
+    .door{
+
+      position:absolute;
+
+      top:0;
+
+      width:50%;
+
+      height:100%;
+
+      background:#c9cab3;
+
+      z-index:5;
+
+      transition:2.5s ease-in-out;
+
+    }
+
+    .left-door{
+      left:0;
+    }
+
+    .right-door{
+      right:0;
+    }
+
+    .location-section:hover .left-door{
+      transform:translateX(-100%);
+    }
+
+    .location-section:hover .right-door{
+      transform:translateX(100%);
+    }
+
+    /* PROGRAM */
+
+    .program-section{
+
+      background:#d8d9c3;
+
+      padding:140px 20px;
+
+      text-align:center;
+
+    }
+
+    .program-title{
+
+      font-size:92px;
+
+      color:#666a52;
+
+      margin-bottom:90px;
+
+    }
+
+    .program-list{
+
+      max-width:900px;
+
+      margin:auto;
+
+    }
+
+    .program-item{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:35px;
+
+      margin-bottom:70px;
+
+    }
+
+    .program-time{
+
+      width:220px;
+
+      text-align:right;
+
+      font-size:86px;
+
+      color:#666a52;
+
+    }
+
+    .program-line{
+
+      width:2px;
+
+      height:95px;
+
+      background:#6b6f58;
+
+    }
+
+    .program-text{
+
+      width:360px;
+
+      text-align:left;
+
+      font-size:44px;
+
+      line-height:1.1;
+
+      color:#6b6f58;
+
+    }
+
+    /* DRESS CODE */
+
+    .dresscode-section{
+
+      background:#d8d9c3;
+
+      padding:140px 20px 120px;
+
+      text-align:center;
+
+    }
+
+    .dress-title{
+
+      font-size:92px;
+
+      color:#666a52;
+
+      margin-bottom:60px;
+
+    }
+
+    .dress-text{
+
+      font-size:30px;
+
+      line-height:1.4;
+
+      color:#6b6f58;
+
+      margin-bottom:60px;
+
+    }
+
+    .dress-colors{
 
       display:flex;
 
@@ -687,93 +706,568 @@
 
       flex-wrap:wrap;
 
-      gap:30px;
-
-      margin-top:60px;
+      margin-bottom:70px;
 
     }
 
-    .time-box{
+    .dress-color{
 
-      width:150px;
+      width:95px;
+      height:95px;
 
-      padding:35px;
+      border-radius:50%;
 
-      border-radius:30px;
-
-      background:
-              rgba(255,255,255,.15);
-
-      backdrop-filter:blur(10px);
+      margin-left:-8px;
 
     }
 
-    .time-box div{
+    .dress-bottom-text{
 
-      font-size:60px;
+      font-size:76px;
 
-    }
+      color:#666a52;
 
-    .time-box span{
-
-      font-size:22px;
+      font-family:'Great Vibes',cursive;
 
     }
 
-    /* ========================= */
-    /* FOOTER */
-    /* ========================= */
+    /* WOMEN */
 
-    .footer{
+    .dress-gallery-section{
 
-      padding:120px 20px;
+      background:#d8d9c3;
+
+      padding:40px 20px 100px;
+
+      display:flex;
+
+      justify-content:center;
+
+    }
+
+    .gallery-grid{
+
+      width:100%;
+
+      max-width:1100px;
+
+    }
+
+    .gallery-photo{
+
+      width:100%;
+
+      border-radius:12px;
+
+      display:block;
+
+    }
+
+    /* MEN */
+
+    .men-gallery-section{
+
+      background:#d8d9c3;
+
+      padding:40px 20px 140px;
 
       text-align:center;
 
     }
 
-    .footer h2{
+    .men-title{
 
-      font-size:90px;
+      font-size:78px;
+
+      color:#666a52;
 
       font-family:'Great Vibes',cursive;
 
-      color:#ffe7b3;
+      margin-bottom:40px;
 
     }
 
-    /* ========================= */
-    /* MOBILE */
-    /* ========================= */
+    .men-gallery{
 
-    @media(max-width:768px){
+      width:100%;
+
+      max-width:1100px;
+
+      margin:auto;
+
+    }
+
+    .men-photo{
+
+      width:100%;
+
+      border-radius:12px;
+
+      display:block;
+
+    }
+
+    /* WISHES */
+
+    .wishes-section{
+
+      position:relative;
+
+      background:#d8d9c3;
+
+      padding:140px 20px 40px;
+
+      overflow:hidden;
+
+      text-align:center;
+
+    }
+
+    .wish-blur{
+
+      position:absolute;
+
+      top:-80px;
+      left:-80px;
+
+      width:600px;
+      height:600px;
+
+      background:
+              radial-gradient(
+                      rgba(0,0,0,.12),
+                      transparent 70%
+              );
+
+      filter:blur(40px);
+
+      opacity:.25;
+
+    }
+
+    .wishes-title{
+
+      font-size:92px;
+
+      font-weight:300;
+
+      color:#666a52;
+
+      margin-bottom:70px;
+
+    }
+
+    .wish-card{
+
+      width:100%;
+
+      max-width:520px;
+
+      margin:0 auto 35px;
+
+      background:
+              rgba(255,255,255,.28);
+
+      border-radius:28px;
+
+      padding:55px 40px;
+
+      backdrop-filter:blur(5px);
+
+      box-shadow:
+              0 10px 30px rgba(0,0,0,.05);
+
+    }
+
+    .wish-card p{
+
+      font-size:28px;
+
+      line-height:1.35;
+
+      color:#6b6f58;
+
+      text-align:left;
+
+    }
+
+    /* CONTACTS SECTION */
+
+    .contacts-section {
+      background:#d8d9c3;
+      padding:40px 20px;
+      text-align:center;
+    }
+
+    .contacts-card-main {
+      width:100%;
+      max-width:640px;
+      margin:0 auto;
+      background:rgba(255,255,255,.28);
+      border-radius:32px;
+      padding:60px 45px;
+      backdrop-filter:blur(5px);
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+    }
+
+    .contacts-intro {
+      font-size:28px;
+      line-height:1.45;
+      color:#6b6f58;
+      text-align:left;
+      margin-bottom:50px;
+    }
+
+    .contact-person-block {
+      margin-bottom:45px;
+    }
+
+    .contact-person-block:last-child {
+      margin-bottom:0;
+    }
+
+    .contact-role-name {
+      font-size:32px;
+      color:#6b6f58;
+      margin-bottom:5px;
+      font-weight:500;
+    }
+
+    .contact-phone {
+      font-size:28px;
+      color:#6b6f58;
+      margin-bottom:20px;
+    }
+
+    .telegram-link-btn {
+      display:inline-block;
+      padding:16px 45px;
+      border-radius:50px;
+      background:#5d6346;
+      color:white;
+      text-decoration:none;
+      font-size:24px;
+      transition:background .3s ease;
+    }
+
+    .telegram-link-btn:hover {
+      background:#494e36;
+    }
+
+    /* NEXT DAY & LOVE SECTION */
+
+    .next-day-section {
+      background:#d8d9c3;
+      padding:40px 20px;
+      text-align:center;
+    }
+
+    .next-day-card {
+      width:100%;
+      max-width:640px;
+      margin:0 auto 40px;
+      background:rgba(255,255,255,.28);
+      border-radius:32px;
+      padding:60px 45px;
+      backdrop-filter:blur(5px);
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+    }
+
+    .next-day-text {
+      font-size:28px;
+      line-height:1.45;
+      color:#6b6f58;
+      text-align:left;
+    }
+
+    .love-signature {
+      font-family:'Great Vibes',cursive;
+      font-size:75px;
+      color:#666a52;
+      margin-top:20px;
+      display:block;
+      text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+    }
+
+    /* ENVELOPE CARD SECTION (MATCHES image_0c1686.png EXACTLY) */
+
+    .envelope-section {
+      background:#d8d9c3;
+      padding:40px 20px 60px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .envelope-wrapper {
+      width:100%;
+      max-width:640px;
+      background:#596447;
+      border-radius:30px;
+      padding:40px 35px 35px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.12);
+      text-align:center;
+    }
+
+    .inner-white-card {
+      background:#ffffff;
+      border-radius:16px;
+      padding:60px 40px;
+      color:#596447;
+      box-shadow:0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom:35px;
+    }
+
+    .inner-card-text {
+      font-size:25px;
+      line-height:1.6;
+      margin-bottom:45px;
+      font-weight:400;
+    }
+
+    .inner-card-signature {
+      font-size:32px;
+      letter-spacing:1px;
+      font-weight:500;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+
+    .envelope-script-text {
+      font-family:'Great Vibes',cursive;
+      font-size:62px;
+      color:#ffffff;
+      display:block;
+      margin-top:10px;
+      font-weight:300;
+    }
+
+    /* COUNTDOWN TIMER SECTION (MATCHES image_0bb8a7.jpg) */
+
+    .countdown-section {
+      background:#c8d1bb; /* Accurate sage green background from image_0bb8a7.jpg */
+      padding:0 0 140px 0;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .countdown-hero-image {
+      width:100%;
+      max-width:640px;
+      height:auto;
+      display:block;
+      /* Creates the beautiful soft fade blend at the bottom of the image */
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+      margin-bottom:40px;
+    }
+
+    .countdown-title {
+      font-family:'Great Vibes',cursive;
+      font-size:55px;
+      color:#596447;
+      line-height:1.2;
+      margin-bottom:50px;
+      font-weight:300;
+    }
+
+    .countdown-container {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
+      max-width:550px;
+      width:100%;
+      padding:0 20px;
+    }
+
+    .timer-block {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      min-width:65px;
+    }
+
+    .timer-number {
+      font-size:48px;
+      color:#596447;
+      font-weight:400;
+      line-height:1;
+      margin-bottom:12px;
+    }
+
+    .timer-label {
+      font-size:18px;
+      color:#596447;
+      font-weight:400;
+      opacity:0.8;
+    }
+
+    .timer-divider {
+      font-size:40px;
+      color:#596447;
+      font-weight:300;
+      margin-top:-28px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:700px){
 
       .hero-text h1{
-        font-size:58px;
+        font-size:54px;
       }
 
-      .section h2{
-        font-size:56px;
+      .calendar-title{
+        font-size:42px;
       }
 
-      .section p{
-        font-size:24px;
-      }
-
-      .gallery img{
-        height:250px;
-      }
-
-      .quote{
-        font-size:40px;
-      }
-
-      .loading-box h2{
-        font-size:28px;
-      }
-
-      .welcome-names{
+      .location-title{
         font-size:52px;
+      }
+
+      .program-title{
+        font-size:48px;
+      }
+
+      .dress-title{
+        font-size:48px;
+      }
+
+      .program-item{
+        gap:18px;
+      }
+
+      .program-time{
+        width:110px;
+        font-size:42px;
+      }
+
+      .program-text{
+        width:170px;
+        font-size:20px;
+      }
+
+      .dress-text{
+        font-size:18px;
+      }
+
+      .dress-color{
+        width:55px;
+        height:55px;
+      }
+
+      .dress-bottom-text{
+        font-size:44px;
+      }
+
+      .men-title{
+        font-size:44px;
+      }
+
+      .wishes-title{
+        font-size:48px;
+      }
+
+      .wish-card{
+        padding:35px 24px;
+      }
+
+      .wish-card p{
+        font-size:18px;
+      }
+
+      .contacts-card-main, .next-day-card {
+        padding:40px 24px;
+      }
+
+      .contacts-intro, .next-day-text {
+        font-size:18px;
+      }
+
+      .contact-role-name {
+        font-size:22px;
+      }
+
+      .contact-phone {
+        font-size:18px;
+      }
+
+      .telegram-link-btn {
+        font-size:18px;
+        padding:12px 35px;
+      }
+
+      .love-signature {
+        font-size:52px;
+      }
+
+      .next-day-section {
+        padding:20px 20px;
+      }
+
+      .envelope-section {
+        padding:20px 20px 40px;
+      }
+
+      .envelope-wrapper {
+        padding:25px 20px 20px;
+        border-radius:20px;
+      }
+
+      .inner-white-card {
+        padding:35px 20px;
+        border-radius:12px;
+        margin-bottom:20px;
+      }
+
+      .inner-card-text {
+        font-size:16px;
+        line-height:1.5;
+        margin-bottom:25px;
+      }
+
+      .inner-card-signature {
+        font-size:18px;
+      }
+
+      .envelope-script-text {
+        font-size:44px;
+      }
+
+      /* Responsive countdown from image_0bb8a7.jpg */
+      .countdown-section {
+        padding:0 0 100px 0;
+      }
+
+      .countdown-title {
+        font-size:36px;
+        margin-bottom:35px;
+        padding:0 15px;
+      }
+
+      .countdown-container {
+        gap:12px;
+      }
+
+      .timer-block {
+        min-width:45px;
+      }
+
+      .timer-number {
+        font-size:32px;
+        margin-bottom:6px;
+      }
+
+      .timer-label {
+        font-size:13px;
+      }
+
+      .timer-divider {
+        font-size:26px;
+        margin-top:-20px;
       }
 
     }
@@ -784,7 +1278,6 @@
 <body>
 
 <div class="hearts">
-  <span>❤</span>
   <span>❤</span>
   <span>❤</span>
   <span>❤</span>
@@ -810,12 +1303,10 @@
 
   <div class="loading-box">
 
+    <img src="101.png" class="welcome-photo">
+
     <div class="welcome-names">
-
-      ARAM
-      <span>&</span>
-      ANGELINA
-
+      ARAM <span>&</span> ANGELINA
     </div>
 
     <div class="welcome-subtitle">
@@ -836,37 +1327,13 @@
 
 </div>
 
-<!-- LANG -->
-
-<div class="lang-switch">
-
-  <button onclick="setLanguage('hy')">
-    🇦🇲 Հայ
-  </button>
-
-  <button onclick="setLanguage('ru')">
-    🇷🇺 Рус
-  </button>
-
-</div>
-
-<!-- MUSIC -->
-
-<button class="music-btn" id="musicBtn">
-  ❚❚
-</button>
-
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <!-- HERO -->
 
 <section class="hero">
 
   <div class="hero-card">
 
-    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1974&auto=format&fit=crop">
+    <img src="101.png">
 
     <div class="hero-overlay"></div>
 
@@ -890,60 +1357,91 @@ Wedding Day
 
 </section>
 
-<!-- INVITE -->
+<!-- CALENDAR -->
 
-<section class="section">
+<section class="calendar-section">
 
-  <div class="glass">
+  <div class="calendar-box">
 
-    <h2 id="inviteTitle">
-      ՍԻՐԵԼԻ
-      <br>
-      ՀԱՐԱԶԱՏՆԵՐ
+    <h2 class="calendar-title">
+      ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!
     </h2>
 
-    <p id="inviteText">
-      Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու
-      մեր կյանքի ամենագեղեցիկ օրվան։
+    <p class="calendar-text">
+      В этот замечательный день мы хотели бы разделить
+      с вами наше счастье и радость.
     </p>
 
-  </div>
+    <p class="calendar-text">
+      Приглашаем Вас на свадьбу, где мы сможем вместе
+      отметить начало нашей новой жизни.
+    </p>
 
-</section>
+    <h3 class="month-title">
+      ИЮЛЬ
+    </h3>
 
-<!-- QUOTE -->
-
-<section class="section">
-
-  <div class="glass">
-
-    <div class="quote">
-      “Love is not just looking at each other,
-      it's looking in the same direction.”
+    <div class="yes-text">
+      В ЭТОТ ДЕНЬ МЫ СКАЖЕМ
+      <span>Да!</span>
     </div>
 
-  </div>
+    <div class="real-calendar">
 
-</section>
+      <div class="week">Пн</div>
+      <div class="week">Вт</div>
+      <div class="week">Ср</div>
+      <div class="week">Чт</div>
+      <div class="week">Пт</div>
+      <div class="week">Сб</div>
+      <div class="week">Вс</div>
 
-<!-- GALLERY -->
+      <div class="day muted">29</div>
+      <div class="day muted">30</div>
+      <div class="day">1</div>
+      <div class="day">2</div>
+      <div class="day">3</div>
+      <div class="day">4</div>
+      <div class="day">5</div>
 
-<section class="section">
+      <div class="day">6</div>
+      <div class="day">7</div>
+      <div class="day">8</div>
+      <div class="day">9</div>
+      <div class="day">10</div>
+      <div class="day">11</div>
+      <div class="day">12</div>
 
-  <div class="glass">
+      <div class="day">13</div>
+      <div class="day">14</div>
+      <div class="day">15</div>
+      <div class="day">16</div>
+      <div class="day">17</div>
+      <div class="day">18</div>
 
-    <h2>
-      ՄԵՐ ՊԱՏՄՈՒԹՅՈՒՆԸ
-    </h2>
+      <div class="day">19</div>
+      <div class="day">20</div>
+      <div class="day">21</div>
+      <div class="day">22</div>
+      <div class="day">23</div>
+      <div class="day">24</div>
+      <div class="day">25</div>
 
-    <div class="gallery">
+      <div class="day">26</div>
+      <div class="day">27</div>
 
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1974&auto=format&fit=crop">
+      <div class="day wedding-day">
+        28
+      </div>
 
-      <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1974&auto=format&fit=crop">
+      <div class="day">29</div>
+      <div class="day">30</div>
+      <div class="day">31</div>
 
-      <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1974&auto=format&fit=crop">
+    </div>
 
+    <div class="big-date">
+      28.07.2026
     </div>
 
   </div>
@@ -952,86 +1450,290 @@ Wedding Day
 
 <!-- LOCATION -->
 
-<section class="section">
+<section class="location-section">
 
-  <div class="glass">
+  <div class="door left-door"></div>
+  <div class="door right-door"></div>
 
-    <h2 id="locationTitle">
-      ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ
+  <div class="location-content">
+
+    <h2 class="location-title">
+      ЛОКАЦИЯ
     </h2>
 
-    <p id="locationText">
-      Royal Hall
-      <br><br>
-      Երևան
+    <p class="location-place">
+      Банкетный зал «Событие»
     </p>
 
-    <a href="#" class="map-btn" id="mapBtn">
-      ԲԱՑԵԼ ՔԱՐՏԵԶԸ
+    <p class="location-address">
+      г. Чита, ул. Шилова, 97д
+      <br>
+      Цокольный этаж
+    </p>
+
+    <a href="#" class="map-button">
+      Посмотреть на карте
     </a>
 
   </div>
 
 </section>
 
-<!-- TIMER -->
+<!-- PROGRAM -->
 
-<section class="section">
+<section class="section program-section">
 
-  <div class="glass">
+  <h2 class="program-title">
+    ПРОГРАММА
+  </h2>
 
-    <h2 id="timerTitle">
-      Մնացել է
-    </h2>
+  <div class="program-list">
 
-    <div class="timer">
+    <div class="program-item">
+      <div class="program-time">17:30</div>
+      <div class="program-line"></div>
+      <div class="program-text">СБОР ГОСТЕЙ</div>
+    </div>
 
-      <div class="time-box">
-        <div id="days">00</div>
-        <span id="daysText">օր</span>
+    <div class="program-item">
+      <div class="program-time">18:00</div>
+      <div class="program-line"></div>
+      <div class="program-text">ЦЕРЕМОНИЯ</div>
+    </div>
+
+    <div class="program-item">
+      <div class="program-time">18:30</div>
+      <div class="program-line"></div>
+      <div class="program-text">НАЧАЛО БАНКЕТА</div>
+    </div>
+
+    <div class="program-item">
+      <div class="program-time">23:00</div>
+      <div class="program-line"></div>
+      <div class="program-text">
+        ОКОНЧАНИЕ
+        <br>
+        ПРАЗДНИЧНОГО ВЕЧЕРА
       </div>
-
-      <div class="time-box">
-        <div id="hours">00</div>
-        <span id="hoursText">ժամ</span>
-      </div>
-
-      <div class="time-box">
-        <div id="minutes">00</div>
-        <span id="minutesText">րոպե</span>
-      </div>
-
-      <div class="time-box">
-        <div id="seconds">00</div>
-        <span id="secondsText">վայրկյան</span>
-      </div>
-
     </div>
 
   </div>
 
 </section>
 
-<!-- FOOTER -->
+<!-- DRESS CODE -->
 
-<section class="footer">
+<section class="dresscode-section">
 
-  <h2>
-    Forever & Always
+  <h2 class="dress-title">
+    ДРЕСС-КОД
   </h2>
+
+  <p class="dress-text">
+    Мы очень старались сделать праздник красивым и
+    <br>
+    будем рады, если в своих нарядах вы поддержите
+    <br>
+    цветовую гамму нашей свадьбы:
+  </p>
+
+  <div class="dress-colors">
+
+    <div class="dress-color" style="background:#3d2925;"></div>
+    <div class="dress-color" style="background:#5a4335;"></div>
+    <div class="dress-color" style="background:#a58e76;"></div>
+    <div class="dress-color" style="background:#cbb8aa;"></div>
+    <div class="dress-color" style="background:#c8b8a6;"></div>
+    <div class="dress-color" style="background:#dfbcc4;"></div>
+    <div class="dress-color" style="background:#bb8585;"></div>
+    <div class="dress-color" style="background:#b8bea0;"></div>
+    <div class="dress-color" style="background:#62694b;"></div>
+
+  </div>
+
+  <div class="dress-bottom-text">
+    Для женщин
+  </div>
+
+</section>
+
+<!-- WOMEN PHOTO -->
+
+<section class="dress-gallery-section">
+
+  <div class="gallery-grid">
+
+    <img src="image(518).png" class="gallery-photo">
+
+  </div>
+
+</section>
+
+<!-- MEN -->
+
+<section class="men-gallery-section">
+
+  <div class="men-title">
+    Для мужчин
+  </div>
+
+  <div class="men-gallery">
+
+    <img src="image(519).png" class="men-photo">
+
+  </div>
+
+</section>
+
+<!-- WISHES -->
+
+<section class="wishes-section">
+
+  <div class="wish-blur"></div>
+
+  <h2 class="wishes-title">
+    ПОЖЕЛАНИЯ
+  </h2>
+
+  <div class="wish-card">
+
+    <p>
+      Дорогие родные и близкие, если хотите
+      поддержать нам ценный и нужный
+      подарок, мы будем очень благодарны
+      за вклад в бюджет нашей молодой
+      семьи.
+    </p>
+
+  </div>
+
+  <div class="wish-card">
+
+    <p>
+      В программе вечера — множество
+      интересных событий, участие в которых
+      предполагает наличный расчёт. Заранее
+      подготовьте комфортную для вас сумму,
+      чтобы ничего не отвлекало от
+      праздника!
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CONTACTS SECTION -->
+
+<section class="contacts-section">
+
+  <div class="contacts-card-main">
+
+    <p class="contacts-intro">
+      Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины! Если Вы подготовили для нас сюрприз, а так же в случае возникновения любых вопросов, Вы можете обратиться к нашему ведущему или организатору.
+    </p>
+
+    <div class="contact-person-block">
+      <div class="contact-role-name">Ведущий Александр</div>
+      <div class="contact-phone">+7 964 464 9090</div>
+      <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank">Написать в телеграм</a>
+    </div>
+
+    <div class="contact-person-block">
+      <div class="contact-role-name">Организатор Нина</div>
+      <div class="contact-phone">+7 914 491 9090</div>
+      <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank">Написать в телеграм</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- NEXT DAY SECTION -->
+
+<section class="next-day-section">
+
+  <div class="next-day-card">
+
+    <p class="next-day-text">
+      Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:
+      <br><br>
+      ул. Богомягкова 45 а
+    </p>
+
+  </div>
+
+  <span class="love-signature">С любовью!</span>
+
+</section>
+
+<!-- ENVELOPE INVITATION SECTION -->
+
+<section class="envelope-section">
+
+  <div class="envelope-wrapper">
+
+    <div class="inner-white-card">
+      <p class="inner-card-text">
+        Вы не просто так получили это приглашение!<br>
+        В особенный для нас день мы очень хотим, чтобы вы были рядом!
+      </p>
+      <div class="inner-card-signature">
+        С любовью,<br>
+        Павел и Татьяна
+      </div>
+    </div>
+
+    <span class="envelope-script-text">forever and always</span>
+
+  </div>
+
+</section>
+
+<!-- COUNTDOWN TIMER SECTION (NEW BASED ON image_0bb8a7.jpg) -->
+
+<section class="countdown-section">
+
+  <img src="505" class="countdown-hero-image">
+
+  <div class="countdown-title">
+    До нашей свадьбы<br>осталось:
+  </div>
+
+  <div class="countdown-container">
+
+    <div class="timer-block">
+      <div class="timer-number" id="days">00</div>
+      <div class="timer-label">дней</div>
+    </div>
+
+    <div class="timer-divider">:</div>
+
+    <div class="timer-block">
+      <div class="timer-number" id="hours">00</div>
+      <div class="timer-label">часов</div>
+    </div>
+
+    <div class="timer-divider">:</div>
+
+    <div class="timer-block">
+      <div class="timer-number" id="minutes">00</div>
+      <div class="timer-label">минут</div>
+    </div>
+
+    <div class="timer-divider">:</div>
+
+    <div class="timer-block">
+      <div class="timer-number" id="seconds">00</div>
+      <div class="timer-label">секунд</div>
+    </div>
+
+  </div>
 
 </section>
 
 <script>
 
-  /* ========================= */
-  /* LANGUAGE */
-  /* ========================= */
-
   function setLanguage(lang){
-
-    const dayNames =
-            document.querySelectorAll('.day-name');
 
     if(lang === 'hy'){
 
@@ -1040,29 +1742,6 @@ Wedding Day
 
       document.getElementById('openBtn').innerHTML =
               'Բացել հրավերը';
-
-      document.getElementById('inviteTitle').innerHTML =
-              'ՍԻՐԵԼԻ <br> ՀԱՐԱԶԱՏՆԵՐ';
-
-      document.getElementById('inviteText').innerHTML =
-              'Մեծ սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի ամենագեղեցիկ օրվան։';
-
-      document.getElementById('locationTitle').innerHTML =
-              'ՄԻՋՈՑԱՌՄԱՆ ՎԱՅՐ';
-
-      document.getElementById('locationText').innerHTML =
-              'Royal Hall <br><br> Երևան';
-
-      document.getElementById('mapBtn').innerHTML =
-              'ԲԱՑԵԼ ՔԱՐՏԵԶԸ';
-
-      document.getElementById('timerTitle').innerHTML =
-              'Մնացել է';
-
-      document.getElementById('daysText').innerHTML='օր';
-      document.getElementById('hoursText').innerHTML='ժամ';
-      document.getElementById('minutesText').innerHTML='րոպե';
-      document.getElementById('secondsText').innerHTML='վայրկյան';
 
     }
 
@@ -1074,36 +1753,9 @@ Wedding Day
       document.getElementById('openBtn').innerHTML =
               'Открыть приглашение';
 
-      document.getElementById('inviteTitle').innerHTML =
-              'ДОРОГИЕ <br> РОДНЫЕ';
-
-      document.getElementById('inviteText').innerHTML =
-              'С большой любовью приглашаем Вас разделить вместе с нами самый важный день нашей жизни.';
-
-      document.getElementById('locationTitle').innerHTML =
-              'МЕСТО ПРОВЕДЕНИЯ';
-
-      document.getElementById('locationText').innerHTML =
-              'Royal Hall <br><br> Ереван';
-
-      document.getElementById('mapBtn').innerHTML =
-              'ОТКРЫТЬ КАРТУ';
-
-      document.getElementById('timerTitle').innerHTML =
-              'Осталось';
-
-      document.getElementById('daysText').innerHTML='дней';
-      document.getElementById('hoursText').innerHTML='часов';
-      document.getElementById('minutesText').innerHTML='минут';
-      document.getElementById('secondsText').innerHTML='секунд';
-
     }
 
   }
-
-  /* ========================= */
-  /* LOADING */
-  /* ========================= */
 
   const openBtn =
           document.getElementById('openBtn');
@@ -1114,9 +1766,6 @@ Wedding Day
   const loadingScreen =
           document.getElementById('loadingScreen');
 
-  const music =
-          document.getElementById('music');
-
   let clicks = 0;
 
   openBtn.onclick = ()=>{
@@ -1125,42 +1774,18 @@ Wedding Day
 
     if(clicks===1){
 
-      if(openBtn.innerHTML.includes('Открыть')){
+      loadingText.innerHTML =
+              '😅';
 
-        loadingText.innerHTML =
-                'Возможно Вы не приглашены 😅 <br><br> Попробуйте ещё раз...';
-
-        openBtn.innerHTML =
-                'Попробовать снова';
-
-      }else{
-
-        loadingText.innerHTML =
-                'Հնարավոր է դուք հրավիրված չեք 😅 <br><br> Կրկին փորձեք...';
-
-        openBtn.innerHTML =
-                'Կրկին փորձել';
-
-      }
-
-      openBtn.style.background =
-              'linear-gradient(135deg,#9a7a7a,#6f4f4f)';
+      openBtn.innerHTML =
+              'Еще раз';
 
     }
 
     if(clicks===2){
 
-      if(openBtn.innerHTML.includes('Попробовать')){
-
-        loadingText.innerHTML =
-                'Поздравляем 🎉 <br><br> Вы приглашены';
-
-      }else{
-
-        loadingText.innerHTML =
-                'Շնորհավորում ենք 🎉 <br><br> Դուք հրավիրված եք';
-
-      }
+      loadingText.innerHTML =
+              'Добро пожаловать 🎉';
 
       openBtn.style.display='none';
 
@@ -1172,69 +1797,41 @@ Wedding Day
 
           loadingScreen.style.display='none';
 
-          music.play();
-
         },1000);
 
-      },2500);
+      },2000);
 
     }
 
   };
 
-  /* ========================= */
-  /* MUSIC */
-  /* ========================= */
+  /* REAL-TIME COUNTDOWN LIVE SCRIPT TO 28.07.2026 */
+  function updateWeddingCountdown() {
+    const weddingDate = new Date("July 28, 2026 00:00:00").getTime();
+    const now = new Date().getTime();
+    const difference = weddingDate - now;
 
-  const musicBtn =
-          document.getElementById('musicBtn');
+    if (difference > 0) {
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((difference % (1000 * 60)) / 1000);
 
-  musicBtn.onclick = ()=>{
-
-    if(music.paused){
-
-      music.play();
-
-      musicBtn.innerHTML='❚❚';
-
-    }else{
-
-      music.pause();
-
-      musicBtn.innerHTML='▶';
-
+      document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+      document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+      document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+      document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+    } else {
+      document.getElementById("days").innerText = "00";
+      document.getElementById("hours").innerText = "00";
+      document.getElementById("minutes").innerText = "00";
+      document.getElementById("seconds").innerText = "00";
     }
+  }
 
-  };
-
-  /* ========================= */
-  /* TIMER */
-  /* ========================= */
-
-  const weddingDate =
-          new Date('2026-07-28T00:00:00').getTime();
-
-  setInterval(()=>{
-
-    const now =
-            new Date().getTime();
-
-    const diff =
-            weddingDate-now;
-
-    document.getElementById('days').innerHTML =
-            Math.floor(diff/(1000*60*60*24));
-
-    document.getElementById('hours').innerHTML =
-            Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-
-    document.getElementById('minutes').innerHTML =
-            Math.floor((diff%(1000*60*60))/(1000*60));
-
-    document.getElementById('seconds').innerHTML =
-            Math.floor((diff%(1000*60))/1000);
-
-  },1000);
+  // Update the count down every 1 second
+  setInterval(updateWeddingCountdown, 1000);
+  updateWeddingCountdown(); // Init immediately
 
 </script>
 
