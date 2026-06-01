@@ -80,7 +80,7 @@
 
     }
 
-    /* LOADING */
+    /* LOADING & LANGUAGE FLOATING BUTTON */
 
     .loading-screen{
 
@@ -132,9 +132,10 @@
 
     }
 
+    /* Global Lang Switcher - Visible always on top right */
     .start-lang{
 
-      position:absolute;
+      position:fixed;
 
       top:20px;
       right:20px;
@@ -142,6 +143,7 @@
       display:flex;
 
       gap:10px;
+      z-index:100000;
 
     }
 
@@ -153,14 +155,21 @@
 
       border-radius:40px;
 
-      background:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.25);
 
       color:white;
 
       cursor:pointer;
 
       font-size:16px;
+      font-family: inherit;
+      transition: background 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 
+    }
+
+    .start-lang button:hover {
+      background:rgba(255,255,255,0.4);
     }
 
     .welcome-photo{
@@ -360,7 +369,7 @@
 
     .calendar-title{
 
-      font-size:70px;
+      font-size:60px;
 
       margin-bottom:40px;
 
@@ -1045,7 +1054,7 @@
     /* COUNTDOWN TIMER SECTION (MATCHES image_0bb8a7.jpg) */
 
     .countdown-section {
-      background:#c8d1bb; /* Accurate sage green background from image_0bb8a7.jpg */
+      background:#c8d1bb;
       padding:0 0 140px 0;
       text-align:center;
       display:flex;
@@ -1058,7 +1067,6 @@
       max-width:640px;
       height:auto;
       display:block;
-      /* Creates the beautiful soft fade blend at the bottom of the image */
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
       -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
       margin-bottom:40px;
@@ -1121,7 +1129,7 @@
       }
 
       .calendar-title{
-        font-size:42px;
+        font-size:36px;
       }
 
       .location-title{
@@ -1237,7 +1245,6 @@
         font-size:44px;
       }
 
-      /* Responsive countdown from image_0bb8a7.jpg */
       .countdown-section {
         padding:0 0 100px 0;
       }
@@ -1285,524 +1292,292 @@
   <span>❤</span>
 </div>
 
-<!-- LOADING -->
+<!-- FLOATING LANGUAGE BUTTONS (Visible Always) -->
+<div class="start-lang">
+  <button onclick="setLanguage('hy')">🇦🇲 Հայ</button>
+  <button onclick="setLanguage('ru')">🇷🇺 Рус</button>
+</div>
 
+<!-- LOADING Screen -->
 <div class="loading-screen" id="loadingScreen">
-
-  <div class="start-lang">
-
-    <button onclick="setLanguage('hy')">
-      🇦🇲 Հայ
-    </button>
-
-    <button onclick="setLanguage('ru')">
-      🇷🇺 Рус
-    </button>
-
-  </div>
-
   <div class="loading-box">
-
-    <img src="101.png" class="welcome-photo">
-
-    <div class="welcome-names">
-      ARAM <span>&</span> ANGELINA
-    </div>
-
-    <div class="welcome-subtitle">
-      Wedding Invitation
-    </div>
-
+    <img src="505" class="welcome-photo">
+    <div class="welcome-names">ARAM <span>&</span> ANGELINA</div>
+    <div class="welcome-subtitle">Wedding Invitation</div>
     <div class="loader"></div>
-
-    <h2 id="loadingText">
-      Ստուգում ենք հրավերը...
-    </h2>
-
-    <button class="open-btn" id="openBtn">
-      Բացել հրավերը
-    </button>
-
+    <h2 id="loadingText" data-key="loadingText">Ստուգում ենք հրավերը...</h2>
+    <button class="open-btn" id="openBtn" data-key="openBtn">Բացել հրավերը</button>
   </div>
-
 </div>
 
 <!-- HERO -->
-
 <section class="hero">
-
   <div class="hero-card">
-
-    <img src="101.png">
-
+    <img src="505">
     <div class="hero-overlay"></div>
-
     <div class="hero-text">
-
-      <h1>
-        ARAM
-        <br>
-        &
-        <br>
-        ANGELINA
-      </h1>
-
-      <span>
-Wedding Day
-</span>
-
+      <h1>ARAM<br>&<br>ANGELINA</h1>
+      <span data-key="heroSub">Wedding Day</span>
     </div>
-
   </div>
-
 </section>
 
 <!-- CALENDAR -->
-
 <section class="calendar-section">
-
   <div class="calendar-box">
-
-    <h2 class="calendar-title">
-      ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!
-    </h2>
-
-    <p class="calendar-text">
-      В этот замечательный день мы хотели бы разделить
-      с вами наше счастье и радость.
-    </p>
-
-    <p class="calendar-text">
-      Приглашаем Вас на свадьбу, где мы сможем вместе
-      отметить начало нашей новой жизни.
-    </p>
-
-    <h3 class="month-title">
-      ИЮЛЬ
-    </h3>
-
-    <div class="yes-text">
-      В ЭТОТ ДЕНЬ МЫ СКАЖЕМ
-      <span>Да!</span>
-    </div>
+    <h2 class="calendar-title" data-key="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
+    <p class="calendar-text" data-key="calText1">В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.</p>
+    <p class="calendar-text" data-key="calText2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
+    <h3 class="month-title" data-key="monthTitle">ИЮЛЬ</h3>
+    <div class="yes-text" data-key="yesText">В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span></div>
 
     <div class="real-calendar">
-
-      <div class="week">Пн</div>
-      <div class="week">Вт</div>
-      <div class="week">Ср</div>
-      <div class="week">Чт</div>
-      <div class="week">Пт</div>
-      <div class="week">Сб</div>
-      <div class="week">Вс</div>
-
-      <div class="day muted">29</div>
-      <div class="day muted">30</div>
-      <div class="day">1</div>
-      <div class="day">2</div>
-      <div class="day">3</div>
-      <div class="day">4</div>
-      <div class="day">5</div>
-
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day">9</div>
-      <div class="day">10</div>
-      <div class="day">11</div>
-      <div class="day">12</div>
-
-      <div class="day">13</div>
-      <div class="day">14</div>
-      <div class="day">15</div>
-      <div class="day">16</div>
-      <div class="day">17</div>
-      <div class="day">18</div>
-
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-      <div class="day">25</div>
-
-      <div class="day">26</div>
-      <div class="day">27</div>
-
-      <div class="day wedding-day">
-        28
-      </div>
-
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day">31</div>
-
+      <div class="week" data-key="w1">Пн</div><div class="week" data-key="w2">Вт</div><div class="week" data-key="w3">Ср</div><div class="week" data-key="w4">Чт</div><div class="week" data-key="w5">Пт</div><div class="week" data-key="w6">Сб</div><div class="week" data-key="w7">Вс</div>
+      <div class="day muted">29</div><div class="day muted">30</div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
+      <div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div>
+      <div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div>
+      <div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
+      <div class="day">27</div><div class="day wedding-day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div>
     </div>
-
-    <div class="big-date">
-      28.07.2026
-    </div>
-
+    <div class="big-date">28.07.2026</div>
   </div>
-
 </section>
 
 <!-- LOCATION -->
-
 <section class="location-section">
-
-  <div class="door left-door"></div>
-  <div class="door right-door"></div>
-
+  <div class="door left-door"></div><div class="door right-door"></div>
   <div class="location-content">
-
-    <h2 class="location-title">
-      ЛОКАЦИЯ
-    </h2>
-
-    <p class="location-place">
-      Банкетный зал «Событие»
-    </p>
-
-    <p class="location-address">
-      г. Чита, ул. Шилова, 97д
-      <br>
-      Цокольный этаж
-    </p>
-
-    <a href="#" class="map-button">
-      Посмотреть на карте
-    </a>
-
+    <h2 class="location-title" data-key="locTitle">ЛОКАЦИЯ</h2>
+    <p class="location-place" data-key="locPlace">Банкетный зал «Событие»</p>
+    <p class="location-address" data-key="locAddress">г. Чита, ул. Шилова, 97д<br>Цокольный этаж</p>
+    <a href="#" class="map-button" data-key="mapBtn">Посмотреть на карте</a>
   </div>
-
 </section>
 
 <!-- PROGRAM -->
-
 <section class="section program-section">
-
-  <h2 class="program-title">
-    ПРОГРАММА
-  </h2>
-
+  <h2 class="program-title" data-key="progTitle">ПРОГРАММА</h2>
   <div class="program-list">
-
     <div class="program-item">
-      <div class="program-time">17:30</div>
-      <div class="program-line"></div>
-      <div class="program-text">СБОР ГОСТЕЙ</div>
+      <div class="program-time">17:30</div><div class="program-line"></div>
+      <div class="program-text" data-key="p1">СБОР ГОСТЕЙ</div>
     </div>
-
     <div class="program-item">
-      <div class="program-time">18:00</div>
-      <div class="program-line"></div>
-      <div class="program-text">ЦЕРЕМОНИЯ</div>
+      <div class="program-time">18:00</div><div class="program-line"></div>
+      <div class="program-text" data-key="p2">ЦЕРЕМОНИЯ</div>
     </div>
-
     <div class="program-item">
-      <div class="program-time">18:30</div>
-      <div class="program-line"></div>
-      <div class="program-text">НАЧАЛО БАНКЕТА</div>
+      <div class="program-time">18:30</div><div class="program-line"></div>
+      <div class="program-text" data-key="p3">НАЧАЛО БАНКЕТА</div>
     </div>
-
     <div class="program-item">
-      <div class="program-time">23:00</div>
-      <div class="program-line"></div>
-      <div class="program-text">
-        ОКОНЧАНИЕ
-        <br>
-        ПРАЗДНИЧНОГО ВЕЧЕРА
-      </div>
+      <div class="program-time">23:00</div><div class="program-line"></div>
+      <div class="program-text" data-key="p4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
     </div>
-
   </div>
-
 </section>
 
 <!-- DRESS CODE -->
-
 <section class="dresscode-section">
-
-  <h2 class="dress-title">
-    ДРЕСС-КОД
-  </h2>
-
-  <p class="dress-text">
-    Мы очень старались сделать праздник красивым и
-    <br>
-    будем рады, если в своих нарядах вы поддержите
-    <br>
-    цветовую гамму нашей свадьбы:
-  </p>
-
+  <h2 class="dress-title" data-key="dressTitle">ДРЕСС-КОД</h2>
+  <p class="dress-text" data-key="dressText">Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:</p>
   <div class="dress-colors">
-
-    <div class="dress-color" style="background:#3d2925;"></div>
-    <div class="dress-color" style="background:#5a4335;"></div>
-    <div class="dress-color" style="background:#a58e76;"></div>
-    <div class="dress-color" style="background:#cbb8aa;"></div>
-    <div class="dress-color" style="background:#c8b8a6;"></div>
-    <div class="dress-color" style="background:#dfbcc4;"></div>
-    <div class="dress-color" style="background:#bb8585;"></div>
-    <div class="dress-color" style="background:#b8bea0;"></div>
-    <div class="dress-color" style="background:#62694b;"></div>
-
+    <div class="dress-color" style="background:#3d2925;"></div><div class="dress-color" style="background:#5a4335;"></div><div class="dress-color" style="background:#a58e76;"></div><div class="dress-color" style="background:#cbb8aa;"></div><div class="dress-color" style="background:#c8b8a6;"></div><div class="dress-color" style="background:#dfbcc4;"></div><div class="dress-color" style="background:#bb8585;"></div><div class="dress-color" style="background:#b8bea0;"></div><div class="dress-color" style="background:#62694b;"></div>
   </div>
-
-  <div class="dress-bottom-text">
-    Для женщин
-  </div>
-
+  <div class="dress-bottom-text" data-key="forWomen">Для женщин</div>
 </section>
 
 <!-- WOMEN PHOTO -->
-
 <section class="dress-gallery-section">
-
-  <div class="gallery-grid">
-
-    <img src="image(518).png" class="gallery-photo">
-
-  </div>
-
+  <div class="gallery-grid"><img src="image(518).png" class="gallery-photo"></div>
 </section>
 
 <!-- MEN -->
-
 <section class="men-gallery-section">
-
-  <div class="men-title">
-    Для мужчин
-  </div>
-
-  <div class="men-gallery">
-
-    <img src="image(519).png" class="men-photo">
-
-  </div>
-
+  <div class="men-title" data-key="forMen">Для мужчин</div>
+  <div class="men-gallery"><img src="image(519).png" class="men-photo"></div>
 </section>
 
 <!-- WISHES -->
-
 <section class="wishes-section">
-
   <div class="wish-blur"></div>
-
-  <h2 class="wishes-title">
-    ПОЖЕЛАНИЯ
-  </h2>
-
-  <div class="wish-card">
-
-    <p>
-      Дорогие родные и близкие, если хотите
-      поддержать нам ценный и нужный
-      подарок, мы будем очень благодарны
-      за вклад в бюджет нашей молодой
-      семьи.
-    </p>
-
-  </div>
-
-  <div class="wish-card">
-
-    <p>
-      В программе вечера — множество
-      интересных событий, участие в которых
-      предполагает наличный расчёт. Заранее
-      подготовьте комфортную для вас сумму,
-      чтобы ничего не отвлекало от
-      праздника!
-    </p>
-
-  </div>
-
+  <h2 class="wishes-title" data-key="wishTitle">ПОЖЕЛАНИЯ</h2>
+  <div class="wish-card"><p data-key="wish1">Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.</p></div>
+  <div class="wish-card"><p data-key="wish2">В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!</p></div>
 </section>
 
 <!-- CONTACTS SECTION -->
-
 <section class="contacts-section">
-
   <div class="contacts-card-main">
-
-    <p class="contacts-intro">
-      Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины! Если Вы подготовили для нас сюрприз, а так же в случае возникновения любых вопросов, Вы можете обратиться к нашему ведущему или организатору.
-    </p>
-
+    <p class="contacts-intro" data-key="contactIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины! Если Вы подготовили для нас сюрприз, а так же в случае возникновения любых вопросов, Вы можете обратиться к нашему ведущему или организатору.</p>
     <div class="contact-person-block">
-      <div class="contact-role-name">Ведущий Александр</div>
+      <div class="contact-role-name" data-key="roleHost">Ведущий Александр</div>
       <div class="contact-phone">+7 964 464 9090</div>
-      <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank">Написать в телеграм</a>
+      <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank" data-key="tgBtn">Написать в телеграм</a>
     </div>
-
     <div class="contact-person-block">
-      <div class="contact-role-name">Организатор Нина</div>
+      <div class="contact-role-name" data-key="roleOrg">Организатор Нина</div>
       <div class="contact-phone">+7 914 491 9090</div>
-      <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank">Написать в телеграм</a>
+      <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank" data-key="tgBtn">Написать в телеграм</a>
     </div>
-
   </div>
-
 </section>
 
 <!-- NEXT DAY SECTION -->
-
 <section class="next-day-section">
-
   <div class="next-day-card">
-
-    <p class="next-day-text">
-      Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:
-      <br><br>
-      ул. Богомягкова 45 а
-    </p>
-
+    <p class="next-day-text" data-key="nextDayText">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
   </div>
-
-  <span class="love-signature">С любовью!</span>
-
+  <span class="love-signature" data-key="loveSign">С любовью!</span>
 </section>
 
 <!-- ENVELOPE INVITATION SECTION -->
-
 <section class="envelope-section">
-
   <div class="envelope-wrapper">
-
     <div class="inner-white-card">
-      <p class="inner-card-text">
-        Вы не просто так получили это приглашение!<br>
-        В особенный для нас день мы очень хотим, чтобы вы были рядом!
-      </p>
-      <div class="inner-card-signature">
-        С любовью,<br>
-        Павел и Татьяна
-      </div>
+      <p class="inner-card-text" data-key="envText">Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!</p>
+      <div class="inner-card-signature" data-key="envSign">С любовью,<br>Павел и Татьяна</div>
     </div>
-
     <span class="envelope-script-text">forever and always</span>
-
   </div>
-
 </section>
 
-<!-- COUNTDOWN TIMER SECTION (NEW BASED ON image_0bb8a7.jpg) -->
-
+<!-- COUNTDOWN TIMER SECTION -->
 <section class="countdown-section">
-
   <img src="505" class="countdown-hero-image">
-
-  <div class="countdown-title">
-    До нашей свадьбы<br>осталось:
-  </div>
-
+  <div class="countdown-title" data-key="countTitle">До нашей свадьбы<br>осталось:</div>
   <div class="countdown-container">
-
     <div class="timer-block">
       <div class="timer-number" id="days">00</div>
-      <div class="timer-label">дней</div>
+      <div class="timer-label" id="lbl-days" data-key="lblDays">дней</div>
     </div>
-
     <div class="timer-divider">:</div>
-
     <div class="timer-block">
       <div class="timer-number" id="hours">00</div>
-      <div class="timer-label">часов</div>
+      <div class="timer-label" id="lbl-hours" data-key="lblHours">часов</div>
     </div>
-
     <div class="timer-divider">:</div>
-
     <div class="timer-block">
       <div class="timer-number" id="minutes">00</div>
-      <div class="timer-label">минут</div>
+      <div class="timer-label" id="lbl-minutes" data-key="lblMin">минут</div>
     </div>
-
     <div class="timer-divider">:</div>
-
     <div class="timer-block">
       <div class="timer-number" id="seconds">00</div>
-      <div class="timer-label">секунд</div>
+      <div class="timer-label" id="lbl-seconds" data-key="lblSec">секунд</div>
     </div>
-
   </div>
-
 </section>
 
 <script>
 
+  // Dictionary containing translations for all elements
+  const translations = {
+    hy: {
+      loadingText: 'Ստուգում ենք հրավերը...',
+      openBtn: 'Բացել հրավերը',
+      heroSub: 'Հարսանեկան Օր',
+      calTitle: 'ՍԻՐԵԼԻ ՀԱՐԱԶԱՏՆԵՐ ԵՎ ՄՏԵՐԻՄՆԵՐ՛',
+      calText1: 'Այս հրաշալի օրը մենք ցանկանում ենք կիսել ձեզ հետ մեր երջանկությունն ու ուրախությունը:',
+      calText2: 'Սիրով հրավիրում ենք ձեզ մեր հարսանիքին, որտեղ միասին կնշենք մեր նոր կյանքի սկիզբը:',
+      monthTitle: 'ՀՈՒԼԻՍ',
+      yesText: 'ԱՅՍ ՕՐԸ ՄԵՆՔ ԿԱՍԵՆՔ <span>Այո՛</span>',
+      w1: 'Երկ', w2: 'Երք', w3: 'Չոր', w4: 'Հնգ', w5: 'Ուրբ', w6: 'Շբթ', w7: 'Կիր',
+      locTitle: 'ՏԵՂԱՆՔԸ',
+      locPlace: '«Սոբիտիե» հանդիսությունների սրահ',
+      locAddress: 'ք. Չիտա, փ. Շիլովա, 97դ<br>Կիսանկուղային հարկ',
+      mapBtn: 'Դիտել քարտեզի վրա',
+      progTitle: 'ԾՐԱԳԻՐԸ',
+      p1: 'ՀՅՈՒՐԵՐԻ ԺԱՄԱՆՈՒՄ', p2: 'ԱՐԱՐՈՂՈՒԹՅՈՒՆ', p3: 'ԽՆՋՈՒՅՔԻ ՍԿԻԶԲ', p4: 'ՏՈՆԱԿԱՆ ԵՐԵԿՈՅԻ ԱՎԱՐՏ',
+      dressTitle: 'ԴՐԵՍ-ԿՈԴ',
+      dressText: 'Մենք շատ ենք ջանացել տոնը գեղեցիկ դարձնել և ուրախ կլինենք, եթե ձեր հագուստներով ընդգծեք մեր հարսանիքի գունային գամման.',
+      forWomen: 'Կանանց համար',
+      forMen: 'Տղամարդկանց համար',
+      wishTitle: 'ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ',
+      wish1: 'Սիրելի հարազատներ և մտերիմներ, եթե ցանկանում եք մեզ օգտակար նվեր մատուցել, մենք շատ շնորհակալ կլինենք մեր նորակազմ ընտանիքի բյուջեում ներդրման համար։',
+      wish2: 'Երեկոյի ծրագրում կան բազմաթիվ հետաքրքիր իրադարձություններ, որոնց մասնակցությունը ենթադրում է կանխիկ հաշվարկ: Նախապես պատրաստեք ձեզ համար հարմար գումար, որպեսզի ոչինչ չշեղի ձեզ տոնից:',
+      contactIntro: 'Խնդրում ենք ոչ մի բանի մասին չանհանգստանալ, բացի, իհարկե, երեկոյան զգեստի ընտրությունից։ Մենք հոգացել ենք բոլոր մանրուքների մասին, և երեկոն կանցնի հմայիչ հանդիսավար Ալեքսանդրի և ուշադիր կազմակերպիչ Նինայի ուղեկցությամբ։ Եթե մեզ համար անակնկալ եք պատրաստել, ինչպես նաև ցանկացած հարցի դեպքում կարող եք դիմել նրանց։',
+      roleHost: 'Հանդիսավար Ալեքսանդր',
+      roleOrg: 'Կազմակերպիչ Նինա',
+      tgBtn: 'Գրել տելեգրամով',
+      nextDayText: 'Մենք տուն ենք վարձել Արախլեյ լճի ափին, որպեսզի կարողանանք կիսվել հարսանիքի տպավորություններով և մի փոքր ավելի երկար լինել միասին: Արթնանում ենք ոչ շատ վաղ, ուշքի ենք գալիս, հագնում հարմարավետ հագուստ և ժամը 13:30-ին շարժվում հետևյալ հասցեով՝<br><br>փ. Բոգոմյագկովա 45 ա',
+      loveSign: 'Սիրով՛',
+      envText: 'Դուք պատահական չեք ստացել այս հրավերը:<br>Մեզ համար այս կարևոր օրը մենք շատ ենք ուզում, որ դուք լինեք մեր կողքին:',
+      envSign: 'Սիրով՝<br>Արամ & Անգելինա  ',
+      countTitle: 'Մեր հարսանիքին<br>մնացել է՝',
+      lblDays: 'օր', lblHours: 'ժամ', lblMin: 'րոպե', lblSec: 'վայրկյան'
+    },
+    ru: {
+      loadingText: 'Проверяем приглашение...',
+      openBtn: 'Открыть приглашение',
+      heroSub: 'Wedding Day',
+      calTitle: 'ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!',
+      calText1: 'В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.',
+      calText2: 'Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.',
+      monthTitle: 'ИЮЛЬ',
+      yesText: 'В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span>',
+      w1: 'Пн', w2: 'Вт', w3: 'Ср', w4: 'Чт', w5: 'Пт', w6: 'Сб', w7: 'Вс',
+      locTitle: 'ЛОКАЦИЯ',
+      locPlace: 'Банкетный зал «Событие»',
+      locAddress: 'г. Чита, ул. Шилова, 97д<br>Цокольный этаж',
+      mapBtn: 'Посмотреть на карте',
+      progTitle: 'ПРОГРАММА',
+      p1: 'СБОР ГОСТЕЙ', p2: 'ЦЕРЕМОНИЯ', p3: 'НАЧАЛО БАНКЕТА', p4: 'ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА',
+      dressTitle: 'ДРЕСС-КОД',
+      dressText: 'Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:',
+      forWomen: 'Для женщин',
+      forMen: 'Для мужчин',
+      wishTitle: 'ПОЖЕЛАНИЯ',
+      wish1: 'Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.',
+      wish2: 'В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!',
+      contactIntro: 'Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины! Если Вы подготовили для нас сюрприз, а так же в случае возникновения любых вопросов, Вы можете обратиться к нашему ведущему или организатору.',
+      roleHost: 'Ведущий Александр',
+      roleOrg: 'Организатор Нина',
+      tgBtn: 'Написать в телеграм',
+      nextDayText: 'Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а',
+      loveSign: 'С любовью!',
+      envText: 'Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!',
+      envSign: 'С любовью,<br>Арам &  Ангелина',
+      countTitle: 'До нашей свадьбы<br>осталось:',
+      lblDays: 'дней', lblHours: 'часов', lblMin: 'минут', lblSec: 'секунд'
+    }
+  };
+
+  let currentLang = 'hy'; // Default global language
+
   function setLanguage(lang){
-
-    if(lang === 'hy'){
-
-      document.getElementById('loadingText').innerHTML =
-              'Ստուգում ենք հրավերը...';
-
-      document.getElementById('openBtn').innerHTML =
-              'Բացել հրավերը';
-
-    }
-
-    if(lang === 'ru'){
-
-      document.getElementById('loadingText').innerHTML =
-              'Проверяем приглашение...';
-
-      document.getElementById('openBtn').innerHTML =
-              'Открыть приглашение';
-
-    }
-
+    currentLang = lang;
+// Loop through all translatable elements and change innerHTML
+    document.querySelectorAll('[data-key]').forEach(element => {
+      const key = element.getAttribute('data-key');
+      if (translations[lang][key]) {
+        element.innerHTML = translations[lang][key];
+      }
+    });
   }
 
-  const openBtn =
-          document.getElementById('openBtn');
-
-  const loadingText =
-          document.getElementById('loadingText');
-
-  const loadingScreen =
-          document.getElementById('loadingScreen');
-
+  // Interactivity script for Open button
+  const openBtn = document.getElementById('openBtn');
+  const loadingText = document.getElementById('loadingText');
+  const loadingScreen = document.getElementById('loadingScreen');
   let clicks = 0;
 
   openBtn.onclick = ()=>{
-
     clicks++;
-
     if(clicks===1){
-
-      loadingText.innerHTML =
-              '😅';
-
-      openBtn.innerHTML =
-              'Еще раз';
-
+      loadingText.innerHTML = '😅';
+      openBtn.innerHTML = (currentLang === 'hy') ? 'Մեկ անգամ ևս' : 'Еще раз';
     }
-
     if(clicks===2){
-
-      loadingText.innerHTML =
-              'Добро пожаловать 🎉';
-
+      loadingText.innerHTML = (currentLang === 'hy') ? 'Всмысле? Բարի գալուստ 🎉' : 'Добро пожаловать 🎉';
       openBtn.style.display='none';
-
       setTimeout(()=>{
-
         loadingScreen.style.opacity='0';
-
         setTimeout(()=>{
-
           loadingScreen.style.display='none';
-
         },1000);
-
       },2000);
-
     }
-
   };
 
   /* REAL-TIME COUNTDOWN LIVE SCRIPT TO 28.07.2026 */
@@ -1829,9 +1604,11 @@ Wedding Day
     }
   }
 
-  // Update the count down every 1 second
   setInterval(updateWeddingCountdown, 1000);
-  updateWeddingCountdown(); // Init immediately
+  updateWeddingCountdown();
+
+  // Initialize application language
+  setLanguage('hy');
 
 </script>
 
