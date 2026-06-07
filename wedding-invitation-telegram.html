@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARAM & ANGELINA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Cormorant Garamond',serif;
+background-color: #b3ba9e; 
+color: #4a4e3d; 
+overflow-x:hidden;
+-webkit-font-smoothing: antialiased;
+}
+
+/* NAVIGATION BAR */
+.nav-bar {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 30px 60px;
+z-index: 100;
+background: linear-gradient(to bottom, rgba(179, 186, 158, 0.95), transparent);
+}
+
+.nav-logo {
+font-size: 28px;
+font-weight: 400;
+letter-spacing: 2px;
+color: #5b624a;
+text-transform: uppercase;
+}
+
+.nav-links {
+display: flex;
+gap: 30px;
+list-style: none;
+}
+
+.nav-links a {
+color: #4a4e3d;
+text-decoration: none;
+font-size: 14px;
+text-transform: uppercase;
+letter-spacing: 2px;
+opacity: 0.8;
+transition: 0.3s;
+}
+
+.nav-links a:hover {
+opacity: 1;
+color: #5b624a;
+}
+
+/* GLOBAL LANGUAGE SWITCHER */
+.global-lang-switcher {
+display: flex;
+gap: 10px;
+}
+
+.global-lang-switcher button {
+border: 1px solid rgba(74, 78, 61, 0.4);
+padding: 6px 14px;
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.2);
+color: #4a4e3d;
+cursor: pointer;
+font-size: 13px;
+letter-spacing: 1px;
+transition: all 0.3s ease;
+}
+
+.global-lang-switcher button:hover {
+background: #4a4e3d;
+color: #b3ba9e;
+}
+
+/* DECORATIVE ELEMENTS */
+.decor-title {
+position: relative;
+display: inline-block;
+}
+
+.decor-title::after {
+content: '✦  ◦  ✦';
+display: block;
+font-size: 14px;
+color: #5b624a;
+margin-top: 15px;
+letter-spacing: 4px;
+font-weight: 300;
+text-align: center;
+}
+
+/* QUOTE BLOCK */
+.quote-section {
+padding: 100px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #b3ba9e;
+}
+
+.quote-cloud {
+background: #fdfdfb;
+padding: 60px 40px;
+border-radius: 100px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+max-width: 650px;
+width: 100%;
+text-align: center;
+position: relative;
+border: 1px solid rgba(74, 78, 61, 0.1);
+}
+
+.quote-names {
+font-size: 36px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: #4a4e3d;
+margin-bottom: 25px;
+font-weight: 400;
+}
+
+.quote-text {
+font-size: 20px;
+line-height: 1.6;
+color: #5b624a;
+font-style: italic;
+max-width: 500px;
+margin: 0 auto;
+}
+
+.quote-decor {
+margin-top: 30px;
+opacity: 0.3;
+width: 150px;
+}
+
+/* BLOCK STRUCTURE */
+.split-section {
+display: flex;
+width: 100%;
+min-height: 100vh;
+align-items: stretch;
+background-color: #b3ba9e;
+}
+
+.split-section.reverse {
+flex-direction: row-reverse;
+}
+
+.content-side {
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 80px 60px;
+text-align: center;
+background-color: #b3ba9e;
+}
+
+/* ELEGANT TEXT CARDS */
+.text-card {
+background-color: #bec5ab; 
+border-radius: 18px;
+padding: 35px 30px;
+margin-bottom: 25px;
+max-width: 500px;
+width: 100%;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+text-align: justify;
+}
+
+.image-side {
+flex: 1;
+position: relative;
+overflow: hidden;
+}
+
+.image-side img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+/* HERO SECTION */
+.hero {
+position: relative;
+height: 100vh;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+overflow: hidden;
+}
+
+.hero-bg {
+position: absolute;
+inset: 0;
+z-index: 1;
+}
+
+.hero-bg img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.hero-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(to bottom, rgba(179, 186, 158, 0.4) 0%, rgba(179, 186, 158, 0.95) 100%);
+z-index: 2;
+}
+
+.hero-text {
+position: relative;
+z-index: 3;
+max-width: 800px;
+padding: 0 20px;
+margin-top: 80px;
+}
+
+.hero-text h1 {
+font-size: 64px;
+font-weight: 300;
+letter-spacing: 6px;
+color: #4a4e3d;
+line-height: 1.2;
+text-transform: uppercase;
+}
+
+.hero-text span {
+font-size: 54px;
+color: #5b624a;
+font-family: 'Great Vibes', cursive;
+display: block;
+margin: 15px 0 25px;
+text-transform: none;
+letter-spacing: 1px;
+}
+
+.hero-date {
+font-size: 16px;
+letter-spacing: 4px;
+color: rgba(74, 78, 61, 0.8);
+text-transform: uppercase;
+}
+
+/* CALENDAR STYLES */
+.calendar-title {
+font-size: 38px;
+font-weight: 300;
+letter-spacing: 4px;
+color: #4a4e3d;
+margin-bottom: 40px;
+text-transform: uppercase;
+}
+
+.calendar-text {
+font-size: 20px;
+line-height: 1.8;
+color: #4a4e3d;
+font-weight: 300;
+text-align: center;
+margin-bottom: 0;
+}
+
+.month-title {
+font-size: 52px;
+margin-top: 35px;
+font-weight: 300;
+color: #4a4e3d;
+letter-spacing: 6px;
+text-transform: uppercase;
+}
+
+.yes-text {
+font-size: 22px;
+margin-bottom: 25px;
+font-style: italic;
+color: rgba(74, 78, 61, 0.9);
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.yes-text span {
+font-family: 'Great Vibes', cursive;
+color: #5b624a;
+font-size: 56px;
+font-style: normal;
+display: block;
+margin-top: 5px;
+text-transform: none;
+}
+
+.real-calendar {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+gap: 16px;
+max-width: 380px;
+margin: 20px auto;
+font-size: 18px;
+}
+
+.week {
+font-weight: 400;
+color: #5b624a;
+font-size: 14px;
+}
+
+.day {
+width: 38px;
+height: 38px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+color: #4a4e3d;
+}
+
+.muted { opacity: 0.3; }
+
+.wedding-day {
+background: #4a4e3d;
+color: #b3ba9e; 
+font-weight: 700;
+position: relative;
+box-shadow: 0 0 15px rgba(74, 78, 61, 0.3);
+}
+
+.big-date {
+margin-top: 35px;
+font-size: 42px;
+font-weight: 300;
+letter-spacing: 4px;
+color: #4a4e3d;
+border-top: 1px solid rgba(74, 78, 61, 0.2);
+padding-top: 20px;
+}
+
+/* LOCATION BLOCK */
+.location-title {
+font-size: 42px;
+color: #4a4e3d;
+letter-spacing: 4px;
+font-weight: 300;
+}
+
+.location-place {
+font-size: 24px;
+color: #4a4e3d;
+margin-top: 20px;
+margin-bottom: 15px;
+font-weight: 400;
+text-align: center;
+}
+
+.location-address {
+font-size: 18px;
+line-height: 1.6;
+color: rgba(74, 78, 61, 0.9);
+margin-bottom: 25px;
+text-align: center;
+}
+
+.map-button, .telegram-link-btn, .details-btn, .submit-btn {
+display: inline-block;
+padding: 12px 35px;
+border: 1px solid #4a4e3d;
+background: transparent;
+color: #4a4e3d;
+text-decoration: none;
+font-size: 14px;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: all 0.3s ease;
+font-weight: 500;
+border-radius: 30px;
+cursor: pointer;
+}
+
+.map-button:hover, .telegram-link-btn:hover, .details-btn:hover, .submit-btn:hover {
+background: #4a4e3d;
+color: #b3ba9e;
+}
+
+/* PROGRAM BLOCK */
+.program-title {
+font-size: 42px;
+color: #4a4e3d;
+letter-spacing: 4px;
+font-weight: 300;
+}
+
+.program-list {
+width: 100%;
+max-width: 450px;
+margin-top: 40px;
+}
+
+.program-item {
+display: flex;
+align-items: center;
+margin-bottom: 35px;
+justify-content: flex-start;
+}
+
+.program-time {
+font-size: 24px;
+color: #4a4e3d;
+font-weight: 400;
+width: 80px;
+text-align: left;
+}
+
+.program-line {
+width: 1px;
+height: 30px;
+background: rgba(74, 78, 61, 0.3);
+margin: 0 25px;
+}
+
+.program-text {
+font-size: 19px;
+color: #4a4e3d;
+text-align: left;
+letter-spacing: 1px;
+font-weight: 300;
+}
+
+/* DRESS CODE BLOCK */
+.dress-title {
+font-size: 42px;
+color: #4a4e3d;
+letter-spacing: 4px;
+font-weight: 300;
+}
+
+.dress-text {
+font-size: 18px;
+line-height: 1.7;
+color: #4a4e3d;
+margin-bottom: 0;
+}
+
+.dress-colors {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+
+.dress-color {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+border: 2px solid rgba(0,0,0,0.1);
+}
+
+.dress-bottom-text {
+font-size: 34px;
+color: #5b624a;
+font-family: 'Great Vibes', cursive;
+text-align: center;
+}
+
+/* WISHES BLOCK */
+.wishes-title {
+font-size: 42px;
+color: #4a4e3d;
+letter-spacing: 4px;
+font-weight: 300;
+margin-bottom: 40px;
+}
+
+.wish-text-p {
+font-size: 18px;
+line-height: 1.7;
+color: #4a4e3d;
+margin-bottom: 0;
+}
+
+/* CONTACTS BLOCK */
+.contacts-title {
+font-size: 42px;
+color: #4a4e3d;
+letter-spacing: 4px;
+font-weight: 300;
+margin-bottom: 30px;
+}
+
+.contacts-intro {
+font-size: 17px;
+line-height: 1.7;
+color: #4a4e3d;
+margin-bottom: 0;
+}
+
+.contact-person-block {
+margin-top: 30px;
+margin-bottom: 10px;
+width: 100%;
+text-align: center;
+}
+
+.contact-role-name {
+font-size: 21px;
+color: #4a4e3d;
+margin-bottom: 5px;
+letter-spacing: 1px;
+font-weight: 400;
+}
+
+.contact-phone {
+font-size: 17px;
+color: rgba(74, 78, 61, 0.8);
+margin-bottom: 15px;
+}
+
+/* NEXT DAY BLOCK */
+.next-day-title {
+font-size: 42px;
+color: #4a4e3d;
+letter-spacing: 4px;
+font-weight: 300;
+}
+
+.next-day-text {
+font-size: 18px;
+line-height: 1.7;
+color: #4a4e3d;
+margin-bottom: 0;
+}
+
+.love-signature {
+font-family: 'Great Vibes', cursive;
+font-size: 52px;
+color: #5b624a;
+margin-top: 25px;
+text-align: center;
+}
+
+/* ENVELOPE (THANK YOU SECTION) */
+.envelope-section {
+background-color: #b3ba9e;
+padding: 100px 20px;
+text-align: center;
+}
+
+.envelope-wrapper {
+max-width: 600px;
+margin: 0 auto;
+border: 1px solid rgba(74, 78, 61, 0.2);
+padding: 60px 40px;
+background-color: #bec5ab;
+border-radius: 18px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.inner-card-text {
+font-size: 20px;
+line-height: 1.7;
+color: #4a4e3d;
+margin-bottom: 30px;
+font-weight: 300;
+}
+
+.inner-card-signature {
+font-size: 22px;
+color: #4a4e3d;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.envelope-script-text {
+font-family: 'Great Vibes', cursive;
+font-size: 38px;
+color: #5b624a;
+display: block;
+margin-top: 20px;
+}
+
+/* PREMIUM RSVP QUESTIONNAIRE STYLES */
+.rsvp-section {
+padding: 100px 20px;
+background-color: #b3ba9e;
+display: flex;
+justify-content: center;
+}
+
+.rsvp-container {
+background: #fdfdfb;
+padding: 60px 50px;
+border-radius: 40px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+max-width: 600px;
+width: 100%;
+border: 1px solid rgba(74, 78, 61, 0.1);
+text-align: center;
+}
+
+.rsvp-container h2 {
+font-family: 'Great Vibes', cursive;
+font-size: 56px;
+color: #4a4e3d;
+margin-bottom: 20px;
+font-weight: 400;
+}
+
+.rsvp-container p {
+font-size: 20px;
+line-height: 1.6;
+color: #5b624a;
+margin-bottom: 40px;
+font-weight: 300;
+}
+
+.input-group {
+margin-bottom: 35px;
+text-align: left;
+transition: all 0.4s ease;
+}
+
+.input-group label {
+font-size: 21px;
+color: #4a4e3d;
+margin-bottom: 12px;
+display: block;
+font-weight: 400;
+}
+
+.input-group input[type="text"] {
+width: 100%;
+border: none;
+border-bottom: 1px solid #4a4e3d;
+background: transparent;
+padding: 10px 0;
+font-family: 'Cormorant Garamond', serif;
+font-size: 19px;
+color: #4a4e3d;
+outline: none;
+}
+
+.radio-group, .checkbox-group {
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin-top: 15px;
+}
+
+.radio-group label, .checkbox-group label {
+font-size: 19px;
+color: #4a4e3d;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 10px;
+font-weight: 300;
+}
+
+.radio-group input, .checkbox-group input {
+accent-color: #4a4e3d;
+width: 18px;
+height: 18px;
+cursor: pointer;
+}
+
+.custom-drink-group {
+margin-top: 20px;
+}
+
+.custom-drink-group label {
+font-size: 18px;
+color: #5b624a;
+font-style: italic;
+margin-bottom: 5px;
+}
+
+.submit-btn {
+border: 1px solid #4a4e3d;
+padding: 12px 60px;
+border-radius: 0; 
+background: transparent;
+font-size: 16px;
+letter-spacing: 3px;
+width: 100%;
+max-width: 320px;
+margin-top: 20px;
+}
+
+/* COUNTDOWN BLOCK */
+.countdown-container {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 25px;
+margin-top: 30px;
+margin-bottom: 10px;
+}
+
+.timer-block {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.timer-number {
+font-size: 52px;
+color: #4a4e3d;
+font-weight: 300;
+}
+
+.timer-label {
+font-size: 13px;
+color: rgba(74, 78, 61, 0.8);
+text-transform: uppercase;
+letter-spacing: 2px;
+margin-top: 5px;
+}
+
+.timer-divider {
+font-size: 36px;
+color: #5b624a;
+align-self: flex-start;
+margin-top: 5px;
+}
+
+.footer-signature {
+width: 100%;
+text-align: center;
+padding: 30px 20px;
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: rgba(74, 78, 61, 0.7);
+background-color: #b3ba9e;
+border-top: 1px solid rgba(74, 78, 61, 0.15);
+}
+
+/* LOADING SCREEN */
+.loading-screen{
+position:fixed;
+inset:0;
+background: #b3ba9e;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+transition:1s cubic-bezier(0.7, 0, 0.3, 1);
+padding:20px;
+}
+
+.loading-box{
+width:100%;
+max-width:500px;
+padding:40px 30px;
+text-align:center;
+background: #bec5ab;
+border-radius: 18px;
+border: 1px solid rgba(74, 78, 61, 0.2);
+box-shadow:0 20px 50px rgba(0,0,0,0.05);
+}
+
+.start-lang{
+display:flex;
+justify-content: center;
+gap:10px;
+margin-bottom: 20px;
+}
+
+.start-lang button{
+border: 1px solid rgba(74, 78, 61, 0.3);
+padding:8px 18px;
+border-radius:20px;
+background:transparent;
+color: #4a4e3d;
+cursor:pointer;
+font-size:14px;
+transition: 0.3s;
+}
+
+.start-lang button:hover {
+background: rgba(74, 78, 61, 0.1);
+}
+
+.welcome-names{
+font-size:42px;
+color: #4a4e3d;
+margin-bottom:10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.welcome-names span{
+color: #5b624a;
+font-family:'Great Vibes',cursive;
+text-transform: none;
+}
+
+.welcome-subtitle {
+font-size:18px;
+margin-bottom:30px;
+color: rgba(74, 78, 61, 0.8);
+letter-spacing: 3px;
+text-transform: uppercase;
+}
+
+.loader{
+width:40px;
+height:40px;
+border-radius:50%;
+margin:0 auto 30px;
+border:2px solid rgba(74, 78, 61, 0.15);
+border-top:2px solid #4a4e3d;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{ 100%{transform:rotate(360deg);} }
+
+.open-btn{
+border: 1px solid #4a4e3d;
+padding:12px 40px;
+background:transparent;
+color: #4a4e3d;
+font-size:16px;
+letter-spacing: 2px;
+text-transform: uppercase;
+cursor:pointer;
+transition: 0.3s ease;
+border-radius: 30px;
+}
+
+.open-btn:hover {
+background: #4a4e3d;
+color: #b3ba9e;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media(max-width:900px){
+.nav-bar { padding: 20px; }
+.nav-links { display: none; }
+.split-section, .split-section.reverse { flex-direction: column; }
+.image-side { height: 50vh; }
+.content-side { padding: 60px 20px; }
+.hero-text h1 { font-size: 42px; }
+.hero-text span { font-size: 36px; }
+.quote-cloud { border-radius: 50px; padding: 40px 20px; }
+.rsvp-container { padding: 40px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav-bar">
+<div class="nav-logo">A & A</div>
+<ul class="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#">Our Story</a></li>
+<li><a href="#">Wedding Info</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Wishes</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+<div class="global-lang-switcher">
+<button onclick="setLanguage('hy')">HY</button>
+<button onclick="setLanguage('ru')">RU</button>
+</div>
+</nav>
+
+<div class="loading-screen" id="loadingScreen">
+<div class="loading-box">
+<div class="start-lang">
+<button onclick="setLanguage('hy')">HY</button>
+<button onclick="setLanguage('ru')">RU</button>
+</div>
+<div class="welcome-names">ARAM <span>&</span> ANGELINA</div>
+<div class="welcome-subtitle">Wedding Invitation</div>
+<div class="loader"></div>
+<h2 id="loadingText" style="font-size:18px; color: #4a4e3d; font-weight:300; margin-bottom:20px;">Проверяем приглашение...</h2>
+<button class="open-btn" id="openBtn">Открыть приглашение</button>
+</div>
+</div>
+
+<header class="hero">
+<div class="hero-bg"><img src="505" alt="Hero Image"></div>
+<div class="hero-overlay"></div>
+<div class="hero-text">
+<h1>ARAM & ANGELINA</h1>
+<span id="heroSubtitle">Our Forever Begins Here</span>
+<div class="hero-date">JULY 28, 2026</div>
+</div>
+</header>
+
+<section class="quote-section">
+<div class="quote-cloud">
+<div class="quote-names" id="quoteNames">Арам & Ангелина</div>
+<p class="quote-text" id="quoteText">«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»</p>
+<svg class="quote-decor" viewBox="0 0 100 20">
+<path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="#4a4e3d" stroke-width="0.5"/>
+</svg>
+</div>
+</section>
+
+<section class="split-section">
+<div class="content-side">
+<h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
+<div class="text-card">
+<p class="calendar-text" id="calTxt1">Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.</p>
+</div>
+<div class="text-card">
+<p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
+</div>
+<h3 class="month-title" id="calMonth">ИЮЛЬ</h3>
+<div class="yes-text" id="calYes">В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span></div>
+<div class="real-calendar" id="calendarGrid"></div>
+<div class="big-date">28.07.2026</div>
+</div>
+<div class="image-side">
+<img src="505" alt="Calendar Side Image">
+</div>
+</section>
+
+<section class="split-section reverse">
+<div class="content-side">
+<h2 class="location-title decor-title" id="locTitle">ЛОКАЦИЯ</h2>
+<div class="text-card" style="text-align: center;">
+<p class="location-place" id="locPlace">Банкетный зал «Событие»</p>
+<p class="location-address" id="locAddress">г. Чита, ул. Шилова, 97д<br>Цокольный этаж</p>
+<a href="#" class="map-button" id="locBtn">Посмотреть на карте</a>
+</div>
+</div>
+<div class="image-side">
+<img src="505" alt="Location Side Image">
+</div>
+</section>
+
+<section class="split-section">
+<div class="content-side">
+<h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
+<div class="text-card" style="text-align: left; display: flex; justify-content: center;">
+<div class="program-list" style="margin-top:0;">
+<div class="program-item">
+<div class="program-time">17:30</div><div class="program-line"></div>
+<div class="program-text" id="prog1">СБОР ГОСТЕЙ</div>
+</div>
+<div class="program-item">
+<div class="program-time">18:00</div><div class="program-line"></div>
+<div class="program-text" id="prog2">ЦЕРЕМОНИЯ</div>
+</div>
+<div class="program-item">
+<div class="program-time">18:30</div><div class="program-line"></div>
+<div class="program-text" id="prog3">НАЧАЛО БАНКЕТА</div>
+</div>
+<div class="program-item">
+<div class="program-time">23:00</div><div class="program-line"></div>
+<div class="program-text" id="prog4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
+</div>
+</div>
+</div>
+</div>
+<div class="image-side">
+<img src="505" alt="Program Side Image">
+</div>
+</section>
+
+<section class="split-section reverse">
+<div class="content-side">
+<h2 class="dress-title decor-title" id="dressTitle">ДРЕСС-КОД</h2>
+<div class="text-card">
+<p class="dress-text" id="dressTxt">Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:</p>
+<div class="dress-colors">
+<div class="dress-color" style="background:#3d2925;"></div>
+<div class="dress-color" style="background:#5a4335;"></div>
+<div class="dress-color" style="background:#a58e76;"></div>
+<div class="dress-color" style="background:#cbb8aa;"></div>
+<div class="dress-color" style="background:#c8b8a6;"></div>
+</div>
+<div class="dress-bottom-text" id="dressWomen">Для женщин</div>
+</div>
+</div>
+<div class="image-side">
+<img src="image(518).png" alt="Dress Code Image">
+</div>
+</section>
+
+<section class="split-section">
+<div class="content-side">
+<h2 class="wishes-title decor-title" id="wishTitle">ПОЖЕЛАНИЯ</h2>
+<div class="text-card">
+<p class="wish-text-p" id="wish1">Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.</p>
+</div>
+<div class="text-card">
+<p class="wish-text-p" id="wish2">В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!</p>
+</div>
+<a href="#" class="map-button" id="wishBtn" style="margin-top: 15px;">Send Wish</a>
+</div>
+<div class="image-side">
+<img src="505" alt="Wishes Side Image">
+</div>
+</section>
+
+<section class="split-section reverse">
+<div class="content-side">
+<h2 class="contacts-title decor-title" id="contactsHeader">CONTACTS</h2>
+<div class="text-card">
+<p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и evening пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
+<div class="contact-person-block">
+<div class="contact-role-name" id="contactRole1">Ведущий Александр</div>
+<div class="contact-phone">+7 964 464 9090</div>
+<a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank" id="tgBtn1">Написать в телеграм</a>
+</div>
+<div class="contact-person-block">
+<div class="contact-role-name" id="contactRole2">Организатор Нина</div>
+<div class="contact-phone">+7 914 491 9090</div>
+<a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank" id="tgBtn2">Написать в телеграм</a>
+</div>
+</div>
+</div>
+<div class="image-side">
+<img src="505" alt="Contacts Side Image">
+</div>
+</section>
+
+<section class="split-section">
+<div class="content-side">
+<h2 class="next-day-title decor-title" id="nextDayHeader">NEXT DAY</h2>
+<div class="text-card">
+<p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, надеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
+<div style="text-align: center; margin-top: 25px;"><a href="#" class="details-btn" id="detailsBtn">Details</a></div>
+</div>
+<div class="love-signature" id="loveSign">С любовью!</div>
+</div>
+<div class="image-side">
+<img src="505" alt="Next Day Side Image">
+</div>
+</section>
+
+<section class="envelope-section">
+<div class="envelope-wrapper">
+<div class="inner-white-card">
+<p class="inner-card-text" id="envTxt">Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!</p>
+<div class="inner-card-signature" id="envSign">С любовью,<br>Арам и Ангелина</div>
+</div>
+<span class="envelope-script-text">forever and always</span>
+</div>
+</section>
+
+<section class="rsvp-section">
+<div class="rsvp-container">
+    <h2 id="rsvpMainTitle">Вы прийдете?</h2>
+    <p id="rsvpSubtitle">Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
+    
+    <form id="rsvp-wedding-form">
+        <div class="input-group">
+            <label for="guest-name" id="lblRsvpName">Ваши имя и фамилия</label>
+            <input type="text" id="guest-name" name="guest_name" required placeholder="Введите имя и фамилию">
+        </div>
+
+        <div class="input-group">
+            <label id="lblRsvpAttendance">Планируете ли вы присутствовать?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="attendance" value="Да, с удовольствием!" checked> <span id="optAttendanceYes">да, с удовольствием!</span></label>
+                <label><input type="radio" name="attendance" value="К сожалению, не смогу"> <span id="optAttendanceNo">к сожалению, не смогу</span></label>
+            </div>
+        </div>
+
+        <div class="input-group" id="drinks-section">
+            <label id="lblRsvpDrinks">Ваши предпочтения по напиткам:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="drinks" value="Вино красное"> <span id="optDrinkRed">вино красное</span></label>
+                <label><input type="checkbox" name="drinks" value="Вино белое"> <span id="optDrinkWhite">вино белое</span></label>
+                <label><input type="checkbox" name="drinks" value="Шампанское"> <span id="optDrinkChamp">шампанское</span></label>
+                <label><input type="checkbox" name="drinks" value="Коньяк"> <span id="optDrinkCognac">коньяк</span></label>
+                <label><input type="checkbox" name="drinks" value="Виски"> <span id="optDrinkWhiskey">виски</span></label>
+                <label><input type="checkbox" name="drinks" value="Водка"> <span id="optDrinkVodka">водка</span></label>
+                <label><input type="checkbox" name="drinks" value="Безалкогольные напитки"> <span id="optDrinkNonAlc">безалкогольные напитки</span></label>
+            </div>
+            <div class="custom-drink-group">
+                <label for="custom-drink" id="optDrinkOwn">Свой вариант:</label>
+                <input type="text" id="custom-drink" name="custom_drink" placeholder="Например: Ром или определенный сок">
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="btnRsvpSubmit">ОТПРАВИТЬ</button>
+    </form>
+</div>
+</section>
+
+<section class="split-section reverse">
+<div class="content-side">
+<h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
+<div class="text-card" style="text-align: center;">
+<div class="countdown-container">
+<div class="timer-block">
+<div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
+</div>
+<div class="timer-divider">:</div>
+<div class="timer-block">
+<div class="timer-number" id="hours">00</div><div class="timer-label" id="lblHours">часов</div>
+</div>
+<div class="timer-divider">:</div>
+<div class="timer-block">
+<div class="timer-number" id="minutes">00</div><div class="timer-label" id="lblMin">минут</div>
+</div>
+<div class="timer-divider">:</div>
+<div class="timer-block">
+<div class="timer-number" id="seconds">00</div><div class="timer-label" id="lblSec">секунд</div>
+</div>
+</div>
+</div>
+<div class="love-signature" style="font-size:32px;">see you soon!</div>
+</div>
+<div class="image-side">
+<img src="505" alt="Countdown Side Image">
+</div>
+</section>
+
+<footer class="footer-signature" id="footerSign">
+WITH LOVE, ARAM & ANGELINA ✦
+</footer>
+
+<script>
+const translations = {
+hy: {
+loadingText: "Ստուգում ենք հրավերը...",
+openBtn: "Բացել հրավերը",
+welcomeBack: "Էլի մեկ անգամ",
+welcomeSign: "Բարի գալուստ 🎉",
+heroSubtitle: "Our Forever Begins Here",
+quoteNames: "Արամ & Անգելինա",
+quoteText: "«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»",
+calTitle: "ՍԻՐԵԼԻ ՀԱՐԱԶԱՏՆԵՐ ԵՎ ՄՏԵՐԻՄՆԵՐ!",
+calTxt1: "Այս հրավերը ստացել են միայն նրանք, առանց ում մեր օրը լիարժեք չէր լինի: Դուք մեր ամենակարևոր իրադարձության գլխավոր վկաներն եք:",
+calTxt2: "Սիրով հրավիրում ենք ձեզ մեր հարսանիքին, որտեղ միասին կնշենք մեր նոր կյանքի սկիզբը:",
+calMonth: "ՀՈՒԼԻՍ",
+calYes: "ԱՅՍ ՕՐԸ ՄԵՆՔ ԿԱՍԵՆՔ <span>Այո!</span>",
+calWeeks: ["Երկ", "Երք", "Չոր", "Հնգ", "Ուրբ", "Շաբ", "Կիր"],
+locTitle: "ՎԱՅՐԸ",
+locPlace: "«Սոբիտիե» հանդիսությունների սրահ",
+locAddress: "ք. Չիտա, փող. Շիլովա, 97դ<br>Կիսանկուղային հարկ",
+locBtn: "Դիտել քարտեզի վրա",
+progTitle: "ԾՐԱԳԻՐ",
+prog1: "ՀՅՈՒՐԵՐԻ ԺԱՄԱՆՈՒՄ",
+prog2: "ՊԱՇՏՈՆԱԿԱՆ ԱՐԱՐՈՂՈՒԹՅՈՒՆ",
+prog3: "ԽՆՋՈՒՅՔԻ ՍԿԻԶԲ",
+prog4: "ՏՈՆԱԿԱՆ ԵՐԵԿՈՅԻ ԱՎԱՐՏ",
+dressTitle: "ԴՐԵՍ-ԿՈԴ",
+dressTxt: "Մենք շատ ենք ջանացել, որպեսզի տոնը լինի գեղեցիկ, և ուրախ կլինենք, եթե ձեր հագուստներով պահպանեք մեր հարսանիքի գունային գամման.",
+dressWomen: "Կանանց համար",
+wishTitle: "ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ",
+wish1: "Սիրելի հարազատներ, եթե ցանկանում եք մեզ նվիրել արժեքավոր և պիտանի նվեր, մենք շատ շնորհակալ կլինենք մեր նորաստեղծ ընտանիքի բյուջեում ներդրման համար:",
+wish2: "Երեկոյի ծրագրում կան բազում հետաքրքիր իրադարձություններ, որոնց մասնակցությունը ենթադրում է կանխիկ հաշվարկ: Նախապես պատրաստեք ձեզ համար հարմար գումար, որպեսզի ոչինչ չշեղի ձեզ տոնից:",
+contactsHeader: "ԿՈՆՏԱԿՏՆԵՐ",
+contactsIntro: "Խնդրում ենք ոչ մի բանի համար չմտահոգվել, բացի, իհարկե, երեկոյան զգեստի ընտրությունից: Մենք հոգացել ենք բոլոր մանրուքների մասին. երեկոն կանցնի հմայիչ հաղորդավար Ալեքսանդրի և ուշադիր կազմակերպիչ Նինայի ուղեկցությամբ:",
+contactRole1: "Հաղորդավար Ալեքսանդր",
+contactRole2: "Կազմակերպիչ Նինա",
+tgBtn1: "Գրել Տելեգրամով",
+tgBtn2: "Գրել Տելեգրամով",
+nextDayHeader: "ՀԱՋՈՐԴ ՕՐԸ",
+nextDayTxt: "Մենք տուն ենք վարձել Արախլեյ լճի ափին, որպեսզի միասին կիսվենք տպավորություններով և մի փոքր ավելի երկար լինենք միասին: Արթնանում ենք ոչ շատ վաղ, հագնում ենք հարմարավետ հագուստ և 13:30-ին շարժվում հետևյալ հասցեով՝<br><br>փող. Բոգոմյագկովա 45 ա",
+detailsBtn: "Մանրամասներ",
+loveSign: "Սիրով!",
+envTxt: "Դուք պատահական չեք ստացել այս հրավերը!<br>Մեզ համար այս կարևոր օրը մենք շատ ենք ուզում, որ դուք լինեք մեր կողքին:",
+envSign: "Սիրով՝<br>Արամ և Անգելինա",
+rsvpMainTitle: "Կգա՞ք արդյոք",
+rsvpSubtitle: "Մեզ համար չկա ավելի թանկ նվեր, քան ձեր ներկայությունը այս հատուկ օրը: Խնդրում ենք հաստատել ձեր մասնակցությունը՝ պատասխանելով մի քանի հարցի:",
+lblRsvpName: "Ձեր անունը և ազգանունը",
+lblRsvpAttendance: "Պլանավորո՞ւմ եք ներկա գտնվել:",
+optAttendanceYes: "այո, մեծ հաճույքով!",
+optAttendanceNo: "ցավոք, չեմ կարող",
+lblRsvpDrinks: "Ձեր նախապատվությունները խմիչքների հարցում.",
+optDrinkRed: "կարմիր գինի",
+optDrinkWhite: "սպիտակ գինի",
+optDrinkChamp: "շամպայն",
+optDrinkCognac: "կոնյակ",
+optDrinkWhiskey: "վիսկի",
+optDrinkVodka: "օղի",
+optDrinkNonAlc: "անալկոհոլ խմիչքներ",
+optDrinkOwn: "Իմ տարբերակը՝",
+btnRsvpSubmit: "ՈՒՂԱՐԿԵԼ",
+countTitle: "Մեր հարսանիքին մնացել է՝",
+lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան",
+footerSign: "ՍԻՐՈՎ՝ ԱՐԱՄ & ԱՆԳԵԼԻՆԱ ✦",
+msgAlertSuccess: "Շնորհակալություն, ձեր պատասխանն ընդունված է:",
+msgAlertError: "Ուղարկելու ընթացքում սխալ տեղի ունեցավ, կրկին փորձեք:",
+msgAlertConnError: "Կապի սխալ սերվերի հետ:"
+},
+ru: {
+loadingText: "Проверяем приглашение...",
+openBtn: "Открыть приглашение",
+welcomeBack: "Еще раз",
+welcomeSign: "Добро пожаловать 🎉",
+heroSubtitle: "Our Forever Begins Here",
+quoteNames: "Арам & Ангелина",
+quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
+calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
+calTxt1: "Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.",
+calTxt2: "Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.",
+calMonth: "ИЮЛЬ",
+calYes: "В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span>",
+calWeeks: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+locTitle: "ЛОКАЦИЯ",
+locPlace: "Банкетный зал «Событие»",
+locAddress: "г. Чита, ул. Шилова, 97д<br>Цокольный этаж",
+locBtn: "Посмотреть на карте",
+progTitle: "ПРОГРАММА",
+prog1: "СБОР ГОСТЕЙ",
+prog2: "ЦЕРЕМОНИЯ",
+prog3: "НАЧАЛО БАНКЕТА",
+prog4: "ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА",
+dressTitle: "ДРЕСС-КОД",
+dressTxt: "Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:",
+dressWomen: "Для женщин",
+wishTitle: "ПОЖЕЛАНИЯ",
+wish1: "Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.",
+wish2: "В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!",
+contactsHeader: "CONTACTS",
+contactsIntro: "Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!",
+contactRole1: "Ведущий Александр",
+contactRole2: "Организатор Нина",
+tgBtn1: "Написать в телеграм",
+tgBtn2: "Написать в телеграм",
+nextDayHeader: "NEXT DAY",
+nextDayTxt: "Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а",
+detailsBtn: "Details",
+loveSign: "С любовью!",
+envTxt: "Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!",
+envSign: "С любовью,<br>Арам и Ангелина",
+rsvpMainTitle: "Вы прийдете?",
+rsvpSubtitle: "Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.",
+lblRsvpName: "Ваши имя и фамилия",
+lblRsvpAttendance: "Планируете ли вы присутствовать?",
+optAttendanceYes: "да, с удовольствием!",
+optAttendanceNo: "к сожалению, не смогу",
+lblRsvpDrinks: "Ваши предпочтения по напиткам:",
+optDrinkRed: "вино красное",
+optDrinkWhite: "вино белое",
+optDrinkChamp: "шампанское",
+optDrinkCognac: "коньяк",
+optDrinkWhiskey: "виски",
+optDrinkVodka: "водка",
+optDrinkNonAlc: "безалкогольные напитки",
+optDrinkOwn: "Свой вариант:",
+btnRsvpSubmit: "ОТПРАВИТЬ",
+countTitle: "До нашей свадьбы осталось:",
+lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд",
+footerSign: "С ЛЮБОВЬЮ, АРАМ & АНГЕЛИНА ✦",
+msgAlertSuccess: "Спасибо! Ваш ответ успешно отправлен.",
+msgAlertError: "Произошла ошибка при отправке. Попробуйте еще раз.",
+msgAlertConnError: "Ошибка соединения с сервером."
+}
+};
+
+let currentLang = 'ru'; 
+let clicks = 0;
+
+function setLanguage(lang) {
+currentLang = lang;
+const t = translations[lang];
+
+document.getElementById('loadingText').innerHTML = t.loadingText;
+if(clicks === 0) document.getElementById('openBtn').innerHTML = t.openBtn;
+
+document.getElementById('heroSubtitle').innerHTML = t.heroSubtitle;
+document.getElementById('quoteNames').innerHTML = t.quoteNames;
+document.getElementById('quoteText').innerHTML = t.quoteText; 
+
+document.getElementById('calTitle').innerHTML = t.calTitle;
+document.getElementById('calTxt1').innerHTML = t.calTxt1;
+document.getElementById('calTxt2').innerHTML = t.calTxt2;
+document.getElementById('calMonth').innerHTML = t.calMonth;
+document.getElementById('calYes').innerHTML = t.calYes;
+
+document.getElementById('locTitle').innerHTML = t.locTitle;
+document.getElementById('locPlace').innerHTML = t.locPlace;
+document.getElementById('locAddress').innerHTML = t.locAddress;
+document.getElementById('locBtn').innerHTML = t.locBtn;
+
+document.getElementById('progTitle').innerHTML = t.progTitle;
+document.getElementById('prog1').innerHTML = t.prog1;
+document.getElementById('prog2').innerHTML = t.prog2;
+document.getElementById('prog3').innerHTML = t.prog3;
+document.getElementById('prog4').innerHTML = t.prog4;
+
+document.getElementById('dressTitle').innerHTML = t.dressTitle;
+document.getElementById('dressTxt').innerHTML = t.dressTxt;
+document.getElementById('dressWomen').innerHTML = t.dressWomen;
+
+document.getElementById('wishTitle').innerHTML = t.wishTitle;
+document.getElementById('wish1').innerHTML = t.wish1;
+document.getElementById('wish2').innerHTML = t.wish2;
+
+document.getElementById('contactsHeader').innerHTML = t.contactsHeader;
+document.getElementById('contactsIntro').innerHTML = t.contactsIntro;
+document.getElementById('contactRole1').innerHTML = t.contactRole1;
+document.getElementById('contactRole2').innerHTML = t.contactRole2;
+document.getElementById('tgBtn1').innerHTML = t.tgBtn1;
+document.getElementById('tgBtn2').innerHTML = t.tgBtn2;
+
+document.getElementById('nextDayHeader').innerHTML = t.nextDayHeader;
+document.getElementById('nextDayTxt').innerHTML = t.nextDayTxt;
+document.getElementById('detailsBtn').innerHTML = t.detailsBtn;
+document.getElementById('loveSign').innerHTML = t.loveSign;
+
+document.getElementById('envTxt').innerHTML = t.envTxt;
+document.getElementById('envSign').innerHTML = t.envSign;
+
+// RSVP Translations
+document.getElementById('rsvpMainTitle').innerHTML = t.rsvpMainTitle;
+document.getElementById('rsvpSubtitle').innerHTML = t.rsvpSubtitle;
+document.getElementById('lblRsvpName').innerHTML = t.lblRsvpName;
+document.getElementById('lblRsvpAttendance').innerHTML = t.lblRsvpAttendance;
+document.getElementById('optAttendanceYes').innerHTML = t.optAttendanceYes;
+document.getElementById('optAttendanceNo').innerHTML = t.optAttendanceNo;
+document.getElementById('lblRsvpDrinks').innerHTML = t.lblRsvpDrinks;
+document.getElementById('optDrinkRed').innerHTML = t.optDrinkRed;
+document.getElementById('optDrinkWhite').innerHTML = t.optDrinkWhite;
+document.getElementById('optDrinkChamp').innerHTML = t.optDrinkChamp;
+document.getElementById('optDrinkCognac').innerHTML = t.optDrinkCognac;
+document.getElementById('optDrinkWhiskey').innerHTML = t.optDrinkWhiskey;
+document.getElementById('optDrinkVodka').innerHTML = t.optDrinkVodka;
+document.getElementById('optDrinkNonAlc').innerHTML = t.optDrinkNonAlc;
+document.getElementById('optDrinkOwn').innerHTML = t.optDrinkOwn;
+document.getElementById('btnRsvpSubmit').innerHTML = t.btnRsvpSubmit;
+
+document.getElementById('countTitle').innerHTML = t.countTitle;
+document.getElementById('lblDays').innerHTML = t.lblDays;
+document.getElementById('lblHours').innerHTML = t.lblHours;
+document.getElementById('lblMin').innerHTML = t.lblMin;
+document.getElementById('lblSec').innerHTML = t.lblSec;
+
+document.getElementById('footerSign').innerHTML = t.footerSign;
+
+buildCalendarGrid(t.calWeeks);
+}
+
+function buildCalendarGrid(weeks) {
+const grid = document.getElementById('calendarGrid');
+let html = '';
+weeks.forEach(w => { html += `<div class="week">${w}</div>`; });
+const daysData = [
+{num: 29, class: 'day muted'}, {num: 30, class: 'day muted'},
+{num: '1', class: 'day'}, {num: '2', class: 'day'}, {num: '3', class: 'day'}, {num: '4', class: 'day'}, {num: '5', class: 'day'},
+{num: '6', class: 'day'}, {num: '7', class: 'day'}, {num: '8', class: 'day'}, {num: '9', class: 'day'}, {num: '10', class: 'day'}, {num: '11', class: 'day'}, {num: '12', class: 'day'},
+{num: '13', class: 'day'}, {num: '14', class: 'day'}, {num: '15', class: 'day'}, {num: '16', class: 'day'}, {num: '17', class: 'day'}, {num: '18', class: 'day'}, {num: '19', class: 'day'},
+{num: '20', class: 'day'}, {num: '21', class: 'day'}, {num: '22', class: 'day'}, {num: '23', class: 'day'}, {num: '24', class: 'day'}, {num: '25', class: 'day'}, {num: '26', class: 'day'},
+{num: '27', class: 'day'}, {num: '28', class: 'day wedding-day'}, {num: '29', class: 'day'}, {num: '30', class: 'day'}, {num: '31', class: 'day'}
+];
+daysData.forEach(d => { html += `<div class="${d.class}">${d.num}</div>`; });
+grid.innerHTML = html;
+}
+
+// TOGGLE DRINKS VISIBILITY DEPENDING ON ATTENDANCE
+document.querySelectorAll('input[name="attendance"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        const drinksSection = document.getElementById('drinks-section');
+        if (this.value === "К сожалению, не смогу") {
+            drinksSection.style.opacity = '0';
+            setTimeout(() => { drinksSection.style.display = 'none'; }, 400);
+        } else {
+            drinksSection.style.display = 'block';
+            setTimeout(() => { drinksSection.style.opacity = '1'; }, 10);
+        }
+    });
+});
+
+// TELEGRAM BOT RSVP SUBMIT
+const TELEGRAM_BOT_TOKEN = '8660712358:AAEYRbx2P_dt-hY6tD8Ucydis1RaQvs7G7k';
+const TELEGRAM_CHAT_ID = ''; // If you know your personal chat_id, put it here.
+
+async function getTelegramChatId() {
+    const manualChatId = TELEGRAM_CHAT_ID.trim();
+    if (manualChatId) return manualChatId;
+
+    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates`);
+    if (!response.ok) {
+        throw new Error('Telegram chat_id could not be read. Send /start to @Dav7775bot and try again.');
+    }
+
+    const data = await response.json();
+    const updates = Array.isArray(data.result) ? data.result : [];
+    const latestMessage = updates
+        .slice()
+        .reverse()
+        .find(update => update.message && update.message.chat && update.message.chat.id);
+
+    if (!latestMessage) {
+        throw new Error('Open @Dav7775bot in Telegram, send /start once, then submit again.');
+    }
+
+    return latestMessage.message.chat.id;
+}
+
+document.getElementById('rsvp-wedding-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const t = translations[currentLang];
+
+    const name = document.getElementById('guest-name').value.trim();
+    const attendanceInput = document.querySelector('input[name="attendance"]:checked');
+    const attendance = attendanceInput ? attendanceInput.value : 'Не выбрано';
+    let drinks = 'Не выбрано / Не требуется';
+
+    if (attendance !== 'К сожалению, не смогу') {
+        const checkedDrinks = [];
+        document.querySelectorAll('input[name="drinks"]:checked').forEach((checkbox) => {
+            checkedDrinks.push(checkbox.value);
+        });
+
+        const customDrink = document.getElementById('custom-drink').value.trim();
+        if (customDrink !== '') {
+            checkedDrinks.push(`Свой вариант: ${customDrink}`);
+        }
+        if (checkedDrinks.length > 0) {
+            drinks = checkedDrinks.join(', ');
+        }
+    }
+
+    let text = `🔔 Новый ответ на приглашение!\n\n`;
+    text += `👤 Имя: ${name}\n`;
+    text += `💌 Присутствие: ${attendance}\n`;
+    if (attendance !== 'К сожалению, не смогу') {
+        text += `🥂 Напитки: ${drinks}\n`;
+    }
+
+    const submitBtn = document.getElementById('btnRsvpSubmit');
+    const oldBtnText = submitBtn.innerText;
+    submitBtn.innerText = currentLang === 'hy' ? 'ՈՒՂԱՐԿՎՈՒՄ Է...' : 'ОТПРАВЛЯЕТСЯ...';
+    submitBtn.disabled = true;
+
+    try {
+        const chatId = await getTelegramChatId();
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: text
+            })
+        });
+        const result = await response.json().catch(() => null);
+
+        if (!response.ok) {
+            throw new Error(result && result.description ? result.description : t.msgAlertError);
+        }
+
+        alert(t.msgAlertSuccess);
+        document.getElementById('rsvp-wedding-form').reset();
+        document.getElementById('drinks-section').style.display = 'block';
+        document.getElementById('drinks-section').style.opacity = '1';
+    } catch (error) {
+        console.error('Telegram RSVP error:', error);
+        alert(error && error.message ? error.message : t.msgAlertConnError);
+    } finally {
+        submitBtn.innerText = oldBtnText;
+        submitBtn.disabled = false;
+    }
+});
+const openBtn = document.getElementById('openBtn');
+const loadingText = document.getElementById('loadingText');
+const loadingScreen = document.getElementById('loadingScreen');
+
+openBtn.onclick = ()=>{
+clicks++;
+const t = translations[currentLang];
+if(clicks===1){
+loadingText.innerHTML = '😅';
+openBtn.innerHTML = t.welcomeBack;
+}
+if(clicks===2){
+loadingText.innerHTML = t.welcomeSign;
+openBtn.style.display='none';
+setTimeout(()=>{
+loadingScreen.style.opacity='0';
+setTimeout(()=>{ loadingScreen.style.display='none'; },1000);
+},1200);
+}
+};
+
+function updateWeddingCountdown() {
+const weddingDate = new Date("July 28, 2026 00:00:00").getTime();
+const now = new Date().getTime();
+const difference = weddingDate - now;
+
+if (difference > 0) {
+const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+}
+}
+
+// Լռելյայն բացվում է ռուսերեն տարբերակով
+setLanguage('ru');
+setInterval(updateWeddingCountdown, 1000);
+updateWeddingCountdown();
+</script>
+
+</body>
+</html>
