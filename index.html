@@ -112,7 +112,7 @@
 
         /* QUOTE BLOCK */
         .quote-section {
-            padding: 100px 20px;
+            padding: 100px 20px 40px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -153,6 +153,61 @@
             margin-top: 30px;
             opacity: 0.3;
             width: 150px;
+        }
+
+        /* NEW ADDED IMAGE TEXT SECTION (ԱՆՄԻՋԱՊԵՍ ՏԱԿԸ) */
+        .story-image-section {
+            padding: 0 20px 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #b3ba9e;
+        }
+
+        .story-image-cloud {
+            background: #fdfdfb;
+            padding: 50px 40px;
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(74, 78, 61, 0.1);
+        }
+
+        .story-img-container {
+            width: 180px;
+            height: auto;
+            margin: 0 auto 25px;
+        }
+
+        .story-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .story-block-text {
+            font-size: 19px;
+            line-height: 1.6;
+            color: #4a4e3d;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .story-block-subtext {
+            font-size: 19px;
+            line-height: 1.6;
+            color: #4a4e3d;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .story-block-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 42px;
+            color: #5b624a;
         }
 
         /* BLOCK STRUCTURE */
@@ -581,7 +636,7 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.05);
         }
 
-        .inner-white-card {
+        .inner-card-text {
             font-size: 20px;
             line-height: 1.7;
             color: #4a4e3d;
@@ -761,7 +816,7 @@
             border-top: 1px solid rgba(74, 78, 61, 0.15);
         }
 
-        /* FINAL MEMORY BLOCK (UPDATED BACKGROUND & TEXT COLORS TO MATCH THE MAIN OLIWE THEME) */
+        /* FINAL MEMORY BLOCK */
         .final-memory-section {
             position: relative;
             min-height: 100vh;
@@ -771,8 +826,8 @@
             justify-content: center;
             overflow: hidden;
             text-align: center;
-            color: #4a4e3d;
-            background: #b3ba9e;
+            color: #fdfdfb;
+            background: #343123;
         }
 
         .final-memory-section::before {
@@ -780,7 +835,7 @@
             position: absolute;
             inset: 0;
             background:
-                    linear-gradient(to bottom, rgba(179, 186, 158, 0.2), rgba(179, 186, 158, 0.75)),
+                    linear-gradient(to bottom, rgba(25, 23, 17, 0.2), rgba(25, 23, 17, 0.68)),
                     url("505") center/cover no-repeat;
             filter: blur(3px);
             transform: scale(1.06);
@@ -791,7 +846,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.15), rgba(179, 186, 158, 0.4));
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(0,0,0,0.35));
         }
 
         .final-memory-inner {
@@ -809,7 +864,7 @@
             aspect-ratio: 1.18 / 1;
             padding: 46px;
             margin-bottom: 62px;
-            filter: drop-shadow(0 18px 32px rgba(74, 78, 61, 0.2));
+            filter: drop-shadow(0 18px 32px rgba(0,0,0,0.35));
         }
 
         .final-lace-frame::before {
@@ -845,7 +900,7 @@
             object-fit: cover;
             display: block;
             border: 6px solid rgba(255,255,255,0.82);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.22);
         }
 
         .final-memory-text {
@@ -853,8 +908,7 @@
             font-size: 27px;
             line-height: 1.45;
             font-weight: 400;
-            color: #4a4e3d;
-            text-shadow: 0 1px 4px rgba(255,255,255,0.5);
+            text-shadow: 0 3px 14px rgba(0,0,0,0.5);
         }
 
         .final-memory-names {
@@ -862,8 +916,57 @@
             font-family: 'Great Vibes', cursive;
             font-size: 68px;
             line-height: 1;
-            color: #5b624a;
-            text-shadow: 0 1px 4px rgba(255,255,255,0.4);
+            color: #fff;
+            text-shadow: 0 3px 16px rgba(0,0,0,0.45);
+        }
+
+        /* FIXED MUSIC CONTROL (ՄԻԱՅՆ PAUSE) */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+
+        .music-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fdfdfb;
+            border: 1px solid rgba(74, 78, 61, 0.3);
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Պաուզայի նշան (երկու գիծ) */
+        .pause-icon {
+            display: flex;
+            gap: 4px;
+        }
+
+        .pause-icon span {
+            width: 4px;
+            height: 16px;
+            background-color: #4a4e3d;
+            display: inline-block;
+        }
+
+        /* Նվագարկման նշան (եռանկյուն), երբ կանգնեցված է */
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 14px solid #4a4e3d;
+            margin-left: 4px;
         }
 
         /* LOADING SCREEN */
@@ -974,6 +1077,7 @@
             .hero-text h1 { font-size: 42px; }
             .hero-text span { font-size: 36px; }
             .quote-cloud { border-radius: 50px; padding: 40px 20px; }
+            .story-image-cloud { border-radius: 50px; padding: 40px 20px; }
             .rsvp-container { padding: 40px 20px; }
             .final-memory-section { padding: 75px 18px 70px; }
             .final-lace-frame { width: min(92vw, 430px); padding: 30px; margin-bottom: 42px; }
@@ -1033,6 +1137,17 @@
         <svg class="quote-decor" viewBox="0 0 100 20">
             <path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="#4a4e3d" stroke-width="0.5"/>
         </svg>
+    </div>
+</section>
+
+<section class="story-image-section">
+    <div class="story-image-cloud">
+        <div class="story-img-container">
+            <img src="image_3de1a8.png" alt="Locket / Story Image">
+        </div>
+        <p class="story-block-text" id="storyBlockText">И из двух маленьких историй на детских снимках сложилась одна большая любовь.</p>
+        <p class="story-block-subtext" id="storyBlockSubtext">Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!</p>
+        <div class="story-block-signature" id="storyBlockSignature">С любовью, навсегда...</div>
     </div>
 </section>
 
@@ -1138,7 +1253,7 @@
     <div class="content-side">
         <h2 class="contacts-title decor-title" id="contactsHeader">CONTACTS</h2>
         <div class="text-card">
-            <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и evening пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
+            <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
             <div class="contact-person-block">
                 <div class="contact-role-name" id="contactRole1">Ведущий Александр</div>
                 <div class="contact-phone">+7 964 464 9090</div>
@@ -1160,7 +1275,7 @@
     <div class="content-side">
         <h2 class="next-day-title decor-title" id="nextDayHeader">NEXT DAY</h2>
         <div class="text-card">
-            <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, надеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
+            <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
             <div style="text-align: center; margin-top: 25px;"><a href="#" class="details-btn" id="detailsBtn">Details</a></div>
         </div>
         <div class="love-signature" id="loveSign">С любовью!</div>
@@ -1183,7 +1298,7 @@
 <section class="rsvp-section">
     <div class="rsvp-container">
         <h2 id="rsvpMainTitle">Вы прийдете?</h2>
-        <p id="rsvpSubtitle">Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
+        <p id="rsvpSubtitle">Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
         <form id="rsvp-wedding-form">
             <div class="input-group">
@@ -1221,10 +1336,10 @@
     </div>
 </section>
 
-<section class="split-section rsvp-section" style="padding-top: 0;">
-    <div class="content-side" style="padding: 0;">
+<section class="split-section reverse">
+    <div class="content-side">
         <h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
-        <div class="text-card" style="text-align: center; margin-top: 30px;">
+        <div class="text-card" style="text-align: center;">
             <div class="countdown-container">
                 <div class="timer-block">
                     <div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
@@ -1245,6 +1360,9 @@
         </div>
         <div class="love-signature" style="font-size:32px;">see you soon!</div>
     </div>
+    <div class="image-side">
+        <img src="505" alt="Countdown Side Image">
+    </div>
 </section>
 
 <footer class="footer-signature" id="footerSign">
@@ -1261,6 +1379,19 @@
     </div>
 </section>
 
+<div class="music-control">
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        <div class="pause-icon" id="musicIcon">
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+</div>
+
+<audio id="bgAudio" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
     const translations = {
         hy: {
@@ -1271,6 +1402,12 @@
             heroSubtitle: "Our Forever Begins Here",
             quoteNames: "Արամ & Անգելինա",
             quoteText: "«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»",
+
+            // New Added Block Translation
+            storyBlockText: "Եվ մանկական լուսանկարների երկու փոքրիկ պատմություններից հյուսվեց մեկ մեծ սեր։",
+            storyBlockSubtext: "Մենք մեծացել ենք, և այժմ եկել է մեր ընտանիքը ստեղծելու ժամանակը․ սիրով հրավիրում ենք ձեզ մեր հարսանիքին, այն կլինի անմոռանալի։",
+            storyBlockSignature: "Սիրով՝ ընդմիշտ...",
+
             calTitle: "ՍԻՐԵԼԻ ՀԱՐԱԶԱՏՆԵՐ ԵՎ ՄՏԵՐԻՄՆԵՐ!",
             calTxt1: "Այս հրավերը ստացել են միայն նրանք, առանց ում մեր օրը լիարժեք չէր լինի: Դուք մեր ամենակարևոր իրադարձության գլխավոր վկաներն եք:",
             calTxt2: "Սիրով հրավիրում ենք ձեզ մեր հարսանիքին, որտեղ միասին կնշենք մեր նոր կյանքի սկիզբը:",
@@ -1337,6 +1474,12 @@
             heroSubtitle: "Our Forever Begins Here",
             quoteNames: "Арам & Ангелина",
             quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
+
+            // New Added Block Translation
+            storyBlockText: "И из двух маленьких историй на детских снимках сложилась одна большая любовь.",
+            storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!",
+            storyBlockSignature: "С любовью, навсегда...",
+
             calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
             calTxt1: "Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.",
             calTxt2: "Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.",
@@ -1410,6 +1553,11 @@
         document.getElementById('heroSubtitle').innerHTML = t.heroSubtitle;
         document.getElementById('quoteNames').innerHTML = t.quoteNames;
         document.getElementById('quoteText').innerHTML = t.quoteText;
+
+        // New Added Block Translation Elements
+        document.getElementById('storyBlockText').innerHTML = t.storyBlockText;
+        document.getElementById('storyBlockSubtext').innerHTML = t.storyBlockSubtext;
+        document.getElementById('storyBlockSignature').innerHTML = t.storyBlockSignature;
 
         document.getElementById('calTitle').innerHTML = t.calTitle;
         document.getElementById('calTxt1').innerHTML = t.calTxt1;
@@ -1607,9 +1755,45 @@
             submitBtn.disabled = false;
         }
     });
+
     const openBtn = document.getElementById('openBtn');
     const loadingText = document.getElementById('loadingText');
     const loadingScreen = document.getElementById('loadingScreen');
+
+    // BACKGROUND MUSIC AUTOPLAY LOGIC
+    const audio = document.getElementById('bgAudio');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicIcon = document.getElementById('musicIcon');
+    let isPlaying = false;
+
+    // Trigger music on first user engagement (bypass browser safety limits)
+    document.addEventListener('click', () => {
+        if (!isPlaying && audio.paused) {
+            playAudio();
+        }
+    }, { once: false });
+
+    function playAudio() {
+        audio.play().then(() => {
+            isPlaying = true;
+            musicIcon.className = "pause-icon";
+            musicIcon.innerHTML = "<span></span><span></span>";
+        }).catch(err => console.log("Autoplay blocked. Waiting for explicit gesture."));
+    }
+
+    function toggleMusic() {
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            musicIcon.className = "play-icon";
+            musicIcon.innerHTML = ""; // Clear pause bars
+        } else {
+            audio.play();
+            isPlaying = true;
+            musicIcon.className = "pause-icon";
+            musicIcon.innerHTML = "<span></span><span></span>";
+        }
+    }
 
     openBtn.onclick = ()=>{
         clicks++;
@@ -1621,6 +1805,10 @@
         if(clicks===2){
             loadingText.innerHTML = t.welcomeSign;
             openBtn.style.display='none';
+
+            // Start audio on loading screens unlock
+            playAudio();
+
             setTimeout(()=>{
                 loadingScreen.style.opacity='0';
                 setTimeout(()=>{ loadingScreen.style.display='none'; },1000);
@@ -1646,7 +1834,7 @@
         }
     }
 
-    // По умолчанию открывается на русском
+    // По умолчанию открывается на русском языке
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
     updateWeddingCountdown();
