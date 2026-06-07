@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-
     *{
       margin:0;
       padding:0;
@@ -22,1191 +21,816 @@
 
     body{
       font-family:'Cormorant Garamond',serif;
-      /* Միասնական նրբաճաշակ էլեգանտ կանաչ ֆոն */
-      background: linear-gradient(135deg, #2d3a2d 0%, #1e261e 100%);
-      background-attachment:fixed;
+      background-color: #081c15;
+      color:#f5f5f5;
       overflow-x:hidden;
-      color:white;
     }
 
-    /* --- ANIMATION KEYFRAMES --- */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* NAVIGATION BAR */
+    .nav-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(8,28,21,0.8), transparent);
     }
 
-    @keyframes zoomSlow {
-      from { transform: scale(1.12); }
-      to { transform: scale(1); }
+    .nav-logo {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #d4af37;
+      text-transform: uppercase;
     }
 
-    @keyframes pulseGold {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); text-shadow: 0 0 12px rgba(212,175,55,0.4); }
-      100% { transform: scale(1); }
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
     }
 
-    @keyframes shimmer {
-      100% { left: 125%; }
+    .nav-links a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.8;
+      transition: 0.3s;
     }
 
-    /* --- SCROLL REVEAL --- */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
-    }
-
-    .reveal-on-scroll.active {
+    .nav-links a:hover {
       opacity: 1;
-      transform: translateY(0);
+      color: #d4af37;
     }
 
     /* GLOBAL LANGUAGE SWITCHER */
     .global-lang-switcher {
-      position: fixed;
-      top: 25px;
-      right: 25px;
       display: flex;
-      gap: 12px;
-      z-index: 9999;
+      gap: 10px;
     }
 
     .global-lang-switcher button {
-      border: 1px solid #d4af37;
-      padding: 8px 18px;
-      border-radius: 40px;
-      background: rgba(45, 58, 45, 0.8);
+      border: 1px solid rgba(212,175,55,0.4);
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(13, 40, 24, 0.6);
       color: #f7dfad;
       cursor: pointer;
-      font-size: 15px;
-      font-weight: 500;
+      font-size: 13px;
       letter-spacing: 1px;
-      backdrop-filter: blur(8px);
-      transition: all 0.4s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
     }
 
     .global-lang-switcher button:hover {
       background: #d4af37;
-      color: #1e261e;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(212,175,55,0.5);
+      color: #081c15;
+      border-color: #d4af37;
     }
 
-    /* DECORATIVE HEADERS */
+    /* DECORATIVE ELEMENTS */
     .decor-title {
       position: relative;
-      margin-bottom: 50px !important;
       display: inline-block;
     }
 
     .decor-title::after {
       content: '✦  ◦  ✦';
       display: block;
-      font-size: 16px;
+      font-size: 14px;
       color: #d4af37;
-      margin-top: 10px;
-      letter-spacing: 5px;
+      margin-top: 15px;
+      letter-spacing: 4px;
       font-weight: 300;
       text-align: center;
     }
 
-    /* HEARTS BACKGROUND */
-    .hearts{
-      position:fixed;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      z-index:-1;
-      top:0;
-      left:0;
+    /* BLOCK STRUCTURE (split look based on image_68ab8d.jpg) */
+    .split-section {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      align-items: stretch;
+      background-color: #0d2818;
     }
 
-    .hearts span{
-      position:absolute;
-      bottom:-100px;
-      color:rgba(214, 175, 55, 0.15);
-      font-size:30px;
-      animation:heart 12s linear infinite;
+    .split-section.reverse {
+      flex-direction: row-reverse;
     }
 
-    .hearts span:nth-child(1){left:10%;}
-    .hearts span:nth-child(2){left:30%;animation-delay:2s;}
-    .hearts span:nth-child(3){left:50%;animation-delay:4s;}
-    .hearts span:nth-child(4){left:70%;animation-delay:1s;}
-    .hearts span:nth-child(5){left:90%;animation-delay:5s;}
+    .content-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 60px;
+      text-align: center;
+      background-color: #0d2818;
+    }
 
-    @keyframes heart{
-      0%{transform:translateY(0) rotate(0deg);opacity:0;}
-      20%{opacity:1;}
-      100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
+    .image-side {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,28,21,0.4) 0%, rgba(8,28,21,0.85) 100%);
+      z-index: 2;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      padding: 0 20px;
+      margin-top: 80px;
+    }
+
+    .hero-text h1 {
+      font-size: 64px;
+      font-weight: 300;
+      letter-spacing: 6px;
+      color: #ffffff;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .hero-text span {
+      font-size: 44px;
+      color: #d4af37;
+      font-family: 'Great Vibes', cursive;
+      display: block;
+      margin: 15px 0 25px;
+      text-transform: none;
+      letter-spacing: 2px;
+    }
+
+    .hero-date {
+      font-size: 18px;
+      letter-spacing: 4px;
+      color: #a3b899;
+      text-transform: uppercase;
+    }
+
+    /* CALENDAR STYLES */
+    .calendar-title {
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: #d4af37;
+      margin-bottom: 30px;
+    }
+
+    .calendar-text {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 450px;
+      margin-bottom: 25px;
+      color: #d8e2dc;
+    }
+
+    .month-title {
+      font-size: 48px;
+      margin-top: 30px;
+      font-weight: 300;
+      color: #ffffff;
+      letter-spacing: 4px;
+    }
+
+    .yes-text {
+      font-size: 20px;
+      margin-bottom: 25px;
+      font-style: italic;
+      color: #a3b899;
+    }
+
+    .yes-text span {
+      font-family: 'Great Vibes', cursive;
+      color: #d4af37;
+      font-size: 42px;
+      font-style: normal;
+      display: block;
+    }
+
+    .real-calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      max-width: 380px;
+      margin: 20px auto;
+      font-size: 16px;
+    }
+
+    .week {
+      font-weight: 600;
+      color: #d4af37;
+      font-size: 14px;
+    }
+
+    .day {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: #f5f5f5;
+    }
+
+    .muted { opacity: 0.3; }
+
+    .wedding-day {
+      background: #d4af37;
+      color: #081c15;
+      font-weight: 700;
+      position: relative;
+      box-shadow: 0 0 15px rgba(212,175,55,0.4);
+    }
+
+    .big-date {
+      margin-top: 30px;
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: #d4af37;
+      border-top: 1px solid rgba(212,175,55,0.2);
+      padding-top: 15px;
+    }
+
+    /* LOCATION BLOCK */
+    .location-title {
+      font-size: 42px;
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .location-place {
+      font-size: 24px;
+      color: #ffffff;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+
+    .location-address {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #a3b899;
+      margin-bottom: 40px;
+    }
+
+    .map-button, .telegram-link-btn, .details-btn {
+      display: inline-block;
+      padding: 12px 35px;
+      border: 1px solid #d4af37;
+      background: transparent;
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .map-button:hover, .telegram-link-btn:hover, .details-btn:hover {
+      background: #d4af37;
+      color: #081c15;
+      box-shadow: 0 0 15px rgba(212,175,55,0.3);
+    }
+
+    /* PROGRAM BLOCK */
+    .program-title {
+      font-size: 42px;
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .program-list {
+      width: 100%;
+      max-width: 450px;
+      margin-top: 40px;
+    }
+
+    .program-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 35px;
+      justify-content: flex-start;
+    }
+
+    .program-time {
+      font-size: 24px;
+      color: #d4af37;
+      font-weight: 400;
+      width: 80px;
+      text-align: left;
+    }
+
+    .program-line {
+      width: 1px;
+      height: 30px;
+      background: rgba(212,175,55,0.4);
+      margin: 0 25px;
+    }
+
+    .program-text {
+      font-size: 18px;
+      color: #ffffff;
+      text-align: left;
+      letter-spacing: 1px;
+    }
+
+    /* DRESS CODE BLOCK */
+    .dress-title {
+      font-size: 42px;
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .dress-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #a3b899;
+      margin-top: 30px;
+      margin-bottom: 35px;
+      max-width: 450px;
+    }
+
+    .dress-colors {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .dress-color {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .dress-bottom-text {
+      font-size: 32px;
+      color: #d4af37;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    /* WISHES BLOCK */
+    .wishes-title {
+      font-size: 42px;
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .wish-text-p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #a3b899;
+      max-width: 450px;
+      margin-top: 30px;
+      margin-bottom: 25px;
+    }
+
+    /* CONTACTS BLOCK */
+    .contacts-title {
+      font-size: 42px;
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+
+    .contacts-intro {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #a3b899;
+      max-width: 450px;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .contact-person-block {
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .contact-role-name {
+      font-size: 20px;
+      color: #ffffff;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    .contact-phone {
+      font-size: 16px;
+      color: #a3b899;
+      margin-bottom: 12px;
+    }
+
+    /* NEXT DAY BLOCK */
+    .next-day-title {
+      font-size: 42px;
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-weight: 300;
+    }
+
+    .next-day-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #a3b899;
+      max-width: 450px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .love-signature {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      color: #d4af37;
+      margin-top: 15px;
+    }
+
+    /* ENVELOPE (THANK YOU SECTION) */
+    .envelope-section {
+      background-color: #081c15;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .envelope-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 60px 40px;
+      background-color: #0d2818;
+    }
+
+    .inner-card-text {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .inner-card-signature {
+      font-size: 22px;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .envelope-script-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #a3b899;
+      display: block;
+      margin-top: 20px;
+    }
+
+    /* COUNTDOWN BLOCK */
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+
+    .timer-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timer-number {
+      font-size: 48px;
+      color: #ffffff;
+      font-weight: 300;
+    }
+
+    .timer-label {
+      font-size: 13px;
+      color: #a3b899;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 5px;
+    }
+
+    .timer-divider {
+      font-size: 36px;
+      color: #d4af37;
+      align-self: flex-start;
+      margin-top: 5px;
+    }
+
+    .footer-signature {
+      width: 100%;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #a3b899;
+      background-color: #081c15;
+      border-top: 1px solid rgba(212,175,55,0.1);
     }
 
     /* LOADING SCREEN */
     .loading-screen{
       position:fixed;
       inset:0;
-      background: linear-gradient(135deg, #1e261e 0%, #121712 100%);
+      background: #081c15;
       display:flex;
       justify-content:center;
       align-items:center;
       z-index:99999;
-      transition:1.2s cubic-bezier(0.7, 0, 0.3, 1);
+      transition:1s cubic-bezier(0.7, 0, 0.3, 1);
       padding:20px;
     }
 
     .loading-box{
       width:100%;
-      max-width:620px;
+      max-width:500px;
       padding:40px 30px;
-      border-radius:40px;
       text-align:center;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-      backdrop-filter:blur(25px);
-      border: 1px solid rgba(214, 175, 55, 0.2);
-      box-shadow:0 30px 100px rgba(0,0,0,0.6);
+      background: #0d2818;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
     }
 
     .start-lang{
-      position:absolute;
-      top:20px;
-      right:20px;
       display:flex;
+      justify-content: center;
       gap:10px;
+      margin-bottom: 20px;
     }
 
     .start-lang button{
-      border: 1px solid rgba(214, 175, 55, 0.3);
-      padding:10px 22px;
-      border-radius:40px;
-      background:rgba(255,255,255,.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding:8px 18px;
+      border-radius:20px;
+      background:transparent;
       color:#f7dfad;
       cursor:pointer;
-      font-size:16px;
+      font-size:14px;
       transition: 0.3s;
     }
 
     .start-lang button:hover {
-      background: rgba(214, 175, 55, 0.15);
-    }
-
-    .welcome-photo{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      border-radius:30px;
-      margin-bottom:25px;
-      border: 1px solid rgba(214,175,55,0.2);
+      background: rgba(212, 175, 55, 0.1);
     }
 
     .welcome-names{
-      font-size:62px;
-      color:#f7dfad;
+      font-size:42px;
+      color:#ffffff;
       margin-bottom:10px;
       letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .welcome-names span{
       color:#d4af37;
       font-family:'Great Vibes',cursive;
+      text-transform: none;
     }
 
-    .welcome-subtitle{
-      font-size:26px;
-      margin-bottom:25px;
-      color: #e2e5d5;
-      letter-spacing: 4px;
+    .welcome-subtitle {
+      font-size:18px;
+      margin-bottom:30px;
+      color: #a3b899;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .loader{
-      width:50px;
-      height:50px;
+      width:40px;
+      height:40px;
       border-radius:50%;
-      margin:auto;
-      border:3px solid rgba(214, 175, 55, 0.1);
-      border-top:3px solid #d4af37;
-      animation:spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
-      margin-bottom:25px;
+      margin:0 auto 30px;
+      border:2px solid rgba(212, 175, 55, 0.1);
+      border-top:2px solid #d4af37;
+      animation:spin 1s linear infinite;
     }
 
-    @keyframes spin{
-      100%{transform:rotate(360deg);}
-    }
+    @keyframes spin{ 100%{transform:rotate(360deg);} }
 
     .open-btn{
-      border:none;
-      padding:16px 50px;
-      border-radius:50px;
-      background:linear-gradient(135deg,#d4af37,#aa841b);
-      color:#121e12;
-      font-size:20px;
-      font-weight: 600;
-      letter-spacing: 1px;
+      border: 1px solid #d4af37;
+      padding:12px 40px;
+      background:transparent;
+      color:#d4af37;
+      font-size:16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       cursor:pointer;
-      box-shadow: 0 10px 30px rgba(214,175,55,0.3);
       transition: 0.3s ease;
     }
 
     .open-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 35px rgba(214,175,55,0.5);
+      background: #d4af37;
+      color: #081c15;
+    }
+
+    /* MOBILE RESPONSIVENESS */
+    @media(max-width:900px){
+      .nav-bar { padding: 20px; }
+      .nav-links { display: none; }
+      .split-section, .split-section.reverse { flex-direction: column; }
+      .image-side { height: 50vh; }
+      .content-side { padding: 60px 20px; }
+      .hero-text h1 { font-size: 42px; }
+      .hero-text span { font-size: 32px; }
     }
-
-    /* HERO SECTION */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:120px 20px;
-    }
-
-    .hero-card{
-      width:100%;
-      max-width:720px;
-      overflow:hidden;
-      border-radius:45px;
-      position:relative;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .hero-card img{
-      width:100%;
-      height:700px;
-      object-fit:cover;
-      animation: zoomSlow 10s ease-out forwards;
-    }
-
-    .hero-overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(30, 38, 30, 0.95) 10%, transparent 70%);
-    }
-
-    .hero-text{
-      position:absolute;
-      bottom:50px;
-      width:100%;
-      text-align:center;
-      animation: fadeInUp 1.5s ease-out 0.3s both;
-    }
-
-    .hero-text h1{
-      font-size:95px;
-      font-weight:300;
-      letter-spacing: 3px;
-      line-height: 1.1;
-      color: #fffdf7;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-    }
-
-    .hero-text span{
-      font-size:48px;
-      color:#d4af37;
-      font-family:'Great Vibes',cursive;
-      display: block;
-      margin-top: 15px;
-    }
-
-    /* CALENDAR */
-    .calendar-section{
-      padding:60px 20px 140px;
-      display:flex;
-      justify-content:center;
-    }
-
-    .calendar-box{
-      width:100%;
-      max-width:720px;
-      background: #f4f6f0;
-      color:#4a5443;
-      border-radius:45px;
-      padding:80px 45px;
-      text-align:center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.8);
-    }
-
-    .calendar-title{
-      font-size:52px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: #2d3725;
-    }
-
-    .calendar-text{
-      font-size:26px;
-      line-height:1.6;
-      margin-bottom:30px;
-      font-weight: 400;
-    }
-
-    .month-title{
-      font-size:86px;
-      margin-top:40px;
-      font-weight: 300;
-      color: #2d3725;
-      letter-spacing: 3px;
-    }
-
-    .yes-text{
-      font-size:30px;
-      margin-bottom:35px;
-      font-style: italic;
-    }
-
-    .yes-text span{
-      display:block;
-      font-size:85px;
-      font-family:'Great Vibes',cursive;
-      color: #a38a43;
-      font-style: normal;
-      margin-top: 5px;
-    }
-
-    .real-calendar{
-      display:grid;
-      grid-template-columns:repeat(7,1fr);
-      gap:20px;
-      max-width:480px;
-      margin:auto;
-      font-size:28px;
-    }
-
-    .week{
-      font-weight:600;
-      color: #6a7561;
-    }
-
-    .day{
-      width:50px;
-      height:50px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin:auto;
-      border-radius:50%;
-      transition: 0.3s;
-    }
-
-    .muted{
-      opacity:.35;
-    }
-
-    .wedding-day{
-      background: #3d4a35;
-      color: #f7f7ee;
-      font-weight: 600;
-      box-shadow: 0 5px 15px rgba(61, 74, 53, 0.3);
-      position: relative;
-    }
-
-    .wedding-day::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border: 1px solid #a38a43;
-      border-radius: 50%;
-    }
-
-    .big-date{
-      margin-top:60px;
-      font-size:76px;
-      font-weight: 300;
-      letter-spacing: 4px;
-      color: #2d3725;
-      border-top: 1px solid rgba(61, 74, 53, 0.15);
-      padding-top: 25px;
-      display: inline-block;
-    }
-
-    /* LOCATION SECTION (FIXED NO BACKGROUND IMAGES) */
-    .location-section{
-      position:relative;
-      width:100%;
-      min-height:100vh;
-      background: transparent; /* Օգտագործում է հիմնական էլեգանտ կանաչ ֆոնը */
-      overflow:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding: 80px 20px;
-    }
-
-    .door{
-      position:absolute;
-      top:0;
-      width:50%;
-      height:100%;
-      /* Նրբաճաշակ կանաչ երանգ դռների համար */
-      background: #d1dad0;
-      z-index:5;
-      transition: transform 2s cubic-bezier(0.77, 0, 0.175, 1);
-      box-shadow: inset 0 0 60px rgba(0,0,0,0.15);
-    }
-
-    .left-door{ left:0; border-right: 1px solid rgba(163, 138, 67, 0.3); }
-    .right-door{ right:0; border-left: 1px solid rgba(163, 138, 67, 0.3); }
-
-    .location-section.active-doors .left-door { transform: translateX(-100%); }
-    .location-section.active-doors .right-door { transform: translateX(100%); }
-
-    .location-content{
-      width:100%;
-      max-width:700px;
-      background: #fdfbf7;
-      border-radius:50px;
-      padding:85px 50px;
-      text-align:center;
-      z-index:2;
-      box-shadow: 0 25px 65px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.8);
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transition-delay: 0.4s;
-    }
-
-    .location-section.active-doors .location-content {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .location-title{
-      font-size:92px;
-      color:#2d3725;
-      font-weight: 300;
-      letter-spacing: 3px;
-    }
-
-    .location-place{
-      font-size:42px;
-      color:#4a5443;
-      margin-bottom:35px;
-      font-weight: 500;
-    }
-
-    .location-address{
-      font-size:34px;
-      line-height:1.6;
-      color:#5c6655;
-      margin-bottom:60px;
-    }
-
-    .map-button{
-      position: relative;
-      display:inline-block;
-      padding:22px 75px;
-      border-radius:60px;
-      background: #3d4a35;
-      color:#f7f7ee;
-      text-decoration:none;
-      font-size:32px;
-      letter-spacing: 1px;
-      box-shadow: 0 10px 25px rgba(61,74,53,0.2);
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
-
-    .map-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 30%;
-      height: 100%;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-      transform: skewX(-30deg);
-      animation: shimmer 3s infinite linear;
-    }
-
-    .map-button:hover {
-      background: #2d3725;
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(61,74,53,0.35);
-    }
-
-    /* PROGRAM */
-    .program-section{
-      background: transparent; /* Հանված է բաց մոխրագույն ֆոնը՝ միասնականության համար */
-      padding:140px 20px;
-      text-align:center;
-    }
-
-    .program-title{
-      font-size:92px;
-      color:#f7dfad; /* Փոխված է ոսկեգույնի՝ մուգ կանաչի վրա երևալու համար */
-      font-weight: 300;
-      letter-spacing: 3px;
-    }
-
-    .program-list{
-      max-width:900px;
-      margin:auto;
-      position: relative;
-    }
-
-    .program-item{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:45px;
-      margin-bottom:70px;
-      transition: transform 0.4s ease;
-    }
-
-    .program-item:hover {
-      transform: translateX(10px);
-    }
-
-    .program-time{
-      width:220px;
-      text-align:right;
-      font-size:88px;
-      color:#fffdf7;
-      font-weight: 300;
-      animation: pulseGold 2.5s infinite ease-in-out;
-    }
-
-    .program-line{
-      width:2px;
-      height:100px;
-      background: linear-gradient(to bottom, transparent, #d4af37, transparent);
-    }
-
-    .program-text{
-      width:400px;
-      text-align:left;
-      font-size:38px;
-      line-height:1.2;
-      color:#e2e5d5;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-
-    /* DRESS CODE */
-    .dresscode-section{
-      background: transparent;
-      padding:140px 20px 60px;
-      text-align:center;
-    }
-
-    .dress-title{
-      font-size:92px;
-      color:#f7dfad;
-      font-weight: 300;
-      letter-spacing: 3px;
-    }
-
-    .dress-text{
-      font-size:32px;
-      line-height:1.5;
-      color:#e2e5d5;
-      margin-bottom:65px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .dress-colors{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-bottom:80px;
-    }
-
-    .dress-color{
-      width:100px;
-      height:100px;
-      border-radius:50%;
-      margin-left:-12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      border: 2px solid #2d3a2d;
-      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease;
-      opacity: 0;
-      transform: scale(0.4);
-    }
-
-    .reveal-on-scroll.active .dress-color {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .reveal-on-scroll.active .dress-color:nth-child(1) { transition-delay: 0.05s; }
-    .reveal-on-scroll.active .dress-color:nth-child(2) { transition-delay: 0.1s; }
-    .reveal-on-scroll.active .dress-color:nth-child(3) { transition-delay: 0.15s; }
-    .reveal-on-scroll.active .dress-color:nth-child(4) { transition-delay: 0.2s; }
-    .reveal-on-scroll.active .dress-color:nth-child(5) { transition-delay: 0.25s; }
-    .reveal-on-scroll.active .dress-color:nth-child(6) { transition-delay: 0.3s; }
-    .reveal-on-scroll.active .dress-color:nth-child(7) { transition-delay: 0.35s; }
-    .reveal-on-scroll.active .dress-color:nth-child(8) { transition-delay: 0.4s; }
-    .reveal-on-scroll.active .dress-color:nth-child(9) { transition-delay: 0.45s; }
-
-    .dress-color:hover {
-      transform: scale(1.18) translateY(-8px) !important;
-      z-index: 10;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-    }
-
-    .dress-bottom-text{
-      font-size:82px;
-      color:#d4af37;
-      font-family:'Great Vibes',cursive;
-    }
-
-    /* GALLERIES */
-    .dress-gallery-section, .men-gallery-section{
-      background: transparent;
-      padding:30px 20px 80px;
-      display:flex;
-      justify-content:center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .men-title{
-      font-size:82px;
-      color:#d4af37;
-      font-family:'Great Vibes',cursive;
-      margin-bottom:40px;
-      text-align: center;
-    }
-
-    .gallery-grid, .men-gallery{
-      width:100%;
-      max-width:1100px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.3);
-      border-radius:24px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .gallery-photo, .men-photo{
-      width:100%;
-      display:block;
-      transition: transform 1.8s cubic-bezier(0.1, 0.8, 0.3, 1);
-    }
-
-    .gallery-grid:hover .gallery-photo, .men-gallery:hover .men-photo {
-      transform: scale(1.03);
-    }
-
-    /* WISHES */
-    .wishes-section{
-      position:relative;
-      background: transparent;
-      padding:140px 20px 60px;
-      overflow:hidden;
-      text-align:center;
-    }
-
-    .wish-blur{
-      position:absolute;
-      top:-80px;
-      left:-80px;
-      width:600px;
-      height:600px;
-      background:radial-gradient(rgba(212,175,55,0.05),transparent 70%);
-      filter:blur(40px);
-      opacity:.25;
-    }
-
-    .wishes-title{
-      font-size:92px;
-      font-weight:300;
-      color:#f7dfad;
-      letter-spacing: 3px;
-    }
-
-    .wish-card{
-      width:100%;
-      max-width:560px;
-      margin:0 auto 40px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius:35px;
-      padding:60px 45px;
-      backdrop-filter:blur(12px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-      border: 1px solid rgba(214, 175, 55, 0.2);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .wish-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(214,175,55,0.15);
-    }
-
-    .wish-card p {
-      font-size: 24px;
-      color: #e2e5d5;
-      line-height: 1.5;
-    }
-
-    /* CONTACTS */
-    .contacts-section {
-      background: transparent;
-      padding:40px 20px;
-      text-align:center;
-    }
-
-    .contacts-card-main {
-      width:100%;
-      max-width:680px;
-      margin:0 auto;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius:35px;
-      padding:65px 50px;
-      backdrop-filter:blur(12px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-      border: 1px solid rgba(214, 175, 55, 0.2);
-    }
-
-    .contacts-intro {
-      font-size:30px;
-      line-height:1.5;
-      color:#e2e5d5;
-      text-align:left;
-      margin-bottom:55px;
-    }
-
-    .contact-person-block {
-      margin-bottom:50px;
-    }
-
-    .contact-person-block:last-child {
-      margin-bottom:0;
-    }
-
-    .contact-role-name {
-      font-size:34px;
-      color:#f7dfad;
-      margin-bottom:8px;
-      font-weight:500;
-      letter-spacing: 0.5px;
-    }
-
-    .contact-phone {
-      font-size:28px;
-      color:#c8b8a6;
-      margin-bottom:25px;
-    }
-
-    .telegram-link-btn {
-      display:inline-block;
-      padding:18px 50px;
-      border-radius:50px;
-      background:#3d4a35;
-      color:#f7f7ee;
-      text-decoration:none;
-      font-size:24px;
-      letter-spacing: 0.5px;
-      transition:all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      border: 1px solid rgba(214,175,55,0.3);
-    }
-
-    .telegram-link-btn:hover {
-      background:#d4af37;
-      color:#1e261e;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(212,175,55,0.4);
-    }
-
-    /* NEXT DAY & SIGNATURE */
-    .next-day-section {
-      background: transparent;
-      padding:40px 20px 60px;
-      text-align:center;
-    }
-
-    .next-day-card {
-      width:100%;
-      max-width:680px;
-      margin:0 auto 50px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius:35px;
-      padding:65px 50px;
-      backdrop-filter:blur(12px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-      border: 1px solid rgba(214, 175, 55, 0.2);
-    }
-
-    .next-day-text {
-      font-size:30px;
-      line-height:1.5;
-      color:#e2e5d5;
-      text-align:left;
-    }
-
-    .love-signature {
-      font-family:'Great Vibes',cursive;
-      font-size:82px;
-      color:#d4af37;
-      margin-top:25px;
-      display:block;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    /* ENVELOPE CARD */
-    .envelope-section {
-      background: transparent;
-      padding:40px 20px 80px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .envelope-wrapper {
-      width:100%;
-      max-width:680px;
-      background: #3d4a35;
-      border-radius:40px;
-      padding:50px 40px 45px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-      text-align:center;
-      border: 1px solid rgba(214,175,55,0.2);
-    }
-
-    .inner-white-card {
-      background: #fffdf9;
-      border-radius:24px;
-      padding:70px 45px;
-      color:#3d4a35;
-      box-shadow:0 8px 25px rgba(0,0,0,0.05);
-      margin-bottom:40px;
-      border: 1px solid rgba(0,0,0,0.02);
-    }
-
-    .inner-card-text {
-      font-size:27px;
-      line-height:1.6;
-      margin-bottom:50px;
-      font-weight:400;
-    }
-
-    .inner-card-signature {
-      font-size:34px;
-      letter-spacing:1px;
-      font-weight:600;
-      line-height:1.4;
-      text-transform:uppercase;
-      color: #2d3725;
-    }
-
-    .envelope-script-text {
-      font-family:'Great Vibes',cursive;
-      font-size:68px;
-      color: #e2e7d5;
-      display:block;
-      margin-top:15px;
-      font-weight:300;
-      letter-spacing: 1px;
-    }
-
-    /* COUNTDOWN TIMER */
-    .countdown-section {
-      background: transparent;
-      padding:60px 0 160px 0;
-      text-align:center;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-    }
-
-    .image-wrapper-with-curtain {
-      position:relative;
-      width:100%;
-      max-width:680px;
-      display:inline-block;
-      margin-bottom:50px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .countdown-hero-image {
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .image-wrapper-with-curtain::after {
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:100%;
-      height:45%;
-      background:linear-gradient(to top, rgba(30, 38, 30, 0.95) 0%, transparent 100%);
-      pointer-events:none;
-    }
-
-    .countdown-title {
-      font-family:'Great Vibes',cursive;
-      font-size:62px;
-      color:#d4af37;
-      line-height:1.2;
-      margin-bottom:60px;
-      font-weight:400;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-
-    .countdown-container {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:30px;
-      max-width:580px;
-      width:100%;
-      padding:0 20px;
-    }
-
-    .timer-block {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      min-width:75px;
-    }
-
-    .timer-number {
-      font-size:54px;
-      color:#fffdf7;
-      font-weight:400;
-      line-height:1;
-      margin-bottom:14px;
-    }
-
-    .timer-label {
-      font-size:19px;
-      color:#d4af37;
-      font-weight:500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity:0.95;
-    }
-
-    .timer-divider {
-      font-size:46px;
-      color:#d4af37;
-      font-weight:300;
-      margin-top:-32px;
-    }
-
-    /* --- MOBILE RESPONSIVENESS --- */
-    @media(max-width:700px){
-
-      .global-lang-switcher {
-        top: 15px;
-        right: 15px;
-        gap: 8px;
-      }
-
-      .global-lang-switcher button {
-        padding: 7px 14px;
-        font-size: 13px;
-        letter-spacing: 0.5px;
-      }
-
-      .decor-title::after {
-        font-size: 12px;
-        letter-spacing: 3px;
-      }
-
-      .hero-text h1{font-size:56px;}
-      .calendar-title{font-size:34px;}
-      .calendar-text { font-size: 19px; }
-      .month-title { font-size: 56px; }
-      .yes-text { font-size: 22px; }
-      .yes-text span { font-size: 48px; }
-      .real-calendar { font-size: 19px; gap: 12px; }
-      .day { width: 34px; height: 34px; }
-      .big-date { font-size: 46px; }
-
-      .location-section { min-height: 75vh; padding: 40px 15px; }
-      .location-title{font-size:56px;}
-      .location-place { font-size: 26px; }
-      .location-address { font-size: 21px; }
-      .map-button { font-size: 22px; padding: 16px 45px; }
-      .location-content { padding: 45px 20px; border-radius: 30px; }
-
-      .program-title{font-size:52px;}
-      .program-item{gap:20px; margin-bottom: 50px;}
-      .program-time{width:110px;font-size:46px;}
-      .program-text{width:180px;font-size:19px;}
-      .dress-title{font-size:52px;}
-      .dress-text{font-size:19px; margin-bottom: 45px;}
-      .dress-color{width:58px;height:58px; margin-left: -8px;}
-      .dress-bottom-text{font-size:48px;}
-      .men-title{font-size:48px;}
-      .wishes-title{font-size:52px;}
-      .wish-card{padding:40px 24px;}
-      .wish-card p{font-size:19px;}
-      .contacts-card-main, .next-day-card {padding:45px 24px;}
-      .contacts-intro, .next-day-text {font-size:19px;}
-      .contact-role-name {font-size:24px;}
-      .contact-phone {font-size:19px;}
-      .telegram-link-btn {font-size:19px;padding:14px 38px;}
-      .love-signature {font-size:56px;}
-      .next-day-section {padding:20px 20px;}
-      .envelope-section {padding:20px 20px 40px;}
-      .envelope-wrapper {padding:35px 20px;border-radius:25px;}
-      .inner-white-card {padding:45px 20px;border-radius:16px;margin-bottom:25px;}
-      .inner-card-text {font-size:18px;line-height:1.5;margin-bottom:30px;}
-      .inner-card-signature {font-size:20px;}
-      .envelope-script-text {font-size:48px;}
-      .countdown-section {padding:40px 0 100px 0;}
-      .image-wrapper-with-curtain {margin-bottom:35px;}
-      .countdown-title {font-size:40px;margin-bottom:40px;padding:0 15px;}
-      .countdown-container {gap:14px;}
-      .timer-block {min-width:50px;}
-      .timer-number {font-size:36px;margin-bottom:6px;}
-      .timer-label {font-size:14px;}
-      .timer-divider {font-size:28px;margin-top:-22px;}
-    }
-
   </style>
 </head>
 
 <body>
 
-<div class="global-lang-switcher">
-  <button onclick="setLanguage('hy')">🇦🇲 Հայ</button>
-  <button onclick="setLanguage('ru')">🇷🇺 Рус</button>
-</div>
-
-<div class="hearts">
-  <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
-</div>
+<!-- NAVIGATION -->
+<nav class="nav-bar">
+  <div class="nav-logo">A & A</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Our Story</a></li>
+    <li><a href="#">Wedding Info</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Wishes</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="global-lang-switcher">
+    <button onclick="setLanguage('hy')">HY</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
+</nav>
 
 <!-- LOADING SCREEN -->
 <div class="loading-screen" id="loadingScreen">
-  <div class="start-lang">
-    <button onclick="setLanguage('hy')">🇦🇲 Հայ</button>
-    <button onclick="setLanguage('ru')">🇷🇺 Рус</button>
-  </div>
   <div class="loading-box">
-    <img src="505" class="welcome-photo" alt="Welcome Image">
+    <div class="start-lang">
+      <button onclick="setLanguage('hy')">HY</button>
+      <button onclick="setLanguage('ru')">RU</button>
+    </div>
     <div class="welcome-names">ARAM <span>&</span> ANGELINA</div>
     <div class="welcome-subtitle">Wedding Invitation</div>
     <div class="loader"></div>
-    <h2 id="loadingText">Ստուգում ենք հրավերը...</h2>
-    <button class="open-btn" id="openBtn">Բացել հրավերը</button>
+    <h2 id="loadingText" style="font-size:18px; color:#ffffff; font-weight:300; margin-bottom:20px;">Проверяем приглашение...</h2>
+    <button class="open-btn" id="openBtn">Открыть приглашение</button>
   </div>
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-card">
-    <img src="505" alt="Hero Image">
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-      <h1>ARAM<br>&<br>ANGELINA</h1>
-      <span id="heroSubtitle">Wedding Day</span>
-    </div>
+<header class="hero">
+  <div class="hero-bg"><img src="4.png.png" alt="Hero Image"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h1>ARAM & ANGELINA</h1>
+    <span id="heroSubtitle">Our Forever Begins Here</span>
+    <div class="hero-date">MAY 24, 2025</div>
   </div>
-</section>
+</header>
 
-<!-- CALENDAR -->
-<section class="calendar-section reveal-on-scroll">
-  <div class="calendar-box">
+<!-- CALENDAR SECTION -->
+<section class="split-section">
+  <div class="content-side">
     <h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
-    <p class="calendar-text" id="calTxt1">В этот замечательный day мы хотели бы разделить с вами наше счастье и радость.</p>
+    <p class="calendar-text" id="calTxt1">В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.</p>
     <p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
     <h3 class="month-title" id="calMonth">ИЮЛЬ</h3>
     <div class="yes-text" id="calYes">В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span></div>
-    <div class="real-calendar" id="calendarGrid">
-      <!-- Injected dynamically -->
-    </div>
+    <div class="real-calendar" id="calendarGrid"></div>
     <div class="big-date">28.07.2026</div>
+  </div>
+  <div class="image-side">
+    <img src="3.png" alt="Calendar Side Image">
   </div>
 </section>
 
-<!-- LOCATION WITH DOORS (NO BG IMAGES) -->
-<section class="location-section" id="locationSec">
-  <div class="door left-door"></div>
-  <div class="door right-door"></div>
-
-  <div class="location-content">
+<!-- LOCATION SECTION -->
+<section class="split-section reverse">
+  <div class="content-side">
     <h2 class="location-title decor-title" id="locTitle">ЛОКАЦИЯ</h2>
     <p class="location-place" id="locPlace">Банкетный зал «Событие»</p>
     <p class="location-address" id="locAddress">г. Чита, ул. Шилова, 97д<br>Цокольный этаж</p>
     <a href="#" class="map-button" id="locBtn">Посмотреть на карте</a>
   </div>
-</section>
-
-<!-- PROGRAM -->
-<section class="program-section reveal-on-scroll">
-  <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
-  <div class="program-list">
-    <div class="program-item">
-      <div class="program-time">17:30</div><div class="program-line"></div>
-      <div class="program-text" id="prog1">СБОР ГОСТЕЙ</div>
-    </div>
-    <div class="program-item">
-      <div class="program-time">18:00</div><div class="program-line"></div>
-      <div class="program-text" id="prog2">ЦЕРЕМОНИЯ</div>
-    </div>
-    <div class="program-item">
-      <div class="program-time">18:30</div><div class="program-line"></div>
-      <div class="program-text" id="prog3">НАЧАЛО БАНКЕТА</div>
-    </div>
-    <div class="program-item">
-      <div class="program-time">23:00</div><div class="program-line"></div>
-      <div class="program-text" id="prog4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
-    </div>
+  <div class="image-side">
+    <img src="2.png" alt="Location Side Image">
   </div>
 </section>
 
-<!-- DRESS CODE -->
-<section class="dresscode-section reveal-on-scroll">
-  <h2 class="dress-title decor-title" id="dressTitle">ДРЕСС-КОД</h2>
-  <p class="dress-text" id="dressTxt">Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:</p>
-  <div class="dress-colors">
-    <div class="dress-color" style="background:#3d2925;"></div>
-    <div class="dress-color" style="background:#5a4335;"></div>
-    <div class="dress-color" style="background:#a58e76;"></div>
-    <div class="dress-color" style="background:#cbb8aa;"></div>
-    <div class="dress-color" style="background:#c8b8a6;"></div>
-    <div class="dress-color" style="background:#dfbcc4;"></div>
-    <div class="dress-color" style="background:#bb8585;"></div>
-    <div class="dress-color" style="background:#b8bea0;"></div>
-    <div class="dress-color" style="background:#62694b;"></div>
+<!-- PROGRAM SECTION -->
+<section class="split-section">
+  <div class="content-side">
+    <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
+    <div class="program-list">
+      <div class="program-item">
+        <div class="program-time">17:30</div><div class="program-line"></div>
+        <div class="program-text" id="prog1">СБОР ГОСТЕЙ</div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">18:00</div><div class="program-line"></div>
+        <div class="program-text" id="prog2">ЦЕРЕМОНИЯ</div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">18:30</div><div class="program-line"></div>
+        <div class="program-text" id="prog3">НАЧАЛО БАНКЕТА</div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">23:00</div><div class="program-line"></div>
+        <div class="program-text" id="prog4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
+      </div>
+    </div>
   </div>
-  <div class="dress-bottom-text" id="dressWomen">Для женщин</div>
+  <div class="image-side">
+    <img src=1.png alt="Program Side Image">
+  </div>
 </section>
 
-<!-- WOMEN GALLERY -->
-<section class="dress-gallery-section reveal-on-scroll">
-  <div class="gallery-grid"><img src="image(518).png" class="gallery-photo" alt="Women Dress Code"></div>
+<!-- DRESS CODE SECTION -->
+<section class="split-section reverse">
+  <div class="content-side">
+    <h2 class="dress-title decor-title" id="dressTitle">ДРЕСС-КОД</h2>
+    <p class="dress-text" id="dressTxt">Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:</p>
+    <div class="dress-colors">
+      <div class="dress-color" style="background:#3d2925;"></div>
+      <div class="dress-color" style="background:#5a4335;"></div>
+      <div class="dress-color" style="background:#a58e76;"></div>
+      <div class="dress-color" style="background:#cbb8aa;"></div>
+      <div class="dress-color" style="background:#c8b8a6;"></div>
+    </div>
+    <div class="dress-bottom-text" id="dressWomen">Для женщин</div>
+  </div>
+  <div class="image-side">
+    <img src="2.png.png" alt="Dress Code Image">
+  </div>
 </section>
 
-<!-- MEN GALLERY -->
-<section class="men-gallery-section reveal-on-scroll">
-  <div class="men-title" id="dressMen">Для мужчин</div>
-  <div class="men-gallery"><img src="image(519).png" class="men-photo" alt="Men Dress Code"></div>
+<!-- WISHES SECTION -->
+<section class="split-section">
+  <div class="content-side">
+    <h2 class="wishes-title decor-title" id="wishTitle">ПОЖЕЛАНИЯ</h2>
+    <p class="wish-text-p" id="wish1">Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.</p>
+    <p class="wish-text-p" id="wish2">В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!</p>
+    <a href="#" class="map-button" id="wishBtn" style="margin-top: 15px;">Send Wish</a>
+  </div>
+  <div class="image-side">
+    <img src="3.png" alt="Wishes Side Image">
+  </div>
 </section>
 
-<!-- WISHES -->
-<section class="wishes-section reveal-on-scroll">
-  <div class="wish-blur"></div>
-  <h2 class="wishes-title decor-title" id="wishTitle">ПОЖЕЛАНИЯ</h2>
-  <div class="wish-card"><p id="wish1">Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.</p></div>
-  <div class="wish-card"><p id="wish2">В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!</p></div>
-</section>
-
-<!-- CONTACTS -->
-<section class="contacts-section reveal-on-scroll">
-  <div class="contacts-card-main">
-    <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины! Если Вы подготовили для нас сюрприз, а так же в случае возникновения любых вопросов, Вы можете обратиться к нашему ведущему или организатору.</p>
+<!-- CONTACTS SECTION -->
+<section class="split-section reverse">
+  <div class="content-side">
+    <h2 class="contacts-title decor-title" id="contactsHeader">CONTACTS</h2>
+    <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
     <div class="contact-person-block">
       <div class="contact-role-name" id="contactRole1">Ведет Александр</div>
       <div class="contact-phone">+7 964 464 9090</div>
@@ -1218,18 +842,26 @@
       <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank" id="tgBtn2">Написать в телеграм</a>
     </div>
   </div>
-</section>
-
-<!-- NEXT DAY -->
-<section class="next-day-section reveal-on-scroll">
-  <div class="next-day-card">
-    <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
+  <div class="image-side">
+    <img src="4.png" alt="Contacts Side Image">
   </div>
-  <span class="love-signature" id="loveSign">С любовью!</span>
 </section>
 
-<!-- ENVELOPE -->
-<section class="envelope-section reveal-on-scroll">
+<!-- NEXT DAY SECTION -->
+<section class="split-section">
+  <div class="content-side">
+    <h2 class="next-day-title decor-title" id="nextDayHeader">NEXT DAY</h2>
+    <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
+    <a href="#" class="details-btn" id="detailsBtn">Details</a>
+    <div class="love-signature" id="loveSign">С любовью!</div>
+  </div>
+  <div class="image-side">
+    <img src="5.png" alt="Next Day Side Image">
+  </div>
+</section>
+
+<!-- ENVELOPE / THANK YOU -->
+<section class="envelope-section">
   <div class="envelope-wrapper">
     <div class="inner-white-card">
       <p class="inner-card-text" id="envTxt">Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!</p>
@@ -1239,28 +871,38 @@
   </div>
 </section>
 
-<!-- COUNTDOWN -->
-<section class="countdown-section reveal-on-scroll">
-  <div class="image-wrapper-with-curtain"><img src="505" class="countdown-hero-image" alt="Countdown footer image"></div>
-  <div class="countdown-title" id="countTitle">До нашей свадьбы<br>осталось:</div>
-  <div class="countdown-container">
-    <div class="timer-block">
-      <div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
+<!-- COUNTDOWN SECTION -->
+<section class="split-section reverse">
+  <div class="content-side">
+    <h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
+    <div class="countdown-container">
+      <div class="timer-block">
+        <div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
+      </div>
+      <div class="timer-divider">:</div>
+      <div class="timer-block">
+        <div class="timer-number" id="hours">00</div><div class="timer-label" id="lblHours">часов</div>
+      </div>
+      <div class="timer-divider">:</div>
+      <div class="timer-block">
+        <div class="timer-number" id="minutes">00</div><div class="timer-label" id="lblMin">минут</div>
+      </div>
+      <div class="timer-divider">:</div>
+      <div class="timer-block">
+        <div class="timer-number" id="seconds">00</div><div class="timer-label" id="lblSec">секунд</div>
+      </div>
     </div>
-    <div class="timer-divider">:</div>
-    <div class="timer-block">
-      <div class="timer-number" id="hours">00</div><div class="timer-label" id="lblHours">часов</div>
-    </div>
-    <div class="timer-divider">:</div>
-    <div class="timer-block">
-      <div class="timer-number" id="minutes">00</div><div class="timer-label" id="lblMin">минут</div>
-    </div>
-    <div class="timer-divider">:</div>
-    <div class="timer-block">
-      <div class="timer-number" id="seconds">00</div><div class="timer-label" id="lblSec">секунд</div>
-    </div>
+    <div class="love-signature" style="font-size:32px;">see you soon!</div>
+  </div>
+  <div class="image-side">
+    <img src=5.png.png.jpg alt="Countdown Side Image">
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer class="footer-signature">
+  WITH LOVE, ARAM & ANGELINA ✦
+</footer>
 
 <script>
   const translations = {
@@ -1269,7 +911,7 @@
       openBtn: "Բացել հրավերը",
       welcomeBack: "Էլի մեկ անգամ",
       welcomeSign: "Բարի գալուստ 🎉",
-      heroSubtitle: "Հարսանեկան Օր",
+      heroSubtitle: "Our Forever Begins Here",
       calTitle: "ՍԻՐԵԼԻ ՀԱՐԱԶԱՏՆԵՐ ԵՎ ՄՏԵՐԻՄՆԵՐ!",
       calTxt1: "Այս հրաշալի օրը մենք կցանկանայինք կիսել ձեզ հետ մեր երջանկությունն ու ուրախությունը:",
       calTxt2: "Սիրով հրավիրում ենք ձեզ մեր հարսանիքին, որտեղ միասին կնշենք մեր նոր կյանքի սկիզբը:",
@@ -1288,20 +930,22 @@
       dressTitle: "ԴՐԵՍ-ԿՈԴ",
       dressTxt: "Մենք շատ ենք ջանացել, որպեսզի տոնը լինի գեղեցիկ, և ուրախ կլինենք, եթե ձեր հագուստներով պահպանեք մեր հարսանիքի գունային գամման.",
       dressWomen: "Կանանց համար",
-      dressMen: "Տղամարդկանց համար",
       wishTitle: "ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ",
       wish1: "Սիրելի հարազատներ, եթե ցանկանում եք մեզ նվիրել արժեքավոր և պիտանի նվեր, մենք շատ շնորհակալ կլինենք մեր նորաստեղծ ընտանիքի բյուջեում ներդրման համար:",
       wish2: "Երեկոյի ծրագրում կան բազում հետաքրքիր իրադարձություններ, որոնց մասնակցությունը ենթադրում է կանխիկ հաշվարկ: Նախապես պատրաստեք ձեզ համար հարմար գումար, որպեսզի ոչինչ չշեղի ձեզ տոնից:",
-      contactsIntro: "Խնդրում ենք ոչ մի բանի համար չմտահոգվել, բացի, իհարկե, երեկոյան զգեստի ընտրությունից: Մենք հոգացել ենք բոլոր մանրուքների մասին. երեկոն կանցնի հմայիչ հաղորդավար Ալեքսանդրի և ուշադիր կազմակերպիչ Նինայի ուղեկցությամբ: Եթե անակնկալ ունեք, կամ հարցեր առաջանան, կարող եք դիմել նրանց:",
+      contactsHeader: "ԿՈՆՏԱԿՏՆԵՐ",
+      contactsIntro: "Խնդրում ենք ոչ մի բանի համար չմտահոգվել, բացի, իհարկե, երեկոյան զգեստի ընտրությունից: Մենք հոգացել ենք բոլոր մանրուքների մասին. երեկոն կանցնի հմայիչ հաղորդավար Ալեքսանդրի և ուշադիր կազմակերպիչ Նինայի ուղեկցությամբ:",
       contactRole1: "Հաղորդավար Ալեքսանդր",
       contactRole2: "Կազմակերպիչ Նինա",
       tgBtn1: "Գրել Տելեգրամով",
       tgBtn2: "Գրել Տելեգրամով",
+      nextDayHeader: "ՀԱՋՈՐԴ ՕՐԸ",
       nextDayTxt: "Մենք տուն ենք վարձել Արախլեյ լճի ափին, որպեսզի միասին կիսվենք տպավորություններով և մի փոքր ավելի երկար լինենք միասին: Արթնանում ենք ոչ շատ վաղ, հագնում ենք հարմարավետ հագուստ և 13:30-ին շարժվում հետևյալ հասցեով՝<br><br>փող. Բոգոմյագկովա 45 ա",
+      detailsBtn: "Մանրամասներ",
       loveSign: "Սիրով!",
       envTxt: "Դուք պատահական չեք ստացել այս հրավերը!<br>Մեզ համար այս կարևոր օրը մենք շատ ենք ուզում, որ դուք լինեք մեր կողքին:",
       envSign: "Սիրով՝<br>Պավել և Տատյանա",
-      countTitle: "Մեր հարսանիքին<br>մնացել է՝",
+      countTitle: "Մեր հարսանիքին մնացել է՝",
       lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան"
     },
     ru: {
@@ -1309,7 +953,7 @@
       openBtn: "Открыть приглашение",
       welcomeBack: "Еще раз",
       welcomeSign: "Добро пожаловать 🎉",
-      heroSubtitle: "Wedding Day",
+      heroSubtitle: "Our Forever Begins Here",
       calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
       calTxt1: "В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.",
       calTxt2: "Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.",
@@ -1328,20 +972,22 @@
       dressTitle: "ДРЕСС-КОД",
       dressTxt: "Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:",
       dressWomen: "Для женщин",
-      dressMen: "Для мужчин",
       wishTitle: "ПОЖЕЛАНИЯ",
       wish1: "Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.",
       wish2: "В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!",
-      contactsIntro: "Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины! Если Вы подготовили для нас сюрприз, а так же в случае возникновения любых вопросов, Вы можете обратиться к нашему ведущему или организатору.",
+      contactsHeader: "CONTACTS",
+      contactsIntro: "Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!",
       contactRole1: "Ведущий Александр",
       contactRole2: "Организатор Нина",
       tgBtn1: "Написать в телеграм",
       tgBtn2: "Написать в телеграм",
+      nextDayHeader: "NEXT DAY",
       nextDayTxt: "Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а",
+      detailsBtn: "Details",
       loveSign: "С любовью!",
       envTxt: "Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!",
       envSign: "С любовью,<br>Павел и Татьяна",
-      countTitle: "До нашей свадьбы<br>осталось:",
+      countTitle: "До нашей свадьбы осталось:",
       lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд"
     }
   };
@@ -1377,19 +1023,21 @@
     document.getElementById('dressTitle').innerHTML = t.dressTitle;
     document.getElementById('dressTxt').innerHTML = t.dressTxt;
     document.getElementById('dressWomen').innerHTML = t.dressWomen;
-    document.getElementById('dressMen').innerHTML = t.dressMen;
 
     document.getElementById('wishTitle').innerHTML = t.wishTitle;
     document.getElementById('wish1').innerHTML = t.wish1;
     document.getElementById('wish2').innerHTML = t.wish2;
 
+    document.getElementById('contactsHeader').innerHTML = t.contactsHeader;
     document.getElementById('contactsIntro').innerHTML = t.contactsIntro;
     document.getElementById('contactRole1').innerHTML = t.contactRole1;
     document.getElementById('contactRole2').innerHTML = t.contactRole2;
     document.getElementById('tgBtn1').innerHTML = t.tgBtn1;
     document.getElementById('tgBtn2').innerHTML = t.tgBtn2;
 
+    document.getElementById('nextDayHeader').innerHTML = t.nextDayHeader;
     document.getElementById('nextDayTxt').innerHTML = t.nextDayTxt;
+    document.getElementById('detailsBtn').innerHTML = t.detailsBtn;
     document.getElementById('loveSign').innerHTML = t.loveSign;
 
     document.getElementById('envTxt').innerHTML = t.envTxt;
@@ -1437,7 +1085,7 @@
       setTimeout(()=>{
         loadingScreen.style.opacity='0';
         setTimeout(()=>{ loadingScreen.style.display='none'; },1000);
-      },1500);
+      },1200);
     }
   };
 
@@ -1456,40 +1104,8 @@
       document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
       document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
       document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
-    } else {
-      document.getElementById("days").innerText = "00";
-      document.getElementById("hours").innerText = "00";
-      document.getElementById("minutes").innerText = "00";
-      document.getElementById("seconds").innerText = "00";
     }
   }
-
-  /* --- SCROLL REVEAL & DOORS POSITIONING --- */
-  document.addEventListener("DOMContentLoaded", () => {
-    const revealElements = document.querySelectorAll(".reveal-on-scroll");
-    const locationSection = document.getElementById("locationSec");
-
-    const handleScroll = () => {
-      const triggerBottom = window.innerHeight * 0.88;
-
-      revealElements.forEach(el => {
-        const boxTop = el.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          el.classList.add("active");
-        }
-      });
-
-      if(locationSection) {
-        const locTop = locationSection.getBoundingClientRect().top;
-        if (locTop < window.innerHeight * 0.55) {
-          locationSection.classList.add("active-doors");
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-  });
 
   setLanguage('ru');
   setInterval(updateWeddingCountdown, 1000);
