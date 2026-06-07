@@ -1599,7 +1599,11 @@
             document.getElementById('drinks-section').style.opacity = '1';
         } catch (error) {
             console.error('Telegram RSVP error:', error);
-            alert(error && error.message ? error.message : t.msgAlertConnError);
+
+            alert(
+                'ERROR:\n' +
+                (error?.message || JSON.stringify(error))
+            );
         } finally {
             submitBtn.innerText = oldBtnText;
             submitBtn.disabled = false;
