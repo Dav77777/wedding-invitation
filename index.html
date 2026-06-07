@@ -21,9 +21,10 @@
 
     body{
       font-family:'Cormorant Garamond',serif;
-      background-color: #081c15;
-      color:#f5f5f5;
+      background-color: #b3ba9e; /* Ճշգրիտ թեթև ձիթապտղի/եղեսպակի ֆոն `image_6668f6.png`-ից */
+      color: #4a4e3d; /* Մուգ էսթետիկ տեքստի գույն նկարից */
       overflow-x:hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* NAVIGATION BAR */
@@ -37,14 +38,14 @@
       align-items: center;
       padding: 30px 60px;
       z-index: 100;
-      background: linear-gradient(to bottom, rgba(8,28,21,0.8), transparent);
+      background: linear-gradient(to bottom, rgba(179, 186, 158, 0.95), transparent);
     }
 
     .nav-logo {
       font-size: 28px;
       font-weight: 400;
       letter-spacing: 2px;
-      color: #d4af37;
+      color: #5b624a;
       text-transform: uppercase;
     }
 
@@ -55,7 +56,7 @@
     }
 
     .nav-links a {
-      color: #f5f5f5;
+      color: #4a4e3d;
       text-decoration: none;
       font-size: 14px;
       text-transform: uppercase;
@@ -66,7 +67,7 @@
 
     .nav-links a:hover {
       opacity: 1;
-      color: #d4af37;
+      color: #5b624a;
     }
 
     /* GLOBAL LANGUAGE SWITCHER */
@@ -76,11 +77,11 @@
     }
 
     .global-lang-switcher button {
-      border: 1px solid rgba(212,175,55,0.4);
+      border: 1px solid rgba(74, 78, 61, 0.4);
       padding: 6px 14px;
       border-radius: 20px;
-      background: rgba(13, 40, 24, 0.6);
-      color: #f7dfad;
+      background: rgba(255, 255, 255, 0.2);
+      color: #4a4e3d;
       cursor: pointer;
       font-size: 13px;
       letter-spacing: 1px;
@@ -88,9 +89,8 @@
     }
 
     .global-lang-switcher button:hover {
-      background: #d4af37;
-      color: #081c15;
-      border-color: #d4af37;
+      background: #4a4e3d;
+      color: #b3ba9e;
     }
 
     /* DECORATIVE ELEMENTS */
@@ -103,20 +103,20 @@
       content: '✦  ◦  ✦';
       display: block;
       font-size: 14px;
-      color: #d4af37;
+      color: #5b624a;
       margin-top: 15px;
       letter-spacing: 4px;
       font-weight: 300;
       text-align: center;
     }
 
-    /* BLOCK STRUCTURE (split look based on image_68ab8d.jpg) */
+    /* BLOCK STRUCTURE */
     .split-section {
       display: flex;
       width: 100%;
       min-height: 100vh;
       align-items: stretch;
-      background-color: #0d2818;
+      background-color: #b3ba9e;
     }
 
     .split-section.reverse {
@@ -131,7 +131,19 @@
       align-items: center;
       padding: 80px 60px;
       text-align: center;
-      background-color: #0d2818;
+      background-color: #b3ba9e;
+    }
+
+    /* ELEGANT TEXT CARDS LIKE IN image_6668f6.png */
+    .text-card {
+      background-color: #bec5ab; /* Քարտի բաց երանգը նկարից */
+      border-radius: 18px;
+      padding: 35px 30px;
+      margin-bottom: 25px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      text-align: justify;
     }
 
     .image-side {
@@ -174,7 +186,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(8,28,21,0.4) 0%, rgba(8,28,21,0.85) 100%);
+      background: linear-gradient(to bottom, rgba(179, 186, 158, 0.4) 0%, rgba(179, 186, 158, 0.95) 100%);
       z-index: 2;
     }
 
@@ -190,159 +202,169 @@
       font-size: 64px;
       font-weight: 300;
       letter-spacing: 6px;
-      color: #ffffff;
+      color: #4a4e3d;
       line-height: 1.2;
       text-transform: uppercase;
     }
 
     .hero-text span {
-      font-size: 44px;
-      color: #d4af37;
+      font-size: 54px;
+      color: #5b624a;
       font-family: 'Great Vibes', cursive;
       display: block;
       margin: 15px 0 25px;
       text-transform: none;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
 
     .hero-date {
-      font-size: 18px;
+      font-size: 16px;
       letter-spacing: 4px;
-      color: #a3b899;
+      color: rgba(74, 78, 61, 0.8);
       text-transform: uppercase;
     }
 
     /* CALENDAR STYLES */
     .calendar-title {
-      font-size: 32px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: #d4af37;
-      margin-bottom: 30px;
+      font-size: 38px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      color: #4a4e3d;
+      margin-bottom: 40px;
+      text-transform: uppercase;
     }
 
     .calendar-text {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 450px;
-      margin-bottom: 25px;
-      color: #d8e2dc;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #4a4e3d;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 0;
     }
 
     .month-title {
-      font-size: 48px;
-      margin-top: 30px;
+      font-size: 52px;
+      margin-top: 35px;
       font-weight: 300;
-      color: #ffffff;
-      letter-spacing: 4px;
+      color: #4a4e3d;
+      letter-spacing: 6px;
+      text-transform: uppercase;
     }
 
     .yes-text {
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 25px;
       font-style: italic;
-      color: #a3b899;
+      color: rgba(74, 78, 61, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .yes-text span {
       font-family: 'Great Vibes', cursive;
-      color: #d4af37;
-      font-size: 42px;
+      color: #5b624a;
+      font-size: 56px;
       font-style: normal;
       display: block;
+      margin-top: 5px;
+      text-transform: none;
     }
 
     .real-calendar {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 12px;
+      gap: 16px;
       max-width: 380px;
       margin: 20px auto;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .week {
-      font-weight: 600;
-      color: #d4af37;
+      font-weight: 400;
+      color: #5b624a;
       font-size: 14px;
     }
 
     .day {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      color: #f5f5f5;
+      color: #4a4e3d;
     }
 
     .muted { opacity: 0.3; }
 
     .wedding-day {
-      background: #d4af37;
-      color: #081c15;
+      background: #4a4e3d;
+      color: #b3ba9e;
       font-weight: 700;
       position: relative;
-      box-shadow: 0 0 15px rgba(212,175,55,0.4);
+      box-shadow: 0 0 15px rgba(74, 78, 61, 0.3);
     }
 
     .big-date {
-      margin-top: 30px;
+      margin-top: 35px;
       font-size: 42px;
       font-weight: 300;
       letter-spacing: 4px;
-      color: #d4af37;
-      border-top: 1px solid rgba(212,175,55,0.2);
-      padding-top: 15px;
+      color: #4a4e3d;
+      border-top: 1px solid rgba(74, 78, 61, 0.2);
+      padding-top: 20px;
     }
 
     /* LOCATION BLOCK */
     .location-title {
       font-size: 42px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 4px;
       font-weight: 300;
     }
 
     .location-place {
       font-size: 24px;
-      color: #ffffff;
-      margin-top: 30px;
+      color: #4a4e3d;
+      margin-top: 20px;
       margin-bottom: 15px;
       font-weight: 400;
+      text-align: center;
     }
 
     .location-address {
       font-size: 18px;
       line-height: 1.6;
-      color: #a3b899;
-      margin-bottom: 40px;
+      color: rgba(74, 78, 61, 0.9);
+      margin-bottom: 25px;
+      text-align: center;
     }
 
     .map-button, .telegram-link-btn, .details-btn {
       display: inline-block;
       padding: 12px 35px;
-      border: 1px solid #d4af37;
+      border: 1px solid #4a4e3d;
       background: transparent;
-      color: #d4af37;
+      color: #4a4e3d;
       text-decoration: none;
       font-size: 14px;
       letter-spacing: 2px;
       text-transform: uppercase;
       transition: all 0.3s ease;
+      font-weight: 500;
+      border-radius: 30px;
     }
 
     .map-button:hover, .telegram-link-btn:hover, .details-btn:hover {
-      background: #d4af37;
-      color: #081c15;
-      box-shadow: 0 0 15px rgba(212,175,55,0.3);
+      background: #4a4e3d;
+      color: #b3ba9e;
     }
 
     /* PROGRAM BLOCK */
     .program-title {
       font-size: 42px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 4px;
       font-weight: 300;
     }
@@ -362,7 +384,7 @@
 
     .program-time {
       font-size: 24px;
-      color: #d4af37;
+      color: #4a4e3d;
       font-weight: 400;
       width: 80px;
       text-align: left;
@@ -371,135 +393,134 @@
     .program-line {
       width: 1px;
       height: 30px;
-      background: rgba(212,175,55,0.4);
+      background: rgba(74, 78, 61, 0.3);
       margin: 0 25px;
     }
 
     .program-text {
-      font-size: 18px;
-      color: #ffffff;
+      font-size: 19px;
+      color: #4a4e3d;
       text-align: left;
       letter-spacing: 1px;
+      font-weight: 300;
     }
 
     /* DRESS CODE BLOCK */
     .dress-title {
       font-size: 42px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 4px;
       font-weight: 300;
     }
 
     .dress-text {
       font-size: 18px;
-      line-height: 1.6;
-      color: #a3b899;
-      margin-top: 30px;
-      margin-bottom: 35px;
-      max-width: 450px;
+      line-height: 1.7;
+      color: #4a4e3d;
+      margin-bottom: 0;
     }
 
     .dress-colors {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 35px;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
 
     .dress-color {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 2px solid rgba(0,0,0,0.1);
     }
 
     .dress-bottom-text {
-      font-size: 32px;
-      color: #d4af37;
+      font-size: 34px;
+      color: #5b624a;
       font-family: 'Great Vibes', cursive;
+      text-align: center;
     }
 
     /* WISHES BLOCK */
     .wishes-title {
       font-size: 42px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 4px;
       font-weight: 300;
+      margin-bottom: 40px;
     }
 
     .wish-text-p {
       font-size: 18px;
-      line-height: 1.6;
-      color: #a3b899;
-      max-width: 450px;
-      margin-top: 30px;
-      margin-bottom: 25px;
+      line-height: 1.7;
+      color: #4a4e3d;
+      margin-bottom: 0;
     }
 
     /* CONTACTS BLOCK */
     .contacts-title {
       font-size: 42px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 4px;
       font-weight: 300;
       margin-bottom: 30px;
     }
 
     .contacts-intro {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #a3b899;
-      max-width: 450px;
-      margin-bottom: 40px;
-      text-align: justify;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #4a4e3d;
+      margin-bottom: 0;
     }
 
     .contact-person-block {
-      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-bottom: 10px;
       width: 100%;
-      max-width: 400px;
+      text-align: center;
     }
 
     .contact-role-name {
-      font-size: 20px;
-      color: #ffffff;
+      font-size: 21px;
+      color: #4a4e3d;
       margin-bottom: 5px;
       letter-spacing: 1px;
+      font-weight: 400;
     }
 
     .contact-phone {
-      font-size: 16px;
-      color: #a3b899;
-      margin-bottom: 12px;
+      font-size: 17px;
+      color: rgba(74, 78, 61, 0.8);
+      margin-bottom: 15px;
     }
 
     /* NEXT DAY BLOCK */
     .next-day-title {
       font-size: 42px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 4px;
       font-weight: 300;
     }
 
     .next-day-text {
       font-size: 18px;
-      line-height: 1.6;
-      color: #a3b899;
-      max-width: 450px;
-      margin-top: 30px;
-      margin-bottom: 30px;
+      line-height: 1.7;
+      color: #4a4e3d;
+      margin-bottom: 0;
     }
 
     .love-signature {
       font-family: 'Great Vibes', cursive;
-      font-size: 48px;
-      color: #d4af37;
-      margin-top: 15px;
+      font-size: 52px;
+      color: #5b624a;
+      margin-top: 25px;
+      text-align: center;
     }
 
     /* ENVELOPE (THANK YOU SECTION) */
     .envelope-section {
-      background-color: #081c15;
+      background-color: #b3ba9e;
       padding: 100px 20px;
       text-align: center;
     }
@@ -507,29 +528,32 @@
     .envelope-wrapper {
       max-width: 600px;
       margin: 0 auto;
-      border: 1px solid rgba(212,175,55,0.3);
+      border: 1px solid rgba(74, 78, 61, 0.2);
       padding: 60px 40px;
-      background-color: #0d2818;
+      background-color: #bec5ab;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
     }
 
     .inner-card-text {
       font-size: 20px;
-      line-height: 1.6;
-      color: #ffffff;
+      line-height: 1.7;
+      color: #4a4e3d;
       margin-bottom: 30px;
+      font-weight: 300;
     }
 
     .inner-card-signature {
       font-size: 22px;
-      color: #d4af37;
+      color: #4a4e3d;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     .envelope-script-text {
       font-family: 'Great Vibes', cursive;
-      font-size: 36px;
-      color: #a3b899;
+      font-size: 38px;
+      color: #5b624a;
       display: block;
       margin-top: 20px;
     }
@@ -540,8 +564,8 @@
       justify-content: center;
       align-items: center;
       gap: 25px;
-      margin-top: 40px;
-      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
 
     .timer-block {
@@ -551,14 +575,14 @@
     }
 
     .timer-number {
-      font-size: 48px;
-      color: #ffffff;
+      font-size: 52px;
+      color: #4a4e3d;
       font-weight: 300;
     }
 
     .timer-label {
       font-size: 13px;
-      color: #a3b899;
+      color: rgba(74, 78, 61, 0.8);
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-top: 5px;
@@ -566,7 +590,7 @@
 
     .timer-divider {
       font-size: 36px;
-      color: #d4af37;
+      color: #5b624a;
       align-self: flex-start;
       margin-top: 5px;
     }
@@ -578,16 +602,16 @@
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #a3b899;
-      background-color: #081c15;
-      border-top: 1px solid rgba(212,175,55,0.1);
+      color: rgba(74, 78, 61, 0.7);
+      background-color: #b3ba9e;
+      border-top: 1px solid rgba(74, 78, 61, 0.15);
     }
 
     /* LOADING SCREEN */
     .loading-screen{
       position:fixed;
       inset:0;
-      background: #081c15;
+      background: #b3ba9e;
       display:flex;
       justify-content:center;
       align-items:center;
@@ -601,9 +625,10 @@
       max-width:500px;
       padding:40px 30px;
       text-align:center;
-      background: #0d2818;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      box-shadow:0 20px 50px rgba(0,0,0,0.5);
+      background: #bec5ab;
+      border-radius: 18px;
+      border: 1px solid rgba(74, 78, 61, 0.2);
+      box-shadow:0 20px 50px rgba(0,0,0,0.05);
     }
 
     .start-lang{
@@ -614,30 +639,30 @@
     }
 
     .start-lang button{
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      border: 1px solid rgba(74, 78, 61, 0.3);
       padding:8px 18px;
       border-radius:20px;
       background:transparent;
-      color:#f7dfad;
+      color: #4a4e3d;
       cursor:pointer;
       font-size:14px;
       transition: 0.3s;
     }
 
     .start-lang button:hover {
-      background: rgba(212, 175, 55, 0.1);
+      background: rgba(74, 78, 61, 0.1);
     }
 
     .welcome-names{
       font-size:42px;
-      color:#ffffff;
+      color: #4a4e3d;
       margin-bottom:10px;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     .welcome-names span{
-      color:#d4af37;
+      color: #5b624a;
       font-family:'Great Vibes',cursive;
       text-transform: none;
     }
@@ -645,7 +670,7 @@
     .welcome-subtitle {
       font-size:18px;
       margin-bottom:30px;
-      color: #a3b899;
+      color: rgba(74, 78, 61, 0.8);
       letter-spacing: 3px;
       text-transform: uppercase;
     }
@@ -655,28 +680,29 @@
       height:40px;
       border-radius:50%;
       margin:0 auto 30px;
-      border:2px solid rgba(212, 175, 55, 0.1);
-      border-top:2px solid #d4af37;
+      border:2px solid rgba(74, 78, 61, 0.15);
+      border-top:2px solid #4a4e3d;
       animation:spin 1s linear infinite;
     }
 
     @keyframes spin{ 100%{transform:rotate(360deg);} }
 
     .open-btn{
-      border: 1px solid #d4af37;
+      border: 1px solid #4a4e3d;
       padding:12px 40px;
       background:transparent;
-      color:#d4af37;
+      color: #4a4e3d;
       font-size:16px;
       letter-spacing: 2px;
       text-transform: uppercase;
       cursor:pointer;
       transition: 0.3s ease;
+      border-radius: 30px;
     }
 
     .open-btn:hover {
-      background: #d4af37;
-      color: #081c15;
+      background: #4a4e3d;
+      color: #b3ba9e;
     }
 
     /* MOBILE RESPONSIVENESS */
@@ -687,7 +713,7 @@
       .image-side { height: 50vh; }
       .content-side { padding: 60px 20px; }
       .hero-text h1 { font-size: 42px; }
-      .hero-text span { font-size: 32px; }
+      .hero-text span { font-size: 36px; }
     }
   </style>
 </head>
@@ -721,14 +747,14 @@
     <div class="welcome-names">ARAM <span>&</span> ANGELINA</div>
     <div class="welcome-subtitle">Wedding Invitation</div>
     <div class="loader"></div>
-    <h2 id="loadingText" style="font-size:18px; color:#ffffff; font-weight:300; margin-bottom:20px;">Проверяем приглашение...</h2>
+    <h2 id="loadingText" style="font-size:18px; color: #4a4e3d; font-weight:300; margin-bottom:20px;">Проверяем приглашение...</h2>
     <button class="open-btn" id="openBtn">Открыть приглашение</button>
   </div>
 </div>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg"><img src="4.png.png" alt="Hero Image"></div>
+  <div class="hero-bg"><img src="505" alt="Hero Image"></div>
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <h1>ARAM & ANGELINA</h1>
@@ -741,15 +767,19 @@
 <section class="split-section">
   <div class="content-side">
     <h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
-    <p class="calendar-text" id="calTxt1">В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.</p>
-    <p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
+    <div class="text-card">
+      <p class="calendar-text" id="calTxt1">В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.</p>
+    </div>
+    <div class="text-card">
+      <p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
+    </div>
     <h3 class="month-title" id="calMonth">ИЮЛЬ</h3>
     <div class="yes-text" id="calYes">В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span></div>
     <div class="real-calendar" id="calendarGrid"></div>
     <div class="big-date">28.07.2026</div>
   </div>
   <div class="image-side">
-    <img src="3.png" alt="Calendar Side Image">
+    <img src="505" alt="Calendar Side Image">
   </div>
 </section>
 
@@ -757,12 +787,14 @@
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="location-title decor-title" id="locTitle">ЛОКАЦИЯ</h2>
-    <p class="location-place" id="locPlace">Банкетный зал «Событие»</p>
-    <p class="location-address" id="locAddress">г. Чита, ул. Шилова, 97д<br>Цокольный этаж</p>
-    <a href="#" class="map-button" id="locBtn">Посмотреть на карте</a>
+    <div class="text-card" style="text-align: center;">
+      <p class="location-place" id="locPlace">Банкетный зал «Событие»</p>
+      <p class="location-address" id="locAddress">г. Чита, ул. Шилова, 97д<br>Цокольный этаж</p>
+      <a href="#" class="map-button" id="locBtn">Посмотреть на карте</a>
+    </div>
   </div>
   <div class="image-side">
-    <img src="2.png" alt="Location Side Image">
+    <img src="505" alt="Location Side Image">
   </div>
 </section>
 
@@ -770,27 +802,29 @@
 <section class="split-section">
   <div class="content-side">
     <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
-    <div class="program-list">
-      <div class="program-item">
-        <div class="program-time">17:30</div><div class="program-line"></div>
-        <div class="program-text" id="prog1">СБОР ГОСТЕЙ</div>
-      </div>
-      <div class="program-item">
-        <div class="program-time">18:00</div><div class="program-line"></div>
-        <div class="program-text" id="prog2">ЦЕРЕМОНИЯ</div>
-      </div>
-      <div class="program-item">
-        <div class="program-time">18:30</div><div class="program-line"></div>
-        <div class="program-text" id="prog3">НАЧАЛО БАНКЕТА</div>
-      </div>
-      <div class="program-item">
-        <div class="program-time">23:00</div><div class="program-line"></div>
-        <div class="program-text" id="prog4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
+    <div class="text-card" style="text-align: left; display: flex; justify-content: center;">
+      <div class="program-list" style="margin-top:0;">
+        <div class="program-item">
+          <div class="program-time">17:30</div><div class="program-line"></div>
+          <div class="program-text" id="prog1">СБОР ГОСТЕЙ</div>
+        </div>
+        <div class="program-item">
+          <div class="program-time">18:00</div><div class="program-line"></div>
+          <div class="program-text" id="prog2">ЦЕРЕМОНИЯ</div>
+        </div>
+        <div class="program-item">
+          <div class="program-time">18:30</div><div class="program-line"></div>
+          <div class="program-text" id="prog3">НАЧАЛО БАНКЕТА</div>
+        </div>
+        <div class="program-item">
+          <div class="program-time">23:00</div><div class="program-line"></div>
+          <div class="program-text" id="prog4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
+        </div>
       </div>
     </div>
   </div>
   <div class="image-side">
-    <img src=1.png alt="Program Side Image">
+    <img src="505" alt="Program Side Image">
   </div>
 </section>
 
@@ -798,18 +832,20 @@
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="dress-title decor-title" id="dressTitle">ДРЕСС-КОД</h2>
-    <p class="dress-text" id="dressTxt">Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:</p>
-    <div class="dress-colors">
-      <div class="dress-color" style="background:#3d2925;"></div>
-      <div class="dress-color" style="background:#5a4335;"></div>
-      <div class="dress-color" style="background:#a58e76;"></div>
-      <div class="dress-color" style="background:#cbb8aa;"></div>
-      <div class="dress-color" style="background:#c8b8a6;"></div>
+    <div class="text-card">
+      <p class="dress-text" id="dressTxt">Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы:</p>
+      <div class="dress-colors">
+        <div class="dress-color" style="background:#3d2925;"></div>
+        <div class="dress-color" style="background:#5a4335;"></div>
+        <div class="dress-color" style="background:#a58e76;"></div>
+        <div class="dress-color" style="background:#cbb8aa;"></div>
+        <div class="dress-color" style="background:#c8b8a6;"></div>
+      </div>
+      <div class="dress-bottom-text" id="dressWomen">Для женщин</div>
     </div>
-    <div class="dress-bottom-text" id="dressWomen">Для женщин</div>
   </div>
   <div class="image-side">
-    <img src="2.png.png" alt="Dress Code Image">
+    <img src="image(518).png" alt="Dress Code Image">
   </div>
 </section>
 
@@ -817,12 +853,16 @@
 <section class="split-section">
   <div class="content-side">
     <h2 class="wishes-title decor-title" id="wishTitle">ПОЖЕЛАНИЯ</h2>
-    <p class="wish-text-p" id="wish1">Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.</p>
-    <p class="wish-text-p" id="wish2">В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!</p>
+    <div class="text-card">
+      <p class="wish-text-p" id="wish1">Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.</p>
+    </div>
+    <div class="text-card">
+      <p class="wish-text-p" id="wish2">В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!</p>
+    </div>
     <a href="#" class="map-button" id="wishBtn" style="margin-top: 15px;">Send Wish</a>
   </div>
   <div class="image-side">
-    <img src="3.png" alt="Wishes Side Image">
+    <img src="505" alt="Wishes Side Image">
   </div>
 </section>
 
@@ -830,20 +870,22 @@
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="contacts-title decor-title" id="contactsHeader">CONTACTS</h2>
-    <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
-    <div class="contact-person-block">
-      <div class="contact-role-name" id="contactRole1">Ведет Александр</div>
-      <div class="contact-phone">+7 964 464 9090</div>
-      <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank" id="tgBtn1">Написать в телеграм</a>
-    </div>
-    <div class="contact-person-block">
-      <div class="contact-role-name" id="contactRole2">Организатор Нина</div>
-      <div class="contact-phone">+7 914 491 9090</div>
-      <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank" id="tgBtn2">Написать в телеграм</a>
+    <div class="text-card">
+      <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
+      <div class="contact-person-block">
+        <div class="contact-role-name" id="contactRole1">Ведет Александр</div>
+        <div class="contact-phone">+7 964 464 9090</div>
+        <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank" id="tgBtn1">Написать в телеграм</a>
+      </div>
+      <div class="contact-person-block">
+        <div class="contact-role-name" id="contactRole2">Организатор Нина</div>
+        <div class="contact-phone">+7 914 491 9090</div>
+        <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank" id="tgBtn2">Написать в телеграм</a>
+      </div>
     </div>
   </div>
   <div class="image-side">
-    <img src="4.png" alt="Contacts Side Image">
+    <img src="505" alt="Contacts Side Image">
   </div>
 </section>
 
@@ -851,12 +893,14 @@
 <section class="split-section">
   <div class="content-side">
     <h2 class="next-day-title decor-title" id="nextDayHeader">NEXT DAY</h2>
-    <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
-    <a href="#" class="details-btn" id="detailsBtn">Details</a>
+    <div class="text-card">
+      <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
+      <div style="text-align: center; margin-top: 25px;"><a href="#" class="details-btn" id="detailsBtn">Details</a></div>
+    </div>
     <div class="love-signature" id="loveSign">С любовью!</div>
   </div>
   <div class="image-side">
-    <img src="5.png" alt="Next Day Side Image">
+    <img src="505" alt="Next Day Side Image">
   </div>
 </section>
 
@@ -875,27 +919,29 @@
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
-    <div class="countdown-container">
-      <div class="timer-block">
-        <div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
-      </div>
-      <div class="timer-divider">:</div>
-      <div class="timer-block">
-        <div class="timer-number" id="hours">00</div><div class="timer-label" id="lblHours">часов</div>
-      </div>
-      <div class="timer-divider">:</div>
-      <div class="timer-block">
-        <div class="timer-number" id="minutes">00</div><div class="timer-label" id="lblMin">минут</div>
-      </div>
-      <div class="timer-divider">:</div>
-      <div class="timer-block">
-        <div class="timer-number" id="seconds">00</div><div class="timer-label" id="lblSec">секунд</div>
+    <div class="text-card" style="text-align: center;">
+      <div class="countdown-container">
+        <div class="timer-block">
+          <div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
+        </div>
+        <div class="timer-divider">:</div>
+        <div class="timer-block">
+          <div class="timer-number" id="hours">00</div><div class="timer-label" id="lblHours">часов</div>
+        </div>
+        <div class="timer-divider">:</div>
+        <div class="timer-block">
+          <div class="timer-number" id="minutes">00</div><div class="timer-label" id="lblMin">минут</div>
+        </div>
+        <div class="timer-divider">:</div>
+        <div class="timer-block">
+          <div class="timer-number" id="seconds">00</div><div class="timer-label" id="lblSec">секунд</div>
+        </div>
       </div>
     </div>
     <div class="love-signature" style="font-size:32px;">see you soon!</div>
   </div>
   <div class="image-side">
-    <img src=5.png.png.jpg alt="Countdown Side Image">
+    <img src="505" alt="Countdown Side Image">
   </div>
 </section>
 
@@ -1058,11 +1104,11 @@
     weeks.forEach(w => { html += `<div class="week">${w}</div>`; });
     const daysData = [
       {num: 29, class: 'day muted'}, {num: 30, class: 'day muted'},
-      {num: 1, class: 'day'}, {num: 2, class: 'day'}, {num: 3, class: 'day'}, {num: 4, class: 'day'}, {num: 5, class: 'day'},
-      {num: 6, class: 'day'}, {num: 7, class: 'day'}, {num: 8, class: 'day'}, {num: 9, class: 'day'}, {num: 10, class: 'day'}, {num: 11, class: 'day'}, {num: 12, class: 'day'},
-      {num: 13, class: 'day'}, {num: 14, class: 'day'}, {num: 15, class: 'day'}, {num: 16, class: 'day'}, {num: 17, class: 'day'}, {num: 18, class: 'day'}, {num: 19, class: 'day'},
-      {num: 20, class: 'day'}, {num: 21, class: 'day'}, {num: 22, class: 'day'}, {num: 23, class: 'day'}, {num: 24, class: 'day'}, {num: 25, class: 'day'}, {num: 26, class: 'day'},
-      {num: 27, class: 'day'}, {num: 28, class: 'day wedding-day'}, {num: 29, class: 'day'}, {num: 30, class: 'day'}, {num: 31, class: 'day'}
+      {num: '1', class: 'day'}, {num: '2', class: 'day'}, {num: '3', class: 'day'}, {num: '4', class: 'day'}, {num: '5', class: 'day'},
+      {num: '6', class: 'day'}, {num: '7', class: 'day'}, {num: '8', class: 'day'}, {num: '9', class: 'day'}, {num: '10', class: 'day'}, {num: '11', class: 'day'}, {num: '12', class: 'day'},
+      {num: '13', class: 'day'}, {num: '14', class: 'day'}, {num: '15', class: 'day'}, {num: '16', class: 'day'}, {num: '17', class: 'day'}, {num: '18', class: 'day'}, {num: '19', class: 'day'},
+      {num: '20', class: 'day'}, {num: '21', class: 'day'}, {num: '22', class: 'day'}, {num: '23', class: 'day'}, {num: '24', class: 'day'}, {num: '25', class: 'day'}, {num: '26', class: 'day'},
+      {num: '27', class: 'day'}, {num: '28', class: 'day wedding-day'}, {num: '29', class: 'day'}, {num: '30', class: 'day'}, {num: '31', class: 'day'}
     ];
     daysData.forEach(d => { html += `<div class="${d.class}">${d.num}</div>`; });
     grid.innerHTML = html;
