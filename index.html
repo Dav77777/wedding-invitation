@@ -21,8 +21,8 @@
 
     body{
       font-family:'Cormorant Garamond',serif;
-      background-color: #b3ba9e; /* Ճշգրիտ թեթև ձիթապտղի/եղեսպակի ֆոն `image_6668f6.png`-ից */
-      color: #4a4e3d; /* Մուգ էսթետիկ տեքստի գույն նկարից */
+      background-color: #b3ba9e;
+      color: #4a4e3d;
       overflow-x:hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -110,6 +110,51 @@
       text-align: center;
     }
 
+    /* QUOTE BLOCK (image_5b07d1.png style) */
+    .quote-section {
+      padding: 100px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #b3ba9e;
+    }
+
+    .quote-cloud {
+      background: #fdfdfb;
+      padding: 60px 40px;
+      border-radius: 100px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      border: 1px solid rgba(74, 78, 61, 0.1);
+    }
+
+    .quote-names {
+      font-size: 36px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #4a4e3d;
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    .quote-text {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #5b624a;
+      font-style: italic;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .quote-decor {
+      margin-top: 30px;
+      opacity: 0.3;
+      width: 150px;
+    }
+
     /* BLOCK STRUCTURE */
     .split-section {
       display: flex;
@@ -134,9 +179,9 @@
       background-color: #b3ba9e;
     }
 
-    /* ELEGANT TEXT CARDS LIKE IN image_6668f6.png */
+    /* ELEGANT TEXT CARDS */
     .text-card {
-      background-color: #bec5ab; /* Քարտի բաց երանգը նկարից */
+      background-color: #bec5ab;
       border-radius: 18px;
       padding: 35px 30px;
       margin-bottom: 25px;
@@ -341,7 +386,7 @@
       text-align: center;
     }
 
-    .map-button, .telegram-link-btn, .details-btn {
+    .map-button, .telegram-link-btn, .details-btn, .submit-btn {
       display: inline-block;
       padding: 12px 35px;
       border: 1px solid #4a4e3d;
@@ -354,9 +399,10 @@
       transition: all 0.3s ease;
       font-weight: 500;
       border-radius: 30px;
+      cursor: pointer;
     }
 
-    .map-button:hover, .telegram-link-btn:hover, .details-btn:hover {
+    .map-button:hover, .telegram-link-btn:hover, .details-btn:hover, .submit-btn:hover {
       background: #4a4e3d;
       color: #b3ba9e;
     }
@@ -558,6 +604,143 @@
       margin-top: 20px;
     }
 
+    /* NEW RSVP / QUESTIONNAIRE STYLES (image_5a884d.jpg & image_5a8829.png style) */
+    .rsvp-section {
+      padding: 100px 20px;
+      background-color: #b3ba9e;
+      display: flex;
+      justify-content: center;
+    }
+
+    .rsvp-container {
+      background: #fdfdfb;
+      padding: 60px 50px;
+      border-radius: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 600px;
+      width: 100%;
+      border: 1px solid rgba(74, 78, 61, 0.1);
+    }
+
+    .rsvp-main-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      color: #4a4e3d;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    .rsvp-subtitle {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #5b624a;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .rsvp-form-group {
+      margin-bottom: 35px;
+      text-align: left;
+    }
+
+    .rsvp-label {
+      font-size: 21px;
+      color: #4a4e3d;
+      margin-bottom: 15px;
+      display: block;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .rsvp-input-text {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #4a4e3d;
+      background: transparent;
+      padding: 10px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      color: #4a4e3d;
+      outline: none;
+      margin-top: 5px;
+    }
+
+    .rsvp-radio-group, .rsvp-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .rsvp-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 19px;
+      color: #4a4e3d;
+      position: relative;
+      user-select: none;
+      padding-left: 35px;
+    }
+
+    .rsvp-option input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Custom Radio Circle */
+    .radio-checkmark {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 20px;
+      border: 1.5px solid #4a4e3d;
+      border-radius: 50%;
+    }
+
+    .rsvp-option input:checked ~ .radio-checkmark {
+      background-color: #4a4e3d;
+    }
+
+    /* Custom Checkbox Square */
+    .checkbox-checkmark {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 18px;
+      width: 18px;
+      border: 1.5px solid #4a4e3d;
+      border-radius: 2px;
+    }
+
+    .rsvp-option input:checked ~ .checkbox-checkmark {
+      background-color: #4a4e3d;
+    }
+
+    .submit-btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .submit-btn {
+      border: 1px solid #4a4e3d;
+      padding: 12px 60px;
+      border-radius: 0; /* Square elegant style like in image_5a8829.png */
+      background: transparent;
+      font-size: 16px;
+      letter-spacing: 3px;
+      width: 100%;
+      max-width: 300px;
+    }
+
     /* COUNTDOWN BLOCK */
     .countdown-container {
       display: flex;
@@ -714,6 +897,8 @@
       .content-side { padding: 60px 20px; }
       .hero-text h1 { font-size: 42px; }
       .hero-text span { font-size: 36px; }
+      .quote-cloud { border-radius: 50px; padding: 40px 20px; }
+      .rsvp-container { padding: 40px 20px; }
     }
   </style>
 </head>
@@ -759,16 +944,27 @@
   <div class="hero-text">
     <h1>ARAM & ANGELINA</h1>
     <span id="heroSubtitle">Our Forever Begins Here</span>
-    <div class="hero-date">MAY 24, 2025</div>
+    <div class="hero-date">JULY 28, 2026</div>
   </div>
 </header>
+
+<!-- QUOTE SECTION (image_5b07d1.png style) -->
+<section class="quote-section">
+  <div class="quote-cloud">
+    <div class="quote-names" id="quoteNames">Արամ & Անգելինա</div>
+    <p class="quote-text" id="quoteText">«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»</p>
+    <svg class="quote-decor" viewBox="0 0 100 20">
+      <path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="#4a4e3d" stroke-width="0.5"/>
+    </svg>
+  </div>
+</section>
 
 <!-- CALENDAR SECTION -->
 <section class="split-section">
   <div class="content-side">
     <h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
     <div class="text-card">
-      <p class="calendar-text" id="calTxt1">В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.</p>
+      <p class="calendar-text" id="calTxt1">Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.</p>
     </div>
     <div class="text-card">
       <p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
@@ -915,6 +1111,87 @@
   </div>
 </section>
 
+<!-- NEW RSVP QUESTIONNAIRE SECTION (image_5a884d.jpg & image_5a8829.png style) -->
+<section class="rsvp-section">
+  <div class="rsvp-container">
+    <h2 class="rsvp-main-title" id="rsvpMainTitle">Вы прийдете?</h2>
+    <p class="rsvp-subtitle" id="rsvpSubtitle">Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
+
+    <form id="weddingRsvpForm">
+      <div class="rsvp-form-group">
+        <label class="rsvp-label" id="lblRsvpName">Ваши имя и фамилия</label>
+        <input type="text" class="rsvp-input-text" name="guest_name" required>
+      </div>
+
+      <div class="rsvp-form-group">
+        <label class="rsvp-label" id="lblRsvpAttendance">Планируете ли вы присутствовать?</label>
+        <div class="rsvp-radio-group">
+          <label class="rsvp-option">
+            <input type="radio" name="attendance" value="yes" checked>
+            <span class="radio-checkmark"></span>
+            <span id="optAttendanceYes">да, с удовольствием!</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="radio" name="attendance" value="no">
+            <span class="radio-checkmark"></span>
+            <span id="optAttendanceNo">к сожалению, не смогу</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="rsvp-form-group">
+        <label class="rsvp-label" id="lblRsvpDrinks">Ваши предпочтения по напиткам:</label>
+        <div class="rsvp-checkbox-group">
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="red_wine">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkRed">вино красное</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="white_wine">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkWhite">вино белое</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="champagne">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkChamp">шампанское</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="cognac">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkCognac">коньяк</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="whiskey">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkWhiskey">виски</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="vodka">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkVodka">водка</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="non_alcoholic">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkNonAlc">безалкогольные напитки</span>
+          </label>
+          <label class="rsvp-option">
+            <input type="checkbox" name="drinks" value="own_option">
+            <span class="checkbox-checkmark"></span>
+            <span id="optDrinkOwn">свой вариант</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="submit-btn-container">
+        <button type="submit" class="submit-btn" id="btnRsvpSubmit">ОТПРАВИТЬ</button>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- COUNTDOWN SECTION -->
 <section class="split-section reverse">
   <div class="content-side">
@@ -946,7 +1223,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer-signature">
+<footer class="footer-signature" id="footerSign">
   WITH LOVE, ARAM & ANGELINA ✦
 </footer>
 
@@ -958,8 +1235,10 @@
       welcomeBack: "Էլի մեկ անգամ",
       welcomeSign: "Բարի գալուստ 🎉",
       heroSubtitle: "Our Forever Begins Here",
+      quoteNames: "Արամ & Անգելինա",
+      quoteText: "«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»",
       calTitle: "ՍԻՐԵԼԻ ՀԱՐԱԶԱՏՆԵՐ ԵՎ ՄՏԵՐԻՄՆԵՐ!",
-      calTxt1: "Այս հրաշալի օրը մենք կցանկանայինք կիսել ձեզ հետ մեր երջանկությունն ու ուրախությունը:",
+      calTxt1: "Այս հրավերը ստացել են միայն նրանք, առանց ում մեր օրը լիարժեք չէր լինի: Դուք մեր ամենակարևոր իրադարձության գլխավոր վկաներն եք:",
       calTxt2: "Սիրով հրավիրում ենք ձեզ մեր հարսանիքին, որտեղ միասին կնշենք մեր նոր կյանքի սկիզբը:",
       calMonth: "ՀՈՒԼԻՍ",
       calYes: "ԱՅՍ ՕՐԸ ՄԵՆՔ ԿԱՍԵՆՔ <span>Այո!</span>",
@@ -990,9 +1269,26 @@
       detailsBtn: "Մանրամասներ",
       loveSign: "Սիրով!",
       envTxt: "Դուք պատահական չեք ստացել այս հրավերը!<br>Մեզ համար այս կարևոր օրը մենք շատ ենք ուզում, որ դուք լինեք մեր կողքին:",
-      envSign: "Սիրով՝<br>Պավել և Տատյանա",
+      envSign: "Սիրով՝<br>Արամ և Անգելինա",
+      rsvpMainTitle: "Կգա՞ք արդյոք",
+      rsvpSubtitle: "Մեզ համար չկա ավելի թանկ նվեր, քան ձեր ներկայությունը այս հատուկ օրը: Խնդրում ենք հաստատել ձեր մասնակցությունը՝ պատասխանելով մի քանի հարցի:",
+      lblRsvpName: "Ձեր անունը և ազգանունը",
+      lblRsvpAttendance: "Պլանավորո՞ւմ եք ներկա գտնվել:",
+      optAttendanceYes: "այո, մեծ հաճույքով!",
+      optAttendanceNo: "ցավոք, չեմ կարող",
+      lblRsvpDrinks: "Ձեր նախապատվությունները խմիչքների հարցում.",
+      optDrinkRed: "կարմիր գինի",
+      optDrinkWhite: "սպիտակ գինի",
+      optDrinkChamp: "շամպայն",
+      optDrinkCognac: "կոնյակ",
+      optDrinkWhiskey: "վիսկի",
+      optDrinkVodka: "օղի",
+      optDrinkNonAlc: "անալկոհոլ խմիչքներ",
+      optDrinkOwn: "իմ տարբերակը",
+      btnRsvpSubmit: "ՈՒՂԱՐԿԵԼ",
       countTitle: "Մեր հարսանիքին մնացել է՝",
-      lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան"
+      lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան",
+      footerSign: "ՍԻՐՈՎ՝ ԱՐԱՄ & ԱՆԳԵԼԻՆԱ ✦"
     },
     ru: {
       loadingText: "Проверяем приглашение...",
@@ -1000,8 +1296,10 @@
       welcomeBack: "Еще раз",
       welcomeSign: "Добро пожаловать 🎉",
       heroSubtitle: "Our Forever Begins Here",
+      quoteNames: "Арам & Ангелина",
+      quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
       calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
-      calTxt1: "В этот замечательный день мы хотели бы разделить с вами наше счастье и радость.",
+      calTxt1: "Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.",
       calTxt2: "Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.",
       calMonth: "ИЮЛЬ",
       calYes: "В ЭТОТ ДЕНЬ МЫ СКАЖЕМ <span>Да!</span>",
@@ -1032,9 +1330,26 @@
       detailsBtn: "Details",
       loveSign: "С любовью!",
       envTxt: "Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!",
-      envSign: "С любовью,<br>Павел и Татьяна",
+      envSign: "С любовью,<br>Арам и Ангелина",
+      rsvpMainTitle: "Вы прийдете?",
+      rsvpSubtitle: "Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.",
+      lblRsvpName: "Ваши имя и фамилия",
+      lblRsvpAttendance: "Планируете ли вы присутствовать?",
+      optAttendanceYes: "да, с удовольствием!",
+      optAttendanceNo: "к сожалению, не смогу",
+      lblRsvpDrinks: "Ваши предпочтения по напиткам:",
+      optDrinkRed: "вино красное",
+      optDrinkWhite: "вино белое",
+      optDrinkChamp: "шампанское",
+      optDrinkCognac: "коньяк",
+      optDrinkWhiskey: "виски",
+      optDrinkVodka: "водка",
+      optDrinkNonAlc: "безалкогольные напитки",
+      optDrinkOwn: "свой вариант",
+      btnRsvpSubmit: "ОТПРАВИТЬ",
       countTitle: "До нашей свадьбы осталось:",
-      lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд"
+      lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд",
+      footerSign: "С ЛЮБОВЬЮ, АРАМ & АНГЕЛИНА ✦"
     }
   };
 
@@ -1049,6 +1364,10 @@
     if(clicks === 0) document.getElementById('openBtn').innerHTML = t.openBtn;
 
     document.getElementById('heroSubtitle').innerHTML = t.heroSubtitle;
+
+    document.getElementById('quoteNames').innerHTML = t.quoteNames;
+    document.getElementById('quoteText').innerHTML = t.quoteText;
+
     document.getElementById('calTitle').innerHTML = t.calTitle;
     document.getElementById('calTxt1').innerHTML = t.calTxt1;
     document.getElementById('calTxt2').innerHTML = t.calTxt2;
@@ -1089,11 +1408,31 @@
     document.getElementById('envTxt').innerHTML = t.envTxt;
     document.getElementById('envSign').innerHTML = t.envSign;
 
+// RSVP թարգմանություններ
+    document.getElementById('rsvpMainTitle').innerHTML = t.rsvpMainTitle;
+    document.getElementById('rsvpSubtitle').innerHTML = t.rsvpSubtitle;
+    document.getElementById('lblRsvpName').innerHTML = t.lblRsvpName;
+    document.getElementById('lblRsvpAttendance').innerHTML = t.lblRsvpAttendance;
+    document.getElementById('optAttendanceYes').innerHTML = t.optAttendanceYes;
+    document.getElementById('optAttendanceNo').innerHTML = t.optAttendanceNo;
+    document.getElementById('lblRsvpDrinks').innerHTML = t.lblRsvpDrinks;
+    document.getElementById('optDrinkRed').innerHTML = t.optDrinkRed;
+    document.getElementById('optDrinkWhite').innerHTML = t.optDrinkWhite;
+    document.getElementById('optDrinkChamp').innerHTML = t.optDrinkChamp;
+    document.getElementById('optDrinkCognac').innerHTML = t.optDrinkCognac;
+    document.getElementById('optDrinkWhiskey').innerHTML = t.optDrinkWhiskey;
+    document.getElementById('optDrinkVodka').innerHTML = t.optDrinkVodka;
+    document.getElementById('optDrinkNonAlc').innerHTML = t.optDrinkNonAlc;
+    document.getElementById('optDrinkOwn').innerHTML = t.optDrinkOwn;
+    document.getElementById('btnRsvpSubmit').innerHTML = t.btnRsvpSubmit;
+
     document.getElementById('countTitle').innerHTML = t.countTitle;
     document.getElementById('lblDays').innerHTML = t.lblDays;
     document.getElementById('lblHours').innerHTML = t.lblHours;
     document.getElementById('lblMin').innerHTML = t.lblMin;
     document.getElementById('lblSec').innerHTML = t.lblSec;
+
+    document.getElementById('footerSign').innerHTML = t.footerSign;
 
     buildCalendarGrid(t.calWeeks);
   }
@@ -1153,6 +1492,13 @@
     }
   }
 
+  // RSVP Ֆորմայի ուղարկման իրադարձություն (Կարող եք կապել Telegram Bot-ի կամ Google Sheets-ի հետ)
+  document.getElementById('weddingRsvpForm').onsubmit = function(e) {
+    e.preventDefault();
+    alert(currentLang === 'hy' ? 'Շնորհակալություն, ձեր պատասխանն ընդունված է:' : 'Спасибо! Ваш ответ успешно отправлен.');
+  };
+
+  // Լռելյայն բացվում է ռուսերեն տարբերակով
   setLanguage('ru');
   setInterval(updateWeddingCountdown, 1000);
   updateWeddingCountdown();
