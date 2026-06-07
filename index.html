@@ -581,7 +581,7 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.05);
         }
 
-        .inner-card-text {
+        .inner-white-card {
             font-size: 20px;
             line-height: 1.7;
             color: #4a4e3d;
@@ -761,7 +761,7 @@
             border-top: 1px solid rgba(74, 78, 61, 0.15);
         }
 
-        /* FINAL MEMORY BLOCK */
+        /* FINAL MEMORY BLOCK (UPDATED BACKGROUND & TEXT COLORS TO MATCH THE MAIN OLIWE THEME) */
         .final-memory-section {
             position: relative;
             min-height: 100vh;
@@ -771,8 +771,8 @@
             justify-content: center;
             overflow: hidden;
             text-align: center;
-            color: #fdfdfb;
-            background: #343123;
+            color: #4a4e3d;
+            background: #b3ba9e;
         }
 
         .final-memory-section::before {
@@ -780,7 +780,7 @@
             position: absolute;
             inset: 0;
             background:
-                    linear-gradient(to bottom, rgba(25, 23, 17, 0.2), rgba(25, 23, 17, 0.68)),
+                    linear-gradient(to bottom, rgba(179, 186, 158, 0.2), rgba(179, 186, 158, 0.75)),
                     url("505") center/cover no-repeat;
             filter: blur(3px);
             transform: scale(1.06);
@@ -791,7 +791,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(0,0,0,0.35));
+            background: radial-gradient(circle at center, rgba(255,255,255,0.15), rgba(179, 186, 158, 0.4));
         }
 
         .final-memory-inner {
@@ -809,7 +809,7 @@
             aspect-ratio: 1.18 / 1;
             padding: 46px;
             margin-bottom: 62px;
-            filter: drop-shadow(0 18px 32px rgba(0,0,0,0.35));
+            filter: drop-shadow(0 18px 32px rgba(74, 78, 61, 0.2));
         }
 
         .final-lace-frame::before {
@@ -845,7 +845,7 @@
             object-fit: cover;
             display: block;
             border: 6px solid rgba(255,255,255,0.82);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
         }
 
         .final-memory-text {
@@ -853,7 +853,8 @@
             font-size: 27px;
             line-height: 1.45;
             font-weight: 400;
-            text-shadow: 0 3px 14px rgba(0,0,0,0.5);
+            color: #4a4e3d;
+            text-shadow: 0 1px 4px rgba(255,255,255,0.5);
         }
 
         .final-memory-names {
@@ -861,8 +862,8 @@
             font-family: 'Great Vibes', cursive;
             font-size: 68px;
             line-height: 1;
-            color: #fff;
-            text-shadow: 0 3px 16px rgba(0,0,0,0.45);
+            color: #5b624a;
+            text-shadow: 0 1px 4px rgba(255,255,255,0.4);
         }
 
         /* LOADING SCREEN */
@@ -1220,10 +1221,10 @@
     </div>
 </section>
 
-<section class="split-section reverse">
-    <div class="content-side">
+<section class="split-section rsvp-section" style="padding-top: 0;">
+    <div class="content-side" style="padding: 0;">
         <h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
-        <div class="text-card" style="text-align: center;">
+        <div class="text-card" style="text-align: center; margin-top: 30px;">
             <div class="countdown-container">
                 <div class="timer-block">
                     <div class="timer-number" id="days">00</div><div class="timer-label" id="lblDays">дней</div>
@@ -1243,9 +1244,6 @@
             </div>
         </div>
         <div class="love-signature" style="font-size:32px;">see you soon!</div>
-    </div>
-    <div class="image-side">
-        <img src="505" alt="Countdown Side Image">
     </div>
 </section>
 
@@ -1453,7 +1451,7 @@
         document.getElementById('envTxt').innerHTML = t.envTxt;
         document.getElementById('envSign').innerHTML = t.envSign;
 
-// RSVP Translations
+        // RSVP Translations
         document.getElementById('rsvpMainTitle').innerHTML = t.rsvpMainTitle;
         document.getElementById('rsvpSubtitle').innerHTML = t.rsvpSubtitle;
         document.getElementById('lblRsvpName').innerHTML = t.lblRsvpName;
@@ -1648,7 +1646,7 @@
         }
     }
 
-    // Լռելյայն բացվում է ռուսերեն տարբերակով
+    // По умолчанию открывается на русском
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
     updateWeddingCountdown();
