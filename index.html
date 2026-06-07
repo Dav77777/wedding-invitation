@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,7 +110,7 @@
       text-align: center;
     }
 
-    /* QUOTE BLOCK (image_5b07d1.png style) */
+    /* QUOTE BLOCK */
     .quote-section {
       padding: 100px 20px;
       display: flex;
@@ -604,7 +604,7 @@
       margin-top: 20px;
     }
 
-    /* NEW RSVP / QUESTIONNAIRE STYLES (image_5a884d.jpg & image_5a8829.png style) */
+    /* PREMIUM RSVP QUESTIONNAIRE STYLES */
     .rsvp-section {
       padding: 100px 20px;
       background-color: #b3ba9e;
@@ -620,41 +620,40 @@
       max-width: 600px;
       width: 100%;
       border: 1px solid rgba(74, 78, 61, 0.1);
+      text-align: center;
     }
 
-    .rsvp-main-title {
+    .rsvp-container h2 {
       font-family: 'Great Vibes', cursive;
       font-size: 56px;
       color: #4a4e3d;
-      margin-bottom: 30px;
-      text-align: center;
+      margin-bottom: 20px;
       font-weight: 400;
     }
 
-    .rsvp-subtitle {
+    .rsvp-container p {
       font-size: 20px;
       line-height: 1.6;
       color: #5b624a;
-      text-align: center;
       margin-bottom: 40px;
       font-weight: 300;
     }
 
-    .rsvp-form-group {
+    .input-group {
       margin-bottom: 35px;
       text-align: left;
+      transition: all 0.4s ease;
     }
 
-    .rsvp-label {
+    .input-group label {
       font-size: 21px;
       color: #4a4e3d;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       display: block;
       font-weight: 400;
-      letter-spacing: 0.5px;
     }
 
-    .rsvp-input-text {
+    .input-group input[type="text"] {
       width: 100%;
       border: none;
       border-bottom: 1px solid #4a4e3d;
@@ -664,81 +663,53 @@
       font-size: 19px;
       color: #4a4e3d;
       outline: none;
-      margin-top: 5px;
     }
 
-    .rsvp-radio-group, .rsvp-checkbox-group {
+    .radio-group, .checkbox-group {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 14px;
       margin-top: 15px;
     }
 
-    .rsvp-option {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
+    .radio-group label, .checkbox-group label {
       font-size: 19px;
       color: #4a4e3d;
-      position: relative;
-      user-select: none;
-      padding-left: 35px;
-    }
-
-    .rsvp-option input {
-      position: absolute;
-      opacity: 0;
       cursor: pointer;
-      height: 0;
-      width: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 300;
     }
 
-    /* Custom Radio Circle */
-    .radio-checkmark {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 20px;
-      width: 20px;
-      border: 1.5px solid #4a4e3d;
-      border-radius: 50%;
-    }
-
-    .rsvp-option input:checked ~ .radio-checkmark {
-      background-color: #4a4e3d;
-    }
-
-    /* Custom Checkbox Square */
-    .checkbox-checkmark {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 18px;
+    .radio-group input, .checkbox-group input {
+      accent-color: #4a4e3d;
       width: 18px;
-      border: 1.5px solid #4a4e3d;
-      border-radius: 2px;
+      height: 18px;
+      cursor: pointer;
     }
 
-    .rsvp-option input:checked ~ .checkbox-checkmark {
-      background-color: #4a4e3d;
+    .custom-drink-group {
+      margin-top: 20px;
     }
 
-    .submit-btn-container {
-      text-align: center;
-      margin-top: 40px;
+    .custom-drink-group label {
+      font-size: 18px;
+      color: #5b624a;
+      font-style: italic;
+      margin-bottom: 5px;
     }
 
     .submit-btn {
       border: 1px solid #4a4e3d;
       padding: 12px 60px;
-      border-radius: 0; /* Square elegant style like in image_5a8829.png */
+      border-radius: 0;
       background: transparent;
       font-size: 16px;
       letter-spacing: 3px;
       width: 100%;
-      max-width: 300px;
+      max-width: 320px;
+      margin-top: 20px;
     }
 
     /* COUNTDOWN BLOCK */
@@ -905,7 +876,6 @@
 
 <body>
 
-<!-- NAVIGATION -->
 <nav class="nav-bar">
   <div class="nav-logo">A & A</div>
   <ul class="nav-links">
@@ -922,7 +892,6 @@
   </div>
 </nav>
 
-<!-- LOADING SCREEN -->
 <div class="loading-screen" id="loadingScreen">
   <div class="loading-box">
     <div class="start-lang">
@@ -937,7 +906,6 @@
   </div>
 </div>
 
-<!-- HERO -->
 <header class="hero">
   <div class="hero-bg"><img src="505" alt="Hero Image"></div>
   <div class="hero-overlay"></div>
@@ -948,18 +916,16 @@
   </div>
 </header>
 
-<!-- QUOTE SECTION (image_5b07d1.png style) -->
 <section class="quote-section">
   <div class="quote-cloud">
-    <div class="quote-names" id="quoteNames">Արամ & Անգելինա</div>
-    <p class="quote-text" id="quoteText">«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»</p>
+    <div class="quote-names" id="quoteNames">Арам & Ангелина</div>
+    <p class="quote-text" id="quoteText">«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»</p>
     <svg class="quote-decor" viewBox="0 0 100 20">
       <path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="#4a4e3d" stroke-width="0.5"/>
     </svg>
   </div>
 </section>
 
-<!-- CALENDAR SECTION -->
 <section class="split-section">
   <div class="content-side">
     <h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
@@ -979,7 +945,6 @@
   </div>
 </section>
 
-<!-- LOCATION SECTION -->
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="location-title decor-title" id="locTitle">ЛОКАЦИЯ</h2>
@@ -994,7 +959,6 @@
   </div>
 </section>
 
-<!-- PROGRAM SECTION -->
 <section class="split-section">
   <div class="content-side">
     <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
@@ -1024,7 +988,6 @@
   </div>
 </section>
 
-<!-- DRESS CODE SECTION -->
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="dress-title decor-title" id="dressTitle">ДРЕСС-КОД</h2>
@@ -1045,7 +1008,6 @@
   </div>
 </section>
 
-<!-- WISHES SECTION -->
 <section class="split-section">
   <div class="content-side">
     <h2 class="wishes-title decor-title" id="wishTitle">ПОЖЕЛАНИЯ</h2>
@@ -1062,14 +1024,13 @@
   </div>
 </section>
 
-<!-- CONTACTS SECTION -->
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="contacts-title decor-title" id="contactsHeader">CONTACTS</h2>
     <div class="text-card">
-      <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
+      <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и evening пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
       <div class="contact-person-block">
-        <div class="contact-role-name" id="contactRole1">Ведет Александр</div>
+        <div class="contact-role-name" id="contactRole1">Ведущий Александр</div>
         <div class="contact-phone">+7 964 464 9090</div>
         <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank" id="tgBtn1">Написать в телеграм</a>
       </div>
@@ -1085,12 +1046,11 @@
   </div>
 </section>
 
-<!-- NEXT DAY SECTION -->
 <section class="split-section">
   <div class="content-side">
     <h2 class="next-day-title decor-title" id="nextDayHeader">NEXT DAY</h2>
     <div class="text-card">
-      <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
+      <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, надеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
       <div style="text-align: center; margin-top: 25px;"><a href="#" class="details-btn" id="detailsBtn">Details</a></div>
     </div>
     <div class="love-signature" id="loveSign">С любовью!</div>
@@ -1100,99 +1060,57 @@
   </div>
 </section>
 
-<!-- ENVELOPE / THANK YOU -->
 <section class="envelope-section">
   <div class="envelope-wrapper">
     <div class="inner-white-card">
       <p class="inner-card-text" id="envTxt">Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!</p>
-      <div class="inner-card-signature" id="envSign">С любовью,<br>Павел и Татьяна</div>
+      <div class="inner-card-signature" id="envSign">С любовью,<br>Арам и Ангелина</div>
     </div>
     <span class="envelope-script-text">forever and always</span>
   </div>
 </section>
 
-<!-- NEW RSVP QUESTIONNAIRE SECTION (image_5a884d.jpg & image_5a8829.png style) -->
 <section class="rsvp-section">
   <div class="rsvp-container">
-    <h2 class="rsvp-main-title" id="rsvpMainTitle">Вы прийдете?</h2>
-    <p class="rsvp-subtitle" id="rsvpSubtitle">Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
+    <h2 id="rsvpMainTitle">Вы прийдете?</h2>
+    <p id="rsvpSubtitle">Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.</p>
 
-    <form id="weddingRsvpForm">
-      <div class="rsvp-form-group">
-        <label class="rsvp-label" id="lblRsvpName">Ваши имя и фамилия</label>
-        <input type="text" class="rsvp-input-text" name="guest_name" required>
+    <form id="rsvp-wedding-form">
+      <div class="input-group">
+        <label for="guest-name" id="lblRsvpName">Ваши имя и фамилия</label>
+        <input type="text" id="guest-name" name="guest_name" required placeholder="Введите имя и фамилию">
       </div>
 
-      <div class="rsvp-form-group">
-        <label class="rsvp-label" id="lblRsvpAttendance">Планируете ли вы присутствовать?</label>
-        <div class="rsvp-radio-group">
-          <label class="rsvp-option">
-            <input type="radio" name="attendance" value="yes" checked>
-            <span class="radio-checkmark"></span>
-            <span id="optAttendanceYes">да, с удовольствием!</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="radio" name="attendance" value="no">
-            <span class="radio-checkmark"></span>
-            <span id="optAttendanceNo">к сожалению, не смогу</span>
-          </label>
+      <div class="input-group">
+        <label id="lblRsvpAttendance">Планируете ли вы присутствовать?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="attendance" value="Да, с удовольствием!" checked> <span id="optAttendanceYes">да, с удовольствием!</span></label>
+          <label><input type="radio" name="attendance" value="К сожалению, не смогу"> <span id="optAttendanceNo">к сожалению, не смогу</span></label>
         </div>
       </div>
 
-      <div class="rsvp-form-group">
-        <label class="rsvp-label" id="lblRsvpDrinks">Ваши предпочтения по напиткам:</label>
-        <div class="rsvp-checkbox-group">
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="red_wine">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkRed">вино красное</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="white_wine">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkWhite">вино белое</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="champagne">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkChamp">шампанское</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="cognac">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkCognac">коньяк</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="whiskey">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkWhiskey">виски</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="vodka">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkVodka">водка</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="non_alcoholic">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkNonAlc">безалкогольные напитки</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="checkbox" name="drinks" value="own_option">
-            <span class="checkbox-checkmark"></span>
-            <span id="optDrinkOwn">свой вариант</span>
-          </label>
+      <div class="input-group" id="drinks-section">
+        <label id="lblRsvpDrinks">Ваши предпочтения по напиткам:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="drinks" value="Вино красное"> <span id="optDrinkRed">вино красное</span></label>
+          <label><input type="checkbox" name="drinks" value="Вино белое"> <span id="optDrinkWhite">вино белое</span></label>
+          <label><input type="checkbox" name="drinks" value="Шампанское"> <span id="optDrinkChamp">шампанское</span></label>
+          <label><input type="checkbox" name="drinks" value="Коньяк"> <span id="optDrinkCognac">коньяк</span></label>
+          <label><input type="checkbox" name="drinks" value="Виски"> <span id="optDrinkWhiskey">виски</span></label>
+          <label><input type="checkbox" name="drinks" value="Водка"> <span id="optDrinkVodka">водка</span></label>
+          <label><input type="checkbox" name="drinks" value="Безалкогольные напитки"> <span id="optDrinkNonAlc">безалкогольные напитки</span></label>
+        </div>
+        <div class="custom-drink-group">
+          <label for="custom-drink" id="optDrinkOwn">Свой вариант:</label>
+          <input type="text" id="custom-drink" name="custom_drink" placeholder="Например: Ром или определенный сок">
         </div>
       </div>
 
-      <div class="submit-btn-container">
-        <button type="submit" class="submit-btn" id="btnRsvpSubmit">ОТПРАВИТЬ</button>
-      </div>
+      <button type="submit" class="submit-btn" id="btnRsvpSubmit">ОТПРАВИТЬ</button>
     </form>
   </div>
 </section>
 
-<!-- COUNTDOWN SECTION -->
 <section class="split-section reverse">
   <div class="content-side">
     <h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
@@ -1222,7 +1140,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer-signature" id="footerSign">
   WITH LOVE, ARAM & ANGELINA ✦
 </footer>
@@ -1284,11 +1201,14 @@
       optDrinkWhiskey: "վիսկի",
       optDrinkVodka: "օղի",
       optDrinkNonAlc: "անալկոհոլ խմիչքներ",
-      optDrinkOwn: "իմ տարբերակը",
+      optDrinkOwn: "Իմ տարբերակը՝",
       btnRsvpSubmit: "ՈՒՂԱՐԿԵԼ",
       countTitle: "Մեր հարսանիքին մնացել է՝",
       lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան",
-      footerSign: "ՍԻՐՈՎ՝ ԱՐԱՄ & ԱՆԳԵԼԻՆԱ ✦"
+      footerSign: "ՍԻՐՈՎ՝ ԱՐԱՄ & ԱՆԳԵԼԻՆԱ ✦",
+      msgAlertSuccess: "Շնորհակալություն, ձեր պատասխանն ընդունված է:",
+      msgAlertError: "Ուղարկելու ընթացքում սխալ տեղի ունեցավ, կրկին փորձեք:",
+      msgAlertConnError: "Կապի սխալ սերվերի հետ:"
     },
     ru: {
       loadingText: "Проверяем приглашение...",
@@ -1345,11 +1265,14 @@
       optDrinkWhiskey: "виски",
       optDrinkVodka: "водка",
       optDrinkNonAlc: "безалкогольные напитки",
-      optDrinkOwn: "свой вариант",
+      optDrinkOwn: "Свой вариант:",
       btnRsvpSubmit: "ОТПРАВИТЬ",
       countTitle: "До нашей свадьбы осталось:",
       lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд",
-      footerSign: "С ЛЮБОВЬЮ, АРАМ & АНГЕЛИНА ✦"
+      footerSign: "С ЛЮБОВЬЮ, АРАМ & АНГЕЛИНА ✦",
+      msgAlertSuccess: "Спасибо! Ваш ответ успешно отправлен.",
+      msgAlertError: "Произошла ошибка при отправке. Попробуйте еще раз.",
+      msgAlertConnError: "Ошибка соединения с сервером."
     }
   };
 
@@ -1364,7 +1287,6 @@
     if(clicks === 0) document.getElementById('openBtn').innerHTML = t.openBtn;
 
     document.getElementById('heroSubtitle').innerHTML = t.heroSubtitle;
-
     document.getElementById('quoteNames').innerHTML = t.quoteNames;
     document.getElementById('quoteText').innerHTML = t.quoteText;
 
@@ -1408,7 +1330,7 @@
     document.getElementById('envTxt').innerHTML = t.envTxt;
     document.getElementById('envSign').innerHTML = t.envSign;
 
-// RSVP թարգմանություններ
+// RSVP Translations
     document.getElementById('rsvpMainTitle').innerHTML = t.rsvpMainTitle;
     document.getElementById('rsvpSubtitle').innerHTML = t.rsvpSubtitle;
     document.getElementById('lblRsvpName').innerHTML = t.lblRsvpName;
@@ -1453,6 +1375,98 @@
     grid.innerHTML = html;
   }
 
+  // TOGGLE DRINKS VISIBILITY DEPENDING ON ATTENDANCE
+  document.querySelectorAll('input[name="attendance"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const drinksSection = document.getElementById('drinks-section');
+      if (this.value === "К сожалению, не смогу") {
+        drinksSection.style.opacity = '0';
+        setTimeout(() => { drinksSection.style.display = 'none'; }, 400);
+      } else {
+        drinksSection.style.display = 'block';
+        setTimeout(() => { drinksSection.style.opacity = '1'; }, 10);
+      }
+    });
+  });
+
+  // TELEGRAM BOT RSVP SUBMIT
+  document.getElementById('rsvp-wedding-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const t = translations[currentLang];
+
+    // ==========================================
+    // ⚠️ ՏԵՂԱԴՐԻՐ ՔՈ ՏՎՅԱԼՆԵՐԸ ԱՅՍՏԵՂ ⚠️
+    const TELEGRAM_TOKEN = '8660712358:AAEYRbx2P_dt-hY6tD8Ucydis1RaQvs7G7k';
+    const CHAT_ID = '@Dav7775';
+    // ==========================================
+
+    const name = document.getElementById('guest-name').value;
+    const attendance = document.querySelector('input[name="attendance"]:checked').value;
+
+    let drinks = 'Не выбрано / Не требуется';
+
+    // Հավաքում ենք խմիչքները միայն եթե հյուրը գալու է
+    if (attendance !== "К сожалению, не смогу") {
+      const checkedDrinks = [];
+      document.querySelectorAll('input[name="drinks"]:checked').forEach((checkbox) => {
+        checkedDrinks.push(checkbox.value);
+      });
+
+      const customDrink = document.getElementById('custom-drink').value.trim();
+      if (customDrink !== '') {
+        checkedDrinks.push(`Свой вариант: ${customDrink}`);
+      }
+      if (checkedDrinks.length > 0) {
+        drinks = checkedDrinks.join(', ');
+      }
+    }
+
+    // Գեղեցիկ հաղորդագրություն Telegram-ի համար
+    let text = `🔔 *Новый ответ на приглашение!*\n\n`;
+    text += `👤 *Имя:* ${name}\n`;
+    text += `💌 *Присутствие:* ${attendance}\n`;
+    if (attendance !== "К сожалению, не смогу") {
+      text += `🥂 *Напитки:* ${drinks}\n`;
+    }
+
+    const url = `https://api.telegram.org/bot${TERAM_TOKEN}/sendMessage`;
+    const payload = {
+      chat_id: CHAT_ID,
+      text: text,
+      parse_mode: 'Markdown'
+    };
+
+    const submitBtn = document.getElementById('btnRsvpSubmit');
+    const oldBtnText = submitBtn.innerText;
+    submitBtn.innerText = currentLang === 'hy' ? 'ՈՒՂԱՐԿՎՈՒՄ Է...' : 'ОТПРАВЛЯЕТСЯ...';
+    submitBtn.disabled = true;
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+            .then(response => {
+              if (response.ok) {
+                alert(t.msgAlertSuccess);
+                document.getElementById('rsvp-wedding-form').reset();
+                // Եթե թաքնված էր խմիչքների բաժինը, հետ բերենք ռեսեթից հետո
+                document.getElementById('drinks-section').style.display = 'block';
+                document.getElementById('drinks-section').style.opacity = '1';
+              } else {
+                alert(t.msgAlertError);
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert(t.msgAlertConnError);
+            })
+            .finally(() => {
+              submitBtn.innerText = oldBtnText;
+              submitBtn.disabled = false;
+            });
+  });
+
   const openBtn = document.getElementById('openBtn');
   const loadingText = document.getElementById('loadingText');
   const loadingScreen = document.getElementById('loadingScreen');
@@ -1491,12 +1505,6 @@
       document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
     }
   }
-
-  // RSVP Ֆորմայի ուղարկման իրադարձություն (Կարող եք կապել Telegram Bot-ի կամ Google Sheets-ի հետ)
-  document.getElementById('weddingRsvpForm').onsubmit = function(e) {
-    e.preventDefault();
-    alert(currentLang === 'hy' ? 'Շնորհակալություն, ձեր պատասխանն ընդունված է:' : 'Спасибо! Ваш ответ успешно отправлен.');
-  };
 
   // Լռելյայն բացվում է ռուսերեն տարբերակով
   setLanguage('ru');
