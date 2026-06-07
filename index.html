@@ -761,6 +761,107 @@
             border-top: 1px solid rgba(74, 78, 61, 0.15);
         }
 
+        /* FINAL MEMORY BLOCK */
+        .final-memory-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 95px 20px 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            color: #fdfdfb;
+            background: #343123;
+        }
+
+        .final-memory-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                    linear-gradient(to bottom, rgba(22, 20, 15, 0.36), rgba(22, 20, 15, 0.7)),
+                    url("505") center/cover no-repeat;
+            filter: blur(2px);
+            transform: scale(1.04);
+            opacity: 0.92;
+        }
+
+        .final-memory-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05), rgba(0,0,0,0.35));
+        }
+
+        .final-memory-inner {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 680px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .final-lace-frame {
+            position: relative;
+            width: min(84vw, 500px);
+            aspect-ratio: 1.22 / 1;
+            padding: 42px;
+            margin-bottom: 58px;
+            filter: drop-shadow(0 18px 32px rgba(0,0,0,0.35));
+        }
+
+        .final-lace-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                    radial-gradient(circle at 18px 18px, rgba(255,255,255,0.86) 0 7px, transparent 8px) 0 0/36px 36px,
+                    radial-gradient(circle at 18px 18px, transparent 0 13px, rgba(255,255,255,0.46) 14px 15px, transparent 16px) 0 0/36px 36px,
+                    linear-gradient(45deg, transparent 43%, rgba(255,255,255,0.5) 45% 52%, transparent 54%) 0 0/24px 24px,
+                    rgba(255,255,255,0.16);
+            border: 2px solid rgba(255,255,255,0.72);
+            box-shadow: inset 0 0 0 12px rgba(255,255,255,0.18);
+        }
+
+        .final-lace-frame::after {
+            content: "";
+            position: absolute;
+            inset: 29px;
+            border: 1px solid rgba(255,255,255,0.74);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .final-lace-photo {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: 6px solid rgba(255,255,255,0.82);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+        }
+
+        .final-memory-text {
+            max-width: 600px;
+            font-size: 28px;
+            line-height: 1.42;
+            font-weight: 400;
+            text-shadow: 0 3px 14px rgba(0,0,0,0.5);
+        }
+
+        .final-memory-names {
+            margin-top: 44px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 68px;
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0 3px 16px rgba(0,0,0,0.45);
+        }
+
         /* LOADING SCREEN */
         .loading-screen{
             position:fixed;
@@ -870,6 +971,11 @@
             .hero-text span { font-size: 36px; }
             .quote-cloud { border-radius: 50px; padding: 40px 20px; }
             .rsvp-container { padding: 40px 20px; }
+            .final-memory-section { padding: 75px 18px 70px; }
+            .final-lace-frame { width: min(92vw, 430px); padding: 30px; margin-bottom: 42px; }
+            .final-lace-frame::after { inset: 22px; }
+            .final-memory-text { font-size: 23px; line-height: 1.42; }
+            .final-memory-names { font-size: 54px; margin-top: 34px; }
         }
     </style>
 </head>
@@ -1144,6 +1250,16 @@
     WITH LOVE, ARAM & ANGELINA ✦
 </footer>
 
+<section class="final-memory-section">
+    <div class="final-memory-inner">
+        <div class="final-lace-frame">
+            <img src="505" alt="Aram and Angelina" class="final-lace-photo">
+        </div>
+        <p class="final-memory-text" id="finalMemoryText">Ваше тепло и участие сделают нашу свадьбу ещё светлее. Приходите — мы будем искать вас глазами среди гостей.</p>
+        <div class="final-memory-names" id="finalMemoryNames">Арам и Ангелина</div>
+    </div>
+</section>
+
 <script>
     const translations = {
         hy: {
@@ -1205,6 +1321,8 @@
             btnRsvpSubmit: "ՈՒՂԱՐԿԵԼ",
             countTitle: "Մեր հարսանիքին մնացել է՝",
             lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան",
+            finalMemoryText: "Ձեր ջերմությունն ու ներկայությունը մեր հարսանիքը կդարձնեն էլ ավելի լուսավոր։ Եկեք՝ մենք ձեզ կփնտրենք հյուրերի մեջ մեր հայացքով։",
+            finalMemoryNames: "Արամ և Անգելինա",
             footerSign: "ՍԻՐՈՎ՝ ԱՐԱՄ & ԱՆԳԵԼԻՆԱ ✦",
             msgAlertSuccess: "Շնորհակալություն, ձեր պատասխանն ընդունված է:",
             msgAlertError: "Ուղարկելու ընթացքում սխալ տեղի ունեցավ, կրկին փորձեք:",
@@ -1269,6 +1387,8 @@
             btnRsvpSubmit: "ОТПРАВИТЬ",
             countTitle: "До нашей свадьбы осталось:",
             lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд",
+            finalMemoryText: "Ваше тепло и участие сделают нашу свадьбу ещё светлее. Приходите — мы будем искать вас глазами среди гостей.",
+            finalMemoryNames: "Арам и Ангелина",
             footerSign: "С ЛЮБОВЬЮ, АРАМ & АНГЕЛИНА ✦",
             msgAlertSuccess: "Спасибо! Ваш ответ успешно отправлен.",
             msgAlertError: "Произошла ошибка при отправке. Попробуйте еще раз.",
@@ -1354,6 +1474,8 @@
         document.getElementById('lblMin').innerHTML = t.lblMin;
         document.getElementById('lblSec').innerHTML = t.lblSec;
 
+        document.getElementById('finalMemoryText').innerHTML = t.finalMemoryText;
+        document.getElementById('finalMemoryNames').innerHTML = t.finalMemoryNames;
         document.getElementById('footerSign').innerHTML = t.footerSign;
 
         buildCalendarGrid(t.calWeeks);
@@ -1391,7 +1513,7 @@
 
     // TELEGRAM BOT RSVP SUBMIT
     const TELEGRAM_BOT_TOKEN = '8660712358:AAEYRbx2P_dt-hY6tD8Ucydis1RaQvs7G7k';
-    const TELEGRAM_CHAT_ID = '@Dav7775'; // If you know your personal chat_id, put it here.
+    const TELEGRAM_CHAT_ID = '1171523884';
 
     async function getTelegramChatId() {
         const manualChatId = TELEGRAM_CHAT_ID.trim();
