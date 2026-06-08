@@ -885,117 +885,129 @@
             .nav-logo {
                 font-size: 20px;
             }
+            /* Մենյուի կոճակները հեռախոսով թաքցնում ենք, որ լեզվի կոճակներին չխանգարեն */
             .nav-links {
-                gap: 12px;
-            }
-            .nav-links a {
-                font-size: 11px;
-                letter-spacing: 1px;
+                display: none;
             }
             .global-lang-switcher button {
-                padding: 4px 10px;
-                font-size: 11px;
+                padding: 6px 12px;
+                font-size: 12px;
             }
 
             .hero-text h1 {
-                font-size: 34px;
-                letter-spacing: 3px;
+                font-size: 32px;
+                letter-spacing: 2px;
             }
             .hero-text span {
-                font-size: 32px;
+                font-size: 26px;
             }
             .hero-date {
                 font-size: 14px;
                 letter-spacing: 2px;
             }
 
-            /* Clouds adjustment for mobile */
+            /* Ամպիկների չափսերի և լայնության ուղղում */
             .white-cloud, .rsvp-container, .envelope-wrapper {
-                border-radius: 40px !important;
-                padding: 40px 20px !important;
+                border-radius: 30px !important;
+                padding: 30px 20px !important;
+                width: 92%;
+                margin: 0 auto;
             }
 
             .quote-names {
-                font-size: 28px;
+                font-size: 24px;
                 margin-bottom: 15px;
             }
             .quote-text, .story-block-text, .story-block-subtext, .calendar-text, .location-address, .inner-card-text, .rsvp-container p, .input-group label, .radio-group label, .checkbox-group label {
-                font-size: 18px;
+                font-size: 16px;
             }
             .story-block-signature {
-                font-size: 36px;
-            }
-
-            .calendar-title, .location-title, .program-title, .next-day-title {
-                font-size: 26px;
-                letter-spacing: 2px;
-            }
-            .month-title {
-                font-size: 32px;
-            }
-            .yes-text span {
-                font-size: 38px;
-            }
-            .big-date {
                 font-size: 28px;
             }
 
-            /* Stack sections vertically instead of side-by-side columns */
+            .calendar-title, .location-title, .program-title, .next-day-title {
+                font-size: 20px;
+                letter-spacing: 1px;
+            }
+            .month-title {
+                font-size: 26px;
+            }
+            .yes-text span {
+                font-size: 32px;
+            }
+            .big-date {
+                font-size: 24px;
+            }
+
             .split-section, .split-section.reverse {
                 flex-direction: column !important;
                 min-height: auto;
             }
             .content-side {
-                padding: 40px 15px;
+                padding: 30px 10px;
                 width: 100%;
             }
             .image-side {
-                height: 320px;
+                height: 300px;
                 width: 100%;
             }
 
-            /* Program timelines layout on mobile */
             .program-list {
-                padding: 0 5px;
+                padding: 0;
             }
             .program-time {
-                font-size: 20px;
-                width: 65px;
-                min-width: 65px;
+                font-size: 18px;
+                width: 55px;
+                min-width: 55px;
             }
             .program-line {
-                margin: 6px 15px 0 15px;
+                margin: 6px 10px 0 10px;
             }
             .program-text {
-                font-size: 17px;
+                font-size: 15px;
             }
 
-            /* Countdown numbers text-size wrap protection */
+            /* Օրացույցի թվերի ուղղում հեռախոսի համար */
+            .real-calendar {
+                gap: 6px;
+                font-size: 14px;
+            }
+            .day {
+                width: 32px;
+                height: 32px;
+            }
+            .week {
+                font-size: 12px;
+            }
+
             .timer-number {
-                font-size: 34px;
+                font-size: 26px;
             }
             .timer-label {
-                font-size: 11px;
+                font-size: 10px;
                 letter-spacing: 1px;
             }
             .countdown-container {
-                gap: 12px;
+                gap: 10px;
             }
             .timer-divider {
-                font-size: 24px;
-            }
-
-            /* Quiz styles for smaller viewports */
-            .quiz-box {
-                padding: 30px 15px;
-                border-radius: 35px;
-            }
-            .question {
                 font-size: 20px;
             }
+
+            .quiz-box {
+                padding: 30px 15px;
+                border-radius: 30px;
+                width: 90%;
+            }
+            .question {
+                font-size: 18px;
+            }
             .option-btn {
-                font-size: 16px;
-                padding: 12px;
+                font-size: 15px;
+                padding: 10px;
+            }
+            .rsvp-container h2 {
+                font-size: 38px;
             }
         }
 
@@ -1049,8 +1061,8 @@
     <div class="white-cloud" data-aos="fade-up" data-aos-duration="1000">
         <div class="quote-names" id="quoteNames">Արամ & Անգելինա</div>
         <p class="quote-text" id="quoteText">«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»</p>
-        <div style="margin-top: 100px; text-align: center;">
-            <img src="55.jpg" alt="505" style="width: 200px; height: auto; display: inline-block;">
+        <div style="margin-top: 20px; text-align: center;">
+            <img src="55.jpg" alt="505" style="width: 80px; height: auto; display: inline-block;">
         </div>
     </div>
 </section>
@@ -1058,7 +1070,7 @@
 <section class="cloud-section" style="padding-top: 0;">
     <div class="white-cloud" data-aos="fade-up" data-aos-duration="1000">
         <div class="story-img-container">
-            <img src="5.png" alt="Locket / Story Image">
+            <img src="01.jpg" alt="Locket / Story Image">
         </div>
         <p class="story-block-text" id="storyBlockText">И из двух маленьких историй на детских снимках сложилась одна большая любовь.</p>
         <p class="story-block-subtext" id="storyBlockSubtext">Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!</p>
@@ -1067,7 +1079,7 @@
 </section>
 
 <section class="cloud-section" style="padding-top: 0;">
-    <div class="white-cloud" style="border-radius: 40px; padding: 50px 30px;" data-aos="zoom-in" data-aos-duration="1200">
+    <div class="white-cloud" data-aos="zoom-in" data-aos-duration="1200">
         <h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
         <p class="calendar-text" id="calTxt1">Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.</p>
         <p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
@@ -1080,7 +1092,7 @@
 
 <section class="split-section reverse">
     <div class="content-side" data-aos="fade-right" data-aos-duration="1000">
-        <div class="white-cloud" style="padding: 50px 30px;">
+        <div class="white-cloud">
             <h2 class="location-title decor-title" id="locTitle">ЛОКАЦИЯ</h2>
             <div class="text-card" style="text-align: center;">
                 <p class="location-place" id="locPlace">Ресторан «Мар Хаус»</p>
@@ -1096,7 +1108,7 @@
 
 <section class="split-section">
     <div class="content-side" data-aos="fade-left" data-aos-duration="1000">
-        <div class="white-cloud" style="padding: 50px 30px;">
+        <div class="white-cloud">
             <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
             <div class="text-card" style="text-align: left; display: flex; justify-content: center;">
                 <div class="program-list" style="margin-top:0;">
@@ -1132,7 +1144,7 @@
             </div>
         </div>
     </div>
-    <div class="image-side" data-aos="fade-right" data-aos-duration="2000">
+    <div class="image-side" data-aos="fade-right" data-aos-duration="1000">
         <img src="03.jpg" alt="Program Side Image">
     </div>
 </section>
@@ -1189,14 +1201,14 @@
 </section>
 
 <section class="cloud-section" style="padding-top: 0;">
-    <div class="white-cloud" style="padding: 45px 35px;" data-aos="fade-up" data-aos-duration="1000">
+    <div class="white-cloud" data-aos="fade-up" data-aos-duration="1000">
         <p class="deadline-text" id="deadlineNoticeText"></p>
     </div>
 </section>
 
 <section class="split-section reverse">
     <div class="content-side" data-aos="fade-up" data-aos-duration="1000">
-        <div class="white-cloud" style="padding: 50px 30px;">
+        <div class="white-cloud">
             <h2 class="next-day-title decor-title" id="countTitle">До нашей свадьбы осталось:</h2>
             <div class="text-card" style="text-align: center;">
                 <div class="countdown-container">
