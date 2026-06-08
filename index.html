@@ -231,9 +231,8 @@
         .text-card {
             background-color: transparent;
             padding: 15px 0 0 0;
-            max-width: 500px;
+            max-width: 550px;
             width: 100%;
-            text-align: justify;
         }
 
         .image-side {
@@ -479,13 +478,13 @@
 
         .program-list {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             margin-top: 20px;
         }
 
         .program-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 35px;
             justify-content: flex-start;
         }
@@ -495,15 +494,17 @@
             color: #4a4e3d;
             font-weight: 400;
             width: 80px;
+            min-width: 80px;
             text-align: left;
             font-family: 'Playfair Display', serif;
+            padding-top: 2px;
         }
 
         .program-line {
             width: 1px;
-            height: 30px;
+            align-self: stretch;
             background: rgba(74, 78, 61, 0.3);
-            margin: 0 25px;
+            margin: 6px 25px 0 25px;
         }
 
         .program-text {
@@ -512,6 +513,7 @@
             text-align: left;
             letter-spacing: 1px;
             font-weight: 300;
+            line-height: 1.4;
         }
 
         /* ENVELOPE (THANK YOU SECTION) */
@@ -531,6 +533,10 @@
             max-width: 650px;
             width: 100%;
             border: 1px solid rgba(74, 78, 61, 0.1);
+        }
+
+        .inner-white-card {
+            background: #fdfdfb;
         }
 
         .inner-card-text {
@@ -559,7 +565,7 @@
 
         /* RSVP QUESTIONNAIRE STYLES */
         .rsvp-section {
-            padding: 100px 20px;
+            padding: 100px 20px 40px 20px;
             background-color: #b3ba9e;
             display: flex;
             justify-content: center;
@@ -590,6 +596,17 @@
             color: #5b624a;
             margin-bottom: 40px;
             font-weight: 300;
+        }
+
+        /* DEADLINE NOTICE TEXT STYLE (MATCHED TO OTHER SECTIONS) */
+        .deadline-text {
+            font-size: 22px;
+            line-height: 1.6;
+            color: #5b624a;
+            font-style: italic;
+            max-width: 540px;
+            margin: 0 auto;
+            font-family: 'Cormorant Infant', serif;
         }
 
         .input-group {
@@ -762,7 +779,7 @@
             margin-left: 4px;
         }
 
-        /* LOADING SCREEN - QUIZ STYLE INTEGRATION */
+        /* LOADING SCREEN */
         .loading-screen {
             position: fixed;
             inset: 0;
@@ -875,7 +892,12 @@
             .hero-text span { font-size: 36px; }
             .white-cloud { border-radius: 50px; padding: 40px 20px; }
             .rsvp-container { border-radius: 50px; padding: 40px 20px; }
+            .deadline-text { font-size: 19px; }
             .envelope-wrapper { border-radius: 50px; padding: 40px 20px; }
+            .program-item { margin-bottom: 25px; }
+            .program-time { font-size: 20px; width: 65px; min-width: 65px; }
+            .program-line { margin: 6px 15px 0 15px; }
+            .program-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -963,7 +985,7 @@
             <div class="text-card" style="text-align: center;">
                 <p class="location-place" id="locPlace">Ресторан «Мар Хаус»</p>
                 <p class="location-address" id="locAddress">Балашиха, Косинское ш., 31А</p>
-                <a href="https://yandex.ru/maps/?text=Мар+Хаус+ресторан+Балашиха+Косинское+ш.+31А" target="_blank" class="map-button" id="locBtn">Посмотреть на карте</a>
+                <a href="https://yandex.ru/maps/org/mar_khaus/226330050771?si=pq1abn0g1rhj99z7wmzcgrjfy4" target="_blank" class="map-button" id="locBtn">Посмотреть на карте</a>
             </div>
         </div>
     </div>
@@ -978,21 +1000,33 @@
             <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
             <div class="text-card" style="text-align: left; display: flex; justify-content: center;">
                 <div class="program-list" style="margin-top:0;">
+                    <div class="program-item" data-aos="fade-up" data-aos-delay="50">
+                        <div class="program-time">09:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog1"></div>
+                    </div>
                     <div class="program-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="program-time">17:30</div><div class="program-line"></div>
-                        <div class="program-text" id="prog1">СБОР ГОСТЕЙ</div>
+                        <div class="program-time">10:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog2"></div>
+                    </div>
+                    <div class="program-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="program-time">13:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog3"></div>
                     </div>
                     <div class="program-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="program-time">18:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog2">ЦЕРЕМОНИЯ</div>
+                        <div class="program-time">15:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog4"></div>
+                    </div>
+                    <div class="program-item" data-aos="fade-up" data-aos-delay="250">
+                        <div class="program-time">16:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog5"></div>
                     </div>
                     <div class="program-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="program-time">18:30</div><div class="program-line"></div>
-                        <div class="program-text" id="prog3">НАЧАЛО БАНКЕТА</div>
+                        <div class="program-time">17:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog6"></div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="program-time">23:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog4">ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА</div>
+                    <div class="program-item" data-aos="fade-up" data-aos-delay="350">
+                        <div class="program-time">22:00</div><div class="program-line"></div>
+                        <div class="program-text" id="prog7"></div>
                     </div>
                 </div>
             </div>
@@ -1051,6 +1085,12 @@
 
             <button type="submit" class="submit-btn" id="btnRsvpSubmit">ОТПРАВИТЬ</button>
         </form>
+    </div>
+</section>
+
+<section class="cloud-section" style="padding-top: 0;">
+    <div class="white-cloud" style="padding: 45px 35px;" data-aos="fade-up" data-aos-duration="1000">
+        <p class="deadline-text" id="deadlineNoticeText"></p>
     </div>
 </section>
 
@@ -1175,14 +1215,18 @@
             locAddress: "Բալաշիխա, Կոսինսկոյե խճուղի, 31Ա",
             locBtn: "Դիտել քարտեզի վրա",
             progTitle: "ԾՐԱԳԻՐ",
-            prog1: "ՀՅՈՒՐԵՐԻ ԺԱՄԱՆՈՒՄ",
-            prog2: "ՊԱՇՏՈՆԱԿԱՆ ԱՐԱՐՈՂՈՒԹՅՈՒՆ",
-            prog3: "ԽՆՋՈՒՅՔԻ ՍԿԻԶԲ",
-            prog4: "ՏՈՆԱԿԱՆ ԵՐԵԿՈՅԻ ԱՎԱՐՏ",
+            prog1: "<strong style='font-weight:600; text-transform:uppercase;'>Փեսայի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Շկոլնայա փողոց, 1կ2, քտհ Օկտյաբրսկի, Լյուբերցի, Մոսկվայի մարզ</span><a href=\"https://yandex.ru/maps?ol=geo&text=%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0,%201%D0%BA2&sll=37.971598,55.610748&sspn=0.004648,0.008211&si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
+            prog2: "<strong style='font-weight:600; text-transform:uppercase;'>Հարսի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Յան Հաուս, Ցենտրալնայա փողոց, 30Ա, գյուղ Սելցո</span><a href=\"https://yandex.ru/maps/org/yan_khaus/48271719770?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
+            prog3: "<strong style='font-weight:600; text-transform:uppercase;'>Պսակադրություն եկեղեցում</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Հայկական եկեղեցական համալիր, Օլիմպիյսկի պրոսպեկտ, 9, Մոսկվա</span><a href=\"https://yandex.ru/maps/org/armyanskiy_khramovy_kompleks/71496820169?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
+            prog4: "<strong style='font-weight:600; text-transform:uppercase;'>Տոնական ֆուրշետ</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Մար Հաուս, Կոսինսկոյե խճուղի, 31Ա, Բալաշիխա</span><a href=\"https://yandex.ru/maps/org/mar_khaus/226330050771?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
+            prog5: "<strong style='font-weight:600; text-transform:uppercase;'>Ամուսնության հանդիսավոր արարողություն</strong>",
+            prog6: "<strong style='font-weight:600; text-transform:uppercase;'>Տոնական խնջույքի սկիզբ</strong>",
+            prog7: "<strong style='font-weight:600; text-transform:uppercase;'>Դիսկոտեկ և տոնական երեկոյի ավարտ</strong>",
             envTxt: "Դուք պատահական չեք ստացել այս հրավերը!<br>Մեզ համար այս կարևոր օրը մենք շատ ենք ուզում, որ դուք լինեք մեր կողքին:",
             envSign: "Սիրով՝<br>Արամ և Անգելինա",
             rsvpMainTitle: "Կգա՞ք արդյոք",
             rsvpSubtitle: "Մեզ համար չկա ավելի թանկ նվեր, քան ձեր ներկայությունը այս հատուկ օրը: Խնդրում ենք հաստատել ձեր մասնակցությունը՝ պատասխանելով մի քանի հարցի:",
+            deadlineNoticeText: "Խնդրում ենք տեղեկացնել Ձեր ներկայության մասին մինչև հուլիսի 15-ը: Ձեր պատասխանը չափազանց կարևոր է մեզ համար:",
             lblRsvpName: "Ձեր անունը և ազգանունը",
             lblRsvpAttendance: "Պլանավորո՞ւմ եք ներկա գտնվել:",
             optAttendanceYes: "այո, մեծ հաճույքով!",
@@ -1209,7 +1253,7 @@
             quoteNames: "Арам & Ангелина",
             quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
             storyBlockText: "И из двух маленьких историй на детских снимках сложилась одна большая любовь.",
-            storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!",
+            storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабывомо!",
             storyBlockSignature: "С любовью, навсегда...",
             calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
             calTxt1: "Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.",
@@ -1222,14 +1266,18 @@
             locAddress: "Балашиха, Косинское ш., 31А",
             locBtn: "Посмотреть на карте",
             progTitle: "ПРОГРАММА",
-            prog1: "СБОР ГОСТЕЙ",
-            prog2: "ЦЕРЕМОНИЯ",
-            prog3: "НАЧАЛО БАНКЕТА",
-            prog4: "ОКОНЧАНИЕ ПРАЗДНИЧНОГО ВЕЧЕРА",
+            prog1: "<strong style='font-weight:600; text-transform:uppercase;'>Утро жениха</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Школьная улица, 1к2, пгт Октябрьский, Люберцы, Московская обл.</span><a href=\"https://yandex.ru/maps?ol=geo&text=%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0,%201%D0%BA2&sll=37.971598,55.610748&sspn=0.004648,0.008211&si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
+            prog2: "<strong style='font-weight:600; text-transform:uppercase;'>Утро невесты</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Ян Хаус, Центральная ул., 30А, село Сельцо</span><a href=\"https://yandex.ru/maps/org/yan_khaus/48271719770?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
+            prog3: "<strong style='font-weight:600; text-transform:uppercase;'>Венчание в церкви</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Армянский храмовый комплекс, Олимпийский просп., 9, Москва</span><a href=\"https://yandex.ru/maps/org/armyanskiy_khramovy_kompleks/71496820169?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
+            prog4: "<strong style='font-weight:600; text-transform:uppercase;'>Праздничный фуршет</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Мар Хаус, Косинское ш., 31А, Балашиха</span><a href=\"https://yandex.ru/maps/org/mar_khaus/226330050771?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
+            prog5: "<strong style='font-weight:600; text-transform:uppercase;'>Церемония бракосочетания</strong>",
+            prog6: "<strong style='font-weight:600; text-transform:uppercase;'>Начало праздничного банкета</strong>",
+            prog7: "<strong style='font-weight:600; text-transform:uppercase;'>Дискотека и окончание праздничного вечера</strong>",
             envTxt: "Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!",
             envSign: "С любовью,<br>Арам и Ангелина",
             rsvpMainTitle: "Вы прийдете?",
             rsvpSubtitle: "Для нас нет подарка ценнее, чем ваше присутствие в этот особенный день. Пожалуйста, подтвердите, сможете ли вы разделить с нами радость, ответив на несколько вопросов.",
+            deadlineNoticeText: "Пожалуйста, просим сообщить нам о Вашем присутствии до 15 июля. Ваш ответ очень важен для нас!",
             lblRsvpName: "Ваши имя и фамилия",
             lblRsvpAttendance: "Планируете ли вы присутствовать?",
             optAttendanceYes: "да, с удовольствием!",
@@ -1284,15 +1332,22 @@
         document.getElementById('prog2').innerHTML = t.prog2;
         document.getElementById('prog3').innerHTML = t.prog3;
         document.getElementById('prog4').innerHTML = t.prog4;
+        document.getElementById('prog5').innerHTML = t.prog5;
+        document.getElementById('prog6').innerHTML = t.prog6;
+        document.getElementById('prog7').innerHTML = t.prog7;
 
         document.getElementById('envTxt').innerHTML = t.envTxt;
         document.getElementById('envSign').innerHTML = t.envSign;
 
-        // RSVP Translations
         document.getElementById('rsvpMainTitle').innerHTML = t.rsvpMainTitle;
         document.getElementById('rsvpSubtitle').innerHTML = t.rsvpSubtitle;
+        document.getElementById('deadlineNoticeText').innerHTML = t.deadlineNoticeText;
         document.getElementById('lblRsvpName').innerHTML = t.lblRsvpName;
-        document.getElementById('lblRsvpAttendance').innerHTML = t.lblRsvpAttendance;
+
+        if(document.getElementById('lblRsvpAttendance')) {
+            document.getElementById('lblRsvpAttendance').innerHTML = t.lblRsvpAttendance;
+        }
+
         document.getElementById('optAttendanceYes').innerHTML = t.optAttendanceYes;
         document.getElementById('optAttendanceNo').innerHTML = t.optAttendanceNo;
         document.getElementById('lblRsvpDrinks').innerHTML = t.lblRsvpDrinks;
@@ -1326,29 +1381,30 @@
         const finalMsgText = document.getElementById('finalMsgText');
         const openBtn = document.getElementById('openBtn');
 
-        finalMsgText.innerHTML = quizData.finalMsg;
-        openBtn.innerHTML = quizData.openBtnText;
+        if(finalMsgText) finalMsgText.innerHTML = quizData.finalMsg;
+        if(openBtn) openBtn.innerHTML = quizData.openBtnText;
 
         if (currentQ < quizData.questions.length) {
-            document.getElementById('question-area').style.display = 'block';
-            document.getElementById('final-message').style.display = 'none';
+            if(document.getElementById('question-area')) document.getElementById('question-area').style.display = 'block';
+            if(document.getElementById('final-message')) document.getElementById('final-message').style.display = 'none';
 
-            qText.innerText = quizData.questions[currentQ].q;
-            optionsArea.innerHTML = '';
-
-            quizData.questions[currentQ].a.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = 'option-btn';
-                btn.innerText = opt;
-                btn.onclick = () => {
-                    currentQ++;
-                    loadQuizQuestion();
-                };
-                optionsArea.appendChild(btn);
-            });
+            if(qText) qText.innerText = quizData.questions[currentQ].q;
+            if(optionsArea) {
+                optionsArea.innerHTML = '';
+                quizData.questions[currentQ].a.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerText = opt;
+                    btn.onclick = () => {
+                        currentQ++;
+                        loadQuizQuestion();
+                    };
+                    optionsArea.appendChild(btn);
+                });
+            }
         } else {
-            document.getElementById('question-area').style.display = 'none';
-            document.getElementById('final-message').style.display = 'block';
+            if(document.getElementById('question-area')) document.getElementById('question-area').style.display = 'none';
+            if(document.getElementById('final-message')) document.getElementById('final-message').style.display = 'block';
         }
     }
 
@@ -1382,7 +1438,7 @@
     document.querySelectorAll('input[name="attendance"]').forEach(radio => {
         radio.addEventListener('change', function() {
             const drinksSection = document.getElementById('drinks-section');
-            if (this.value === "К сожалению, не смогу") {
+            if (this.value === "К сожалению, не смогу" || this.value === "ցավոք, չեմ կարող") {
                 drinksSection.style.opacity = '0';
                 setTimeout(() => { drinksSection.style.display = 'none'; }, 400);
             } else {
@@ -1428,7 +1484,7 @@
         const attendance = attendanceInput ? attendanceInput.value : 'Не выбрано';
         let drinks = 'Не выбрано / Не требуется';
 
-        if (attendance !== 'К сожалению, не смогу') {
+        if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, չեմ կարող') {
             const checkedDrinks = [];
             document.querySelectorAll('input[name="drinks"]:checked').forEach((checkbox) => {
                 checkedDrinks.push(checkbox.value);
@@ -1446,7 +1502,7 @@
         let text = `🔔 Новый ответ на приглашение!\n\n`;
         text += `👤 Имя: ${name}\n`;
         text += `💌 Присутствие: ${attendance}\n`;
-        if (attendance !== 'К сожалению, не смогу') {
+        if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, չեմ կարող') {
             text += `🥂 Напитки: ${drinks}\n`;
         }
 
@@ -1493,18 +1549,22 @@
     document.addEventListener('click', () => {
         if (!isPlaying && audio.paused && !userDeactivatedMusic) {
             const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen.style.display === 'none') {
+            if (loadingScreen && loadingScreen.style.display === 'none') {
                 playAudio();
             }
         }
     });
 
     function playAudio() {
-        audio.play().then(() => {
-            isPlaying = true;
-            musicIcon.className = "pause-icon";
-            musicIcon.innerHTML = "<span></span><span></span>";
-        }).catch(err => console.log("Autoplay blocked. Waiting for gesture."));
+        if(audio) {
+            audio.play().then(() => {
+                isPlaying = true;
+                if(musicIcon) {
+                    musicIcon.className = "pause-icon";
+                    musicIcon.innerHTML = "<span></span><span></span>";
+                }
+            }).catch(err => console.log("Autoplay blocked. Waiting for gesture."));
+        }
     }
 
     function toggleMusic(event) {
@@ -1516,14 +1576,18 @@
             audio.pause();
             isPlaying = false;
             userDeactivatedMusic = true;
-            musicIcon.className = "play-icon";
-            musicIcon.innerHTML = "";
+            if(musicIcon) {
+                musicIcon.className = "play-icon";
+                musicIcon.innerHTML = "";
+            }
         } else {
             userDeactivatedMusic = false;
             audio.play().then(() => {
                 isPlaying = true;
-                musicIcon.className = "pause-icon";
-                musicIcon.innerHTML = "<span></span><span></span>";
+                if(musicIcon) {
+                    musicIcon.className = "pause-icon";
+                    musicIcon.innerHTML = "<span></span><span></span>";
+                }
             });
         }
     }
@@ -1539,14 +1603,14 @@
             const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((difference % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+            if(document.getElementById("days")) document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            if(document.getElementById("hours")) document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            if(document.getElementById("minutes")) document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            if(document.getElementById("seconds")) document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
         }
     }
 
-    // Initialize with Russian language default
+    // Initialize with Russian language default safely
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
     updateWeddingCountdown();
