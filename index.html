@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
 
     <title>ARAM & ANGELINA</title>
 
@@ -17,8 +17,7 @@
             box-sizing:border-box;
         }
 
-        html{
-            scroll-behavior:smooth;
+        html{\n            scroll-behavior:smooth;
         }
 
         body{
@@ -158,12 +157,6 @@
             max-width: 500px;
             margin: 0 auto;
             font-family: 'Cormorant Infant', serif;
-        }
-
-        .quote-decor {
-            margin-top: 30px;
-            opacity: 0.3;
-            width: 150px;
         }
 
         /* STORY BLOCK */
@@ -598,7 +591,6 @@
             font-weight: 300;
         }
 
-        /* DEADLINE NOTICE TEXT STYLE (MATCHED TO OTHER SECTIONS) */
         .deadline-text {
             font-size: 22px;
             line-height: 1.6;
@@ -881,24 +873,6 @@
             color: #4a4e3d;
         }
 
-        /* MOBILE RESPONSIVENESS */
-        @media(max-width:900px){
-            .nav-bar { padding: 20px; }
-            .nav-links { display: none; }
-            .split-section, .split-section.reverse { flex-direction: column; }
-            .image-side { height: 50vh; }
-            .content-side { padding: 40px 20px; }
-            .hero-text h1 { font-size: 42px; }
-            .hero-text span { font-size: 36px; }
-            .white-cloud { border-radius: 50px; padding: 40px 20px; }
-            .rsvp-container { border-radius: 50px; padding: 40px 20px; }
-            .deadline-text { font-size: 19px; }
-            .envelope-wrapper { border-radius: 50px; padding: 40px 20px; }
-            .program-item { margin-bottom: 25px; }
-            .program-time { font-size: 20px; width: 65px; min-width: 65px; }
-            .program-line { margin: 6px 15px 0 15px; }
-            .program-text { font-size: 16px; }
-        }
     </style>
 </head>
 
@@ -949,9 +923,9 @@
     <div class="white-cloud" data-aos="fade-up" data-aos-duration="1000">
         <div class="quote-names" id="quoteNames">Արամ & Անգելինա</div>
         <p class="quote-text" id="quoteText">«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»</p>
-        <svg class="quote-decor" viewBox="0 0 100 20">
-            <path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="#4a4e3d" stroke-width="0.5"/>
-        </svg>
+        <div style="margin-top: 200px; text-align: center;">
+            <img src="55.jpg" alt="" style="width: 300px; height: auto; display: inline-block;">
+        </div>
     </div>
 </section>
 
@@ -990,7 +964,7 @@
         </div>
     </div>
     <div class="image-side" data-aos="fade-left" data-aos-duration="1000">
-        <img src="02.jpg" alt="Location Side Image">
+        <img src="03.jpg" alt="Location Side Image">
     </div>
 </section>
 
@@ -1033,7 +1007,7 @@
         </div>
     </div>
     <div class="image-side" data-aos="fade-right" data-aos-duration="1000">
-        <img src="03.jpg" alt="Program Side Image">
+        <img src="04.jpg" alt="Program Side Image">
     </div>
 </section>
 
@@ -1121,7 +1095,7 @@
         </div>
     </div>
     <div class="image-side">
-        <img src="04.jpg" alt="Countdown Side Image">
+        <img src="02.jpg" alt="Countdown Side Image">
     </div>
 </section>
 
@@ -1216,7 +1190,7 @@
             locBtn: "Դիտել քարտեզի վրա",
             progTitle: "ԾՐԱԳԻՐ",
             prog1: "<strong style='font-weight:600; text-transform:uppercase;'>Փեսայի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Շկոլնայա փողոց, 1կ2, քտհ Օկտյաբրսկի, Լյուբերցի, Մոսկվայի մարզ</span><a href=\"https://yandex.ru/maps?ol=geo&text=%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0,%201%D0%BA2&sll=37.971598,55.610748&sspn=0.004648,0.008211&si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
-            prog2: "<strong style='font-weight:600; text-transform:uppercase;'>Հարսի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Յան Հաուս, Ցենտրալնայա փողոց, 30Ա, գյուղ Սելցո</span><a href=\"https://yandex.ru/maps/org/yan_khaus/48271719770?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
+            prog2: "<strong style='font-weight:600; text-transform:uppercase;'>Հարսի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Յան Հաուս, Ցենտրալնայա փողոց, 30Ա, գյուղ Սελցո</span><a href=\"https://yandex.ru/maps/org/yan_khaus/48271719770?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
             prog3: "<strong style='font-weight:600; text-transform:uppercase;'>Պսակադրություն եկեղեցում</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Հայկական եկեղեցական համալիր, Օլիմպիյսկի պրոսպեկտ, 9, Մոսկվա</span><a href=\"https://yandex.ru/maps/org/armyanskiy_khramovy_kompleks/71496820169?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
             prog4: "<strong style='font-weight:600; text-transform:uppercase;'>Տոնական ֆուրշետ</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Մար Հաուս, Կոսինսկոյե խճուղի, 31Ա, Բալաշիխա</span><a href=\"https://yandex.ru/maps/org/mar_khaus/226330050771?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
             prog5: "<strong style='font-weight:600; text-transform:uppercase;'>Ամուսնության հանդիսավոր արարողություն</strong>",
@@ -1253,7 +1227,7 @@
             quoteNames: "Арам & Ангелина",
             quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
             storyBlockText: "И из двух маленьких историй на детских снимках сложилась одна большая любовь.",
-            storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабывомо!",
+            storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!",
             storyBlockSignature: "С любовью, навсегда...",
             calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
             calTxt1: "Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.",
@@ -1502,7 +1476,7 @@
         let text = `🔔 Новый ответ на приглашение!\n\n`;
         text += `👤 Имя: ${name}\n`;
         text += `💌 Присутствие: ${attendance}\n`;
-        if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, չեմ կարող') {
+        if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, не смогу') {
             text += `🥂 Напитки: ${drinks}\n`;
         }
 
@@ -1610,7 +1584,6 @@
         }
     }
 
-    // Initialize with Russian language default safely
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
     updateWeddingCountdown();
