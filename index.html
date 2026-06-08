@@ -470,44 +470,100 @@
             margin-bottom: 10px;
         }
 
-        .program-list {
+        /* MAP ROUTE STYLES (Նոր Երթուղի) */
+        .map-route-container {
+            position: relative;
+            padding-left: 60px;
+            margin-top: 30px;
+            text-align: left;
             width: 100%;
-            max-width: 500px;
-            margin-top: 20px;
         }
-
-        .program-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 35px;
-            justify-content: flex-start;
+        .route-line, .route-line-filled {
+            position: absolute;
+            left: 24px;
+            top: 30px;
+            bottom: 30px;
+            width: 4px;
+            border-radius: 2px;
         }
-
-        .program-time {
-            font-size: 24px;
+        .route-line {
+            background: rgba(74, 78, 61, 0.2);
+        }
+        .route-line-filled {
+            background: #5b624a;
+            height: 0%;
+            bottom: auto;
+        }
+        .route-traveler {
+            position: absolute;
+            left: 26px;
+            top: 30px;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            z-index: 10;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+        .route-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .route-item:last-child {
+            margin-bottom: 0;
+        }
+        .route-dot {
+            position: absolute;
+            left: -44px;
+            top: 15px;
+            width: 16px;
+            height: 16px;
+            background: #fdfdfb;
+            border: 4px solid #4a4e3d;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 0 3px rgba(253,253,251,0.8);
+            transition: all 0.3s ease;
+        }
+        .route-item:hover .route-dot {
+            background: #5b624a;
+            transform: scale(1.2);
+        }
+        .route-content {
+            position: relative;
+            background: #fdfdfb;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(74, 78, 61, 0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s;
+        }
+        .route-content:hover {
+            transform: translateX(5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        }
+        .route-content::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 15px;
+            width: 15px;
+            height: 15px;
+            background: #fdfdfb;
+            border-left: 1px solid rgba(74, 78, 61, 0.15);
+            border-bottom: 1px solid rgba(74, 78, 61, 0.15);
+            transform: rotate(45deg);
+        }
+        .route-time {
+            font-size: 22px;
             color: #4a4e3d;
-            font-weight: 400;
-            width: 80px;
-            min-width: 80px;
-            text-align: left;
+            font-weight: 600;
             font-family: 'Playfair Display', serif;
-            padding-top: 2px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed rgba(74, 78, 61, 0.2);
+            padding-bottom: 8px;
         }
-
-        .program-line {
-            width: 1px;
-            align-self: stretch;
-            background: rgba(74, 78, 61, 0.3);
-            margin: 6px 25px 0 25px;
-        }
-
         .program-text {
-            font-size: 19px;
-            color: #4a4e3d;
-            text-align: left;
-            letter-spacing: 1px;
-            font-weight: 300;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.5;
         }
 
         /* ENVELOPE (THANK YOU SECTION) */
@@ -874,36 +930,18 @@
             color: #4a4e3d;
         }
 
-
         /* ==========================================================================
            RESPONSIVE DESIGN (MOBILE FIXES)
            ========================================================================== */
         @media (max-width: 768px) {
-            .nav-bar {
-                padding: 15px 20px;
-            }
-            .nav-logo {
-                font-size: 20px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .global-lang-switcher button {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
+            .nav-bar { padding: 15px 20px; }
+            .nav-logo { font-size: 20px; }
+            .nav-links { display: none; }
+            .global-lang-switcher button { padding: 6px 12px; font-size: 12px; }
 
-            .hero-text h1 {
-                font-size: 32px;
-                letter-spacing: 2px;
-            }
-            .hero-text span {
-                font-size: 26px;
-            }
-            .hero-date {
-                font-size: 14px;
-                letter-spacing: 2px;
-            }
+            .hero-text h1 { font-size: 32px; letter-spacing: 2px; }
+            .hero-text span { font-size: 26px; }
+            .hero-date { font-size: 14px; letter-spacing: 2px; }
 
             .white-cloud, .rsvp-container, .envelope-wrapper {
                 border-radius: 30px !important;
@@ -912,112 +950,50 @@
                 margin: 0 auto;
             }
 
-            .quote-names {
-                font-size: 24px;
-                margin-bottom: 15px;
-            }
+            .quote-names { font-size: 24px; margin-bottom: 15px; }
             .quote-text, .story-block-text, .story-block-subtext, .calendar-text, .location-address, .inner-card-text, .rsvp-container p, .input-group label, .radio-group label, .checkbox-group label {
                 font-size: 16px;
             }
-            .story-block-signature {
-                font-size: 28px;
-            }
+            .story-block-signature { font-size: 28px; }
 
-            .calendar-title, .location-title, .program-title, .next-day-title {
-                font-size: 20px;
-                letter-spacing: 1px;
-            }
-            .month-title {
-                font-size: 26px;
-            }
-            .yes-text span {
-                font-size: 32px;
-            }
-            .big-date {
-                font-size: 24px;
-            }
+            .calendar-title, .location-title, .program-title, .next-day-title { font-size: 20px; letter-spacing: 1px; }
+            .month-title { font-size: 26px; }
+            .yes-text span { font-size: 32px; }
+            .big-date { font-size: 24px; }
 
             .split-section, .split-section.reverse {
                 flex-direction: column !important;
                 min-height: auto;
             }
-            .content-side {
-                padding: 30px 10px;
-                width: 100%;
-            }
+            .content-side { padding: 30px 10px; width: 100%; }
 
-            /* --- ՖԻՔՍՎԱԾ Է. Նկարները հեռախոսով ամբողջությամբ ցուցադրելու համար --- */
-            .image-side {
-                height: auto !important; /* Թույլ է տալիս կոնտեյներին հարմարվել նկարի իրական չափին */
-                width: 100%;
-            }
-            .image-side img {
-                height: auto !important;
-                object-fit: contain !important; /* Նկարը չի կտրվի, կպահպանի իր համամասնությունը */
-            }
-            .hero-bg img {
-                object-fit: contain !important; /* Գլխավոր նկարը նույնպես ամբողջությամբ կերևա */
-            }
-            /* ---------------------------------------------------------------------- */
+            /* Image fix */
+            .image-side { height: auto !important; width: 100%; }
+            .image-side img { height: auto !important; object-fit: contain !important; }
+            .hero-bg img { object-fit: contain !important; }
 
-            .program-list {
-                padding: 0;
-            }
-            .program-time {
-                font-size: 18px;
-                width: 55px;
-                min-width: 55px;
-            }
-            .program-line {
-                margin: 6px 10px 0 10px;
-            }
-            .program-text {
-                font-size: 15px;
-            }
+            /* Map Route Mobile fixes */
+            .map-route-container { padding-left: 45px; }
+            .route-line, .route-line-filled { left: 14px; }
+            .route-traveler { left: 16px; font-size: 26px; }
+            .route-dot { left: -38px; }
+            .route-content { padding: 15px; }
+            .route-time { font-size: 19px; }
 
-            .real-calendar {
-                gap: 6px;
-                font-size: 14px;
-            }
-            .day {
-                width: 32px;
-                height: 32px;
-            }
-            .week {
-                font-size: 12px;
-            }
+            .real-calendar { gap: 6px; font-size: 14px; }
+            .day { width: 32px; height: 32px; }
+            .week { font-size: 12px; }
 
-            .timer-number {
-                font-size: 26px;
-            }
-            .timer-label {
-                font-size: 10px;
-                letter-spacing: 1px;
-            }
-            .countdown-container {
-                gap: 10px;
-            }
-            .timer-divider {
-                font-size: 20px;
-            }
+            .timer-number { font-size: 26px; }
+            .timer-label { font-size: 10px; letter-spacing: 1px; }
+            .countdown-container { gap: 10px; }
+            .timer-divider { font-size: 20px; }
 
-            .quiz-box {
-                padding: 30px 15px;
-                border-radius: 30px;
-                width: 90%;
-            }
-            .question {
-                font-size: 18px;
-            }
-            .option-btn {
-                font-size: 15px;
-                padding: 10px;
-            }
-            .rsvp-container h2 {
-                font-size: 38px;
-            }
+            .quiz-box { padding: 30px 15px; border-radius: 30px; width: 90%; }
+            .question { font-size: 18px; }
+            .option-btn { font-size: 15px; padding: 10px; }
+            .rsvp-container h2 { font-size: 38px; }
         }
-
     </style>
 </head>
 
@@ -1117,35 +1093,62 @@
     <div class="content-side" data-aos="fade-left" data-aos-duration="1000">
         <div class="white-cloud">
             <h2 class="program-title decor-title" id="progTitle">ПРОГРАММА</h2>
-            <div class="text-card" style="text-align: left; display: flex; justify-content: center;">
-                <div class="program-list" style="margin-top:0;">
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="50">
-                        <div class="program-time">09:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog1"></div>
+            <p style="text-align:center; font-style:italic; margin-bottom: 20px; color:rgba(74, 78, 61, 0.8);" id="progSubtitle"></p>
+
+            <div class="text-card" style="text-align: left; display: flex; justify-content: center; width: 100%;">
+                <div class="map-route-container" id="mapRouteContainer">
+                    <div class="route-line"></div>
+                    <div class="route-line-filled" id="routeLineFilled"></div>
+                    <div class="route-traveler" id="routeTraveler">📍</div>
+
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="50">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">09:00</div>
+                            <div class="program-text" id="prog1"></div>
+                        </div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="program-time">10:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog2"></div>
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">10:00</div>
+                            <div class="program-text" id="prog2"></div>
+                        </div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="150">
-                        <div class="program-time">13:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog3"></div>
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">13:00</div>
+                            <div class="program-text" id="prog3"></div>
+                        </div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="program-time">15:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog4"></div>
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">15:00</div>
+                            <div class="program-text" id="prog4"></div>
+                        </div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="250">
-                        <div class="program-time">16:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog5"></div>
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="250">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">16:00</div>
+                            <div class="program-text" id="prog5"></div>
+                        </div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="program-time">17:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog6"></div>
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">17:00</div>
+                            <div class="program-text" id="prog6"></div>
+                        </div>
                     </div>
-                    <div class="program-item" data-aos="fade-up" data-aos-delay="350">
-                        <div class="program-time">22:00</div><div class="program-line"></div>
-                        <div class="program-text" id="prog7"></div>
+                    <div class="route-item" data-aos="fade-up" data-aos-delay="350">
+                        <div class="route-dot"></div>
+                        <div class="route-content">
+                            <div class="route-time">22:00</div>
+                            <div class="program-text" id="prog7"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1264,53 +1267,27 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-    AOS.init({
-        once: true
-    });
+    AOS.init({ once: true });
 
     const quizTranslations = {
         hy: {
             finalMsg: "🎉 Շնորհավորում ենք։ Դուք պաշտոնապես հաստատված հյուր եք։",
             openBtnText: "Բացեք հրավերը 😎🍾",
             questions: [
-                {
-                    q: "👀 Ինչո՞ւ եք բացել այս հղումը.",
-                    a: ["Սխալմամբ", "Ինձ հրավիրել են"]
-                },
-                {
-                    q: "🤔 Ովքե՞ր են ամուսնանում.",
-                    a: ["Արամ և Անգելինա", "Ռոմեո և Ջուլիետ", "Շրեկ և Ֆիոնա"]
-                },
-                {
-                    q: "🍷 Հարսանիքում ինչքա՞ն եք պատրաստվում ուտել.",
-                    a: ["Մի քիչ, քաղաքավարի եմ 😇", "Նորմալ", "Այնքան, որ աթոռը հիշի ինձ երկար տարիներ 😎"]
-                },
-                {
-                    q: "Ինչո՞ւ եք գալու այս հարսանիքին.",
-                    a: ["Արամի համար", "Անգելինայի համար", "Անվճար խորովածի համար 🌚"]
-                }
+                { q: "👀 Ինչո՞ւ եք բացել այս հղումը.", a: ["Սխալմամբ", "Ինձ հրավիրել են"] },
+                { q: "🤔 Ովքե՞ր են ամուսնանում.", a: ["Արամ և Անգելինա", "Ռոմեո և Ջուլիետ", "Շրեկ և Ֆիոնա"] },
+                { q: "🍷 Հարսանիքում ինչքա՞ն եք պատրաստվում ուտել.", a: ["Մի քիչ, քաղաքավարի եմ 😇", "Նորմալ", "Այնքան, որ աթոռը հիշի ինձ երկար տարիներ 😎"] },
+                { q: "Ինչո՞ւ եք գալու այս հարսանիքին.", a: ["Արամի համար", "Անգելինայի համար", "Անվճար խորովածի համար 🌚"] }
             ]
         },
         ru: {
             finalMsg: "🎉 Поздравляем! Вы официально подтвержденный гость.",
             openBtnText: "Открыть приглашение 😎🍾",
             questions: [
-                {
-                    q: "👀 Почему вы открыли эту ссылку?",
-                    a: ["Ошибочно", "Меня пригласили"]
-                },
-                {
-                    q: "🤔 Кто женится?",
-                    a: ["Арам и Ангелина", "Ромео и Джульетта", "Шрек и Фиона"]
-                },
-                {
-                    q: "🍷 Сколько вы планируете съесть на свадьбе?",
-                    a: ["Немного, я вежливый гость 😇", "Нормально", "Так много, что стул запомнит меня на годы 😎"]
-                },
-                {
-                    q: "Почему вы придете на эту свадьбу?",
-                    a: ["Ради Арама", "Ради Ангелины", "Ради бесплатного шашлыка 🌚"]
-                }
+                { q: "👀 Почему вы открыли эту ссылку?", a: ["Ошибочно", "Меня пригласили"] },
+                { q: "🤔 Кто женится?", a: ["Арам и Ангелина", "Ромео и Джульетта", "Шрек и Фиона"] },
+                { q: "🍷 Сколько вы планируете съесть на свадьбе?", a: ["Немного, я вежливый гость 😇", "Нормально", "Так много, что стул запомнит меня на годы 😎"] },
+                { q: "Почему вы придете на эту свадьбу?", a: ["Ради Арама", "Ради Ангелины", "Ради бесплатного шашлыка 🌚"] }
             ]
         }
     };
@@ -1334,6 +1311,7 @@
             locAddress: "Բալաշիխա, Կոսինսկոյե խճուղի, 31Ա",
             locBtn: "Դիտել քարտեզի վրա",
             progTitle: "ԾՐԱԳԻՐ",
+            progSubtitle: "Մեր երթուղին այս կարևոր օրվա համար",
             prog1: "<strong style='font-weight:600; text-transform:uppercase;'>Փեսայի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Շկոլնայա փողոց, 1կ2, քտհ Օկտյաբրսկի, Լյուբերցի, Մոսկվայի մարզ</span><a href=\"https://yandex.ru/maps?ol=geo&text=%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0,%201%D0%BA2&sll=37.971598,55.610748&sspn=0.004648,0.008211&si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
             prog2: "<strong style='font-weight:600; text-transform:uppercase;'>Հարսի առավոտը</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Յան Հաուս, Ցենտրալնայա փողոց, 30Ա, գյուղ Սելցո</span><a href=\"https://yandex.ru/maps/org/yan_khaus/48271719770?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
             prog3: "<strong style='font-weight:600; text-transform:uppercase;'>Պսակադրություն եկեղեցում</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Հասցե՝ Հայկական եկեղեցական համալիր, Օլիմպիյսկի պրոսպեկտ, 9, Մոսկվա</span><a href=\"https://yandex.ru/maps/org/armyanskiy_khramovy_kompleks/71496820169?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Դիտել քարտեզի վրա →</a>",
@@ -1364,8 +1342,7 @@
             lblDays: "օր", lblHours: "ժամ", lblMin: "րոպե", lblSec: "վայրկյան",
             footerSign: "ՍԻՐՈՎ՝ ԱՐԱՄ & ԱՆԳԵԼԻՆԱ ✦",
             msgAlertSuccess: "Շնորհակալություն, ձեր պատասխանն ընդունված է:",
-            msgAlertError: "Ուղարկելու ընթացքում սխալ տեղի ունեցավ, կրկին փորձեք:",
-            msgAlertConnError: "Կապի սխալ սերվերի հետ:"
+            msgAlertError: "Ուղարկելու ընթացքում սխալ տեղի ունեցավ, կրկին փորձեք:"
         },
         ru: {
             heroSubtitle: "Our Forever Begins Here",
@@ -1385,6 +1362,7 @@
             locAddress: "Балашиха, Косинское ш., 31А",
             locBtn: "Посмотреть на карте",
             progTitle: "ПРОГРАММА",
+            progSubtitle: "Наш маршрут на этот важный день",
             prog1: "<strong style='font-weight:600; text-transform:uppercase;'>Утро жениха</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Школьная улица, 1к2, пгт Октябрьский, Люберцы, Московская обл.</span><a href=\"https://yandex.ru/maps?ol=geo&text=%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0,%201%D0%BA2&sll=37.971598,55.610748&sspn=0.004648,0.008211&si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
             prog2: "<strong style='font-weight:600; text-transform:uppercase;'>Утро невесты</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Ян Хаус, Центральная ул., 30А, село Сельцо</span><a href=\"https://yandex.ru/maps/org/yan_khaus/48271719770?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
             prog3: "<strong style='font-weight:600; text-transform:uppercase;'>Венчание в церкви</strong><br><span style='font-size:14px; opacity:0.8; display:block; margin-top:3px; font-family:sans-serif;'>Адрес: Армянский храмовый комплекс, Олимпийский просп., 9, Москва</span><a href=\"https://yandex.ru/maps/org/armyanskiy_khramovy_kompleks/71496820169?si=pq1abn0g1rhj99z7wmzcgrjfy4\" target=\"_blank\" style='font-size:12px; color:#5b624a; text-decoration:underline; font-family:sans-serif; display:inline-block; margin-top:3px;'>Посмотреть на карте →</a>",
@@ -1415,8 +1393,7 @@
             lblDays: "дней", lblHours: "часов", lblMin: "минут", lblSec: "секунд",
             footerSign: "С ЛЮБОВЬЮ, АРАМ & АНГЕЛИНА ✦",
             msgAlertSuccess: "Спасибо! Ваш ответ успешно отправлен.",
-            msgAlertError: "Произошла ошибка при отправке. Попробуйте еще раз.",
-            msgAlertConnError: "Ошибка соединения с сервером."
+            msgAlertError: "Произошла ошибка при отправке. Попробуйте еще раз."
         }
     };
 
@@ -1447,6 +1424,7 @@
         document.getElementById('locBtn').innerHTML = t.locBtn;
 
         document.getElementById('progTitle').innerHTML = t.progTitle;
+        if(document.getElementById('progSubtitle')) document.getElementById('progSubtitle').innerHTML = t.progSubtitle;
         document.getElementById('prog1').innerHTML = t.prog1;
         document.getElementById('prog2').innerHTML = t.prog2;
         document.getElementById('prog3').innerHTML = t.prog3;
@@ -1492,7 +1470,6 @@
         loadQuizQuestion();
     }
 
-    // QUIZ LOGIC
     function loadQuizQuestion() {
         const quizData = quizTranslations[currentLang];
         const qText = document.getElementById('q-text');
@@ -1514,10 +1491,7 @@
                     const btn = document.createElement('button');
                     btn.className = 'option-btn';
                     btn.innerText = opt;
-                    btn.onclick = () => {
-                        currentQ++;
-                        loadQuizQuestion();
-                    };
+                    btn.onclick = () => { currentQ++; loadQuizQuestion(); };
                     optionsArea.appendChild(btn);
                 });
             }
@@ -1530,11 +1504,8 @@
     function openSite() {
         const loadingScreen = document.getElementById('loadingScreen');
         playAudio();
-
         loadingScreen.style.opacity = '0';
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 1000);
+        setTimeout(() => { loadingScreen.style.display = 'none'; }, 1000);
     }
 
     function buildCalendarGrid(weeks) {
@@ -1553,7 +1524,6 @@
         grid.innerHTML = html;
     }
 
-    // TOGGLE DRINKS VISIBILITY DEPENDING ON ATTENDANCE
     document.querySelectorAll('input[name="attendance"]').forEach(radio => {
         radio.addEventListener('change', function() {
             const drinksSection = document.getElementById('drinks-section');
@@ -1567,37 +1537,24 @@
         });
     });
 
-    // TELEGRAM BOT RSVP SUBMIT
     const TELEGRAM_BOT_TOKEN = '8660712358:AAEYRbx2P_dt-hY6tD8Ucydis1RaQvs7G7k';
     const TELEGRAM_CHAT_ID = '595003923';
 
     async function getTelegramChatId() {
         const manualChatId = TELEGRAM_CHAT_ID.trim();
         if (manualChatId) return manualChatId;
-
         const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates`);
-        if (!response.ok) {
-            throw new Error('Telegram chat_id could not be read. Send /start to bot.');
-        }
-
+        if (!response.ok) throw new Error('Telegram chat_id could not be read. Send /start to bot.');
         const data = await response.json();
         const updates = Array.isArray(data.result) ? data.result : [];
-        const latestMessage = updates
-            .slice()
-            .reverse()
-            .find(update => update.message && update.message.chat && update.message.chat.id);
-
-        if (!latestMessage) {
-            throw new Error('Open bot in Telegram, send /start once, then submit again.');
-        }
-
+        const latestMessage = updates.slice().reverse().find(update => update.message && update.message.chat && update.message.chat.id);
+        if (!latestMessage) throw new Error('Open bot in Telegram, send /start once, then submit again.');
         return latestMessage.message.chat.id;
     }
 
     document.getElementById('rsvp-wedding-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         const t = translations[currentLang];
-
         const name = document.getElementById('guest-name').value.trim();
         const attendanceInput = document.querySelector('input[name="attendance"]:checked');
         const attendance = attendanceInput ? attendanceInput.value : 'Не выбрано';
@@ -1605,25 +1562,14 @@
 
         if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, չեմ կարող') {
             const checkedDrinks = [];
-            document.querySelectorAll('input[name="drinks"]:checked').forEach((checkbox) => {
-                checkedDrinks.push(checkbox.value);
-            });
-
+            document.querySelectorAll('input[name="drinks"]:checked').forEach(c => checkedDrinks.push(c.value));
             const customDrink = document.getElementById('custom-drink').value.trim();
-            if (customDrink !== '') {
-                checkedDrinks.push(`Свой вариант: ${customDrink}`);
-            }
-            if (checkedDrinks.length > 0) {
-                drinks = checkedDrinks.join(', ');
-            }
+            if (customDrink !== '') checkedDrinks.push(`Свой вариант: ${customDrink}`);
+            if (checkedDrinks.length > 0) drinks = checkedDrinks.join(', ');
         }
 
-        let text = `🔔 Новый ответ на приглашение!\n\n`;
-        text += `👤 Имя: ${name}\n`;
-        text += `💌 Присутствие: ${attendance}\n`;
-        if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, не смогу') {
-            text += `🥂 Напитки: ${drinks}\n`;
-        }
+        let text = `🔔 Новый ответ на приглашение!\n\n👤 Имя: ${name}\n💌 Присутствие: ${attendance}\n`;
+        if (attendance !== 'К сожалению, не смогу' && attendance !== 'ցավոք, не смогу') text += `🥂 Напитки: ${drinks}\n`;
 
         const submitBtn = document.getElementById('btnRsvpSubmit');
         const oldBtnText = submitBtn.innerText;
@@ -1635,16 +1581,10 @@
             const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: text
-                })
+                body: JSON.stringify({ chat_id: chatId, text: text })
             });
             const result = await response.json().catch(() => null);
-
-            if (!response.ok) {
-                throw new Error(result && result.description ? result.description : t.msgAlertError);
-            }
+            if (!response.ok) throw new Error(result && result.description ? result.description : t.msgAlertError);
 
             alert(t.msgAlertSuccess);
             document.getElementById('rsvp-wedding-form').reset();
@@ -1668,9 +1608,7 @@
     document.addEventListener('click', () => {
         if (!isPlaying && audio.paused && !userDeactivatedMusic) {
             const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen && loadingScreen.style.display === 'none') {
-                playAudio();
-            }
+            if (loadingScreen && loadingScreen.style.display === 'none') playAudio();
         }
     });
 
@@ -1682,23 +1620,17 @@
                     musicIcon.className = "pause-icon";
                     musicIcon.innerHTML = "<span></span><span></span>";
                 }
-            }).catch(err => console.log("Autoplay blocked. Waiting for gesture."));
+            }).catch(err => console.log("Autoplay blocked."));
         }
     }
 
     function toggleMusic(event) {
-        if(event) {
-            event.stopPropagation();
-        }
-
+        if(event) event.stopPropagation();
         if (isPlaying) {
             audio.pause();
             isPlaying = false;
             userDeactivatedMusic = true;
-            if(musicIcon) {
-                musicIcon.className = "play-icon";
-                musicIcon.innerHTML = "";
-            }
+            if(musicIcon) { musicIcon.className = "play-icon"; musicIcon.innerHTML = ""; }
         } else {
             userDeactivatedMusic = false;
             audio.play().then(() => {
@@ -1728,6 +1660,29 @@
             if(document.getElementById("seconds")) document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
         }
     }
+
+    // MAP ROUTE SCROLL ANIMATION
+    window.addEventListener('scroll', () => {
+        const container = document.getElementById('mapRouteContainer');
+        const traveler = document.getElementById('routeTraveler');
+        const lineFilled = document.getElementById('routeLineFilled');
+        if(!container || !traveler || !lineFilled) return;
+
+        const rect = container.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Անիմացիան սկսվում է, երբ բլոկը հայտնվում է էկրանի 60%-ի վրա
+        const triggerPoint = viewportHeight * 0.6;
+        let scrollPx = triggerPoint - rect.top;
+
+        let percent = scrollPx / rect.height;
+        percent = Math.max(0, Math.min(1, percent));
+
+        const lineMaxHeight = container.clientHeight - 60; // Հանում ենք top և bottom
+
+        lineFilled.style.height = `${percent * lineMaxHeight}px`;
+        traveler.style.top = `${30 + (percent * lineMaxHeight)}px`;
+    });
 
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
