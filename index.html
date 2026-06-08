@@ -204,7 +204,7 @@
             color: #5b624a;
         }
 
-        /* BLOCK STRUCTURE - SPLIT SECTION (ՍԿԶԲՆԱԿԱՆ ԿԱՌՈՒՑՎԱԾՔԸ) */
+        /* BLOCK STRUCTURE - SPLIT SECTION */
         .split-section {
             display: flex;
             width: 100%;
@@ -228,7 +228,6 @@
             background-color: #b3ba9e;
         }
 
-        /* ELEGANT TEXT CARDS - Այժմ սրանք օգտագործում են թափանցիկ ֆոն, քանի որ դրված են white-cloud-ի մեջ */
         .text-card {
             background-color: transparent;
             padding: 15px 0 0 0;
@@ -524,7 +523,6 @@
             justify-content: center;
         }
 
-        /* Այս հատվածը նույնպես ստանում է ամպիկի տեսք */
         .envelope-wrapper {
             background: #fdfdfb;
             padding: 60px 40px;
@@ -764,45 +762,45 @@
             margin-left: 4px;
         }
 
-        /* LOADING SCREEN */
-        .loading-screen{
-            position:fixed;
-            inset:0;
+        /* LOADING SCREEN - QUIZ STYLE INTEGRATION */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
             background: #b3ba9e;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            z-index:99999;
-            transition:1s cubic-bezier(0.7, 0, 0.3, 1);
-            padding:20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: 1s cubic-bezier(0.7, 0, 0.3, 1);
+            padding: 20px;
         }
 
-        .loading-box{
-            width:100%;
-            max-width:500px;
-            padding:40px 30px;
-            text-align:center;
+        .quiz-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
             background: #fdfdfb;
             border-radius: 50px;
             border: 1px solid rgba(74, 78, 61, 0.1);
-            box-shadow:0 20px 50px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
         }
 
-        .start-lang{
-            display:flex;
+        .start-lang {
+            display: flex;
             justify-content: center;
-            gap:10px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 25px;
         }
 
-        .start-lang button{
+        .start-lang button {
             border: 1px solid rgba(74, 78, 61, 0.3);
-            padding:8px 18px;
-            border-radius:20px;
-            background:transparent;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: transparent;
             color: #4a4e3d;
-            cursor:pointer;
-            font-size:14px;
+            cursor: pointer;
+            font-size: 14px;
             transition: 0.3s;
         }
 
@@ -810,57 +808,60 @@
             background: rgba(74, 78, 61, 0.1);
         }
 
-        .welcome-names{
-            font-size:42px;
+        .question {
+            font-size: 24px;
             color: #4a4e3d;
-            margin-bottom:10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.4;
         }
 
-        .welcome-names span{
-            color: #5b624a;
-            font-family:'Great Vibes',cursive;
-            text-transform: none;
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            background: #fdfdfb;
+            border: 1px solid rgba(74, 78, 61, 0.2);
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #4a4e3d;
+            font-family: 'Cormorant Garamond', serif;
+            transition: 0.3s ease;
         }
 
-        .welcome-subtitle {
-            font-size:18px;
-            margin-bottom:30px;
-            color: rgba(74, 78, 61, 0.8);
-            letter-spacing: 3px;
-            text-transform: uppercase;
+        .option-btn:hover {
+            background: #4a4e3d;
+            color: #b3ba9e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .loader{
-            width:40px;
-            height:40px;
-            border-radius:50%;
-            margin:0 auto 30px;
-            border:2px solid rgba(74, 78, 61, 0.15);
-            border-top:2px solid #4a4e3d;
-            animation:spin 1s linear infinite;
+        #final-message {
+            display: none;
+            font-size: 22px;
+            color: #4a4e3d;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
-        @keyframes spin{ 100%{transform:rotate(360deg);} }
-
-        .open-btn{
+        .open-btn {
             border: 1px solid #4a4e3d;
-            padding:12px 40px;
-            background:transparent;
-            color: #4a4e3d;
-            font-size:16px;
-            letter-spacing: 2px;
+            padding: 14px 40px;
+            background: #4a4e3d;
+            color: #b3ba9e;
+            font-size: 18px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            cursor:pointer;
+            cursor: pointer;
             transition: 0.3s ease;
             border-radius: 30px;
+            margin-top: 15px;
         }
 
         .open-btn:hover {
-            background: #4a4e3d;
-            color: #b3ba9e;
+            background: transparent;
+            color: #4a4e3d;
         }
 
         /* MOBILE RESPONSIVENESS */
@@ -895,16 +896,20 @@
 </nav>
 
 <div class="loading-screen" id="loadingScreen">
-    <div class="loading-box">
+    <div class="quiz-box">
         <div class="start-lang">
             <button onclick="setLanguage('hy')">HY</button>
             <button onclick="setLanguage('ru')">RU</button>
         </div>
-        <div class="welcome-names">ARAM <span>&</span> ANGELINA</div>
-        <div class="welcome-subtitle">Wedding Invitation</div>
-        <div class="loader"></div>
-        <h2 id="loadingText" style="font-size:18px; color: #4a4e3d; font-weight:300; margin-bottom:20px;">Проверяем приглашение...</h2>
-        <button class="open-btn" id="openBtn">Открыть приглашение</button>
+        <div id="question-area">
+            <h2 id="q-text" class="question">Loading...</h2>
+            <div id="options-area"></div>
+        </div>
+        <div id="final-message">
+            <span id="finalMsgText">🎉 Շնորհավորում ենք։ Դուք պաշտոնապես հաստատված հյուր եք։</span>
+            <br><br>
+            <button class="open-btn" id="openBtn" onclick="openSite()">Բացեք հրավերը 😎🍾</button>
+        </div>
     </div>
 </div>
 
@@ -920,7 +925,7 @@
 
 <section class="cloud-section">
     <div class="white-cloud" data-aos="fade-up" data-aos-duration="1000">
-        <div class="quote-names" id="quoteNames">Арам & Ангелина</div>
+        <div class="quote-names" id="quoteNames">Արամ & Անգելինա</div>
         <p class="quote-text" id="quoteText">«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»</p>
         <svg class="quote-decor" viewBox="0 0 100 20">
             <path d="M0,10 Q25,0 50,10 T100,10" fill="none" stroke="#4a4e3d" stroke-width="0.5"/>
@@ -1100,25 +1105,65 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-    // Ակտիվացնում ենք AOS անիմացիոն գրադարանը
     AOS.init({
-        once: true /* Անիմացիան կատարվում է միայն մեկ անգամ էջն իջեցնելիս */
+        once: true
     });
+
+    const quizTranslations = {
+        hy: {
+            finalMsg: "🎉 Շնորհավորում ենք։ Դուք պաշտոնապես հաստատված հյուր եք։",
+            openBtnText: "Բացեք հրավերը 😎🍾",
+            questions: [
+                {
+                    q: "👀 Ինչո՞ւ եք բացել այս հղումը.",
+                    a: ["Սխալմամբ", "Ինձ հրավիրել են"]
+                },
+                {
+                    q: "🤔 Ովքե՞ր են ամուսնանում.",
+                    a: ["Արամ և Անգելինա", "Ռոմեո և Ջուլիետ", "Շրեկ և Ֆիոնա"]
+                },
+                {
+                    q: "🍷 Հարսանիքում ինչքա՞ն եք պատրաստվում ուտել.",
+                    a: ["Մի քիչ, քաղաքավարի եմ 😇", "Նորմալ", "Այնքան, որ աթոռը հիշի ինձ երկար տարիներ 😎"]
+                },
+                {
+                    q: "Ինչո՞ւ եք գալու այս հարսանիքին.",
+                    a: ["Արամի համար", "Անգելինայի համար", "Անվճար խորովածի համար 🌚"]
+                }
+            ]
+        },
+        ru: {
+            finalMsg: "🎉 Поздравляем! Вы официально подтвержденный гость.",
+            openBtnText: "Открыть приглашение 😎🍾",
+            questions: [
+                {
+                    q: "👀 Почему вы открыли эту ссылку?",
+                    a: ["Ошибочно", "Меня пригласили"]
+                },
+                {
+                    q: "🤔 Кто женится?",
+                    a: ["Арам и Ангелина", "Ромео и Джульетта", "Шрек и Фиона"]
+                },
+                {
+                    q: "🍷 Сколько вы планируете съесть на свадьбе?",
+                    a: ["Немного, я вежливый гость 😇", "Нормально", "Так много, что стул запомнит меня на годы 😎"]
+                },
+                {
+                    q: "Почему вы придете на эту свадьбу?",
+                    a: ["Ради Арама", "Ради Ангелины", "Ради бесплатного шашлыка 🌚"]
+                }
+            ]
+        }
+    };
 
     const translations = {
         hy: {
-            loadingText: "Ստուգում ենք հրավերը...",
-            openBtn: "Բացել հրավերը",
-            welcomeBack: "Էլի մեկ անգամ",
-            welcomeSign: "Բարի գալուստ 🎉",
             heroSubtitle: "Our Forever Begins Here",
             quoteNames: "Արամ & Անգելինա",
             quoteText: "«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»",
-
             storyBlockText: "Եվ մանկական լուսանկարների երկու փոքրիկ պատմություններից հյուսվեց մեկ մեծ սեր։",
             storyBlockSubtext: "Մենք մեծացել ենք, և այժմ եկել է մեր ընտանիքը ստեղծելու ժամանակը․ սիրով հրավիրում ենք ձեզ մեր հարսանիքին, այն կլինի անմոռանալի։",
             storyBlockSignature: "Սիրով՝ ընդմիշտ...",
-
             calTitle: "ՍԻՐԵԼԻ ՀԱՐԱԶԱՏՆԵՐ ԵՎ ՄՏԵՐԻՄՆԵՐ!",
             calTxt1: "Այս հրավերը ստացել են միայն նրանք, առանց ում մեր օրը լիարժեք չէր լինի: Դուք մեր ամենակարևոր իրադարձության գլխավոր վկաներն եք:",
             calTxt2: "Սիրով հրավիրում ենք ձեզ մեր հարսանիքին, որտեղ միասին կնշենք մեր նոր կյանքի սկիզբը:",
@@ -1160,18 +1205,12 @@
             msgAlertConnError: "Կապի սխալ սերվերի հետ:"
         },
         ru: {
-            loadingText: "Проверяем приглашение...",
-            openBtn: "Открыть приглашение",
-            welcomeBack: "Еще раз",
-            welcomeSign: "Добро пожаловать 🎉",
             heroSubtitle: "Our Forever Begins Here",
             quoteNames: "Арам & Ангелина",
             quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
-
             storyBlockText: "И из двух маленьких историй на детских снимках сложилась одна большая любовь.",
             storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!",
             storyBlockSignature: "С любовью, навсегда...",
-
             calTitle: "ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!",
             calTxt1: "Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.",
             calTxt2: "Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.",
@@ -1215,14 +1254,11 @@
     };
 
     let currentLang = 'ru';
-    let clicks = 0;
+    let currentQ = 0;
 
     function setLanguage(lang) {
         currentLang = lang;
         const t = translations[lang];
-
-        document.getElementById('loadingText').innerHTML = t.loadingText;
-        if(clicks === 0) document.getElementById('openBtn').innerHTML = t.openBtn;
 
         document.getElementById('heroSubtitle').innerHTML = t.heroSubtitle;
         document.getElementById('quoteNames').innerHTML = t.quoteNames;
@@ -1279,6 +1315,51 @@
         document.getElementById('footerSign').innerHTML = t.footerSign;
 
         buildCalendarGrid(t.calWeeks);
+        loadQuizQuestion();
+    }
+
+    // QUIZ LOGIC
+    function loadQuizQuestion() {
+        const quizData = quizTranslations[currentLang];
+        const qText = document.getElementById('q-text');
+        const optionsArea = document.getElementById('options-area');
+        const finalMsgText = document.getElementById('finalMsgText');
+        const openBtn = document.getElementById('openBtn');
+
+        finalMsgText.innerHTML = quizData.finalMsg;
+        openBtn.innerHTML = quizData.openBtnText;
+
+        if (currentQ < quizData.questions.length) {
+            document.getElementById('question-area').style.display = 'block';
+            document.getElementById('final-message').style.display = 'none';
+
+            qText.innerText = quizData.questions[currentQ].q;
+            optionsArea.innerHTML = '';
+
+            quizData.questions[currentQ].a.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    currentQ++;
+                    loadQuizQuestion();
+                };
+                optionsArea.appendChild(btn);
+            });
+        } else {
+            document.getElementById('question-area').style.display = 'none';
+            document.getElementById('final-message').style.display = 'block';
+        }
+    }
+
+    function openSite() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        playAudio();
+
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 1000);
     }
 
     function buildCalendarGrid(weeks) {
@@ -1403,10 +1484,6 @@
         }
     });
 
-    const openBtn = document.getElementById('openBtn');
-    const loadingText = document.getElementById('loadingText');
-    const loadingScreen = document.getElementById('loadingScreen');
-
     const audio = document.getElementById('bgAudio');
     const musicBtn = document.getElementById('musicBtn');
     const musicIcon = document.getElementById('musicIcon');
@@ -1415,7 +1492,10 @@
 
     document.addEventListener('click', () => {
         if (!isPlaying && audio.paused && !userDeactivatedMusic) {
-            playAudio();
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen.style.display === 'none') {
+                playAudio();
+            }
         }
     });
 
@@ -1448,27 +1528,6 @@
         }
     }
 
-    openBtn.onclick = (e)=>{
-        e.stopPropagation();
-        clicks++;
-        const t = translations[currentLang];
-        if(clicks===1){
-            loadingText.innerHTML = '😅';
-            openBtn.innerHTML = t.welcomeBack;
-        }
-        if(clicks===2){
-            loadingText.innerHTML = t.welcomeSign;
-            openBtn.style.display='none';
-
-            playAudio();
-
-            setTimeout(()=>{
-                loadingScreen.style.opacity='0';
-                setTimeout(()=>{ loadingScreen.style.display='none'; },1000);
-            },1200);
-        }
-    };
-
     function updateWeddingCountdown() {
         const weddingDate = new Date("July 28, 2026 00:00:00").getTime();
         const now = new Date().getTime();
@@ -1487,6 +1546,7 @@
         }
     }
 
+    // Initialize with Russian language default
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
     updateWeddingCountdown();
