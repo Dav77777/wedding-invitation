@@ -885,7 +885,6 @@
             .nav-logo {
                 font-size: 20px;
             }
-            /* Մենյուի կոճակները հեռախոսով թաքցնում ենք, որ լեզվի կոճակներին չխանգարեն */
             .nav-links {
                 display: none;
             }
@@ -906,7 +905,6 @@
                 letter-spacing: 2px;
             }
 
-            /* Ամպիկների չափսերի և լայնության ուղղում */
             .white-cloud, .rsvp-container, .envelope-wrapper {
                 border-radius: 30px !important;
                 padding: 30px 20px !important;
@@ -947,10 +945,20 @@
                 padding: 30px 10px;
                 width: 100%;
             }
+
+            /* --- ՖԻՔՍՎԱԾ Է. Նկարները հեռախոսով ամբողջությամբ ցուցադրելու համար --- */
             .image-side {
-                height: 300px;
+                height: auto !important; /* Թույլ է տալիս կոնտեյներին հարմարվել նկարի իրական չափին */
                 width: 100%;
             }
+            .image-side img {
+                height: auto !important;
+                object-fit: contain !important; /* Նկարը չի կտրվի, կպահպանի իր համամասնությունը */
+            }
+            .hero-bg img {
+                object-fit: contain !important; /* Գլխավոր նկարը նույնպես ամբողջությամբ կերևա */
+            }
+            /* ---------------------------------------------------------------------- */
 
             .program-list {
                 padding: 0;
@@ -967,7 +975,6 @@
                 font-size: 15px;
             }
 
-            /* Օրացույցի թվերի ուղղում հեռախոսի համար */
             .real-calendar {
                 gap: 6px;
                 font-size: 14px;
@@ -1079,7 +1086,7 @@
 </section>
 
 <section class="cloud-section" style="padding-top: 0;">
-    <div class="white-cloud" data-aos="zoom-in" data-aos-duration="1000">
+    <div class="white-cloud" data-aos="zoom-in" data-aos-duration="1200">
         <h2 class="calendar-title decor-title" id="calTitle">ДОРОГИЕ РОДНЫЕ И БЛИЗКИЕ!</h2>
         <p class="calendar-text" id="calTxt1">Это приглашение получили только те, без кого наш день не будет полным. Вы — наши главные свидетели самого важного события.</p>
         <p class="calendar-text" id="calTxt2">Приглашаем Вас на свадьбу, где мы сможем вместе отметить начало нашей новой жизни.</p>
