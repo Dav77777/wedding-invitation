@@ -155,7 +155,7 @@
             width: 150px;
         }
 
-        /* NEW ADDED IMAGE TEXT SECTION (ԱՆՄԻՋԱՊԵՍ ՏԱԿԸ) */
+        /* NEW ADDED IMAGE TEXT SECTION */
         .story-image-section {
             padding: 0 20px 80px;
             display: flex;
@@ -559,66 +559,6 @@
             margin-bottom: 0;
         }
 
-        /* CONTACTS BLOCK */
-        .contacts-title {
-            font-size: 42px;
-            color: #4a4e3d;
-            letter-spacing: 4px;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        .contacts-intro {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #4a4e3d;
-            margin-bottom: 0;
-        }
-
-        .contact-person-block {
-            margin-top: 30px;
-            margin-bottom: 10px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .contact-role-name {
-            font-size: 21px;
-            color: #4a4e3d;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-            font-weight: 400;
-        }
-
-        .contact-phone {
-            font-size: 17px;
-            color: rgba(74, 78, 61, 0.8);
-            margin-bottom: 15px;
-        }
-
-        /* NEXT DAY BLOCK */
-        .next-day-title {
-            font-size: 42px;
-            color: #4a4e3d;
-            letter-spacing: 4px;
-            font-weight: 300;
-        }
-
-        .next-day-text {
-            font-size: 18px;
-            line-height: 1.7;
-            color: #4a4e3d;
-            margin-bottom: 0;
-        }
-
-        .love-signature {
-            font-family: 'Great Vibes', cursive;
-            font-size: 52px;
-            color: #5b624a;
-            margin-top: 25px;
-            text-align: center;
-        }
-
         /* ENVELOPE (THANK YOU SECTION) */
         .envelope-section {
             background-color: #b3ba9e;
@@ -920,7 +860,7 @@
             text-shadow: 0 3px 16px rgba(0,0,0,0.45);
         }
 
-        /* FIXED MUSIC CONTROL (ՄԻԱՅՆ PAUSE) */
+        /* FIXED MUSIC CONTROL */
         .music-control {
             position: fixed;
             bottom: 30px;
@@ -946,7 +886,6 @@
             transform: scale(1.05);
         }
 
-        /* Պաուզայի նշան (երկու գիծ) */
         .pause-icon {
             display: flex;
             gap: 4px;
@@ -959,7 +898,6 @@
             display: inline-block;
         }
 
-        /* Նվագարկման նշան (եռանկյուն), երբ կանգնեցված է */
         .play-icon {
             width: 0;
             height: 0;
@@ -1096,9 +1034,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Our Story</a></li>
         <li><a href="#">Wedding Info</a></li>
-        <li><a href="#">Gallery</a></li>
         <li><a href="#">Wishes</a></li>
-        <li><a href="#">Contact</a></li>
     </ul>
     <div class="global-lang-switcher">
         <button onclick="setLanguage('hy')">HY</button>
@@ -1249,42 +1185,6 @@
     </div>
 </section>
 
-<section class="split-section reverse">
-    <div class="content-side">
-        <h2 class="contacts-title decor-title" id="contactsHeader">CONTACTS</h2>
-        <div class="text-card">
-            <p class="contacts-intro" id="contactsIntro">Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!</p>
-            <div class="contact-person-block">
-                <div class="contact-role-name" id="contactRole1">Ведущий Александр</div>
-                <div class="contact-phone">+7 964 464 9090</div>
-                <a href="https://t.me/+79644649090" class="telegram-link-btn" target="_blank" id="tgBtn1">Написать в телеграм</a>
-            </div>
-            <div class="contact-person-block">
-                <div class="contact-role-name" id="contactRole2">Организатор Нина</div>
-                <div class="contact-phone">+7 914 491 9090</div>
-                <a href="https://t.me/+79144919090" class="telegram-link-btn" target="_blank" id="tgBtn2">Написать в телеграм</a>
-            </div>
-        </div>
-    </div>
-    <div class="image-side">
-        <img src="5.png" alt="Contacts Side Image">
-    </div>
-</section>
-
-<section class="split-section">
-    <div class="content-side">
-        <h2 class="next-day-title decor-title" id="nextDayHeader">NEXT DAY</h2>
-        <div class="text-card">
-            <p class="next-day-text" id="nextDayTxt">Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а</p>
-            <div style="text-align: center; margin-top: 25px;"><a href="#" class="details-btn" id="detailsBtn">Details</a></div>
-        </div>
-        <div class="love-signature" id="loveSign">С любовью!</div>
-    </div>
-    <div class="image-side">
-        <img src="5.png" alt="Next Day Side Image">
-    </div>
-</section>
-
 <section class="envelope-section">
     <div class="envelope-wrapper">
         <div class="inner-white-card">
@@ -1403,7 +1303,6 @@
             quoteNames: "Արամ & Անգելինա",
             quoteText: "«Ես չգիտեմ, թե ուր է տանում իմ ուղին, բայց ինձ համար ավելի հեշտ է քայլել, երբ իմ ձեռքը սեղմում է քոնը»",
 
-            // New Added Block Translation
             storyBlockText: "Եվ մանկական լուսանկարների երկու փոքրիկ պատմություններից հյուսվեց մեկ մեծ սեր։",
             storyBlockSubtext: "Մենք մեծացել ենք, և այժմ եկել է մեր ընտանիքը ստեղծելու ժամանակը․ սիրով հրավիրում ենք ձեզ մեր հարսանիքին, այն կլինի անմոռանալի։",
             storyBlockSignature: "Սիրով՝ ընդմիշտ...",
@@ -1429,16 +1328,6 @@
             wishTitle: "ՑԱՆԿՈՒԹՅՈՒՆՆԵՐ",
             wish1: "Սիրելի հարազատներ, եթե ցանկանում եք մեզ նվիրել արժեքավոր և պիտանի նվեր, մենք շատ շնորհակալ կլինենք մեր նորաստեղծ ընտանիքի բյուջեում ներդրման համար:",
             wish2: "Երեկոյի ծրագրում կան բազում հետաքրքիր իրադարձություններ, որոնց մասնակցությունը ենթադրում է կանխիկ հաշվարկ: Նախապես պատրաստեք ձեզ համար հարմար գումար, որպեսզի ոչինչ չշեղի ձեզ տոնից:",
-            contactsHeader: "ԿՈՆՏԱԿՏՆԵՐ",
-            contactsIntro: "Խնդրում ենք ոչ մի բանի համար չմտահոգվել, բացի, իհարկե, երեկոյան զգեստի ընտրությունից: Մենք հոգացել ենք բոլոր մանրուքների մասին. երեկոն կանցնի հմայիչ հաղորդավար Ալեքսանդրի և ուշադիր կազմակերպիչ Նինայի ուղեկցությամբ:",
-            contactRole1: "Հաղորդավար Ալեքսանդր",
-            contactRole2: "Կազմակերպիչ Նինա",
-            tgBtn1: "Գրել Տելեգրամով",
-            tgBtn2: "Գրել Տելեգրամով",
-            nextDayHeader: "ՀԱՋՈՐԴ ՕՐԸ",
-            nextDayTxt: "Մենք տուն ենք վարձել Արախլեյ լճի ափին, որպեսզի միասին կիսվենք տպավորություններով և մի փոքր ավելի երկար լինենք միասին: Արթնանում ենք ոչ շատ վաղ, հագնում ենք հարմարավետ հագուստ և 13:30-ին շարժվում հետևյալ հասցեով՝<br><br>փող. Բոգոմյագկովա 45 ա",
-            detailsBtn: "Մանրամասներ",
-            loveSign: "Սիրով!",
             envTxt: "Դուք պատահական չեք ստացել այս հրավերը!<br>Մեզ համար այս կարևոր օրը մենք շատ ենք ուզում, որ դուք լինեք մեր կողքին:",
             envSign: "Սիրով՝<br>Արամ և Անգելինա",
             rsvpMainTitle: "Կգա՞ք արդյոք",
@@ -1475,7 +1364,6 @@
             quoteNames: "Арам & Ангелина",
             quoteText: "«Я не знаю, куда ведет мой путь, но мне легче идти, когда моя рука сжимает твою»",
 
-            // New Added Block Translation
             storyBlockText: "И из двух маленьких историй на детских снимках сложилась одна большая любовь.",
             storyBlockSubtext: "Мы выросли и теперь пришло время создать свою семью — приглашаем вас на нашу свадьбу, это будет незабываемо!",
             storyBlockSignature: "С любовью, навсегда...",
@@ -1501,16 +1389,6 @@
             wishTitle: "ПОЖЕЛАНИЯ",
             wish1: "Дорогие родные и близкие, если хотите поддержать нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.",
             wish2: "В программе вечера — множество интересных событий, участие в которых предполагает наличный расчёт. Заранее подготовьте комфортную для вас сумму, чтобы ничего не отвлекало от праздника!",
-            contactsHeader: "CONTACTS",
-            contactsIntro: "Пожалуйста, ни о чем не беспокойтесь, кроме, конечно же, выбора вечернего наряда! Мы позаботились о всех мелочах, и вечер пройдет в сопровождении обворожительного ведущего Александра и внимательного организатора Нины!",
-            contactRole1: "Ведущий Александр",
-            contactRole2: "Организатор Нина",
-            tgBtn1: "Написать в телеграм",
-            tgBtn2: "Написать в телеграм",
-            nextDayHeader: "NEXT DAY",
-            nextDayTxt: "Мы сняли дом на озере Арахлей, чтобы мы с вами могли поделиться впечатлениями о свадьбе и побыть вместе чуточку больше. Просыпаемся не очень ранним утром, приходим в себя, одеваем удобную одежду и отправляемся к 13:30 по адресу:<br><br>ул. Богомягкова 45 а",
-            detailsBtn: "Details",
-            loveSign: "С любовью!",
             envTxt: "Вы не просто так получили это приглашение!<br>В особенный для нас день мы очень хотим, чтобы вы были рядом!",
             envSign: "С любовью,<br>Арам и Ангелина",
             rsvpMainTitle: "Вы прийдете?",
@@ -1554,7 +1432,6 @@
         document.getElementById('quoteNames').innerHTML = t.quoteNames;
         document.getElementById('quoteText').innerHTML = t.quoteText;
 
-        // New Added Block Translation Elements
         document.getElementById('storyBlockText').innerHTML = t.storyBlockText;
         document.getElementById('storyBlockSubtext').innerHTML = t.storyBlockSubtext;
         document.getElementById('storyBlockSignature').innerHTML = t.storyBlockSignature;
@@ -1583,18 +1460,6 @@
         document.getElementById('wishTitle').innerHTML = t.wishTitle;
         document.getElementById('wish1').innerHTML = t.wish1;
         document.getElementById('wish2').innerHTML = t.wish2;
-
-        document.getElementById('contactsHeader').innerHTML = t.contactsHeader;
-        document.getElementById('contactsIntro').innerHTML = t.contactsIntro;
-        document.getElementById('contactRole1').innerHTML = t.contactRole1;
-        document.getElementById('contactRole2').innerHTML = t.contactRole2;
-        document.getElementById('tgBtn1').innerHTML = t.tgBtn1;
-        document.getElementById('tgBtn2').innerHTML = t.tgBtn2;
-
-        document.getElementById('nextDayHeader').innerHTML = t.nextDayHeader;
-        document.getElementById('nextDayTxt').innerHTML = t.nextDayTxt;
-        document.getElementById('detailsBtn').innerHTML = t.detailsBtn;
-        document.getElementById('loveSign').innerHTML = t.loveSign;
 
         document.getElementById('envTxt').innerHTML = t.envTxt;
         document.getElementById('envSign').innerHTML = t.envSign;
@@ -1760,13 +1625,11 @@
     const loadingText = document.getElementById('loadingText');
     const loadingScreen = document.getElementById('loadingScreen');
 
-    // BACKGROUND MUSIC AUTOPLAY LOGIC
     const audio = document.getElementById('bgAudio');
     const musicBtn = document.getElementById('musicBtn');
     const musicIcon = document.getElementById('musicIcon');
     let isPlaying = false;
 
-    // Trigger music on first user engagement (bypass browser safety limits)
     document.addEventListener('click', () => {
         if (!isPlaying && audio.paused) {
             playAudio();
@@ -1786,7 +1649,7 @@
             audio.pause();
             isPlaying = false;
             musicIcon.className = "play-icon";
-            musicIcon.innerHTML = ""; // Clear pause bars
+            musicIcon.innerHTML = "";
         } else {
             audio.play();
             isPlaying = true;
@@ -1806,7 +1669,6 @@
             loadingText.innerHTML = t.welcomeSign;
             openBtn.style.display='none';
 
-            // Start audio on loading screens unlock
             playAudio();
 
             setTimeout(()=>{
@@ -1834,7 +1696,6 @@
         }
     }
 
-    // По умолчанию открывается на русском языке
     setLanguage('ru');
     setInterval(updateWeddingCountdown, 1000);
     updateWeddingCountdown();
